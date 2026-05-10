@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — MeerKatta</title>
+  <meta name="description" content="MeerKatta Privacy Policy. What we collect, what we don't, and how we handle the data the app touches.">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" href="/favicon-lbg.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="/favicon-dbg.png" media="(prefers-color-scheme: dark)">
+  <link rel="apple-touch-icon" sizes="256x256" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=3">
+</head>
+<body>
+
+  <nav>
+    <div class="inner">
+      <a href="/" class="logo"><img src="/app-icon.png" alt="MeerKatta" height="72" style="border-radius:16px;"> MeerKatta</a>
+      <div class="nav-links">
+        <a href="/#how-it-works">How it works</a>
+        <a href="/#features">Features</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#vision">Vision</a>
+        <a href="/#waitlist" class="btn-primary">Join Waitlist</a>
+      </div>
+    </div>
+  </nav>
+
+  <section>
+    <div class="legal-page">
+      <h1>Privacy Policy</h1>
+      <p class="effective"><strong>Effective:</strong> 2026-05-09</p>
+
+      <p>MeerKatta is built and operated by Lugugul llc ("we", "us"). This policy explains what we collect, what we don't, and how we handle the data the app touches.</p>
+
+      <div class="tldr">
+        <h2>TL;DR</h2>
+        <ul>
+          <li>We don't run servers that hold your voice, transcripts, or polished writing. Those live on your device (and your iCloud, if you're signed in).</li>
+          <li>The third-party AI services that transcribe and polish your speech are services <em>you</em> connect to using <em>your own</em> API key. Your audio goes to them, not to us.</li>
+          <li>We don't sell, share, or use your content for training.</li>
+          <li>We do collect: your license key, payment info via Paddle, and (if you opt in) anonymous crash reports.</li>
+        </ul>
+        <p>If anything here is unclear, email <strong>hello@meerkatta.com</strong> and we'll plain-English it.</p>
+      </div>
+
+      <hr>
+
+      <h2>1. What MeerKatta does with your audio</h2>
+      <p>When you dictate, MeerKatta:</p>
+      <ol>
+        <li>Records audio on your device.</li>
+        <li>Sends the recording to an AI transcription service (currently Groq's Whisper API, optionally OpenAI / on-device Whisper).</li>
+        <li>Sends the raw transcript to an AI polishing service (currently Groq's LLaMA, optionally Anthropic Claude).</li>
+        <li>Inserts the polished text where you asked (a focused field, your Library, your Notes, your clipboard).</li>
+      </ol>
+      <p><strong>These transcription and polishing requests use <em>your</em> API key, not ours.</strong> You bring your own key. Your audio and text go directly from your device to the AI provider you chose, under whatever data agreement you have with them. We are not in the middle. We never see, store, or transmit your audio or transcripts.</p>
+      <p>The polished text lives on your device in MeerKatta's local Library. If you opt in, it can be pushed to Apple Notes via a Shortcut you install — that's an Apple system, not ours.</p>
+
+      <h2>2. What we collect</h2>
+      <p>The minimum needed to run a paid product responsibly.</p>
+      <table>
+        <thead>
+          <tr><th>Data</th><th>Why</th><th>Where it lives</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Your email + payment info</td><td>Sell you a license, deliver receipts</td><td><a href="https://paddle.com">Paddle</a> (our payment processor and Merchant of Record)</td></tr>
+          <tr><td>Your license key + activation events</td><td>Verify your license is valid on your devices</td><td><a href="https://keygen.sh">Keygen</a> (license server)</td></tr>
+          <tr><td>Anonymous crash reports</td><td>Find and fix bugs</td><td><a href="https://sentry.io">Sentry</a> — opt-in, default ON, toggle off in <strong>Permissions</strong> settings</td></tr>
+        </tbody>
+      </table>
+      <p>That's it.</p>
+
+      <h2>3. What we don't collect</h2>
+      <ul>
+        <li>We don't have analytics.</li>
+        <li>We don't track your usage of the app.</li>
+        <li>We don't have advertising IDs, marketing pixels, or third-party trackers.</li>
+        <li>We don't read your dictated content. We never store it on any server we control.</li>
+        <li>We don't sell or share your data.</li>
+        <li>We don't use your content to train any model.</li>
+      </ul>
+
+      <h2>4. Crash reporting (Sentry)</h2>
+      <p>If the crash-reporting toggle is on (default), the app sends anonymous crash data to Sentry. This includes:</p>
+      <ul>
+        <li>The function call stack at the time of the crash</li>
+        <li>The macOS / iOS version, app version, device model</li>
+        <li>A short trail of recent app actions ("recording started", "polish completed")</li>
+      </ul>
+      <p>It explicitly <strong>excludes</strong>:</p>
+      <ul>
+        <li>Audio</li>
+        <li>Transcript text</li>
+        <li>Polished output</li>
+        <li>API keys</li>
+        <li>Vocabulary, tone preferences, or anything else you typed</li>
+      </ul>
+      <p>You can disable crash reports at any time in <strong>Permissions</strong> (Mac) or <strong>More → Permissions → Privacy</strong> (iOS). When disabled, the SDK is torn down and no further events leave the device.</p>
+
+      <h2>5. Personalization data</h2>
+      <p>Your custom vocabulary, tone preferences, and other Voice settings are stored locally on your device and synced via <strong>iCloud Key-Value Store</strong> (Apple's iCloud, signed into your Apple ID). We don't operate this storage; Apple does. Apple's privacy policy applies. We can't see this data and we don't try to.</p>
+
+      <h2>6. Payments</h2>
+      <p>Paddle handles payments as the <strong>Merchant of Record</strong>. They see your payment method, billing address (for tax purposes), and transaction history. Their privacy policy: <a href="https://www.paddle.com/legal/privacy">paddle.com/legal/privacy</a>.</p>
+      <p>We see only what Paddle forwards to us in webhook events: customer email, subscription status, and whether your license should be active. We do not store full card numbers, CVV, or any direct payment credentials.</p>
+
+      <h2>7. Third parties</h2>
+      <p>The companies whose services touch any data related to MeerKatta:</p>
+      <table>
+        <thead>
+          <tr><th>Service</th><th>Role</th><th>Their privacy policy</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Paddle</td><td>Payments + tax</td><td><a href="https://www.paddle.com/legal/privacy">paddle.com/legal/privacy</a></td></tr>
+          <tr><td>Keygen</td><td>License issuance</td><td><a href="https://keygen.sh/privacy">keygen.sh/privacy</a></td></tr>
+          <tr><td>Sentry</td><td>Crash reporting</td><td><a href="https://sentry.io/privacy/">sentry.io/privacy</a></td></tr>
+          <tr><td>Apple</td><td>iOS / macOS / iCloud / TestFlight / App Store</td><td><a href="https://www.apple.com/legal/privacy/">apple.com/legal/privacy</a></td></tr>
+          <tr><td>Groq, Anthropic, OpenAI</td><td>AI transcription + polishing (only when you supply your own API key)</td><td>Each provider's policy applies to your usage of <em>their</em> service under <em>your</em> account</td></tr>
+        </tbody>
+      </table>
+
+      <h2>8. Children</h2>
+      <p>MeerKatta is not directed at children under 13 (US) or 16 (EU). We do not knowingly collect personal information from children.</p>
+
+      <h2>9. Your rights</h2>
+      <p>You can:</p>
+      <ul>
+        <li><strong>Access</strong> the data we hold about you (email hello@meerkatta.com).</li>
+        <li><strong>Delete</strong> your account and license records (email hello@meerkatta.com — we'll process the deletion request through Paddle and Keygen within 30 days).</li>
+        <li><strong>Export</strong> what we have (a copy of your license + payment metadata, on request).</li>
+      </ul>
+      <p>EU/UK/California residents have additional rights under GDPR / UK GDPR / CCPA respectively. Same email; we'll honor them in the legally required timeframe.</p>
+
+      <h2>10. Data retention</h2>
+      <p>We keep license records for the duration of your license + 7 years (US tax-record requirement on Paddle's side). Crash reports rotate out of Sentry after 90 days on the free tier we use.</p>
+      <p>If you delete your account, payment + license data is removed within 30 days, except where law requires us to keep records longer (Paddle handles the financial record retention).</p>
+
+      <h2>11. International transfers</h2>
+      <p>Our license server (Keygen), payment processor (Paddle), and crash reporter (Sentry) operate from servers in the US and EU. By using MeerKatta you consent to data transfer to and processing in those jurisdictions, with the safeguards each vendor maintains under their own GDPR / CCPA compliance.</p>
+
+      <h2>12. Updates to this policy</h2>
+      <p>If we change anything material, we'll:</p>
+      <ol>
+        <li>Update the "Effective" date at the top of this page.</li>
+        <li>Notify you via email (the address tied to your license) and an in-app notice on next launch.</li>
+      </ol>
+      <p>You'll have the chance to read the changes before they apply to you.</p>
+
+      <h2>13. Contact</h2>
+      <p>Questions, requests, or concerns:</p>
+      <div class="legal-contact">
+        <strong>hello@meerkatta.com</strong>
+        Lugugul llc<br>
+        2108 N St Ste C<br>
+        Sacramento, CA 95816<br>
+        USA
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <p class="footer-heading">Product</p>
+          <a href="/#how-it-works">How it works</a>
+          <a href="/#features">Features</a>
+          <a href="/#pricing">Pricing</a>
+          <a href="/#vision">Vision</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-heading">Legal</p>
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+          <a href="/refund">Refund Policy</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-heading">Connect</p>
+          <a href="https://x.com/qianhuang">X @qianhuang</a>
+          <a href="mailto:hello@meerkatta.com">hello@meerkatta.com</a>
+        </div>
+      </div>
+      <span class="copyright">&copy; 2026 MeerKatta. Built by <a href="https://lugugul.com" style="color:var(--brand);text-decoration:none;">Lugugul Design</a></span>
+    </div>
+  </footer>
+
+</body>
+</html>

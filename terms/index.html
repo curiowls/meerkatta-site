@@ -6,31 +6,44 @@
   <title>Terms of Service — MeerKatta</title>
   <meta name="description" content="MeerKatta Terms of Service. License grant, acceptable use, refunds, and limitations for the voice-dictation app.">
   <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://meerkatta.com/terms/">
+  <meta property="og:title" content="MeerKatta Terms of Service">
+  <meta property="og:description" content="License terms, acceptable use, refunds, updates, and limitations for MeerKatta.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://meerkatta.com/terms/">
+  <meta property="og:site_name" content="MeerKatta">
+  <meta property="og:image" content="https://meerkatta.com/social-card.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="MeerKatta terms of service.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://meerkatta.com/social-card.svg">
   <link rel="icon" type="image/png" href="/favicon-lbg.png" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/png" href="/favicon-dbg.png" media="(prefers-color-scheme: dark)">
   <link rel="apple-touch-icon" sizes="256x256" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=3">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
 </head>
-<body>
+<body class="legal-body">
 
-  <nav>
-    <div class="inner">
-      <a href="/" class="logo"><img src="/app-icon.png" alt="MeerKatta" height="72" style="border-radius:16px;"> MeerKatta</a>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a href="/" class="logo-link" aria-label="MeerKatta home">
+        <img src="/app-icon.png" alt="" width="44" height="44">
+        <span>MeerKatta</span>
+      </a>
       <div class="nav-links">
-        <a href="/#how-it-works">How it works</a>
-        <a href="/#features">Features</a>
-        <a href="/#pricing">Pricing</a>
-        <a href="/#vision">Vision</a>
-        <a href="/#waitlist" class="btn-primary">Join Waitlist</a>
+        <a href="/about/">About</a>
+        <a href="/pricing/">Pricing</a>
+        <span class="nav-cta is-disabled" aria-disabled="true">Download for Mac</span>
       </div>
     </div>
   </nav>
 
-  <section>
-    <div class="legal-page">
+  <main class="legal-main">
+    <article class="legal-page">
       <h1>Terms of Service</h1>
       <p class="effective"><strong>Effective:</strong> 2026-05-09</p>
 
@@ -40,7 +53,7 @@
         <h2>TL;DR</h2>
         <ul>
           <li>You buy a license for one human user. The license lets you install MeerKatta on up to 3 of your own Macs.</li>
-          <li>You bring your own API key (Groq, Anthropic, etc.) to power transcription and polishing. You're responsible for usage charges from those providers.</li>
+          <li>Lifetime users connect their own supported API key. Subscription users get managed AI without provider setup.</li>
           <li><strong>14-day refund window</strong> — submit a request within 14 days, we review in good faith, most are approved (see <a href="/refund">Refund Policy</a> for the abuse exceptions).</li>
           <li>Don't share your license key, run a service for others on a personal license, or automate audio playback in ways inconsistent with personal use.</li>
           <li>The app is provided as-is. We're not liable for indirect damages, but we honor refunds and will fix bugs.</li>
@@ -73,14 +86,19 @@
       </ul>
       <p>Violating any of the above gives us the right to suspend or terminate your license without refund (refunds in specific defective-product or accidental-purchase cases are still honored — see <a href="/refund">Refund Policy</a> §3).</p>
 
-      <h2>3. Your API keys, your costs</h2>
-      <p>MeerKatta uses external AI providers (Groq, Anthropic, OpenAI, etc.) for transcription and polishing. You connect to these providers using <strong>your own API keys</strong>. You are solely responsible for:</p>
+      <h2>3. AI processing, API keys, and usage costs</h2>
+      <p>MeerKatta can use external AI providers for transcription and polishing when cloud AI is enabled. How this works depends on your plan:</p>
+      <ul>
+        <li><strong>Lifetime:</strong> you connect your own supported API key. You are responsible for usage charges, provider terms, and securing your API keys.</li>
+        <li><strong>Subscription:</strong> MeerKatta supplies the managed AI service for you. Your subscription covers normal managed usage under the plan.</li>
+      </ul>
+      <p>If you connect your own API key, you are solely responsible for:</p>
       <ul>
         <li>The cost of API usage on your account</li>
         <li>Compliance with each provider's terms of service</li>
         <li>Securing your API keys</li>
       </ul>
-      <p>We don't proxy your audio or text through our servers, and we don't pay for your API usage.</p>
+      <p>When you use your own API key, we don't pay for your API usage. When you use a managed subscription, we pay the underlying provider on your behalf.</p>
 
       <h2>4. Refund policy</h2>
       <p>We offer a <strong>14-day money-back guarantee, no questions asked</strong>, plus discretionary refunds for unresolved defects after that window. Full details in the <a href="/refund">Refund Policy</a>.</p>
@@ -150,32 +168,24 @@
         Sacramento, CA 95816<br>
         USA
       </div>
-    </div>
-  </section>
+    </article>
+  </main>
 
-  <footer>
+  <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <p class="footer-heading">Product</p>
-          <a href="/#how-it-works">How it works</a>
-          <a href="/#features">Features</a>
-          <a href="/#pricing">Pricing</a>
-          <a href="/#vision">Vision</a>
-        </div>
-        <div class="footer-col">
-          <p class="footer-heading">Legal</p>
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/terms">Terms of Service</a>
-          <a href="/refund">Refund Policy</a>
-        </div>
-        <div class="footer-col">
-          <p class="footer-heading">Connect</p>
-          <a href="https://x.com/qianhuang">X @qianhuang</a>
-          <a href="mailto:hello@meerkatta.com">hello@meerkatta.com</a>
-        </div>
+      <div>
+        <a href="/" class="footer-logo">MeerKatta</a>
+        <p>Thought capture for Mac and iPhone.</p>
+        <a href="/welcome/" class="footer-primary-link">Getting started</a>
       </div>
-      <span class="copyright">&copy; 2026 MeerKatta. Built by <a href="https://lugugul.com" style="color:var(--brand);text-decoration:none;">Lugugul Design</a></span>
+      <div class="footer-links">
+        <a href="/about/">About</a>
+        <a href="/pricing/">Pricing</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="/refund/">Refund</a>
+        <a href="mailto:hello@meerkatta.com">hello@meerkatta.com</a>
+      </div>
     </div>
   </footer>
 

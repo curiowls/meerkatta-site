@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">MeerKatta social card</title>
+  <desc id="desc">MeerKatta turns spoken thoughts into clear text for Mac and iPhone.</desc>
+  <rect width="1200" height="630" fill="#f8f7f4"/>
+  <rect x="72" y="72" width="1056" height="486" rx="28" fill="#ffffff" stroke="#e5e0d8" stroke-width="2"/>
+  <g transform="translate(106 110)">
+    <rect width="96" height="96" rx="22" fill="#eafaf5"/>
+    <path d="M37 74c-11-16-13-35-6-50 6-13 18-18 32-15 13 3 23 11 30 22-15-1-29 3-41 12-10 8-15 18-15 31z" fill="none" stroke="#955f3e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="63" cy="29" r="6" fill="#e54a4a"/>
+  </g>
+  <text x="230" y="152" fill="#72462c" font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-size="34" font-weight="700">MeerKatta</text>
+  <text x="104" y="300" fill="#1a110c" font-family="Hanken Grotesk, Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-size="72" font-weight="600">Speak before editing</text>
+  <text x="104" y="382" fill="#1a110c" font-family="Hanken Grotesk, Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-size="72" font-weight="600">breaks the flow.</text>
+  <text x="104" y="462" fill="#51443d" font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-size="28" font-weight="500">Thought capture for Mac and iPhone.</text>
+  <text x="104" y="510" fill="#72462c" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="500" letter-spacing="2">AVAILABLE JULY 11, 2026</text>
+</svg>

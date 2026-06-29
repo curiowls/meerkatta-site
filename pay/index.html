@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Checkout — MeerKatta</title>
+  <meta name="description" content="Complete your MeerKatta purchase securely with Paddle.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/png" href="/favicon-lbg.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="/favicon-dbg.png" media="(prefers-color-scheme: dark)">
+  <link rel="apple-touch-icon" sizes="256x256" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.paddle.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/pay/pay.css">
+  <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+</head>
+<body data-checkout-disabled="true" data-release-date="July 11, 2026">
+  <main class="payment-page">
+    <section class="payment-panel" aria-labelledby="checkout-title">
+      <a class="payment-brand" href="/" aria-label="Return to MeerKatta">
+        <img src="/app-icon.png" alt="" width="56" height="56">
+        <span>MeerKatta</span>
+      </a>
+
+      <div class="payment-copy" aria-live="polite">
+        <p class="payment-label">Secure checkout</p>
+        <h1 id="checkout-title">Official release on July 11, 2026</h1>
+        <p id="checkout-message">Public checkout opens when the Mac app becomes available.</p>
+      </div>
+
+      <div class="payment-actions">
+        <a class="payment-return" href="/">Return to MeerKatta</a>
+        <p>Need help? <a href="mailto:hello@meerkatta.com">hello@meerkatta.com</a></p>
+      </div>
+
+      <p class="payment-provider">Payments are securely processed by Paddle.</p>
+    </section>
+  </main>
+
+  <script type="module" src="/pay/pay.js"></script>
+</body>
+</html>

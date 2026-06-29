@@ -3,630 +3,438 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MeerKatta — AI voice and video assistant for Mac and iPhone</title>
-  <meta name="description" content="Speak text or record video. MeerKatta handles the rest — tone adaptation, captions, trim, resize. A specialist AI tool that lives in your menu bar. $39 one-time.">
-  <meta property="og:title" content="MeerKatta — Merely a click from idea to post">
-  <meta property="og:description" content="Speak or record. AI turns your raw take into polished writing and platform-ready posts. No prompting. No editing. No extra subscriptions.">
+  <title>MeerKatta — Thought capture for Mac and iPhone</title>
+  <meta name="description" content="Keep your thoughts flowing without pausing to edit. MeerKatta transforms spoken bursts into clear, structured thoughts you can keep, share, and build from.">
+  <link rel="canonical" href="https://meerkatta.com/">
+  <meta property="og:title" content="MeerKatta — Meer-ly a click from thought to text">
+  <meta property="og:description" content="Keep your thoughts flowing without pausing to edit. MeerKatta transforms spoken bursts into clear, structured thoughts you can keep, share, and build from.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://meerkatta.com">
+  <meta property="og:url" content="https://meerkatta.com/">
+  <meta property="og:site_name" content="MeerKatta">
+  <meta property="og:image" content="https://meerkatta.com/social-card.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="MeerKatta turns spoken thoughts into clear text.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@qianhuang">
+  <meta name="twitter:title" content="MeerKatta — Thought capture for Mac and iPhone">
+  <meta name="twitter:description" content="Keep your thoughts flowing without pausing to edit. MeerKatta turns spoken bursts into clear, structured thoughts.">
+  <meta name="twitter:image" content="https://meerkatta.com/social-card.svg">
   <link rel="icon" type="image/png" href="/favicon-lbg.png" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/png" href="/favicon-dbg.png" media="(prefers-color-scheme: dark)">
   <link rel="apple-touch-icon" sizes="256x256" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "MeerKatta",
     "operatingSystem": "macOS, iOS",
-    "applicationCategory": "MultimediaApplication",
+    "applicationCategory": "ProductivityApplication",
+    "url": "https://meerkatta.com/",
+    "image": "https://meerkatta.com/social-card.svg",
     "offers": {
       "@type": "Offer",
-      "price": "39.00",
-      "priceCurrency": "USD"
+      "price": "33.00",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/PreOrder",
+      "availabilityStarts": "2026-07-11"
     },
-    "description": "AI voice and video assistant. Speak text or record video — MeerKatta handles tone adaptation, captions, trim, and resize automatically."
+    "description": "Thought capture for Mac and iPhone. Keep your thoughts flowing without pausing to edit, then turn spoken bursts into clear, structured thoughts."
   }
+  </script>
+  <script>
+    if (window.location.pathname === '/pay') {
+      window.location.replace('/pay/' + window.location.search + window.location.hash);
+    }
   </script>
 </head>
 <body>
-
-  <!-- Navigation -->
-  <nav>
-    <div class="inner">
-      <a href="#" class="logo"><img src="app-icon.png" alt="MeerKatta" height="72" style="border-radius:16px;"> MeerKatta</a>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a href="/" class="logo-link" aria-label="MeerKatta home">
+        <img src="/app-icon.png" alt="" width="44" height="44">
+        <span>MeerKatta</span>
+      </a>
       <div class="nav-links">
-        <a href="#how-it-works">How it works</a>
-        <a href="#features">Features</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#vision">Vision</a>
-        <a href="#waitlist" class="btn-primary">Join Waitlist</a>
+        <a href="/about/">About</a>
+        <a href="/pricing/">Pricing</a>
+        <span class="nav-cta is-disabled" aria-disabled="true">Download for Mac</span>
       </div>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container">
-      <div class="badge">Now in Early Access</div>
-      <h1><span class="highlight">Merely</span> a click from idea to post.</h1>
-      <p class="hero-secondary">Speak text. Record video. AI handles the rest.</p>
-      <p class="subtitle">
-        You have ideas. AI has intelligence. MeerKatta connects them —
-        just speak or record video, and AI turns your raw take into
-        polished writing and platform-ready posts. No prompting. No editing.
-        No extra subscriptions.
-      </p>
-      <div class="cta-group">
-        <a href="#waitlist" class="btn-primary">Join the Waitlist &rarr;</a>
-        <a href="#how-it-works" class="btn-secondary">See how it works</a>
-      </div>
-      <p class="platform-strip"> macOS 14+ &middot; iOS 17+ (companion app)</p>
-    </div>
-  </section>
-
-  <!-- How It Works -->
-  <section id="how-it-works">
-    <div class="container">
-      <div style="text-align:center;">
-        <p class="section-label">How it works</p>
-        <h2 class="section-title">Three steps. Zero editing.</h2>
-        <p class="section-subtitle" style="margin:0 auto;">You bring the idea. MeerKatta brings the intelligence. The tool disappears — only the result remains.</p>
-        <div class="flow-toggle">
-          <button class="flow-tab active" data-tab="voice">Voice</button>
-          <button class="flow-tab" data-tab="video">Video</button>
-        </div>
-      </div>
-      <!-- Voice workflow (default) -->
-      <div class="flow-content" data-mode="voice">
-        <div class="flow-steps">
-          <div class="flow-step">
-            <div class="step-number">1</div>
-            <h3>Speak</h3>
-            <p>Hold &#x2303;&#x2325; in any text field. On Mac or iPhone. MeerKatta starts listening.</p>
-          </div>
-          <div class="flow-step">
-            <div class="step-number">2</div>
-            <h3>AI Processes</h3>
-            <p>Transcribes your speech, removes filler words, and adapts tone to the active app — formal for email, casual for messages.</p>
-          </div>
-          <div class="flow-step">
-            <div class="step-number">3</div>
-            <h3>Done</h3>
-            <p>Polished text appears at your cursor. Gmail, Slack, Notion, anywhere. No paste. No cleanup. Just your words, sharpened.</p>
-          </div>
-        </div>
-        <!-- Context awareness visual -->
-        <p style="text-align:center;font-size:0.85rem;color:var(--text-secondary);margin-top:40px;margin-bottom:16px;">Speak your mind &rarr; right tone, right app, automatically</p>
-        <div class="context-row" style="margin-top:0;">
-          <div class="context-badge">
-            <div class="ctx-icon">&#x2709;&#xFE0F;</div>
-            <span class="ctx-app">Gmail</span>
-            <span class="ctx-tone">Formal</span>
-          </div>
-          <div class="context-badge">
-            <div class="ctx-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="#4A154B"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg></div>
-            <span class="ctx-app">Slack</span>
-            <span class="ctx-tone">Casual</span>
-          </div>
-          <div class="context-badge">
-            <div class="ctx-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="#000"><path d="M4 4h16v16H4z" fill="none" stroke="#000" stroke-width="2.5"/><path d="M8 8h8M8 12h5" stroke="#000" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-            <span class="ctx-app">Notion</span>
-            <span class="ctx-tone">Structured</span>
-          </div>
-          <div class="context-badge">
-            <div class="ctx-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div>
-            <span class="ctx-app">Claude Code</span>
-            <span class="ctx-tone">Technical</span>
-          </div>
-          <div class="context-badge">
-            <div class="ctx-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="#000"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
-            <span class="ctx-app">X</span>
-            <span class="ctx-tone">Concise</span>
-          </div>
-        </div>
-      </div>
-      <!-- Video workflow (hidden by default) -->
-      <div class="flow-content" data-mode="video" style="display:none;">
-        <div class="flow-steps">
-          <div class="flow-step">
-            <div class="step-number">1</div>
-            <h3>Record</h3>
-            <p>Click the menu bar icon or press &#x2318;&#x21E7;R. Pick screen, camera, or both. Hit record.</p>
-          </div>
-          <div class="flow-step">
-            <div class="step-number">2</div>
-            <h3>AI Processes</h3>
-            <p>MeerKatta trims silence, removes filler words, normalizes audio, transcribes, and burns platform-styled captions — all automatically.</p>
-          </div>
-          <div class="flow-step">
-            <div class="step-number">3</div>
-            <h3>Post</h3>
-            <p>Your video, ready to publish — with a suggested caption for each platform in your voice. Preview, copy, share. Done in seconds.</p>
-          </div>
-        </div>
-        <!-- Platform-aware output list -->
-        <p style="text-align:center;font-size:0.85rem;color:var(--text-secondary);margin-top:40px;margin-bottom:16px;">One recording &rarr; a post ready for each</p>
-        <div class="platforms-list">
-          <div class="platform-row">
-            <div class="p-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="#FF2442"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.8 14.8h-2.4c-2.28 0-4.14-1.86-4.14-4.14 0-2.28 1.86-4.14 4.14-4.14h.6V6.8l3.6 3.6-3.6 3.6v-1.72h-.6c-1.32 0-2.42 1.08-2.42 2.42s1.08 2.42 2.42 2.42h2.4v1.68z"/></svg></div>
-            <span class="p-name">Xiaohongshu</span>
-            <span class="p-desc">hook-first caption, emoji-friendly, Chinese-ready</span>
-          </div>
-          <div class="platform-row">
-            <div class="p-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
-            <span class="p-name">LinkedIn</span>
-            <span class="p-desc">professional write-up, insight forward</span>
-          </div>
-          <div class="platform-row">
-            <div class="p-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="#000000"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
-            <span class="p-name">X / Twitter</span>
-            <span class="p-desc">punchy one-liner or thread-ready draft</span>
-          </div>
-          <div class="platform-row">
-            <div class="p-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="url(#ig-grad)"><defs><radialGradient id="ig-grad" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></div>
-            <span class="p-name">Instagram</span>
-            <span class="p-desc">caption with hashtags and a call to action</span>
-          </div>
-          <div class="platform-row">
-            <div class="p-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="#000000"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></div>
-            <span class="p-name">TikTok</span>
-            <span class="p-desc">short hook, trendy phrasing</span>
-          </div>
-        </div>
-        <p class="platforms-caption">MeerKatta reads your transcript and your voice, then writes a suggested post for each platform you're publishing to. Copy it, tweak it, ship it &mdash; no template juggling.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features -->
-  <section id="features" style="background: var(--surface);">
-    <div class="container">
-      <p class="section-label">Features</p>
-      <h2 class="section-title">Everything between your idea and the finished result.</h2>
-      <p class="section-subtitle">You handle the content. MeerKatta handles everything else.</p>
-
-      <p class="features-group-label">Voice</p>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
-          <h3>Voice-to-Text</h3>
-          <p>Speak naturally into any text field — on Mac or iPhone. MeerKatta transcribes, cleans filler words, and drops polished text at your cursor. Instantly.</p>
-        </div>
-        <div class="feature-card">
-          <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg></div>
-          <h3>App-Aware Tone</h3>
-          <p>MeerKatta detects which app you're in. Formal for email. Casual for Slack. Structured for Notion. The right register, automatically.</p>
-        </div>
-        <div class="feature-card">
-          <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-          <h3>Multilingual</h3>
-          <p>Speak in any language. Whisper detects it automatically and transcribes on-device. No language picker. No settings. Just talk.</p>
-        </div>
-      </div>
-
-      <p class="features-group-label">Video</p>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg></div>
-          <h3>Smart Trim</h3>
-          <p>AI detects dead air, false starts, and trailing silence. Cuts to the good stuff — automatically.</p>
-        </div>
-        <div class="feature-card">
-          <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="13" y2="12"/></svg></div>
-          <h3>Auto Captions</h3>
-          <p>Local transcription in English, Chinese, and Japanese. Burned-in subtitles styled for each platform.</p>
-        </div>
-        <div class="feature-card">
-          <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
-          <h3>Platform-Ready Posts</h3>
-          <p>One recording, a ready-to-publish post for each platform. XHS captions, LinkedIn write-ups, TikTok hooks — tuned to the platform and to your voice. Copy, paste, publish.</p>
-        </div>
-        <div class="feature-card">
-          <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
-          <h3>Audio Fix</h3>
-          <p>Broadcast-standard normalization. Sound professional without a studio.</p>
-        </div>
-        <div class="feature-card">
-          <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 1 7 7c0 3-2 5.5-4 7.5L12 20l-3-3.5C7 14.5 5 12 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2"/></svg></div>
-          <h3>Learns You</h3>
-          <p>Remembers your platforms, your caption style, your preferences. Every recording gets smarter.</p>
-        </div>
-        <div class="feature-card">
-          <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-          <h3>No Upload. No Wait.</h3>
-          <p>Everything runs on your Mac. No cloud. No queue. Works offline. Processing starts the instant you stop recording.</p>
-        </div>
-      </div>
-
-      <p class="features-group-label">More</p>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div>
-          <h3>Dark Mode</h3>
-          <p>Full dark mode support across macOS and iOS. Easy on the eyes, day or night.</p>
-        </div>
-        <div class="feature-card">
-          <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
-          <h3>Vocabulary Learner</h3>
-          <p>Auto-learns custom words, names, and jargon from your recordings. Better accuracy over time, without manual dictionaries.</p>
-        </div>
-        <div class="feature-card">
-          <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-          <h3>Gamification</h3>
-          <p>Daily log, streaks, and time-saved milestones. Watch how much time MeerKatta saves you — and build the habit.</p>
-        </div>
-        <div class="feature-card">
-          <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-          <h3>Face Touch-Up</h3>
-          <p>Studio lighting and eye sharpening on camera PIP. Look polished without thinking about it.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Notes Feature -->
-  <section class="notes-section" id="notes">
-    <div class="container">
-      <div class="notes-layout">
-        <div class="notes-content">
-          <p class="section-label">The Moat</p>
-          <h3>Ideas are perishable.<br>Capture them before they fade.</h3>
-          <p>
-            Inspiration strikes at 2am. You can't record now — but you can write it down.
-            MeerKatta's Notes let you capture ideas when they're fresh. When you're ready to record
-            — or dictate — your note becomes context. The AI knows what you're trying to say before you say it.
+  <main>
+    <section class="hero section-panel">
+      <div class="hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow">Thought capture for Mac and iPhone</p>
+          <h1>
+            Meer-ly a click to turn
+            <span class="transform-line">
+              <span class="phrase-emphasis phrase-mind">thoughts in mind</span>
+              <span class="connector">into</span>
+              <span class="phrase-emphasis phrase-hand">text at hand</span>
+            </span>
+          </h1>
+          <p class="hero-subline">
+            Keep your thoughts flowing without pausing to edit. MeerKatta transforms your
+            spoken bursts into clear, structured thoughts you can keep, share, and build from.
           </p>
-          <p>
-            <strong>Better context &rarr; better trim &rarr; better captions &rarr; better post.</strong>
-            No other recording tool connects intent to output like this.
-          </p>
+          <div class="hero-actions">
+            <span class="action-stack">
+              <span class="btn-primary is-disabled" aria-disabled="true">Download for Mac</span>
+              <span class="release-note">Available July 11, 2026</span>
+            </span>
+            <a href="/pricing/" class="btn-secondary">See pricing</a>
+          </div>
+          <p class="hero-support">3 days free. No credit card required.</p>
         </div>
-        <div class="notes-visual">
-          <p style="font-weight:700;font-size:0.9rem;margin-bottom:14px;">&#x1F4DD; Notes</p>
-          <div class="note-item">
-            <div class="note-text">Demo the new dashboard filter — show before/after</div>
-            <div class="note-meta">2 hours ago &middot; Unused</div>
-          </div>
-          <div class="note-item">
-            <div class="note-text">Quick reaction to the Apple keynote — max 60s for Twitter</div>
-            <div class="note-meta">Yesterday &middot; Unused</div>
-          </div>
-          <div class="note-item" style="opacity:0.5; border-left-color: var(--brand);">
-            <div class="note-text">Walkthrough of the onboarding flow redesign</div>
-            <div class="note-meta">3 days ago &middot; Used &rarr; LinkedIn post</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Pricing -->
-  <section id="pricing">
-    <div class="container">
-      <div style="text-align:center;">
-        <p class="section-label">Pricing</p>
-        <h2 class="section-title">Choose how you use MeerKatta.</h2>
-      </div>
-      <div class="pricing-grid">
-        <!-- Model 1 -->
-        <div class="pricing-card primary">
-          <span class="pricing-badge available">AVAILABLE NOW</span>
-          <h3 class="pricing-title">MeerKatta + Your AI of Choice</h3>
-          <div class="pricing-price">$39<span class="pricing-period">one-time purchase</span></div>
-          <p class="pricing-subtitle">Works with our Claude MCP out of the box, or bring your own LLM via API keys.</p>
-          <ul class="pricing-list">
-            <li>Full macOS app — video + voice</li>
-            <li>iOS companion — keyboard extension, share extension</li>
-            <li>Platform-ready posts for XHS, LinkedIn, X, Instagram, TikTok</li>
-            <li>Smart trim, auto captions, audio normalization</li>
-            <li>Voice-to-text with app-aware tone</li>
-            <li>Notes — capture intent before recording</li>
-            <li>Style memory — learns your preferences</li>
-            <li>All future v1.x updates</li>
-          </ul>
-          <div class="pricing-requirement">
-            Recommended: Claude Pro ($20/mo) or Max ($100/mo) via our built-in MCP integration.
-            Also works with any LLM that supports API access.
-          </div>
-          <details class="pricing-expandable">
-            <summary>Why no subscription?</summary>
+        <div class="hero-artifact" aria-label="Example of MeerKatta turning spoken thought into a saved capture">
+          <div class="thought-panel">
+            <div class="artifact-header">
+              <span>Raw thoughts</span>
+              <span class="status status-live">Listening</span>
+            </div>
             <p>
-              You're already paying for AI. MeerKatta doesn't
-              duplicate that cost — it unlocks it. The heavy work (transcription,
-              encoding, audio) runs locally on your Mac. The AI only handles the
-              lightweight decisions. A typical job uses less than 5% of your
-              daily capacity.
+              wait, the thing is not typing speed... it is that once I start fixing
+              the sentence, I stop thinking... maybe the product should help me keep
+              talking until the idea has a shape...
             </p>
+          </div>
+
+          <div class="capture-card">
+            <div class="artifact-header">
+              <span>Stable thought</span>
+              <span class="status">Saved</span>
+            </div>
+            <h2>Editing breaks the thought flow</h2>
             <p>
-              Most AI video tools charge $15&ndash;30/month. At $39 one-time,
-              MeerKatta pays for itself in two months.
+              The problem is not typing speed. It is that typing makes me become an
+              editor too early. MeerKatta should help me keep speaking until the
+              thought has a body, then return a clear draft I can reflect on and build from.
             </p>
-          </details>
-          <a href="#waitlist" class="btn-primary" style="width:100%;justify-content:center;margin-top:24px;">Join Waitlist &rarr;</a>
-        </div>
-        <!-- Model 2 -->
-        <div class="pricing-card">
-          <span class="pricing-badge coming-soon">COMING SOON</span>
-          <h3 class="pricing-title">MeerKatta All-in-One</h3>
-          <div class="pricing-price">$12.99<span class="pricing-period">/mo &middot; coming soon</span></div>
-          <p class="pricing-subtitle">Just install and use. Everything included.</p>
-          <p class="pricing-description">
-            Same app. Same features. We handle the AI backend — no API keys,
-            no separate subscriptions, no setup. For creators who want MeerKatta
-            to just work out of the box.
-          </p>
-          <button class="interest-btn" id="interestBtn">
-            <span>I'm interested &rarr;</span>
-            <span class="interest-count" id="interestCount"></span>
-          </button>
+            <div class="capture-actions" aria-label="Available capture actions">
+              <span>Draft</span>
+              <span>Share</span>
+              <span>Build from</span>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- FAQ -->
-      <div class="faq-section">
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            <span>Do I need an AI subscription?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer" hidden>
-            <p>For the $39 plan, yes — MeerKatta connects to your AI provider.
-            We recommend Claude via our built-in MCP integration, but you can also
-            use other LLMs with API keys. If you'd rather skip setup entirely,
-            vote for the All-in-One plan above.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            <span>How does MeerKatta use AI?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer" hidden>
-            <p>AI handles the smart decisions — what to trim, how to caption,
-            what tone to use for your dictation. All the heavy processing
-            (video encoding, transcription, audio normalization) runs locally
-            on your Mac. No tokens wasted on compute work.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            <span>Will it slow down my other AI usage?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer" hidden>
-            <p>No. A typical MeerKatta job is lightweight orchestration — the AI
-            decides what to do, your Mac does the work. If you're using Claude Pro,
-            it uses less than 5% of your daily capacity.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            <span>What if I don't have an AI subscription?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer" hidden>
-            <p>Recording and manual export still work. AI-powered features
-            (smart trim, auto captions, voice-to-text, tone adaptation)
-            need an active AI connection. Or wait for the All-in-One plan
-            where we handle everything.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            <span>Mac only?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer" hidden>
-            <p>macOS app is available now. iOS companion app (with keyboard
-            extension for voice dictation in any app) is in beta.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            <span>How much AI budget does MeerKatta actually use?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer" hidden>
-            <p>Far less than doing it yourself. Here's a side-by-side for a typical video job:</p>
-            <div class="cmp" style="margin-top:16px;">
-              <div class="cmp-head">
-                <div class="cmp-col cmp-old">
-                  <h2>DIY in AI chat</h2>
-                  <p>Copy-paste workflow</p>
+    <nav class="section-anchor-rail" aria-label="Homepage sections" data-section-rail>
+      <div class="section-anchor-inner">
+        <a href="#capture" data-section-anchor="capture">Capture anywhere</a>
+        <a href="#work" data-section-anchor="work">Use it where work happens</a>
+        <a href="#how-it-works" data-section-anchor="how-it-works">How it works</a>
+        <a href="#personal-voice" data-section-anchor="personal-voice">Personal voice</a>
+      </div>
+    </nav>
+
+    <section class="split-section" id="capture">
+      <div class="section-anchor-slot" data-section-anchor-slot></div>
+      <div class="split-copy">
+        <h2>Keep the thought before the moment passes.</h2>
+        <p>
+          Add MeerKatta to your Lock Screen, tap once, and speak for a few seconds.
+          It catches the small everyday thoughts too, not only the ones you planned
+          to write down.
+        </p>
+      </div>
+      <div class="phone-demo" aria-label="Flow from iPhone Lock Screen shortcut to MeerKatta capture mode">
+        <div class="quick-capture-flow">
+          <div class="phone-frame phone-frame-small">
+            <div class="phone-screen lock-screen-preview">
+              <div class="phone-status">
+                <span>Wi-Fi Calling</span>
+                <span>100</span>
+              </div>
+              <div class="dynamic-island" aria-hidden="true"></div>
+              <div class="lock-date">100% Charged</div>
+              <div class="lock-time">16:07</div>
+              <div class="lock-widget-stack" aria-label="Lock Screen widgets">
+                <div class="weather-widget">
+                  <span class="weather-mark" aria-hidden="true"></span>
+                  <span>21°</span>
+                  <strong>Partly Cloudy</strong>
+                  <span>H:21° L:12°</span>
                 </div>
-                <div class="cmp-col cmp-new">
-                  <h2>With MeerKatta</h2>
-                  <p>One-click from menu bar</p>
+                <div class="circle-widget weather-ring">
+                  <span>6</span>
+                </div>
+                <div class="circle-widget active-shortcut" aria-label="MeerKatta quick capture widget">
+                  <img class="widget-meerkatta-logo" src="/favicon-lbg.png" alt="" aria-hidden="true">
                 </div>
               </div>
-              <div class="cmp-rows">
-                <div class="cmp-row">
-                  <div class="cmp-cell lose">
-                    <div class="cmp-label">Workflow</div>
-                    <div class="cmp-val"><span class="cmp-x">&times;</span> 6+ manual steps</div>
-                    <div class="cmp-sub">Record &rarr; transcribe &rarr; paste into AI &rarr; prompt &rarr; copy result &rarr; edit &rarr; add captions &rarr; export</div>
-                  </div>
-                  <div class="cmp-cell win">
-                    <div class="cmp-label">Workflow</div>
-                    <div class="cmp-val"><span class="cmp-check">+</span> 1 click</div>
-                    <div class="cmp-sub">Click record &rarr; stop &rarr; done.</div>
-                  </div>
-                </div>
-                <div class="cmp-row">
-                  <div class="cmp-cell lose">
-                    <div class="cmp-label">AI tokens per job</div>
-                    <div class="cmp-val"><span class="cmp-x">&times;</span> ~5,000 tokens</div>
-                    <div class="cmp-sub">Full transcript + output flows through AI.</div>
-                  </div>
-                  <div class="cmp-cell win">
-                    <div class="cmp-label">AI tokens per job</div>
-                    <div class="cmp-val"><span class="cmp-check">+</span> ~2,500 tokens</div>
-                    <div class="cmp-sub">AI sees only instructions. Heavy work runs locally.</div>
-                  </div>
-                </div>
-                <div class="cmp-row">
-                  <div class="cmp-cell lose">
-                    <div class="cmp-label">5 jobs per day</div>
-                    <div class="cmp-val"><span class="cmp-x">&times;</span> ~57% of daily capacity</div>
-                  </div>
-                  <div class="cmp-cell win">
-                    <div class="cmp-label">5 jobs per day</div>
-                    <div class="cmp-val"><span class="cmp-check">+</span> ~5% of daily capacity</div>
-                  </div>
-                </div>
-                <div class="cmp-row">
-                  <div class="cmp-cell lose">
-                    <div class="cmp-label">Consistency</div>
-                    <div class="cmp-val"><span class="cmp-x">&times;</span> Re-prompt every time</div>
-                  </div>
-                  <div class="cmp-cell win">
-                    <div class="cmp-label">Consistency</div>
-                    <div class="cmp-val"><span class="cmp-check">+</span> Remembers you</div>
-                  </div>
-                </div>
-                <div class="cmp-row">
-                  <div class="cmp-cell lose">
-                    <div class="cmp-label">Additional costs</div>
-                    <div class="cmp-val"><span class="cmp-x">&times;</span> $15&ndash;45/month</div>
-                  </div>
-                  <div class="cmp-cell win">
-                    <div class="cmp-label">Additional costs</div>
-                    <div class="cmp-val"><span class="cmp-check">+</span> $39 once</div>
-                  </div>
-                </div>
-                <div class="cmp-row">
-                  <div class="cmp-cell lose">
-                    <div class="cmp-label">Time per video</div>
-                    <div class="cmp-val"><span class="cmp-x">&times;</span> 15&ndash;30 min</div>
-                  </div>
-                  <div class="cmp-cell win">
-                    <div class="cmp-label">Time per video</div>
-                    <div class="cmp-val"><span class="cmp-check">+</span> Under 2 min</div>
-                  </div>
+              <div class="lock-bottom-shortcuts" aria-label="Lock Screen quick actions">
+                <div class="bottom-shortcut" aria-label="Flashlight"></div>
+                <div class="bottom-shortcut camera-shortcut" aria-label="Camera"></div>
+              </div>
+              <div class="lock-focus">
+                <span aria-hidden="true"></span>
+                <div>
+                  <strong>Personal</strong>
+                  <em>1 Notification</em>
                 </div>
               </div>
-              <div class="cmp-bar-wrap">
-                <div class="cmp-bar-label"><span>AI plan daily token usage (5 video jobs)</span></div>
-                <div class="cmp-bar-track">
-                  <div class="cmp-bar red" style="width:57%">DIY: 57%</div>
-                </div>
-                <div style="height:6px"></div>
-                <div class="cmp-bar-track">
-                  <div class="cmp-bar green" style="width:5%"></div>
-                </div>
-                <div style="display:flex;justify-content:space-between;font-size:0.7rem;color:var(--text-secondary);margin-top:4px"><span>MeerKatta: ~5%</span><span>10x more efficient</span></div>
+              <p class="flow-caption">Tap quick capture</p>
+            </div>
+          </div>
+
+          <div class="flow-bridge" aria-hidden="true">→</div>
+
+          <div class="phone-frame phone-frame-small">
+            <div class="phone-screen capture-screen-preview">
+              <div class="phone-status">
+                <span>15:32</span>
+                <span>100</span>
+              </div>
+              <div class="mini-app-title">Your MeerKatta</div>
+              <div class="capture-sheet">
+                <div class="sheet-handle"></div>
+                <h3>Capturing</h3>
+                <span class="recording-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                <p>Listening...</p>
+                <span class="capture-time">0:08</span>
+                <button type="button" disabled>Stop</button>
               </div>
             </div>
-            <p style="font-size:0.75rem;color:var(--text-dim);margin-top:16px;line-height:1.5;">
-              <strong>Estimates based on:</strong> A ~2&ndash;3 minute video recording (~400 words of transcript).
-              DIY token count includes prompt instructions + full transcript as input + AI-generated output.
-              MeerKatta token count reflects orchestration-only usage &mdash; transcription, encoding, and audio processing run locally on-device.
-              "57% of daily capacity" is based on Claude Pro's 5-hour usage window (as of early 2026). Voice jobs use even fewer tokens than video.
-              Actual usage varies by recording length and AI provider.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="work-section section-panel" id="work">
+      <div class="section-anchor-slot" data-section-anchor-slot></div>
+      <div class="work-layout">
+        <div class="work-copy">
+          <h2>Say the intent. Let MeerKatta shape the instruction.</h2>
+          <p>
+            MeerKatta is not only for journaling. When you are already in a work context,
+            it turns spoken intent into text that belongs there.
+          </p>
+        </div>
+
+        <div class="work-artifact" aria-label="Codex context awareness example">
+          <div class="work-context-panel" aria-hidden="true">
+            <div class="context-title">Working context</div>
+            <div class="context-row">onboarding-flow.tsx</div>
+            <div class="context-row">settings/provider setup</div>
+            <div class="context-row">first-run checklist</div>
+          </div>
+          <div class="codex-column raw">
+            <div class="artifact-header">
+              <span>Spoken at the Codex input</span>
+              <span class="status status-live">Listening</span>
+            </div>
+            <p>
+              maybe add a first run checklist... actually not a modal. after onboarding,
+              show three steps: connect the provider, try a quick capture, and open settings.
+              keep it lightweight, and make sure people can dismiss it.
+            </p>
+          </div>
+          <div class="codex-column output">
+            <div class="artifact-header">
+              <span>Structured Codex prompt</span>
+              <span class="status">Inserted</span>
+            </div>
+            <p>
+              Add a lightweight first-run checklist after onboarding. Avoid a modal.
+              Include three steps: connect an AI provider, try a quick capture, and open
+              settings. Keep it dismissible and non-blocking.
             </p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Vision -->
-  <section class="vision-section" id="vision">
-    <div class="container">
-      <p class="section-label">The Bigger Picture</p>
-      <h2 class="section-title">AI is powerful. But power isn't the problem.</h2>
-      <p class="section-subtitle">
-        The gap isn't capability — it's access. AI can do almost anything, if you ask right.
-        That "if" is the product opportunity of a generation.
-      </p>
-      <div class="vision-grid">
-        <div class="vision-card">
-          <div class="vision-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(252,236,196,0.8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-          <h3>The Problem with General AI</h3>
-          <p>
-            General-purpose AI gives you infinite power and zero direction. Every session starts from scratch.
-            You re-explain your style, your platforms, your preferences. The AI can edit your video brilliantly —
-            if you write a perfect prompt. Every. Single. Time.
-          </p>
+    <section class="steps-section" id="how-it-works">
+      <div class="section-anchor-slot" data-section-anchor-slot></div>
+      <div class="section-heading left">
+        <h2>Two ways to keep the thought moving.</h2>
+      </div>
+      <div class="flow-lanes">
+        <article>
+          <p class="flow-label">Quick injection</p>
+          <h3>When you already know where the text belongs.</h3>
+          <ol>
+            <li><span>01</span>Focus a text field, chat box, email, note, or Codex input.</li>
+            <li><span>02</span>Hold the shortcut and speak the intent naturally.</li>
+            <li><span>03</span>MeerKatta inserts a clearer version at the cursor.</li>
+          </ol>
+        </article>
+        <article>
+          <p class="flow-label">Capture mode</p>
+          <h3>When the thought arrives before the destination does.</h3>
+          <ol>
+            <li><span>01</span>Start from the Lock Screen, menu bar, or app.</li>
+            <li><span>02</span>Speak the rough thought without organizing it first.</li>
+            <li><span>03</span>Save a structured note you can keep building on.</li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+    <section class="voice-section section-panel" id="personal-voice">
+      <div class="section-anchor-slot" data-section-anchor-slot></div>
+      <div class="section-heading">
+        <h2>Clearer you, not generic AI voice.</h2>
+        <p>
+          The goal is polish, not replacement. MeerKatta is built to preserve intent
+          while removing the friction around it.
+        </p>
+      </div>
+      <div class="principle-grid">
+        <article>
+          <h3>Vocabulary that sticks</h3>
+          <p>Names, product terms, acronyms, and recurring phrases can become part of your capture style.</p>
+        </article>
+        <article>
+          <h3>Context-aware tone</h3>
+          <p>A technical instruction, a note, and a message should not sound the same. MeerKatta adapts to where you are.</p>
+        </article>
+        <article>
+          <h3>Your AI of choice</h3>
+          <p>Connect your own supported API key, or choose managed AI when you want MeerKatta to handle the setup.</p>
+        </article>
+        <article>
+          <h3>Raw capture, even offline</h3>
+          <p>On a plane, at a campsite, or anywhere without network, MeerKatta can still capture raw transcription so the thought does not disappear.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="video-section">
+      <div class="video-copy">
+        <p class="eyebrow">When thought needs more than text</p>
+        <h2>Voice is the daily habit. Video is the richer format.</h2>
+        <p>
+          Record your screen or camera, then let MeerKatta help with the work you
+          would otherwise skip: trim, captions, audio polish, and platform-ready post text.
+        </p>
+      </div>
+      <div class="video-proof">
+        <div class="video-row">
+          <span>Screen recording</span>
+          <strong>Trimmed</strong>
         </div>
-        <div class="vision-card">
-          <div class="vision-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(252,236,196,0.8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 1 7 7c0 3-2 5.5-4 7.5L12 20l-3-3.5C7 14.5 5 12 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2"/></svg></div>
-          <h3>Specialist Faces</h3>
-          <p>
-            MeerKatta is a specialist. It doesn't do everything — it does two things with depth.
-            It knows video. It knows voice. It knows your platforms and your style.
-            The expertise is crystallized in the product so you don't have to carry it in your head.
-          </p>
+        <div class="video-row">
+          <span>Voice and captions</span>
+          <strong>Cleaned</strong>
         </div>
-        <div class="vision-card">
-          <div class="vision-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(252,236,196,0.8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-          <h3>Absorbing Complexity</h3>
-          <p>
-            Every great product absorbs the gap between what a system can do and what a human knows to ask for.
-            Google absorbed the internet. Canva absorbed Photoshop.
-            MeerKatta absorbs the gap between AI-powered editing and "I just want to post this" — or "I just want to say this clearly."
-          </p>
-        </div>
-        <div class="vision-card">
-          <div class="vision-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(252,236,196,0.8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
-          <h3>The Invisible Tool</h3>
-          <p>
-            The best tools disappear. You don't think about the tool — you think about what you're making.
-            Record &rarr; Result. The habit forms. The tool fades. Only the output remains.
-            That's what we're building.
-          </p>
+        <div class="video-row">
+          <span>Platform post text</span>
+          <strong>Ready</strong>
         </div>
       </div>
-      <div class="vision-highlight">
-        <blockquote>"Product is about absorbing the complexity and gap between the system and the human."</blockquote>
-        <p class="attribution">— The principle behind Lugugul Design</p>
+    </section>
+
+    <section class="pricing-section section-panel" id="pricing">
+      <div class="section-heading">
+        <p class="eyebrow">Pricing</p>
+        <h2>Choose how MeerKatta runs its brainpower.</h2>
+        <p>Start with 3 days free. Then keep using MeerKatta with your own supported API key, or let MeerKatta manage AI for you.</p>
       </div>
-    </div>
-  </section>
+      <div class="pricing-grid">
+        <article class="pricing-card featured">
+          <p class="pricing-label">Launch offer</p>
+          <h3>MeerKatta Lifetime</h3>
+          <p class="price">$33 <span>normally $49</span></p>
+          <p class="pricing-subtitle">Pay once. Connect your own supported API key and avoid another recurring software subscription.</p>
+          <ul>
+            <li>Mac voice capture and dictation</li>
+            <li>iPhone companion for quick capture</li>
+            <li>Context-aware polish and insertion</li>
+            <li>Vocabulary and tone preferences</li>
+            <li>Raw transcription works offline</li>
+          </ul>
+          <a href="/pricing/#plans" class="btn-primary full-width">Compare plans</a>
+          <p class="release-note">Official release on July 11, 2026</p>
+        </article>
+        <article class="pricing-card">
+          <p class="pricing-label">Managed AI</p>
+          <h3>MeerKatta Subscription</h3>
+          <p class="price">$7.50 <span>/mo</span></p>
+          <p class="pricing-subtitle">Billed yearly at $90. No provider setup, no API keys, and cancel anytime.</p>
+          <ul>
+            <li>3 days free, no credit card required</li>
+            <li>No provider setup</li>
+            <li>Managed transcription and polish</li>
+            <li>Same capture and video workflows</li>
+            <li>$9 monthly option available</li>
+          </ul>
+          <a href="/pricing/#plans" class="btn-secondary full-width">See subscription</a>
+          <p class="release-note">Official release on July 11, 2026</p>
+        </article>
+      </div>
+    </section>
 
-  <!-- Waitlist CTA -->
-  <section class="cta-section" id="waitlist">
-    <div class="container">
-      <p class="section-label">Early Access</p>
-      <h2 class="section-title">Your ideas deserve to be seen.</h2>
-      <p class="section-subtitle" style="margin:0 auto;">We're building the shortest path from thought to post. Join the waitlist — we'll let you know when it's ready.</p>
-      <form class="waitlist-form" action="https://formspree.io/f/mgopvayw" method="POST">
-        <input type="email" name="email" placeholder="you@email.com" required>
-        <button type="submit" class="btn-primary">Join Waitlist &rarr;</button>
-      </form>
-      <p style="margin-top:16px;font-size:0.8rem;color:var(--text-dim);">No spam. Just a heads-up when we launch.</p>
-    </div>
-  </section>
+    <section class="faq-section" id="faq">
+      <div class="section-heading left">
+        <p class="eyebrow">FAQ</p>
+        <h2>Practical details.</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Is MeerKatta just dictation?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" hidden>
+            <p>No. Dictation turns speech into text. MeerKatta is designed to keep thought moving: it listens, clears the rough parts, adapts to context, and gives you text you can keep using.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Why not just use free dictation?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" hidden>
+            <p>Free dictation is useful when you already know exactly what to say. MeerKatta is for the earlier, more fragile moment when you are forming the thought and do not want editing to interrupt it.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Does MeerKatta rewrite my voice?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" hidden>
+            <p>The goal is polish, not replacement. MeerKatta should make the thought clearer while keeping it recognizably yours.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Where does video fit?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" hidden>
+            <p>Video is the extension of the same workflow: raw idea in, clearer shareable output out. The first release leads with voice because voice is the daily capture habit.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  <!-- Footer -->
-  <footer>
+  <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <p class="footer-heading">Product</p>
-          <a href="#how-it-works">How it works</a>
-          <a href="#features">Features</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#vision">Vision</a>
-        </div>
-        <div class="footer-col">
-          <p class="footer-heading">Legal</p>
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/terms">Terms of Service</a>
-          <a href="/refund">Refund Policy</a>
-        </div>
-        <div class="footer-col">
-          <p class="footer-heading">Connect</p>
-          <a href="https://x.com/qianhuang">X @qianhuang</a>
-          <a href="mailto:chelsea@meerkatta.com">chelsea@meerkatta.com</a>
-        </div>
+      <div>
+        <a href="/" class="footer-logo">MeerKatta</a>
+        <p>Thought capture for Mac and iPhone.</p>
+        <a href="/welcome/" class="footer-primary-link">Getting started</a>
       </div>
-      <span class="copyright">&copy; 2026 MeerKatta. Built by <a href="https://lugugul.com" style="color:var(--brand);text-decoration:none;">Lugugul Design</a></span>
+      <div class="footer-links">
+        <a href="/about/">About</a>
+        <a href="/pricing/">Pricing</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="/refund/">Refund</a>
+        <a href="mailto:hello@meerkatta.com">hello@meerkatta.com</a>
+      </div>
     </div>
   </footer>
 

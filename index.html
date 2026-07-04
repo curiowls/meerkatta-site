@@ -55,14 +55,28 @@
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="nav-inner">
       <a href="/" class="logo-link" aria-label="MeerKatta home">
-        <img src="/app-icon.png" alt="" width="44" height="44">
-        <span>MeerKatta</span>
+        <img class="app-logo" src="/app-icon.png" alt="" width="44" height="44">
+        <img class="type-logo" src="/assets/MeerKatta-typelogo-dark.svg" alt="MeerKatta" width="150" height="30">
       </a>
       <div class="nav-links">
         <a href="/about/">About</a>
         <a href="/pricing/">Pricing</a>
+        <a href="/welcome/">Get Started</a>
         <span class="nav-cta is-disabled" aria-disabled="true">Download for Mac</span>
       </div>
+      <details class="mobile-menu">
+        <summary aria-label="Open navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </summary>
+        <div class="mobile-menu-panel">
+          <a href="/about/">About</a>
+          <a href="/pricing/">Pricing</a>
+          <a href="/welcome/">Get Started</a>
+          <span class="nav-cta is-disabled" aria-disabled="true">Download for Mac</span>
+        </div>
+      </details>
     </div>
   </nav>
 
@@ -150,17 +164,15 @@
         <div class="quick-capture-flow">
           <div class="phone-frame phone-frame-small">
             <div class="phone-screen lock-screen-preview">
-              <div class="phone-status">
-                <span>Wi-Fi Calling</span>
-                <span>100</span>
-              </div>
               <div class="dynamic-island" aria-hidden="true"></div>
-              <div class="lock-date">100% Charged</div>
-              <div class="lock-time">16:07</div>
+              <div class="lock-date">Fri Jul 10</div>
+              <div class="lock-time">12:27</div>
               <div class="lock-widget-stack" aria-label="Lock Screen widgets">
                 <div class="weather-widget">
-                  <span class="weather-mark" aria-hidden="true"></span>
-                  <span>21°</span>
+                  <span class="weather-line">
+                    <span class="weather-mark" aria-hidden="true"></span>
+                    <span>21°</span>
+                  </span>
                   <strong>Partly Cloudy</strong>
                   <span>H:21° L:12°</span>
                 </div>
@@ -175,13 +187,6 @@
                 <div class="bottom-shortcut" aria-label="Flashlight"></div>
                 <div class="bottom-shortcut camera-shortcut" aria-label="Camera"></div>
               </div>
-              <div class="lock-focus">
-                <span aria-hidden="true"></span>
-                <div>
-                  <strong>Personal</strong>
-                  <em>1 Notification</em>
-                </div>
-              </div>
               <p class="flow-caption">Tap quick capture</p>
             </div>
           </div>
@@ -191,17 +196,22 @@
           <div class="phone-frame phone-frame-small">
             <div class="phone-screen capture-screen-preview">
               <div class="phone-status">
-                <span>15:32</span>
-                <span>100</span>
+                <span>12:27</span>
               </div>
-              <div class="mini-app-title">Your MeerKatta</div>
+              <div class="dynamic-island" aria-hidden="true"></div>
+              <div class="mini-app-title">
+                <span>Your</span>
+                <img src="/assets/MeerKatta-typelogo-dark.svg" alt="MeerKatta" width="105" height="21">
+              </div>
               <div class="capture-sheet">
                 <div class="sheet-handle"></div>
                 <h3>Capturing</h3>
                 <span class="recording-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
                 <p>Listening...</p>
                 <span class="capture-time">0:08</span>
-                <button type="button" disabled>Stop</button>
+                <button type="button" disabled aria-label="Stop capture">
+                  <span class="stop-square" aria-hidden="true"></span>
+                </button>
               </div>
             </div>
           </div>
@@ -423,7 +433,9 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div>
-        <a href="/" class="footer-logo">MeerKatta</a>
+        <a href="/" class="footer-logo" aria-label="MeerKatta home">
+          <img class="footer-type-logo" src="/assets/MeerKatta-typelogo-dark.svg" alt="MeerKatta" width="140" height="28">
+        </a>
         <p>Thought capture for Mac and iPhone.</p>
         <a href="/welcome/" class="footer-primary-link">Getting started</a>
       </div>

@@ -31,14 +31,28 @@
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="nav-inner">
       <a href="/" class="logo-link" aria-label="MeerKatta home">
-        <img src="/app-icon.png" alt="" width="44" height="44">
-        <span>MeerKatta</span>
+        <img class="app-logo" src="/app-icon.png" alt="" width="44" height="44">
+        <img class="type-logo" src="/assets/MeerKatta-typelogo-dark.svg" alt="MeerKatta" width="150" height="30">
       </a>
       <div class="nav-links">
         <a href="/about/">About</a>
         <a href="/pricing/">Pricing</a>
+        <a href="/welcome/">Get Started</a>
         <span class="nav-cta is-disabled" aria-disabled="true">Download for Mac</span>
       </div>
+      <details class="mobile-menu">
+        <summary aria-label="Open navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </summary>
+        <div class="mobile-menu-panel">
+          <a href="/about/">About</a>
+          <a href="/pricing/">Pricing</a>
+          <a href="/welcome/">Get Started</a>
+          <span class="nav-cta is-disabled" aria-disabled="true">Download for Mac</span>
+        </div>
+      </details>
     </div>
   </nav>
 
@@ -174,7 +188,9 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div>
-        <a href="/" class="footer-logo">MeerKatta</a>
+        <a href="/" class="footer-logo" aria-label="MeerKatta home">
+          <img class="footer-type-logo" src="/assets/MeerKatta-typelogo-dark.svg" alt="MeerKatta" width="140" height="28">
+        </a>
         <p>Thought capture for Mac and iPhone.</p>
         <a href="/welcome/" class="footer-primary-link">Getting started</a>
       </div>

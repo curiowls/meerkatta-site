@@ -46,7 +46,7 @@
         <a href="/about/">About</a>
         <a href="/pricing/">Pricing</a>
         <a href="/welcome/">Get Started</a>
-        <span class="nav-cta is-disabled" aria-disabled="true">Download for Mac</span>
+        <a class="nav-cta" href="https://github.com/curiowls/meerkattasparkle/releases/latest/download/MeerKatta-latest.dmg">Download for Mac</a>
       </div>
       <details class="mobile-menu">
         <summary aria-label="Open navigation">
@@ -58,7 +58,7 @@
           <a href="/about/">About</a>
           <a href="/pricing/">Pricing</a>
           <a href="/welcome/">Get Started</a>
-          <span class="nav-cta is-disabled" aria-disabled="true">Download for Mac</span>
+          <a class="nav-cta" href="https://github.com/curiowls/meerkattasparkle/releases/latest/download/MeerKatta-latest.dmg">Download for Mac</a>
         </div>
       </details>
     </div>
@@ -277,6 +277,8 @@
     const supportedPlans = new Set(['monthly', 'yearly', 'annual', 'lifetime']);
     const deepLinkPlan = checkoutPlan === 'annual' ? 'yearly' : checkoutPlan;
     const openMeerKattaLink = document.querySelector('#open-meerkatta-link');
+    const returnScheme = welcomeParams.get('returnScheme') || 'meerkatta';
+    const safeReturnScheme = /^[a-z][a-z0-9+.-]*$/i.test(returnScheme) ? returnScheme : 'meerkatta';
 
     if (openMeerKattaLink && supportedPlans.has(checkoutPlan)) {
       const deepLinkParams = new URLSearchParams({ plan: deepLinkPlan });
@@ -285,7 +287,7 @@
         deepLinkParams.set('sandbox', '1');
       }
 
-      openMeerKattaLink.href = `meerkatta://checkout/success?${deepLinkParams.toString()}`;
+      openMeerKattaLink.href = `${safeReturnScheme}://checkout/success?${deepLinkParams.toString()}`;
     }
   </script>
 </body>

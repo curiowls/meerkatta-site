@@ -2,14 +2,12 @@ const pageConfig = document.body.dataset;
 const forcedEnvironment = pageConfig.paddleEnvironment;
 const environment = forcedEnvironment === 'sandbox'
   ? 'sandbox'
-  : import.meta.env.VITE_PADDLE_ENV === 'production'
-  ? 'production'
-  : 'sandbox';
+  : 'production';
 
 const isSandbox = environment === 'sandbox';
 const token = isSandbox
-  ? import.meta.env.VITE_PADDLE_SANDBOX_CLIENT_TOKEN
-  : import.meta.env.VITE_PADDLE_PRODUCTION_CLIENT_TOKEN;
+  ? import.meta.env.VITE_PADDLE_SANDBOX_CLIENT_TOKEN || 'test_058ea8df9966f3eb72debf8a0ae'
+  : import.meta.env.VITE_PADDLE_PRODUCTION_CLIENT_TOKEN || 'live_2dac739d548715547071fa88142';
 
 const placeholderTokens = new Set([
   'test_SANDBOX_CLIENT_TOKEN',
@@ -23,10 +21,16 @@ const sandboxPrices = {
   lifetime: 'pri_01krsezegwmg4zk362219e3n2e',
 };
 
+const productionPrices = {
+  monthly: 'pri_01kw6arnrm45wz6cvspds1cxej',
+  annual: 'pri_01kw6at943hce5922bdw52e0bh',
+  lifetime: 'pri_01kw6am7fp2zvg5jztgd7qmasp',
+};
+
 const configuredPrices = {
-  monthly: import.meta.env.VITE_PADDLE_PRICE_MONTHLY || sandboxPrices.monthly,
-  annual: import.meta.env.VITE_PADDLE_PRICE_ANNUAL || sandboxPrices.annual,
-  lifetime: import.meta.env.VITE_PADDLE_PRICE_LIFETIME || sandboxPrices.lifetime,
+  monthly: import.meta.env.VITE_PADDLE_PRICE_MONTHLY || (isSandbox ? sandboxPrices.monthly : productionPrices.monthly),
+  annual: import.meta.env.VITE_PADDLE_PRICE_ANNUAL || (isSandbox ? sandboxPrices.annual : productionPrices.annual),
+  lifetime: import.meta.env.VITE_PADDLE_PRICE_LIFETIME || (isSandbox ? sandboxPrices.lifetime : productionPrices.lifetime),
 };
 const lifetimeDiscountCode = import.meta.env.VITE_PADDLE_LIFETIME_DISCOUNT_CODE || 'launch';
 
@@ -117,8 +121,6 @@ function openCheckoutFromQuery() {
 
   checkout.customData = {
     plan,
-    checkoutEnvironment: environment,
-    checkoutSource: pageConfig.sandboxCheckout === 'true' ? 'padsandbox' : 'pay',
     ...(supabaseUserId ? { supabaseUserId } : {}),
   };
 
@@ -152,6 +154,11 @@ function checkoutSuccessUrl(plan) {
 
   if (pageConfig.sandboxCheckout === 'true' || isSandbox) {
     successParams.set('sandbox', '1');
+  }
+
+  const returnScheme = params.get('returnScheme')?.trim();
+  if (returnScheme) {
+    successParams.set('returnScheme', returnScheme);
   }
 
   const successPath = pageConfig.successPath || '/welcome/';

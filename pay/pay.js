@@ -133,9 +133,9 @@ function checkoutPlan() {
 
 function checkoutPriceId(plan) {
   const directPrice = params.get('priceId')?.trim();
-  if (directPrice?.startsWith('pri_')) return directPrice;
+  if (isSandbox && directPrice?.startsWith('pri_')) return directPrice;
 
-  if (plan === 'yearly') return configuredPrices.annual;
+  if (plan === 'yearly' || plan === 'annual') return configuredPrices.annual;
   return configuredPrices[plan] || null;
 }
 

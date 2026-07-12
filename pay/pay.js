@@ -43,10 +43,9 @@ const checkoutDisabled = pageConfig.checkoutDisabled === 'true'
   && !hasPaddleTransaction;
 
 if (checkoutDisabled) {
-  const releaseDate = pageConfig.releaseDate || 'July 11, 2026';
   setPaymentCopy(
-    `Official release on ${releaseDate}`,
-    'Public checkout is temporarily closed while we finish the app. For sandbox testing, use the sandbox checkout page.'
+    'Checkout is temporarily unavailable',
+    'Public checkout is temporarily closed. For sandbox testing, use the sandbox checkout page.'
   );
 } else if (!window.Paddle) {
   console.warn('Paddle.js did not load. Check the browser connection and content-security policy.');

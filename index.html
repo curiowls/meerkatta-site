@@ -29,19 +29,84 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "MeerKatta",
-    "operatingSystem": "macOS, iOS",
-    "applicationCategory": "ProductivityApplication",
-    "url": "https://meerkatta.com/",
-    "image": "https://meerkatta.com/social-card.svg",
-    "offers": {
-      "@type": "Offer",
-      "price": "33.00",
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock"
-    },
-    "description": "Thought capture for Mac and iPhone. Keep your thoughts flowing without pausing to edit, then turn spoken bursts into clear, structured thoughts."
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://meerkatta.com/#organization",
+        "name": "MeerKatta",
+        "url": "https://meerkatta.com/",
+        "email": "hello@meerkatta.com",
+        "logo": "https://meerkatta.com/app-icon.png"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://meerkatta.com/#website",
+        "name": "MeerKatta",
+        "url": "https://meerkatta.com/",
+        "publisher": {
+          "@id": "https://meerkatta.com/#organization"
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://meerkatta.com/#software",
+        "name": "MeerKatta",
+        "operatingSystem": "macOS, iOS",
+        "applicationCategory": "ProductivityApplication",
+        "applicationSubCategory": "AI dictation and thought capture",
+        "url": "https://meerkatta.com/",
+        "downloadUrl": "https://github.com/curiowls/meerkattasparkle/releases/latest/download/MeerKatta-latest.dmg",
+        "image": "https://meerkatta.com/social-card.svg",
+        "description": "Thought capture for Mac and iPhone. Keep your thoughts flowing without pausing to edit, then turn spoken bursts into clear, structured thoughts.",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "MeerKatta Lifetime",
+            "price": "33.00",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "url": "https://meerkatta.com/pricing/"
+          },
+          {
+            "@type": "Offer",
+            "name": "MeerKatta Subscription",
+            "price": "7.50",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "url": "https://meerkatta.com/pricing/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is MeerKatta just dictation?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Dictation turns speech into text. MeerKatta is designed to keep thought moving: it listens, clears the rough parts, adapts to context, and gives you text you can keep using."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why not just use free dictation?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Free dictation is useful when you already know exactly what to say. MeerKatta is for the earlier, more fragile moment when you are forming the thought and do not want editing to interrupt it."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does MeerKatta rewrite my voice?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The goal is polish, not replacement. MeerKatta should make the thought clearer while keeping it recognizably yours."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
   <script>
@@ -58,6 +123,7 @@
         <img class="type-logo" src="/assets/MeerKatta-typelogo-dark.svg" alt="MeerKatta" width="150" height="30">
       </a>
       <div class="nav-links">
+        <a href="/use-cases/">Use Cases</a>
         <a href="/about/">About</a>
         <a href="/pricing/">Pricing</a>
         <a href="/welcome/">Get Started</a>
@@ -70,6 +136,7 @@
           <span></span>
         </summary>
         <div class="mobile-menu-panel">
+          <a href="/use-cases/">Use Cases</a>
           <a href="/about/">About</a>
           <a href="/pricing/">Pricing</a>
           <a href="/welcome/">Get Started</a>
@@ -436,6 +503,7 @@
         <a href="/welcome/" class="footer-primary-link">Getting started</a>
       </div>
       <div class="footer-links">
+        <a href="/use-cases/">Use Cases</a>
         <a href="/about/">About</a>
         <a href="/pricing/">Pricing</a>
         <a href="/privacy/">Privacy</a>

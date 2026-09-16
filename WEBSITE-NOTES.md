@@ -9,7 +9,7 @@ The repository's GitHub Pages configuration currently publishes the older `dual-
 ## What changed
 
 - Home: two silent, on-screen Remotion stories show unfinished speech becoming structured text. They play once, pause off-screen, provide pause/replay and immediate-result controls, and honor reduced motion. Static text remains available if JavaScript fails and to assistive technology.
-- Capture: two matching real-app demonstrations show widget setup (15 seconds), then capture (13 seconds). They play sequentially with exclusive playback, below-video captions and controls, posters, progress indicators, and a text description. No audio or automatic looping.
+- Capture: two matching real-app demonstrations show widget setup (13.8 seconds), then capture (13 seconds). They play sequentially with exclusive playback, below-video captions and controls, posters, progress indicators, and a text description. No audio or automatic looping.
 - Use cases: four iPhone/Mac and inspiration/focus paths, each with a real situation, steps, a starter prompt, and a return cue. Query links preselect the workflow; the selection carries into welcome.
 - Welcome: default onboarding is visible without checkout. Device-specific setup and selected workflow instructions sit alongside the existing checkout confirmation.
 - Field notes: three initial practice articles, navigation, homepage entry points, and sitemap entries. No subscriber collection or tracking was added.

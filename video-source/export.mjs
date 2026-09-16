@@ -4,5 +4,6 @@ for (const [composition,name] of [['WidgetSetup','widget-setup'],['LockCapture',
   const temporary=`qa/${name}-render.mp4`;
   execFileSync('./node_modules/.bin/remotion',['render','index.tsx',composition,temporary],{stdio:'inherit'});
   execFileSync('ffmpeg',['-hide_banner','-loglevel','error','-y','-i',temporary,'-an','-c:v','copy','-movflags','+faststart',`../public/media/${name}.mp4`],{stdio:'inherit'});
+  execFileSync('ffmpeg',['-hide_banner','-loglevel','error','-y','-i',`../public/media/${name}.mp4`,'-frames:v','1','-q:v','2',`../public/media/${name}-poster.jpg`],{stdio:'inherit'});
   unlinkSync(temporary);
 }

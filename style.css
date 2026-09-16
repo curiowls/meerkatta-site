@@ -3149,3 +3149,9 @@ h3 {
 @media (max-width:480px) { .capture-demos { gap:14px; }.capture-demos .capture-film-phone { min-width:0; width:100%; border-radius:22px; border-width:3px; }.capture-demos figcaption h3 {font-size:15px;} }
 .capture-section { position:relative; }
 .capture-section > .section-anchor-slot { position:absolute; top:0; left:0; height:0; width:100%; }
+
+.capture-demos .capture-film-phone { position: relative; }
+.demo-next-cover { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; gap:22px; padding:24px; background:#f2eee6; color:#746957; text-align:center; }
+.demo-next-cover .eyebrow { margin:0; font-size:11px; letter-spacing:.14em; }
+.demo-next-cover strong { font-size:clamp(20px,2vw,28px); line-height:1.2; font-weight:500; color:#514638; }
+.demo-next-cover > span:last-child { font-size:13px; line-height:1.8; }

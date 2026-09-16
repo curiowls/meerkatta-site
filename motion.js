@@ -16,14 +16,18 @@ if (group) {
     name:figure.dataset.demo,
   }));
   const cues = [
-    [[0,'Touch and hold the Lock Screen.'],[1.1,'Choose Customize, then tap the widget area.'],[4.1,'Find MeerKatta in the widget list.'],[6.8,'Tap Quick Capture to add it.'],[10.3,'Close the picker and tap Done.'],[12.3,'Ready for the next thought.']],
+    [[0,'Touch and hold the Lock Screen.'],[1.1,'Choose Customize, then tap the widget area.'],[4.1,'Find MeerKatta in the widget list.'],[5.6,'Tap Quick Capture to add it.'],[9.1,'Close the picker and tap Done.'],[11.1,'Ready for the next thought.']],
     [[0,'Tap MeerKatta on your Lock Screen.'],[3,'Speak while the thought is still fresh.'],[8,'Stop and let the text take shape.'],[10,'Your thought, captured and ready to use.']],
   ];
+  const cover = group.querySelector('[data-demo-cover]');
+  let captureStarted = false;
+  cover.hidden = false;
   let active = 0;
   let visible = false;
   let manualPause = false;
   let finished = false;
   const paint = () => {
+    cover.hidden = captureStarted;
     demos.forEach((demo,index) => {
       const v=demo.video;
       demo.figure.classList.toggle('is-playing',!v.paused);
@@ -53,6 +57,7 @@ if (group) {
     });
     demo.video.addEventListener('play',()=>{
       // A single active video is an invariant, including external media controls.
+      captureStarted=index===1;
       active=index;demos.forEach((d,i)=>{if(i!==index)d.video.pause();});
       status.textContent=index===0?'Playing setup. Capture plays next.':'Playing capture.';
       paint();

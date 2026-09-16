@@ -217,27 +217,25 @@
       </div>
     </nav>
 
-    <section class="split-section" id="capture">
+    <section class="split-section capture-section" id="capture">
       <div class="section-anchor-slot" data-section-anchor-slot></div>
       <div class="split-copy">
+        <p class="eyebrow">Set up once. Catch the next thought.</p>
         <h2>Keep the thought before the moment passes.</h2>
-        <p>
-          Add MeerKatta to your Lock Screen, tap once, and speak for a few seconds.
-          It catches the small everyday thoughts too, not only the ones you planned
-          to write down.
-        </p>
+        <p>Add MeerKatta to your Lock Screen, then tap it whenever a thought arrives. See the setup first, followed by a real capture.</p>
+        <p class="demo-sequence-note" data-demo-status aria-live="polite">Plays in order: setup, then capture.</p>
+        <details class="demo-transcript"><summary>Read the steps</summary><p><strong>1. Add the widget.</strong> Touch and hold your Lock Screen, choose Customize, then tap the widget area. Find MeerKatta, add Quick Capture, close the picker, and tap Done.</p><p><strong>2. Capture a thought.</strong> Tap the MeerKatta widget, speak, then stop. Wait for processing and review the finished text in your Library. Complete first-time app setup and permissions before using the widget.</p></details>
       </div>
-      <figure class="capture-film">
-        <div class="capture-film-phone">
-          <video data-capture-video muted playsinline preload="none" controls poster="/media/capture-poster.jpg" aria-label="Actual MeerKatta recording: Lock Screen, capture, processing, and result">
-            <source src="/media/capture-story.mp4" type="video/mp4">
-            <track kind="captions" src="/media/capture-story.vtt" srclang="en" label="English" default>
-            <a href="/media/capture-story.mp4">Watch the capture demonstration</a>
-          </video>
-        </div>
-        <figcaption><p data-capture-caption>01 · Open capture from the Lock Screen</p><span>Real app footage · pauses between steps shortened</span><button type="button" data-capture-toggle hidden>Play demo</button></figcaption>
-        <details><summary>Read the demonstration</summary><p>Open MeerKatta from its Lock Screen control. The capture sheet opens and listens while you speak. Stop when the thought is complete. After processing, review the text before saving it to your Library. First-time setup and permissions are completed before this demonstration.</p></details>
-      </figure>
+      <div class="capture-demos" data-demo-sequence aria-label="Lock Screen setup and capture demonstrations">
+        <figure class="capture-film" data-demo="setup">
+          <div class="capture-film-phone"><video muted playsinline preload="metadata" controls poster="/media/widget-setup-poster.jpg" aria-label="Add the MeerKatta Lock Screen widget" aria-describedby="setup-caption"><source src="/media/widget-setup.mp4" type="video/mp4"><a href="/media/widget-setup.mp4">Watch widget setup</a></video></div>
+          <figcaption><h3>1. Add quick capture</h3><p id="setup-caption" data-demo-caption>Touch and hold the Lock Screen.</p><progress max="1" value="0" aria-label="Widget setup progress"></progress><button type="button" data-demo-toggle hidden>Play setup</button></figcaption>
+        </figure>
+        <figure class="capture-film" data-demo="capture">
+          <div class="capture-film-phone"><video muted playsinline preload="metadata" controls poster="/media/lock-capture-poster.jpg" aria-label="From Lock Screen to finished capture" aria-describedby="capture-caption"><source src="/media/lock-capture.mp4" type="video/mp4"><a href="/media/lock-capture.mp4">Watch the capture demonstration</a></video></div>
+          <figcaption><h3>2. Keep the thought</h3><p id="capture-caption" data-demo-caption>Next: tap the widget and speak.</p><progress max="1" value="0" aria-label="Capture demonstration progress"></progress><button type="button" data-demo-toggle hidden>Play capture</button></figcaption>
+        </figure>
+      </div>
     </section>
 
     <section class="work-section section-panel" id="work">

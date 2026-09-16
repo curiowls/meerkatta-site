@@ -3127,3 +3127,25 @@ h3 {
 /* Preserve native hidden semantics even inside styled layout components. */
 [hidden] { display: none !important; }
 .story-buttons { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+/* Paired demos: captions and controls belong below the footage. */
+.capture-section { padding-top:32px; padding-bottom:32px; column-gap:40px; }
+.capture-demos { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; align-items:start; }
+.capture-demos .capture-film { gap:12px; min-width:0; }
+.capture-demos .capture-film-phone { width:clamp(170px,calc((100svh - 250px)*0.461538),244px); max-width:100%; border-width:4px; border-radius:30px; box-shadow:0 15px 32px #30271818; }
+.capture-demos figcaption { width:100%; max-width:260px; }
+.capture-demos figcaption h3 { margin:0 0 5px; font-size:17px; line-height:1.3; color:var(--ink); }
+.capture-demos figcaption p { font-size:13px; font-weight:400; line-height:1.4; min-height:37px; margin:0; }
+.capture-demos progress { display:block; width:100%; height:3px; margin:7px 0; border:0; accent-color:#72462c; }
+.capture-demos progress::-webkit-progress-bar { background:#e6ded3; border-radius:3px; }
+.capture-demos progress::-webkit-progress-value { background:#72462c; border-radius:3px; }
+.capture-demos figcaption button { margin:8px auto 0; padding:7px 15px; font-size:13px; }
+.capture-demos .is-playing .capture-film-phone { border-color:#72462c; }
+.demo-sequence-note { margin-top:20px; font-size:13px !important; }
+.demo-transcript { margin-top:14px; font-size:13px; line-height:1.6; color:var(--ink-muted); }
+.demo-transcript summary { cursor:pointer; }
+.demo-transcript p { font-size:13px; margin-top:12px; }
+@media (min-width:1000px) { .capture-section { grid-template-columns:minmax(300px,.8fr) minmax(480px,1fr); } }
+@media (max-width:999px) { .capture-section { row-gap:28px; }.capture-demos { max-width:560px; width:100%; margin:auto; } }
+@media (max-width:480px) { .capture-demos { gap:14px; }.capture-demos .capture-film-phone { min-width:0; width:100%; border-radius:22px; border-width:3px; }.capture-demos figcaption h3 {font-size:15px;} }
+.capture-section { position:relative; }
+.capture-section > .section-anchor-slot { position:absolute; top:0; left:0; height:0; width:100%; }

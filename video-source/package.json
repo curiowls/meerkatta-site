@@ -1,0 +1,15 @@
+{
+  "name": "meerkatta-website-demos",
+  "private": true,
+  "scripts": {
+    "prepare-media": "node prepare.mjs",
+    "studio": "remotion studio index.tsx --no-open",
+    "render": "node export.mjs"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.484",
+    "remotion": "4.0.484",
+    "react": "19.2.7",
+    "react-dom": "19.2.7"
+  }
+}

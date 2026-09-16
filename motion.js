@@ -7,32 +7,66 @@ const storyObserver = new IntersectionObserver(entries => {
 document.querySelectorAll('[data-story]').forEach(element => storyObserver.observe(element));
 
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
-document.querySelectorAll('[data-capture-video]').forEach(video => {
+const group = document.querySelector('[data-demo-sequence]');
+if (group) {
+  const status = document.querySelector('[data-demo-status]');
+  const demos = [...group.querySelectorAll('[data-demo]')].map(figure => ({
+    figure, video:figure.querySelector('video'), button:figure.querySelector('button'),
+    caption:figure.querySelector('[data-demo-caption]'), progress:figure.querySelector('progress'),
+    name:figure.dataset.demo,
+  }));
+  const cues = [
+    [[0,'Touch and hold the Lock Screen.'],[1.1,'Choose Customize, then tap the widget area.'],[4.1,'Find MeerKatta in the widget list.'],[6.8,'Tap Quick Capture to add it.'],[10.3,'Close the picker and tap Done.'],[12.3,'Ready for the next thought.']],
+    [[0,'Tap MeerKatta on your Lock Screen.'],[3,'Speak while the thought is still fresh.'],[8,'Stop and let the text take shape.'],[10,'Your thought, captured and ready to use.']],
+  ];
+  let active = 0;
   let visible = false;
-  let manuallyPaused = false;
-  let automaticPause = false;
-  const button = document.querySelector('[data-capture-toggle]');
-  const caption = document.querySelector('[data-capture-caption]');
-  const update = () => {
-    if (visible && !document.hidden && !motion.matches && !manuallyPaused && !video.ended) video.play().catch(() => {});
-    else if (!video.paused) {automaticPause=true;video.pause();}
+  let manualPause = false;
+  let finished = false;
+  const paint = () => {
+    demos.forEach((demo,index) => {
+      const v=demo.video;
+      demo.figure.classList.toggle('is-playing',!v.paused);
+      demo.button.textContent = !v.paused ? `Pause ${demo.name}` : v.ended ? `Replay ${demo.name}` : `Play ${demo.name}`;
+      demo.progress.value=Number.isFinite(v.duration) ? v.currentTime/v.duration : 0;
+      const cue=cues[index].filter(([time])=>time<=v.currentTime).at(-1);
+      if(cue) demo.caption.textContent=cue[1];
+    });
   };
-  new IntersectionObserver(([entry]) => {visible=entry.isIntersecting;update();},{threshold:0.4}).observe(video);
+  const pauseAll = () => {demos.forEach(d=>d.video.pause());paint();};
+  const playActive = () => {
+    demos.forEach((d,index)=>{if(index!==active)d.video.pause();});
+    demos[active].video.play().catch(()=>{paint();status.textContent='Press Play to watch setup, then capture.';});
+  };
+  const update = () => {
+    if (visible && !document.hidden && !motion.matches && !manualPause && !finished) playActive();
+    else pauseAll();
+  };
+  demos.forEach((demo,index) => {
+    demo.video.controls=false;
+    demo.button.hidden=false;
+    demo.button.addEventListener('click',()=>{
+      if(!demo.video.paused){manualPause=true;pauseAll();status.textContent=`${index===0?'Setup':'Capture'} paused. Press Play to continue.`;return;}
+      pauseAll();active=index;manualPause=false;finished=false;
+      if(demo.video.ended)demo.video.currentTime=0;
+      playActive();
+    });
+    demo.video.addEventListener('play',()=>{
+      // A single active video is an invariant, including external media controls.
+      active=index;demos.forEach((d,i)=>{if(i!==index)d.video.pause();});
+      status.textContent=index===0?'Playing setup. Capture plays next.':'Playing capture.';
+      paint();
+    });
+    demo.video.addEventListener('pause',paint);
+    demo.video.addEventListener('timeupdate',paint);
+    demo.video.addEventListener('ended',()=>{
+      if(index!==active)return;
+      if(index===0){active=1;demos[1].video.currentTime=0;if(visible&&!document.hidden&&!motion.matches&&!manualPause)playActive();}
+      else {finished=true;status.textContent='Both demos complete. Replay either one.';}
+      paint();
+    });
+  });
+  new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;update();},{threshold:0.35}).observe(group);
   document.addEventListener('visibilitychange',update);
   motion.addEventListener('change',update);
-  button.hidden=false;
-  button.addEventListener('click',() => {
-    if(video.paused){manuallyPaused=false;if(video.ended)video.currentTime=0;video.play().catch(() => {});}
-    else {manuallyPaused=true;video.pause();}
-  });
-  video.addEventListener('play',() => {manuallyPaused=false;button.textContent='Pause demo';});
-  video.addEventListener('pause',() => {
-    if (!automaticPause && !video.ended) manuallyPaused=true;
-    automaticPause=false;
-    button.textContent=video.ended ? 'Replay demo' : 'Play demo';
-  });
-  video.addEventListener('ended',() => button.textContent='Replay demo');
-  video.addEventListener('timeupdate',() => {
-    caption.textContent=video.currentTime<2 ? '01 · Open capture from the Lock Screen' : video.currentTime<7 ? '02 · Let the thought keep going' : video.currentTime<9 ? '03 · Wait for the useful text' : '04 · Review the result before saving';
-  });
-});
+}

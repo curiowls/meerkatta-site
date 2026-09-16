@@ -28,3 +28,8 @@ The two text stories are illustrative examples, not screen recordings or measure
 Production build and whitespace checks pass. Browser checks cover all four workflow selections and tailored welcomes, checkout confirmation/deep link, real video playback, story playback/replay/instant result, narrow layout with no horizontal overflow, and final-frame text fit. All 18 built HTML routes were checked for local link/asset/anchor targets with zero missing targets. An independent static review found two issues (native pause retention and selected steps); both are fixed.
 
 Reduced-motion behavior has been reviewed in code; the available browser did not expose OS preference emulation. Deployment and public-domain verification remain pending confirmation of the existing Hostinger publishing route. Pricing and checkout logic are retained from the source site.
+
+## Future direction and Field notes
+Video is explicitly marked in development, with a short vision hook and a fourth field note. Homepage pricing and FAQ no longer imply video is included today. The compact interest vote uses a first-party PHP endpoint; it confirms only successful server writes and supports withdrawal. See FIELD-NOTES-DECISIONS.md for hosting/storage requirements and research rationale.
+
+Field notes default to Scan (six previews per batch); Read fetches two complete canonical notes at a time. Manual Load more preserves a reachable footer. The sticky mode toggle, keyboard focus, URL state, canonical links, retries and no-JavaScript previews support browsing and returning. Counts are a starting editorial choice; the current four-note library shows all previews in Scan.

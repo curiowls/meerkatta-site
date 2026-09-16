@@ -55,6 +55,8 @@ if (group) {
   };
   demos.forEach((demo,index) => {
     demo.video.controls=false;
+    demo.video.defaultPlaybackRate=0.75;
+    demo.video.playbackRate=0.75;
     demo.button.hidden=false;
     demo.button.addEventListener('click',()=>{
       if(!demo.video.paused){manualPause=true;pauseAll();status.textContent=`${index===0?'Setup':'Capture'} paused. Press Play to continue.`;return;}
@@ -82,4 +84,28 @@ if (group) {
   new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;update();},{threshold:0.35}).observe(group);
   document.addEventListener('visibilitychange',update);
   motion.addEventListener('change',update);
+}
+
+// Reserve every phrase's space and rotate only while the headline is visible.
+const headline=document.querySelector('.spark-headline');
+if(headline){
+  const phrases=[...headline.querySelectorAll('.hero-outcomes > span')];
+  const toggle=document.querySelector('.hero-rotation-toggle');
+  let index=0, visible=false, paused=false, timer;
+  const show=()=>phrases.forEach((phrase,i)=>phrase.classList.toggle('is-current',i===index));
+  const update=()=>{
+    clearInterval(timer);
+    toggle.hidden=motion.matches;
+    if(motion.matches){index=0;show();}
+    const action=paused?'Play':'Pause';
+    toggle.innerHTML=playbackIcon(action);
+    toggle.setAttribute('aria-label',`${action} headline rotation`);
+    toggle.title=`${action} headline rotation`;
+    if(visible&&!document.hidden&&!motion.matches&&!paused)timer=setInterval(()=>{index=(index+1)%phrases.length;show();},3800);
+  };
+  toggle.addEventListener('click',()=>{paused=!paused;update();});
+  new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;update();},{threshold:0.2}).observe(headline);
+  document.addEventListener('visibilitychange',update);
+  motion.addEventListener('change',update);
+  update();
 }

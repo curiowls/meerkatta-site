@@ -3207,3 +3207,14 @@ h3 {
 .future-feature .interest-vote[aria-pressed="true"] { background:#fff0dc; color:#493326; }
 .future-feature a:focus-visible,.future-feature button:focus-visible { outline:2px solid #fff0dc; outline-offset:5px; }
 @media(max-width:700px) { .video-section.future-feature { padding:28px 24px; border-radius:22px; } }
+
+.spark-headline > span { display:block; }
+.spark-headline .hero-brand-wink { font-size:.46em; font-weight:500; line-height:1.4; margin-bottom:18px; }
+.hero-outcomes { display:grid !important; color:var(--brand); }
+.hero-outcomes > span { grid-area:1 / 1; opacity:0; transition:opacity 450ms ease; }
+.hero-outcomes > span.is-current { opacity:1; }
+.hero-rotation-toggle.playback-icon { display:flex; align-items:center; justify-content:center; width:36px; height:36px; padding:0; margin:4px 0 8px; color:var(--ink-muted); background:transparent; border:0; border-radius:50%; cursor:pointer; }
+.hero-rotation-toggle:hover { background:#e6ded380; }
+@media(prefers-reduced-motion:reduce) { .hero-outcomes > span { transition:none; } }
+.spark-headline .phrase-mind { animation:none; color:var(--ink); background:linear-gradient(transparent 82%,var(--brand-soft) 82%); }
+.spark-headline .phrase-mind::after { animation:none; content:none; }

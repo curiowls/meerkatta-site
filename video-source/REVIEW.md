@@ -13,3 +13,8 @@
 - Feathered masks soften date/time and carrier/status detail; separate inset clock mask during wallpaper selection. Corrected mask positions after contact-sheet review.
 - Static cream Up next cover hides the second lake poster until capture plays; replaying setup restores it. Manual capture starts immediately and pauses setup.
 - Refreshed exports/posters are versioned in HTML to avoid cached originals. Browser confirms 13.8s/13s metadata and unchanged 1440×800 fit. TypeScript and production build pass.
+
+## Quiet controls and completion state
+- Removed all setup-2 drawer masks; lower-screen blur is now confined to the accelerated setup-1 scroll.
+- Browser verified setup completion cover, replay dismissal, restored capture waiting cover, and exclusive pause behavior.
+- All demo/story playback buttons contain SVG icons without visible action text, with accessible names and tooltips. Laptop screenshot confirms both figures and icon controls fit at1440×800.

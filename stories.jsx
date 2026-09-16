@@ -1,3 +1,4 @@
+import {playbackIcon} from './playback-icons.js';
 import React, {useEffect, useRef, useState} from 'react';
 import {createRoot} from 'react-dom/client';
 import {Player} from '@remotion/player';
@@ -79,7 +80,7 @@ function StoryPlayer({kind}) {
   const showResult = () => {manualPause.current=true;finished.current=true;player.current.pause();player.current.seekTo(299);setEnded(true);};
   return <div ref={container}>
     <div aria-hidden="true"><Player ref={player} component={ThoughtStory} inputProps={{kind,compact}} compositionWidth={compact ? 420 : 640} compositionHeight={compact ? 880 : 670} durationInFrames={300} fps={30} initialFrame={window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 299 : 0} initiallyMuted moveToBeginningWhenEnded={false} clickToPlay={false} style={{width:'100%'}} numberOfSharedAudioTags={0}/></div>
-    <div className="story-controls"><span>From unfinished speech to useful text · 10 seconds</span><div className="story-buttons"><button type="button" onClick={showResult} hidden={ended}>Show result</button><button type="button" onClick={toggle}>{playing ? 'Pause story' : ended ? 'Replay story' : 'Play story'}</button></div></div>
+    <div className="story-controls"><span>From unfinished speech to useful text · 10 seconds</span><div className="story-buttons"><button type="button" onClick={showResult} hidden={ended}>Show result</button><button type="button" className="playback-icon" onClick={toggle} aria-label={playing ? 'Pause story' : ended ? 'Replay story' : 'Play story'} title={playing ? 'Pause story' : ended ? 'Replay story' : 'Play story'} dangerouslySetInnerHTML={{__html:playbackIcon(playing ? 'Pause' : ended ? 'Replay' : 'Play')}} /></div></div>
   </div>;
 }
 export function mountStory(element) {

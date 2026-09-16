@@ -1,3 +1,4 @@
+import {playbackIcon} from './playback-icons.js';
 const storyObserver = new IntersectionObserver(entries => {
   for (const entry of entries) if (entry.isIntersecting) {
     storyObserver.unobserve(entry.target);
@@ -28,10 +29,16 @@ if (group) {
   let finished = false;
   const paint = () => {
     cover.hidden = captureStarted;
+    group.querySelector('[data-demo-complete]').hidden = !demos[0].video.ended;
     demos.forEach((demo,index) => {
       const v=demo.video;
       demo.figure.classList.toggle('is-playing',!v.paused);
-      demo.button.textContent = !v.paused ? `Pause ${demo.name}` : v.ended ? `Replay ${demo.name}` : `Play ${demo.name}`;
+      const action = !v.paused ? 'Pause' : v.ended ? 'Replay' : 'Play';
+      const label = `${action} ${demo.name}`;
+      demo.button.classList.add('playback-icon');
+      demo.button.setAttribute('aria-label',label);
+      demo.button.title=label;
+      demo.button.innerHTML=playbackIcon(action);
       demo.progress.value=Number.isFinite(v.duration) ? v.currentTime/v.duration : 0;
       const cue=cues[index].filter(([time])=>time<=v.currentTime).at(-1);
       if(cue) demo.caption.textContent=cue[1];
@@ -71,6 +78,7 @@ if (group) {
       paint();
     });
   });
+  paint();
   new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;update();},{threshold:0.35}).observe(group);
   document.addEventListener('visibilitychange',update);
   motion.addEventListener('change',update);

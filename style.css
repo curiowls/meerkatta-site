@@ -3155,3 +3155,9 @@ h3 {
 .demo-next-cover .eyebrow { margin:0; font-size:11px; letter-spacing:.14em; }
 .demo-next-cover strong { font-size:clamp(20px,2vw,28px); line-height:1.2; font-weight:500; color:#514638; }
 .demo-next-cover > span:last-child { font-size:13px; line-height:1.8; }
+
+.capture-demos figcaption button.playback-icon,
+.story-buttons button.playback-icon { display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; padding:0; border:0; border-radius:50%; background:transparent; color:var(--ink-muted); box-shadow:none; }
+.capture-demos figcaption button.playback-icon:hover,
+.story-buttons button.playback-icon:hover { background:#e6ded380; color:var(--ink); }
+.playback-icon:focus-visible { outline:2px solid #72462c; outline-offset:2px; }

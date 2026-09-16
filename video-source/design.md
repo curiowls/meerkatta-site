@@ -10,3 +10,5 @@ Capture storyboard: lockscreen still30f; opening60f; speech150f; processing60f; 
 Outputs540×1170/30fps/H.264/yuv420p. Native UI stays intact; no captions baked in. Website phone max244px,16% below previous290, height adapts to notebook viewport. Exclusive sequential playback; offscreen pause, manual controls, reduced-motion handling. Below-video captions and transcripts provide readable instructions.
 
 Attention: the second phone uses a static cream Up next cover until capture starts. Replaying setup restores the cover. Captions stay below both videos.
+
+Final refinement: drawer is unmasked throughout Quick Capture selection; only the accelerated scrolling shot has lower-screen blur. Setup completion receives a matching cream cover: Ready when a thought arrives. Playback actions use quiet SVG icons with accessible names and tooltips across demos and stories.

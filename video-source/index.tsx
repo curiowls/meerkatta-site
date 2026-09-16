@@ -16,8 +16,6 @@ const ShotView=({shot}:{shot:Shot})=>{
  {lock&&<SoftMask top={inset?220:65} height={inset?145:235}/>}
  {status&&<><SoftMask top={0} height={65} width={145}/><SoftMask top={0} height={65} left={380} width={160}/></>}
  {shot.src==='setup-1.mp4'&&<SoftMask top={545} height={625} blur={22}/>}
- {shot.src==='setup-2.mp4'&&frame<25&&<><SoftMask top={535} height={120}/><SoftMask top={720} height={450}/></>}
- {shot.src==='setup-2.mp4'&&frame>=120&&<SoftMask top={535} height={635} blur={20}/>}
  </AbsoluteFill>;
 };
 const Film=({shots}:{shots:Shot[]})=>{let from=0;return <AbsoluteFill style={{background:'#f8f2e9'}}>{shots.map(shot=>{const start=from;from+=shot.frames;return <Sequence key={shot.src} from={start} durationInFrames={shot.frames}><ShotView shot={shot}/></Sequence>})}</AbsoluteFill>};

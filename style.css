@@ -3192,3 +3192,18 @@ h3 {
 .notes-pagination { text-align:center; padding-top:32px; }
 .notes-pagination p { font-size:13px; color:var(--ink-muted); margin-bottom:20px; }
 @media(max-width:700px) { .future-feature { grid-template-columns:1fr; gap:20px; }.future-interest {text-align:left;max-width:none;}.notes-list {grid-template-columns:1fr;}.note-card {padding:24px;}.notes-toolbar {top:82px;} }
+
+/* An editorial glimpse ahead, after the current product and FAQ. */
+.video-section.future-feature { background:#493326; color:#fff6e8; border-radius:28px; padding:44px 48px; margin-top:24px; margin-bottom:24px; scroll-margin-top:96px; }
+.future-feature .video-copy h2 { color:#fff6e8; }
+.future-feature .eyebrow { color:#dac4ad; }
+.future-feature .video-copy > p:not(.eyebrow),
+.future-feature .future-interest > p:first-child,
+.future-feature .interest-status { color:#e4d3c0; }
+.future-feature .video-copy > a { color:#fff6e8; text-decoration:underline; text-underline-offset:4px; font-size:14px; }
+.future-feature .video-copy > p.future-availability { margin:18px 0 0; font-size:12px; line-height:1.5; color:#dac4ad; }
+.future-feature .interest-vote { border-color:#b69b82; color:#fff6e8; }
+.future-feature .interest-vote:hover { background:#624734; }
+.future-feature .interest-vote[aria-pressed="true"] { background:#fff0dc; color:#493326; }
+.future-feature a:focus-visible,.future-feature button:focus-visible { outline:2px solid #fff0dc; outline-offset:5px; }
+@media(max-width:700px) { .video-section.future-feature { padding:28px 24px; border-radius:22px; } }

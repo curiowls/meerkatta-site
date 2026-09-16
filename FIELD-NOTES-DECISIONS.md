@@ -9,7 +9,7 @@ The sticky Scan/Read control stays within the notes region. Scan uses lightweigh
 Numbered pagination is unnecessary for four notes. If the archive grows enough that browsing a specific date/topic matters, add filtering and server-rendered archive pages while preserving canonical note URLs. Do not switch to automatic infinite scroll merely because the archive grows.
 
 # Future-feature hook
-The homepage explicitly says In the making / Not available yet. Its brief vision is to preserve context and intent when showing is more useful than words. The detailed exploratory scope lives in a short field note, not a launch promise. Removed current-video implications from the homepage pricing bullet and FAQ.
+The homepage uses a compact dark-brown vision panel after the FAQ and before Field notes, labeled In the making with a separate Not available in the current release notice. Its brief vision is to preserve context and intent when showing is more useful than words. The detailed exploratory scope lives in a short field note, not a launch promise. Removed current-video implications from the homepage pricing bullet and FAQ.
 
 # Vote endpoint and hosting
 `public/api/interest.php` runs on PHP 8.1+ without a database extension. Deploy `dist` to the existing PHP-capable hosting web root. Storage defaults to `meerkatta-interest-private` alongside (not inside) that root. The PHP process needs write permission there. Alternatively set `MEERKATTA_INTEREST_DIR` to an absolute private directory outside the web root. The endpoint refuses storage inside the web root. Keep that private directory across deployments and include it in backups.

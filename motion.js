@@ -90,20 +90,13 @@ if (group) {
 const headline=document.querySelector('.spark-headline');
 if(headline){
   const phrases=[...headline.querySelectorAll('.hero-outcomes > span')];
-  const toggle=document.querySelector('.hero-rotation-toggle');
-  let index=0, visible=false, paused=false, timer;
+  let index=0, visible=false, timer;
   const show=()=>phrases.forEach((phrase,i)=>phrase.classList.toggle('is-current',i===index));
   const update=()=>{
     clearInterval(timer);
-    toggle.hidden=motion.matches;
     if(motion.matches){index=0;show();}
-    const action=paused?'Play':'Pause';
-    toggle.innerHTML=playbackIcon(action);
-    toggle.setAttribute('aria-label',`${action} headline rotation`);
-    toggle.title=`${action} headline rotation`;
-    if(visible&&!document.hidden&&!motion.matches&&!paused)timer=setInterval(()=>{index=(index+1)%phrases.length;show();},3800);
+    if(visible&&!document.hidden&&!motion.matches)timer=setInterval(()=>{index=(index+1)%phrases.length;show();},3800);
   };
-  toggle.addEventListener('click',()=>{paused=!paused;update();});
   new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;update();},{threshold:0.2}).observe(headline);
   document.addEventListener('visibilitychange',update);
   motion.addEventListener('change',update);

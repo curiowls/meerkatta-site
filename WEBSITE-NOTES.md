@@ -34,4 +34,4 @@ Video is explicitly marked in development, with a short vision hook and a fourth
 
 Field notes default to Scan (six previews per batch); Read fetches two complete canonical notes at a time. Manual Load more preserves a reachable footer. The sticky mode toggle, keyboard focus, URL state, canonical links, retries and no-JavaScript previews support browsing and returning. Counts are a starting editorial choice; the current four-note library shows all previews in Scan.
 
-Hero: Turn a spark into four concrete outcomes, fading every3.8s with a pause control, offscreen/hidden pause, and static first outcome for reduced motion. Shared grid reserves maximum phrase height. Both capture demos play at0.75× (18.4s setup /17.3s capture); cues remain keyed to media time and sequential handoff remains end-event driven.
+Hero: Turn a spark into four concrete outcomes, fading every3.8s without a visible control, with offscreen/hidden pause, and static first outcome for reduced motion. Shared grid reserves maximum phrase height. Both capture demos play at0.75× (18.4s setup /17.3s capture); cues remain keyed to media time and sequential handoff remains end-event driven.

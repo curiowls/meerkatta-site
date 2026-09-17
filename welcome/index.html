@@ -55,6 +55,7 @@
       <div class="nav-links">
         <a href="/use-cases/">Use Cases</a>
         <a href="/about/">About</a>
+        <a href="/journal/">Field notes</a>
         <a href="/pricing/">Pricing</a>
         <a href="/welcome/">Get Started</a>
         <a class="nav-cta" href="https://github.com/curiowls/meerkattasparkle/releases/latest/download/MeerKatta-latest.dmg">Download for Mac</a>
@@ -68,6 +69,7 @@
         <div class="mobile-menu-panel">
           <a href="/use-cases/">Use Cases</a>
           <a href="/about/">About</a>
+        <a href="/journal/">Field notes</a>
           <a href="/pricing/">Pricing</a>
           <a href="/welcome/">Get Started</a>
           <a class="nav-cta" href="https://github.com/curiowls/meerkattasparkle/releases/latest/download/MeerKatta-latest.dmg">Download for Mac</a>
@@ -79,6 +81,12 @@
   <main>
     <section class="welcome-hero section-panel">
       <div class="welcome-hero-inner">
+        <div class="welcome-start-copy">
+          <p class="eyebrow">A first thought, not a perfect setup</p>
+          <h1>Make room for what’s on your mind.</h1>
+          <p>Start with one real thought. Speak it, review the result, and keep something you can return to. Personalization can come after that first useful moment.</p>
+          <div class="hero-actions"><a href="/use-cases/#finder-title" class="btn-primary">Find my first workflow</a><a href="#first-capture" class="btn-secondary">I’m ready to begin</a></div>
+        </div>
         <div class="welcome-confirmation-copy">
           <p class="eyebrow">Payment complete</p>
           <h1>Welcome to MeerKatta.</h1>
@@ -100,6 +108,16 @@
       </div>
     </section>
 
+    <section class="workflow-finder section-panel" id="first-capture">
+      <p class="eyebrow">Start small</p><h2>Your first capture, step by step.</h2>
+      <div id="selected-workflow" hidden></div>
+      <div class="welcome-tip-grid">
+        <article data-device-guide="ios"><h3>On iPhone</h3><ol><li>Open MeerKatta and allow microphone access when asked.</li><li>Begin a capture and speak one thought you genuinely want to keep.</li><li>Stop, review the text for meaning, then save it.</li></ol><p>Once this feels familiar, add quick access from your Lock Screen. Start in the app first so permissions and setup are out of the way.</p></article>
+        <article data-device-guide="mac"><h3>On Mac</h3><ol><li>Open MeerKatta and follow its permission prompts.</li><li>Try a capture inside MeerKatta before using another app.</li><li>For a reply or prompt, focus the destination text field and use your configured shortcut. Review the result before sending.</li></ol><p>Your first draft can be rough. Keep the intent; edit the phrasing afterward.</p></article>
+        <article><h3>Return to one thought</h3><p>Choose a cue you already have: arriving at your desk, finishing a walk, or beginning tomorrow’s work.</p><p>Open your Library, choose one saved thought, and turn it into a next step. That return is what makes capture useful.</p><a href="/use-cases/">Find a workflow for your day →</a></article>
+      </div>
+      <details><summary>My first capture didn’t work</summary><p>Check microphone permission, try again inside the app, and check your connection and selected processing option. If you are stuck, tell <a href="mailto:hello@meerkatta.com">support</a> your device and what happened. You do not need to send private note content.</p></details>
+    </section>
     <section class="welcome-steps section-panel">
       <div class="section-heading left">
         <p class="eyebrow">First useful setup</p>
@@ -276,6 +294,7 @@
       <div class="footer-links">
         <a href="/use-cases/">Use Cases</a>
         <a href="/about/">About</a>
+        <a href="/journal/">Field notes</a>
         <a href="/pricing/">Pricing</a>
         <a href="/privacy/">Privacy</a>
         <a href="/terms/">Terms</a>
@@ -303,5 +322,6 @@
       openMeerKattaLink.href = `${safeReturnScheme}://checkout/success?${deepLinkParams.toString()}`;
     }
   </script>
+<script type="module" src="/welcome.js"></script>
 </body>
 </html>

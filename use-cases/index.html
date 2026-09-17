@@ -52,6 +52,7 @@
       <div class="nav-links">
         <a href="/use-cases/">Use Cases</a>
         <a href="/about/">About</a>
+        <a href="/journal/">Field notes</a>
         <a href="/pricing/">Pricing</a>
         <a href="/welcome/">Get Started</a>
         <a class="nav-cta" href="https://github.com/curiowls/meerkattasparkle/releases/latest/download/MeerKatta-latest.dmg">Download for Mac</a>
@@ -65,6 +66,7 @@
         <div class="mobile-menu-panel">
           <a href="/use-cases/">Use Cases</a>
           <a href="/about/">About</a>
+        <a href="/journal/">Field notes</a>
           <a href="/pricing/">Pricing</a>
           <a href="/welcome/">Get Started</a>
           <a class="nav-cta" href="https://github.com/curiowls/meerkattasparkle/releases/latest/download/MeerKatta-latest.dmg">Download for Mac</a>
@@ -84,19 +86,46 @@
           formatting, or choosing the destination breaks the thought.
         </p>
         <div class="hero-actions">
-          <a href="/use-cases/ai-dictation-for-mac/" class="btn-primary">Start with dictation</a>
+          <a href="#finder-title" class="btn-primary">Find my workflow</a>
           <a href="/pricing/" class="btn-secondary">See pricing</a>
         </div>
       </div>
     </section>
 
+
+    <section class="workflow-finder section-panel" aria-labelledby="finder-title">
+      <p class="eyebrow">Your first useful moment</p>
+      <h2 id="finder-title">Where could a thought use a little room?</h2>
+      <p>Choose your device and a moment. Start with something you already do today.</p>
+      <form id="workflow-finder">
+        <fieldset><legend>1. Where are you?</legend>
+          <label><input type="radio" name="device" value="ios" checked> On my iPhone</label>
+          <label><input type="radio" name="device" value="mac"> At my Mac</label>
+        </fieldset>
+        <fieldset><legend>2. What do you want to do?</legend>
+          <label><input type="radio" name="intent" value="capture" checked> Catch an idea before it disappears</label>
+          <label><input type="radio" name="intent" value="focus"> Get a reply or draft moving</label>
+        </fieldset>
+        <button class="btn-primary" type="submit">Show my workflow</button>
+      </form>
+      <article class="workflow-result" id="workflow-result" tabindex="-1" aria-live="polite">
+        <p class="eyebrow">iPhone · Inspiration</p>
+        <h3>Keep the idea. Find its place later.</h3>
+        <p>After a walk, a conversation, or a sudden connection: say enough to remember why it mattered.</p>
+        <ol><li>Open MeerKatta and begin a capture.</li><li>Speak one unfinished thought in your own words.</li><li>Review the text, save it, and return to it in your Library.</li></ol>
+        <p><strong>Try this now:</strong> “Something I noticed today was… The reason I want to keep it is…”</p>
+        <p><strong>Make it a habit:</strong> Return to one saved thought when you next sit down to work.</p>
+        <a class="btn-secondary" href="/welcome/?device=ios&amp;intent=capture">Set up this workflow</a>
+      </article>
+      <noscript><p>The iPhone capture workflow is shown above. Explore the detailed guides below for more ways to begin.</p></noscript>
+    </section>
     <section class="use-case-section">
       <div class="section-heading left">
-        <p class="eyebrow">Search entry points</p>
-        <h2>Start with the language users already search for.</h2>
+        <p class="eyebrow">Explore a little further</p>
+        <h2>Find a useful place to begin.</h2>
         <p>
-          Each page begins with a practical productivity need, then shows how
-          MeerKatta supports the bigger habit: keeping thought flow alive.
+          Start with a reply, a fleeting idea, or a work instruction. Find a way
+          to keep speaking before you begin editing.
         </p>
       </div>
       <div class="use-case-card-grid">
@@ -153,6 +182,7 @@
       <div class="footer-links">
         <a href="/use-cases/">Use Cases</a>
         <a href="/about/">About</a>
+        <a href="/journal/">Field notes</a>
         <a href="/pricing/">Pricing</a>
         <a href="/privacy/">Privacy</a>
         <a href="/terms/">Terms</a>
@@ -161,5 +191,6 @@
       </div>
     </div>
   </footer>
+  <script type="module" src="/workflow.js"></script>
 </body>
 </html>

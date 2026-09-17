@@ -125,6 +125,7 @@
       <div class="nav-links">
         <a href="/use-cases/">Use Cases</a>
         <a href="/about/">About</a>
+        <a href="/journal/">Field notes</a>
         <a href="/pricing/">Pricing</a>
         <a href="/welcome/">Get Started</a>
         <a class="nav-cta" href="https://github.com/curiowls/meerkattasparkle/releases/latest/download/MeerKatta-latest.dmg">Download for Mac</a>
@@ -138,6 +139,7 @@
         <div class="mobile-menu-panel">
           <a href="/use-cases/">Use Cases</a>
           <a href="/about/">About</a>
+        <a href="/journal/">Field notes</a>
           <a href="/pricing/">Pricing</a>
           <a href="/welcome/">Get Started</a>
           <a class="nav-cta" href="https://github.com/curiowls/meerkattasparkle/releases/latest/download/MeerKatta-latest.dmg">Download for Mac</a>
@@ -151,12 +153,14 @@
       <div class="hero-layout">
         <div class="hero-copy">
           <p class="eyebrow">Thought capture for Mac and iPhone</p>
-          <h1>
-            Meer-ly a click to turn
-            <span class="transform-line">
-              <span class="phrase-emphasis phrase-mind">thoughts in mind</span>
-              <span class="connector">into</span>
-              <span class="phrase-emphasis phrase-hand">text at hand</span>
+          <h1 class="spark-headline" aria-label="Meer-ly a click. Turn a spark into a clear thought, a useful draft, a message to share, or a next step.">
+            <span class="hero-brand-wink" aria-hidden="true">Meer-ly a click.</span>
+            <span aria-hidden="true">Turn <span class="phrase-emphasis phrase-mind">a spark</span> into</span>
+            <span class="hero-outcomes" aria-hidden="true">
+              <span class="is-current">a clear thought.</span>
+              <span>a useful draft.</span>
+              <span>a message to share.</span>
+              <span>a next step.</span>
             </span>
           </h1>
           <p class="hero-subline">
@@ -172,35 +176,35 @@
           <p class="hero-support">7 days free. No credit card required.</p>
         </div>
 
-        <div class="hero-artifact" aria-label="Example of MeerKatta turning spoken thought into a saved capture">
+        <div class="hero-artifact motion-story" data-story="thought" aria-label="Example of MeerKatta turning spoken thought into a saved capture">
+          <div data-story-player></div><div class="story-fallback">
           <div class="thought-panel">
             <div class="artifact-header">
               <span>Raw thoughts</span>
               <span class="status status-live">Listening</span>
             </div>
             <p>
-              wait, the thing is not typing speed... it is that once I start fixing
-              the sentence, I stop thinking... maybe the product should help me keep
-              talking until the idea has a shape...
+              Wait, the thing is not typing speed… once I start fixing the sentence,
+              I stop thinking. Maybe I need to keep talking until the idea has a shape.
             </p>
           </div>
 
           <div class="capture-card">
             <div class="artifact-header">
-              <span>Stable thought</span>
+              <span>Structured thought</span>
               <span class="status">Saved</span>
             </div>
-            <h2>Editing breaks the thought flow</h2>
+            <h2>Give the thought room to arrive.</h2>
             <p>
-              The problem is not typing speed. It is that typing makes me become an
-              editor too early. MeerKatta should help me keep speaking until the
-              thought has a body, then return a clear draft I can reflect on and build from.
+              The problem is not typing speed. Fixing the sentence interrupts my thinking.
+              I want to keep speaking until the idea has a shape.
             </p>
             <div class="capture-actions" aria-label="Available capture actions">
               <span>Draft</span>
               <span>Share</span>
               <span>Build from</span>
             </div>
+          </div>
           </div>
         </div>
       </div>
@@ -215,72 +219,24 @@
       </div>
     </nav>
 
-    <section class="split-section" id="capture">
+    <section class="split-section capture-section" id="capture">
       <div class="section-anchor-slot" data-section-anchor-slot></div>
       <div class="split-copy">
+        <p class="eyebrow">Set up once. Catch the next thought.</p>
         <h2>Keep the thought before the moment passes.</h2>
-        <p>
-          Add MeerKatta to your Lock Screen, tap once, and speak for a few seconds.
-          It catches the small everyday thoughts too, not only the ones you planned
-          to write down.
-        </p>
+        <p>Add MeerKatta to your Lock Screen, then tap it whenever a thought arrives. See the setup first, followed by a real capture.</p>
+        <p class="demo-sequence-note" data-demo-status aria-live="polite">Plays in order: setup, then capture.</p>
+        <details class="demo-transcript"><summary>Read the steps</summary><p><strong>1. Add the widget.</strong> Touch and hold your Lock Screen, choose Customize, then tap the widget area. Find MeerKatta, add Quick Capture, close the picker, and tap Done.</p><p><strong>2. Capture a thought.</strong> Tap the MeerKatta widget, speak, then stop. Wait for processing and review the finished text in your Library. Complete first-time app setup and permissions before using the widget.</p></details>
       </div>
-      <div class="phone-demo" aria-label="Flow from iPhone Lock Screen shortcut to MeerKatta capture mode">
-        <div class="quick-capture-flow">
-          <div class="phone-frame phone-frame-small">
-            <div class="phone-screen lock-screen-preview">
-              <div class="dynamic-island" aria-hidden="true"></div>
-              <div class="lock-date">Fri Jul 10</div>
-              <div class="lock-time">12:27</div>
-              <div class="lock-widget-stack" aria-label="Lock Screen widgets">
-                <div class="weather-widget">
-                  <span class="weather-line">
-                    <span class="weather-mark" aria-hidden="true"></span>
-                    <span>21°</span>
-                  </span>
-                  <strong>Partly Cloudy</strong>
-                  <span>H:21° L:12°</span>
-                </div>
-                <div class="circle-widget weather-ring">
-                  <span>6</span>
-                </div>
-                <div class="circle-widget active-shortcut" aria-label="MeerKatta quick capture widget">
-                  <img class="widget-meerkatta-logo" src="/favicon-lbg.png" alt="" aria-hidden="true">
-                </div>
-              </div>
-              <div class="lock-bottom-shortcuts" aria-label="Lock Screen quick actions">
-                <div class="bottom-shortcut" aria-label="Flashlight"></div>
-                <div class="bottom-shortcut camera-shortcut" aria-label="Camera"></div>
-              </div>
-              <p class="flow-caption">Tap quick capture</p>
-            </div>
-          </div>
-
-          <div class="flow-bridge" aria-hidden="true">→</div>
-
-          <div class="phone-frame phone-frame-small">
-            <div class="phone-screen capture-screen-preview">
-              <div class="phone-status">
-                <span>12:27</span>
-              </div>
-              <div class="dynamic-island" aria-hidden="true"></div>
-              <div class="mini-app-title">
-                <span>Your</span>
-                <img src="/assets/MeerKatta-typelogo-dark.svg" alt="MeerKatta" width="105" height="21">
-              </div>
-              <div class="capture-sheet">
-                <div class="sheet-handle"></div>
-                <h3>Capturing</h3>
-                <span class="recording-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-                <p>Listening...</p>
-                <span class="capture-time">0:08</span>
-                <button type="button" disabled aria-label="Stop capture">
-                  <span class="stop-square" aria-hidden="true"></span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="capture-demos" data-demo-sequence aria-label="Lock Screen setup and capture demonstrations">
+        <figure class="capture-film" data-demo="setup">
+          <div class="capture-film-phone"><video muted playsinline preload="metadata" controls poster="/media/widget-setup-poster.jpg?v=3" aria-label="Add the MeerKatta Lock Screen widget" aria-describedby="setup-caption"><source src="/media/widget-setup.mp4?v=3" type="video/mp4"><a href="/media/widget-setup.mp4?v=3">Watch widget setup</a></video><div class="demo-next-cover" data-demo-complete hidden><span class="eyebrow">MeerKatta on your Lock Screen</span><strong>Ready when a thought arrives.</strong><span>One tap away, anytime.</span></div></div>
+          <figcaption><h3>1. Add quick capture</h3><p id="setup-caption" data-demo-caption>Touch and hold the Lock Screen.</p><progress max="1" value="0" aria-label="Widget setup progress"></progress><button type="button" data-demo-toggle hidden>Play setup</button></figcaption>
+        </figure>
+        <figure class="capture-film" data-demo="capture">
+          <div class="capture-film-phone"><video muted playsinline preload="metadata" controls poster="/media/lock-capture-poster.jpg?v=3" aria-label="From Lock Screen to finished capture" aria-describedby="capture-caption"><source src="/media/lock-capture.mp4?v=3" type="video/mp4"><a href="/media/lock-capture.mp4?v=3">Watch the capture demonstration</a></video><div class="demo-next-cover" data-demo-cover hidden><span class="eyebrow">Up next</span><strong>Capture a thought.</strong><span>Tap the widget.<br>Speak. Keep the thought.</span></div></div>
+          <figcaption><h3>2. Keep the thought</h3><p id="capture-caption" data-demo-caption>Next: tap the widget and speak.</p><progress max="1" value="0" aria-label="Capture demonstration progress"></progress><button type="button" data-demo-toggle hidden>Play capture</button></figcaption>
+        </figure>
       </div>
     </section>
 
@@ -295,7 +251,8 @@
           </p>
         </div>
 
-        <div class="work-artifact" aria-label="Codex context awareness example">
+        <div class="work-artifact motion-story" data-story="work" aria-label="Illustrative spoken instruction becoming a structured prompt">
+          <div data-story-player></div><div class="story-fallback">
           <div class="work-context-panel" aria-hidden="true">
             <div class="context-title">Working context</div>
             <div class="context-row">onboarding-flow.tsx</div>
@@ -323,6 +280,7 @@
               Include three steps: connect an AI provider, try a quick capture, and open
               settings. Keep it dismissible and non-blocking.
             </p>
+          </div>
           </div>
         </div>
       </div>
@@ -384,31 +342,6 @@
       </div>
     </section>
 
-    <section class="video-section">
-      <div class="video-copy">
-        <p class="eyebrow">When thought needs more than text</p>
-        <h2>Voice is the daily habit. Video is the richer format.</h2>
-        <p>
-          Record your screen or camera, then let MeerKatta help with the work you
-          would otherwise skip: trim, captions, audio polish, and platform-ready post text.
-        </p>
-      </div>
-      <div class="video-proof">
-        <div class="video-row">
-          <span>Screen recording</span>
-          <strong>Trimmed</strong>
-        </div>
-        <div class="video-row">
-          <span>Voice and captions</span>
-          <strong>Cleaned</strong>
-        </div>
-        <div class="video-row">
-          <span>Platform post text</span>
-          <strong>Ready</strong>
-        </div>
-      </div>
-    </section>
-
     <section class="pricing-section section-panel" id="pricing">
       <div class="section-heading">
         <p class="eyebrow">Pricing</p>
@@ -439,7 +372,7 @@
             <li>7 days free, no credit card required</li>
             <li>No provider setup</li>
             <li>Managed transcription and polish</li>
-            <li>Same capture and video workflows</li>
+            <li>Same voice capture workflows</li>
             <li>$9 monthly option available</li>
           </ul>
           <a href="/pricing/#plans" class="btn-secondary full-width">See subscription</a>
@@ -486,10 +419,32 @@
             <span class="faq-icon" aria-hidden="true">+</span>
           </button>
           <div class="faq-answer" hidden>
-            <p>Video is the extension of the same workflow: raw idea in, clearer shareable output out. The first release leads with voice because voice is the daily capture habit.</p>
+            <p>Video is in the making and is not available in the current release. We’re exploring visual capture as another way to preserve context and carry a thought forward. Scope and release timing are not settled.</p>
           </div>
         </div>
       </div>
+    </section>
+    <section class="video-section future-feature" id="in-the-making" aria-labelledby="future-title">
+      <div class="video-copy">
+        <p class="eyebrow">In the making</p>
+        <h2 id="future-title">When thought needs more than text.</h2>
+        <p>We’re exploring visual capture to keep what you see alongside what you mean—the same care for context and intent, beyond voice.</p>
+        <a href="/journal/when-thought-needs-more-than-text/">A field note on what’s next →</a>
+        <p class="future-availability">Not available in the current release.</p>
+      </div>
+      <div class="future-interest">
+        <p>Would visual capture help you?</p>
+        <button type="button" class="interest-vote" data-interest-vote hidden aria-pressed="false"><span aria-hidden="true">↑</span> I’m interested</button>
+        <p class="interest-status" data-interest-status role="status"></p>
+      </div>
+    </section>
+
+    <section class="use-case-section field-notes-preview" aria-labelledby="notes-title">
+      <div class="section-heading left"><p class="eyebrow">Keep the practice going</p><h2 id="notes-title">A little room for the next thought.</h2><p>Practical field notes on catching ideas, beginning drafts, and returning to what you keep.</p></div>
+      <div class="use-case-grid">
+        <a class="use-case-card" href="/journal/catch-an-unfinished-thought/"><p class="eyebrow">Catch an idea</p><h3>You don’t have to phrase it perfectly yet.</h3><p>A small way to keep the thought before you know where it belongs.</p><span>Read the field note →</span></a>
+        <a class="use-case-card" href="/journal/return-to-what-you-capture/"><p class="eyebrow">Build the return</p><h3>Make one saved thought useful.</h3><p>Choose a familiar cue and give a captured idea a next step.</p><span>Read the field note →</span></a>
+      </div><p><a href="/journal/">All field notes →</a> · <a href="/use-cases/#finder-title">Find a workflow for today →</a></p>
     </section>
   </main>
 
@@ -505,6 +460,7 @@
       <div class="footer-links">
         <a href="/use-cases/">Use Cases</a>
         <a href="/about/">About</a>
+        <a href="/journal/">Field notes</a>
         <a href="/pricing/">Pricing</a>
         <a href="/privacy/">Privacy</a>
         <a href="/terms/">Terms</a>
@@ -515,5 +471,7 @@
   </footer>
 
   <script type="module" src="/main.js"></script>
+<script type="module" src="/motion.js"></script>
+  <script type="module" src="/interest.js"></script>
 </body>
 </html>

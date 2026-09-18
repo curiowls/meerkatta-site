@@ -9,6 +9,10 @@
   --surface-tint: rgba(0, 0, 0, 0.04);
   --radius-inner: 6px;
   --radius-panel: 12px;
+  --type-caption: 12px;
+  --type-body: 16px;
+  --type-title-small: 24px;
+  --type-title-section: 40px;
 }
 
 * {
@@ -49,7 +53,7 @@ body {
   align-items: center;
   gap: 12px;
   color: var(--brand-primary);
-  font-size: 1.05rem;
+  font-size: var(--type-body);
   font-weight: 700;
   text-decoration: none;
 }
@@ -66,7 +70,7 @@ body {
 .payment-label {
   margin: 0 0 12px;
   color: var(--brand-primary);
-  font-size: 0.75rem;
+  font-size: var(--type-caption);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -74,7 +78,7 @@ body {
 
 .payment-copy h1 {
   margin: 0;
-  font-size: clamp(1.75rem, 5vw, 2.35rem);
+  font-size: var(--type-title-section);
   line-height: 1.15;
   letter-spacing: 0;
 }
@@ -82,7 +86,7 @@ body {
 .payment-copy p:last-child {
   margin: 16px 0 0;
   color: var(--text-secondary);
-  font-size: 1rem;
+  font-size: var(--type-body);
   line-height: 1.6;
 }
 
@@ -116,12 +120,12 @@ body {
 }
 
 .payment-plan strong {
-  font-size: 0.95rem;
+  font-size: var(--type-body);
 }
 
 .payment-plan span {
   color: var(--text-secondary);
-  font-size: 0.82rem;
+  font-size: var(--type-caption);
   line-height: 1.5;
 }
 
@@ -136,7 +140,7 @@ body {
   border-radius: var(--radius-inner);
   color: var(--brand-primary);
   background: transparent;
-  font-size: 0.9rem;
+  font-size: var(--type-body);
   font-weight: 600;
   text-decoration: none;
 }
@@ -152,7 +156,7 @@ body {
 .payment-provider {
   margin: 0;
   color: var(--text-secondary);
-  font-size: 0.8rem;
+  font-size: var(--type-caption);
   line-height: 1.6;
 }
 
@@ -186,5 +190,9 @@ body {
 
   .payment-copy {
     margin-top: 40px;
+  }
+
+  .payment-copy h1 {
+    font-size: var(--type-title-small);
   }
 }

@@ -1,5 +1,6 @@
 import {WorkStory,workExamples} from './work-story.jsx';
 import {playbackIcon} from './playback-icons.js';
+import {TYPE} from './typography.js';
 import React, {useEffect, useRef, useState} from 'react';
 import {createRoot} from 'react-dom/client';
 import {Player} from '@remotion/player';
@@ -21,20 +22,20 @@ function ThoughtStory({kind, compact}) {
   const words = story.raw.split(' ');
   const visible = Math.min(words.length, Math.floor(frame / 3) + 1);
   return <AbsoluteFill style={{background:'#f2ede4',color:'#302b26',fontFamily:'Inter, sans-serif',padding:compact ? 24 : 34,borderRadius:24}}>
-    <div style={{display:'flex',flexWrap:'wrap',gap:8,justifyContent:'space-between',fontSize:15,letterSpacing:1,textTransform:'uppercase',color:'#66594b'}}>
+    <div style={{display:'flex',flexWrap:'wrap',gap:8,justifyContent:'space-between',fontSize:TYPE.caption,letterSpacing:1,textTransform:'uppercase',color:'#66594b'}}>
       <span>{frame < 150 ? '01 / Let it arrive' : frame < 220 ? '02 / Find the shape' : '03 / Keep moving'}</span><span>Illustrative example</span>
     </div>
     <div style={{marginTop:24,padding:26,borderRadius:18,background:'#e5ddcf',minHeight:176}}>
-      <div style={{fontSize:15,marginBottom:14,color:'#706352'}}>Raw thought</div>
-      <p style={{fontSize:23,lineHeight:1.55,margin:0}}>{words.slice(0,visible).join(' ')}<span style={{opacity:frame < 150 ? 1 : 0}}> ▎</span></p>
+      <div style={{fontSize:TYPE.caption,marginBottom:14,color:'#706352'}}>Raw thought</div>
+      <p style={{fontSize:TYPE.bodyLarge,lineHeight:1.55,margin:0}}>{words.slice(0,visible).join(' ')}<span style={{opacity:frame < 150 ? 1 : 0}}> ▎</span></p>
     </div>
     <div style={{height:32,display:'flex',alignItems:'center',justifyContent:'center',opacity:interpolate(frame,[135,155],[0,1],clamp),color:'#846748'}}>↓</div>
     <div style={{padding:26,borderRadius:18,background:'#fffcf7',border:'1px solid #c9bba5',opacity:interpolate(frame,[150,180],[0,1],clamp),translate:`0 ${interpolate(frame,[150,180],[14,0],clamp)}px`}}>
-      <div style={{fontSize:15,color:'#706352',marginBottom:10}}>{story.end}</div>
-      <h3 style={{fontSize:28,lineHeight:1.2,margin:'0 0 14px'}}>{story.title}</h3>
-      <p style={{fontSize:22,lineHeight:1.5,margin:0}}>{story.result}</p>
+      <div style={{fontSize:TYPE.caption,color:'#706352',marginBottom:10}}>{story.end}</div>
+      <h3 style={{fontSize:TYPE.titleSmall,lineHeight:1.2,margin:'0 0 14px'}}>{story.title}</h3>
+      <p style={{fontSize:TYPE.bodyLarge,lineHeight:1.5,margin:0}}>{story.result}</p>
     </div>
-    <div style={{marginTop:'auto',fontSize:17,color:'#66594b',opacity:interpolate(frame,[220,245],[0,1],clamp)}}>{story.next}</div>
+    <div style={{marginTop:'auto',fontSize:TYPE.body,color:'#66594b',opacity:interpolate(frame,[220,245],[0,1],clamp)}}>{story.next}</div>
   </AbsoluteFill>;
 }
 function StoryPlayer({kind,example}) {

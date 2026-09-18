@@ -13,6 +13,18 @@
   --success: #28724f;
   --radius-inner: 6px;
   --radius-panel: 12px;
+
+  /*
+   * Editorial type scale. Page content must use one of these six roles.
+   * Miniature text inside product/device demonstrations is exempt because it
+   * represents an interface at reduced scale rather than website copy.
+   */
+  --type-caption: 12px;
+  --type-body: 16px;
+  --type-body-large: 18px;
+  --type-title-small: 24px;
+  --type-title-section: 40px;
+  --type-title-display: 60px;
 }
 
 * {
@@ -3140,7 +3152,7 @@ h3 {
 .capture-demos progress::-webkit-progress-value { background:#72462c; border-radius:3px; }
 .capture-demos figcaption button { margin:8px auto 0; padding:7px 15px; font-size:13px; }
 .capture-demos .is-playing .capture-film-phone { border-color:#72462c; }
-.demo-sequence-note { margin-top:20px; font-size:13px !important; }
+.demo-sequence-note { margin-top:20px; font-size:var(--type-caption) !important; }
 .demo-transcript { margin-top:14px; font-size:13px; line-height:1.6; color:var(--ink-muted); }
 .demo-transcript summary { cursor:pointer; }
 .demo-transcript p { font-size:13px; margin-top:12px; }
@@ -3235,3 +3247,213 @@ h3 {
 .story-transcript-sr { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; border:0; }
 
 .welcome-confirmation-title { font-size:clamp(38px,6vw,64px); line-height:1.08; letter-spacing:-.035em; }
+
+/*
+ * Website typography roles
+ *
+ * 12 — captions, eyebrows, metadata, supporting labels
+ * 16 — navigation, controls, standard body copy
+ * 18 — lead and long-form body copy
+ * 24 — card titles and in-article headings
+ * 40 — section and secondary page headings
+ * 60 — hero and primary page headings
+ *
+ * Add new copy by role, using these tokens. Do not introduce an intermediate
+ * size to solve local spacing; adjust width, spacing, weight, or line-height.
+ * Product/device mockups keep their internal scale because they are artwork.
+ */
+
+body,
+.nav-links,
+.btn-primary,
+.btn-secondary,
+.mobile-menu-panel,
+.thought-panel p,
+.legal-page,
+.legal-contact,
+.workflow-finder,
+.workflow-result,
+.interest-vote,
+.notes-mode button,
+.work-examples button {
+  font-size: var(--type-body);
+}
+
+.eyebrow,
+.release-note,
+.hero-support,
+.artifact-header,
+.status,
+.capture-actions span,
+.context-title,
+.context-row,
+.flow-label,
+.story-controls,
+.capture-film figcaption,
+.capture-film details,
+.demo-sequence-note,
+.demo-transcript,
+.demo-transcript p,
+.demo-next-cover .eyebrow,
+.demo-next-cover > span:last-child,
+.interest-status,
+.note-card .eyebrow,
+.note-permalink,
+.notes-pagination p,
+.future-feature .video-copy > a,
+.future-feature .video-copy > p.future-availability,
+#work .work-pattern,
+.work-transcript,
+.legal-page .effective,
+.legal-page .tldr h2,
+.legal-page table,
+.legal-page th {
+  font-size: var(--type-caption);
+}
+
+/* Role selectors that must outrank surrounding prose styles. */
+.split-copy p.eyebrow,
+.work-copy p.eyebrow,
+.video-copy p.eyebrow,
+.section-heading p.eyebrow,
+.section-anchor-inner a,
+.capture-demos figcaption p,
+.capture-demos figcaption button,
+.pricing-label {
+  font-size: var(--type-caption);
+}
+
+.section-anchor-inner a[aria-current="true"] {
+  font-size: var(--type-title-small);
+}
+
+p.eyebrow,
+span.eyebrow {
+  font-size: var(--type-caption);
+}
+
+.hero-subline,
+.section-heading p,
+.split-copy p,
+.work-copy p,
+.video-copy p,
+.capture-card p,
+.codex-column p,
+.about-lede,
+.use-case-hero p:not(.eyebrow),
+.journal-article p,
+.journal-article li,
+.journal-article .journal-lede,
+.note-body p,
+.note-body li,
+.note-preview,
+.future-feature .video-copy > p:not(.eyebrow) {
+  font-size: var(--type-body-large);
+}
+
+.principle-grid p,
+.pricing-subtitle,
+.pricing-card li,
+.price span,
+.future-interest > p:first-child,
+.use-case-card > span,
+.site-footer p,
+.footer-primary-link,
+.footer-links,
+.footer-links a {
+  font-size: var(--type-body);
+}
+
+.steps-grid p,
+.plan-card li,
+.decision-grid li,
+.plan-tagline,
+.billing-option,
+.welcome-tip-grid article > p {
+  font-size: var(--type-body);
+}
+
+.mode-choice p {
+  font-size: var(--type-body);
+}
+
+.pricing-hero-inner > p:not(.eyebrow),
+.use-case-hero p:not(.eyebrow),
+.use-case-cta p,
+.about-prose p,
+.about-vision .section-heading p,
+.about-card-grid p,
+.about-trust-grid p,
+.founder-grid p,
+.about-cta-inner p:not(.eyebrow):not(.hero-support),
+.welcome-hero-inner > div > p:not(.eyebrow),
+.welcome-habit-lede {
+  font-size: var(--type-body-large);
+}
+
+.pricing-assurance span,
+.billing-option span,
+.step-index {
+  font-size: var(--type-caption);
+}
+
+h3,
+.capture-card h2,
+.flow-lanes h3,
+.workflow-result h3,
+.journal-article h2,
+.capture-demos figcaption h3,
+.demo-next-cover strong,
+.note-card h2,
+.note-body h3,
+.notes-reader[data-mode="read"] .note-card h2 {
+  font-size: var(--type-title-small);
+}
+
+h2,
+.workflow-finder h2,
+.future-feature .video-copy h2,
+#work .work-copy h2,
+.legal-page h2 {
+  font-size: var(--type-title-section);
+}
+
+h1,
+.journal-article h1,
+.legal-page h1,
+.welcome-confirmation-title {
+  font-size: var(--type-title-display);
+}
+
+.spark-headline .hero-brand-wink {
+  font-size: var(--type-title-small);
+}
+
+.price {
+  font-size: var(--type-title-section);
+}
+
+.faq-icon {
+  font-size: var(--type-title-small);
+}
+
+.founder-quote p {
+  font-size: var(--type-title-small);
+}
+
+@media (max-width: 680px) {
+  h1,
+  .journal-article h1,
+  .legal-page h1,
+  .welcome-confirmation-title {
+    font-size: var(--type-title-section);
+  }
+
+  h2,
+  .workflow-finder h2,
+  .future-feature .video-copy h2,
+  #work .work-copy h2,
+  .legal-page h2 {
+    font-size: var(--type-title-small);
+  }
+}

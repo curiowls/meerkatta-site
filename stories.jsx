@@ -1,3 +1,4 @@
+import {WorkStory,workExamples} from './work-story.jsx';
 import {playbackIcon} from './playback-icons.js';
 import React, {useEffect, useRef, useState} from 'react';
 import {createRoot} from 'react-dom/client';
@@ -12,12 +13,7 @@ const stories = {
     result: 'The problem is not typing speed. Fixing the sentence interrupts my thinking. I want to keep speaking until the idea has a shape.',
     end: 'Structured thought', next: 'Keep it. Return when you’re ready.',
   },
-  work: {
-    raw: 'Maybe add a first-run checklist… actually, not a modal. After onboarding: connect the provider, try a capture, open settings. Keep it lightweight. Let people dismiss it.',
-    title: 'A clear starting point for the work.',
-    result: 'Add a lightweight, dismissible checklist after onboarding. Avoid a modal. Include three steps: connect the provider, try a capture, and open settings.',
-    end: 'Structured instruction', next: 'Review it. Then put it to work.',
-  },
+
 };
 function ThoughtStory({kind, compact}) {
   const frame = useCurrentFrame();
@@ -41,7 +37,8 @@ function ThoughtStory({kind, compact}) {
     <div style={{marginTop:'auto',fontSize:17,color:'#66594b',opacity:interpolate(frame,[220,245],[0,1],clamp)}}>{story.next}</div>
   </AbsoluteFill>;
 }
-function StoryPlayer({kind}) {
+function StoryPlayer({kind,example}) {
+  const lastFrame=kind==='work'?479:299;
   const player = useRef(null);
   const container = useRef(null);
   const manualPause = useRef(false);
@@ -68,23 +65,27 @@ function StoryPlayer({kind}) {
     ref.addEventListener('play',onPlay);ref.addEventListener('pause',onPause);ref.addEventListener('ended',onEnd);
     const observer = new IntersectionObserver(([entry]) => {visible.current=entry.isIntersecting;update();},{threshold:0.35});
     observer.observe(container.current);
-    const onMotion = () => {if(motion.matches) ref.seekTo(299);update();};
+    const onMotion = () => {if(motion.matches) ref.seekTo(lastFrame);update();};
     motion.addEventListener('change',onMotion);
     document.addEventListener('visibilitychange',update);
     return () => {observer.disconnect();motion.removeEventListener('change',onMotion);document.removeEventListener('visibilitychange',update);ref.removeEventListener('play',onPlay);ref.removeEventListener('pause',onPause);ref.removeEventListener('ended',onEnd);};
   },[]);
   const toggle = () => {
     if (playing) {manualPause.current=true;player.current.pause();}
-    else {manualPause.current=false;if(ended || player.current.getCurrentFrame() >= 299){player.current.seekTo(0);finished.current=false;setEnded(false);}player.current.play();}
+    else {manualPause.current=false;if(ended || player.current.getCurrentFrame() >= lastFrame){player.current.seekTo(0);finished.current=false;setEnded(false);}player.current.play();}
   };
-  const showResult = () => {manualPause.current=true;finished.current=true;player.current.pause();player.current.seekTo(299);setEnded(true);};
+  const showResult = () => {manualPause.current=true;finished.current=true;player.current.pause();player.current.seekTo(lastFrame);setEnded(true);};
   return <div ref={container}>
-    <div aria-hidden="true"><Player ref={player} component={ThoughtStory} inputProps={{kind,compact}} compositionWidth={compact ? 420 : 640} compositionHeight={compact ? 880 : 670} durationInFrames={300} fps={30} initialFrame={window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 299 : 0} initiallyMuted moveToBeginningWhenEnded={false} clickToPlay={false} style={{width:'100%'}} numberOfSharedAudioTags={0}/></div>
-    <div className="story-controls"><span>From unfinished speech to useful text · 10 seconds</span><div className="story-buttons"><button type="button" onClick={showResult} hidden={ended}>Show result</button><button type="button" className="playback-icon" onClick={toggle} aria-label={playing ? 'Pause story' : ended ? 'Replay story' : 'Play story'} title={playing ? 'Pause story' : ended ? 'Replay story' : 'Play story'} dangerouslySetInnerHTML={{__html:playbackIcon(playing ? 'Pause' : ended ? 'Replay' : 'Play')}} /></div></div>
+    <div aria-hidden="true"><Player ref={player} component={kind==='work'?WorkStory:ThoughtStory} inputProps={{kind,compact,example}} compositionWidth={compact ? 420 : kind==='work'?720:640} compositionHeight={kind==='work'?700:(compact?880:670)} durationInFrames={lastFrame+1} fps={30} initialFrame={window.matchMedia('(prefers-reduced-motion: reduce)').matches ? lastFrame : 0} initiallyMuted moveToBeginningWhenEnded={false} clickToPlay={false} style={{width:'100%'}} numberOfSharedAudioTags={0}/></div>
+    <div className="story-controls"><div className="story-buttons"><button type="button" onClick={showResult} hidden={ended}>Show result</button><button type="button" className="playback-icon" onClick={toggle} aria-label={playing ? 'Pause story' : ended ? 'Replay story' : 'Play story'} title={playing ? 'Pause story' : ended ? 'Replay story' : 'Play story'} dangerouslySetInnerHTML={{__html:playbackIcon(playing ? 'Pause' : ended ? 'Replay' : 'Play')}} /></div></div>
   </div>;
+}
+function WorkDemo(){
+  const [example,setExample]=useState('team');
+  return <><div className="work-examples" role="group" aria-label="Choose a dictation example">{Object.entries(workExamples).map(([key,value])=><button key={key} type="button" aria-pressed={example===key} onClick={()=>setExample(key)}>{value.label}</button>)}</div><StoryPlayer key={example} kind="work" example={example}/><div className="story-transcript-sr"><p>Dictation example: hold your configured hotkey, speak, then release.</p><p><strong>You say: </strong>{workExamples[example].raw}</p><p style={{whiteSpace:'pre-line'}}><strong>Inserted at your cursor: </strong>{workExamples[example].result}</p></div></>;
 }
 export function mountStory(element) {
   const mount = element.querySelector('[data-story-player]');
-  createRoot(mount, {onUncaughtError: () => {element.classList.remove('story-ready');mount.hidden=true;}}).render(<StoryPlayer kind={element.dataset.story}/>);
+  createRoot(mount, {onUncaughtError: () => {element.classList.remove('story-ready');mount.hidden=true;}}).render(element.dataset.story==='work'?<WorkDemo/>:<StoryPlayer kind={element.dataset.story}/>);
   element.classList.add('story-ready');
 }

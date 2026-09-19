@@ -3229,7 +3229,7 @@ h3 {
 .spark-headline .phrase-mind { animation:none; color:var(--ink); background:linear-gradient(transparent 82%,var(--brand-soft) 82%); }
 .spark-headline .phrase-mind::after { animation:none; content:none; }
 
-#work .work-layout { grid-template-columns:minmax(260px,.75fr) minmax(0,1.25fr); gap:48px; align-items:center; }
+#work .work-layout { grid-template-columns:minmax(340px,.8fr) minmax(520px,1fr); gap:clamp(52px,6vw,84px); align-items:center; }
 #work .work-copy h2 { font-size:clamp(34px,4vw,50px); }
 #work .work-pattern { font-size:13px; line-height:1.8; margin-top:24px; }
 .work-pattern span { padding:0 5px; color:var(--ink-muted); }

@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "vite",
     "check:typography": "python3 scripts/check-typography.py",
-    "build": "npm run check:typography && vite build",
+    "build": "node scripts/write-deployment-version.mjs && npm run check:typography && vite build",
+    "indexnow:urls": "node scripts/indexnow-changed-urls.mjs",
     "preview": "vite preview",
     "dev:api": "MEERKATTA_DEV_ORIGIN=http://127.0.0.1:5199 MEERKATTA_INTEREST_DIR=/tmp/meerkatta-interest-dev php -S 127.0.0.1:5202 -t public"
   },

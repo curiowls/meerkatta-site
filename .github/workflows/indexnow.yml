@@ -1,0 +1,51 @@
+name: Notify IndexNow after Hostinger deploy
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow-production
+  cancel-in-progress: true
+
+jobs:
+  submit-changed-urls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out the deployed commit
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Find changed public pages
+        id: changes
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          AFTER_SHA: ${{ github.sha }}
+        run: |
+          urls="$(node scripts/indexnow-changed-urls.mjs "$BEFORE_SHA" "$AFTER_SHA")"
+          {
+            echo 'urls<<INDEXNOW_URLS'
+            echo "$urls"
+            echo 'INDEXNOW_URLS'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Wait for the matching Hostinger deployment
+        if: steps.changes.outputs.urls != ''
+        env:
+          DEPLOY_COMMIT: ${{ github.sha }}
+        run: node scripts/wait-for-deployment.mjs
+
+      - name: Submit changed URLs to IndexNow
+        if: steps.changes.outputs.urls != ''
+        env:
+          INDEXNOW_URLS: ${{ steps.changes.outputs.urls }}
+        run: node scripts/submit-indexnow.mjs
+
+      - name: Report no indexable changes
+        if: steps.changes.outputs.urls == ''
+        run: echo 'No sitemap-listed HTML pages changed; IndexNow notification is unnecessary.'

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
-    "check:typography": "python3 scripts/check-typography.py",
+    "check:typography": "node scripts/check-typography.mjs",
     "build": "node scripts/write-deployment-version.mjs && npm run check:typography && vite build",
     "indexnow:urls": "node scripts/indexnow-changed-urls.mjs",
     "preview": "vite preview",

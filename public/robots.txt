@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /padsandbox/
 
 Sitemap: https://meerkatta.com/sitemap.xml

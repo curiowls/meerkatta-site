@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Only redirect explicit requests, not the server's directory index lookup.
+  RewriteCond %{THE_REQUEST} \s/+[^?\s]*index\.html[?\s] [NC]
+  RewriteRule ^(.*/)?index\.html$ https://meerkatta.com/$1 [R=301,L,NE]
+
+  RewriteCond %{HTTP_HOST} ^www\.meerkatta\.com$ [NC]
+  RewriteRule ^ https://meerkatta.com%{REQUEST_URI} [R=301,L,NE]
+</IfModule>

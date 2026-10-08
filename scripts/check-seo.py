@@ -34,6 +34,15 @@ for url in urls:
     for schema in page.schemas: assert schema.get('@context')=='https://schema.org',p
 for name in ['pay','padsandbox']:
     assert 'noindex' in Page((root/name/'index.html').read_text()).meta.get('robots',''),name
+    assert f'https://meerkatta.com/{name}/' not in urls, (name, 'checkout in sitemap')
+
+# Google must crawl excluded checkout pages to read their noindex tags.
+from urllib.robotparser import RobotFileParser
+robots=RobotFileParser()
+robots.parse((root/'robots.txt').read_text().splitlines())
+for url in urls + ['https://meerkatta.com/pay/', 'https://meerkatta.com/padsandbox/']:
+    assert robots.can_fetch('Googlebot', url), (url, 'blocked from crawling')
+assert (root/'.htaccess').is_file(), 'Missing production URL normalization rules'
 print(f'Passed: {len(urls)} sitemap pages, canonical URLs, descriptions, H1s, JSON-LD, social URLs, and checkout noindex.')
 
 # Every local link and media reference in the built pages must resolve.

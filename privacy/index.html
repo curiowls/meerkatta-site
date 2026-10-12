@@ -73,133 +73,45 @@
   <main class="legal-main">
     <article class="legal-page">
       <h1>Privacy Policy</h1>
-      <p class="effective"><strong>Effective:</strong> 2026-05-09</p>
-
-      <p>MeerKatta is built and operated by Lugugul llc ("we", "us"). This policy explains what we collect, what we don't, and how we handle the data the app touches.</p>
-
-      <div class="tldr">
-        <h2>TL;DR</h2>
-        <ul>
-          <li>We don't run servers that hold your voice, transcripts, or polished writing. Those live on your device (and your iCloud, if you're signed in).</li>
-          <li>Cloud AI processing depends on your plan: Lifetime uses your supported API key; Subscription uses MeerKatta's configured providers. Raw transcription can run on-device/offline.</li>
-          <li>We don't sell, share, or use your content for training.</li>
-          <li>We do collect: your license key, payment info via Paddle, and (if you opt in) anonymous crash reports.</li>
-        </ul>
-        <p>If anything here is unclear, email <strong>hello@meerkatta.com</strong> and we'll plain-English it.</p>
-      </div>
-
-      <hr>
-
-      <h2>1. What MeerKatta does with your audio</h2>
-      <p>When you dictate, MeerKatta:</p>
-      <ol>
-        <li>Records audio on your device.</li>
-        <li>Creates a raw transcript using the transcription option you selected, which may be on-device/offline or a supported cloud transcription provider.</li>
-        <li>If AI polish is enabled, sends the raw transcript to the supported AI provider configured for your plan or API key.</li>
-        <li>Inserts the polished text where you asked (a focused field, your Library, your Notes, your clipboard).</li>
-      </ol>
-      <p><strong>Processing depends on the plan and settings you choose.</strong> If you connect your own API key, your audio and text go to the AI provider you chose under your account. If you use a managed MeerKatta plan, AI requests are processed through MeerKatta's configured providers. On-device/offline transcription does not require a network connection.</p>
-      <p>The polished text lives on your device in MeerKatta's local Library. If you opt in, it can be pushed to Apple Notes via a Shortcut you install — that's an Apple system, not ours.</p>
-
-      <h2>2. What we collect</h2>
-      <p>The minimum needed to run a paid product responsibly.</p>
-      <table>
-        <thead>
-          <tr><th>Data</th><th>Why</th><th>Where it lives</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Your email + payment info</td><td>Sell you a license, deliver receipts</td><td><a href="https://paddle.com">Paddle</a> (our payment processor and Merchant of Record)</td></tr>
-          <tr><td>Your license key + activation events</td><td>Verify your license is valid on your devices</td><td><a href="https://keygen.sh">Keygen</a> (license server)</td></tr>
-          <tr><td>Anonymous crash reports</td><td>Find and fix bugs</td><td><a href="https://sentry.io">Sentry</a> — opt-in, default ON, toggle off in <strong>Permissions</strong> settings</td></tr>
-        </tbody>
-      </table>
-      <p>That's it.</p>
-
-      <h2>3. What we don't collect</h2>
-      <ul>
-        <li>We don’t use browsing analytics. If you vote for a future feature, we store your interest and a random first-party cookie to remember it and let you withdraw it. The cookie lasts up to one year. The vote endpoint uses a keyed, short-lived hash of your IP address to limit abuse; it does not store the raw IP address. Hosting access logs are managed separately by the hosting provider.</li>
-        <li>We don't track your usage of the app.</li>
-        <li>We don't have advertising IDs, marketing pixels, or third-party trackers.</li>
-        <li>We don't read your dictated content. We never store it on any server we control.</li>
-        <li>We don't sell or share your data.</li>
-        <li>We don't use your content to train any model.</li>
-      </ul>
-
-      <h2>4. Crash reporting (Sentry)</h2>
-      <p>If the crash-reporting toggle is on (default), the app sends anonymous crash data to Sentry. This includes:</p>
-      <ul>
-        <li>The function call stack at the time of the crash</li>
-        <li>The macOS / iOS version, app version, device model</li>
-        <li>A short trail of recent app actions ("recording started", "polish completed")</li>
-      </ul>
-      <p>It explicitly <strong>excludes</strong>:</p>
-      <ul>
-        <li>Audio</li>
-        <li>Transcript text</li>
-        <li>Polished output</li>
-        <li>API keys</li>
-        <li>Vocabulary, tone preferences, or anything else you typed</li>
-      </ul>
-      <p>You can disable crash reports at any time in <strong>Permissions</strong> (Mac) or <strong>More → Permissions → Privacy</strong> (iOS). When disabled, the SDK is torn down and no further events leave the device.</p>
-
-      <h2>5. Personalization data</h2>
-      <p>Your custom vocabulary, tone preferences, and other Voice settings are stored locally on your device and synced via <strong>iCloud Key-Value Store</strong> (Apple's iCloud, signed into your Apple ID). We don't operate this storage; Apple does. Apple's privacy policy applies. We can't see this data and we don't try to.</p>
-
-      <h2>6. Payments</h2>
-      <p>Paddle handles payments as the <strong>Merchant of Record</strong>. They see your payment method, billing address (for tax purposes), and transaction history. Their privacy policy: <a href="https://www.paddle.com/legal/privacy">paddle.com/legal/privacy</a>.</p>
-      <p>We see only what Paddle forwards to us in webhook events: customer email, subscription status, and whether your license should be active. We do not store full card numbers, CVV, or any direct payment credentials.</p>
-
-      <h2>7. Third parties</h2>
-      <p>The companies whose services touch any data related to MeerKatta:</p>
-      <table>
-        <thead>
-          <tr><th>Service</th><th>Role</th><th>Their privacy policy</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Paddle</td><td>Payments + tax</td><td><a href="https://www.paddle.com/legal/privacy">paddle.com/legal/privacy</a></td></tr>
-          <tr><td>Keygen</td><td>License issuance</td><td><a href="https://keygen.sh/privacy">keygen.sh/privacy</a></td></tr>
-          <tr><td>Sentry</td><td>Crash reporting</td><td><a href="https://sentry.io/privacy/">sentry.io/privacy</a></td></tr>
-          <tr><td>Apple</td><td>iOS / macOS / iCloud / TestFlight / App Store</td><td><a href="https://www.apple.com/legal/privacy/">apple.com/legal/privacy</a></td></tr>
-          <tr><td>Supported AI providers</td><td>AI transcription + polishing when cloud AI is enabled through your API key or a managed plan</td><td>Provider policies apply to your direct usage; managed-plan processing is governed by MeerKatta's provider configuration</td></tr>
-        </tbody>
-      </table>
-
-      <h2>8. Children</h2>
-      <p>MeerKatta is not directed at children under 13 (US) or 16 (EU). We do not knowingly collect personal information from children.</p>
-
-      <h2>9. Your rights</h2>
-      <p>You can:</p>
-      <ul>
-        <li><strong>Access</strong> the data we hold about you (email hello@meerkatta.com).</li>
-        <li><strong>Delete</strong> your account and license records (email hello@meerkatta.com — we'll process the deletion request through Paddle and Keygen within 30 days).</li>
-        <li><strong>Export</strong> what we have (a copy of your license + payment metadata, on request).</li>
-      </ul>
-      <p>EU/UK/California residents have additional rights under GDPR / UK GDPR / CCPA respectively. Same email; we'll honor them in the legally required timeframe.</p>
-
-      <h2>10. Data retention</h2>
-      <p>We keep license records for the duration of your license + 7 years (US tax-record requirement on Paddle's side). Crash reports rotate out of Sentry after 90 days on the free tier we use.</p>
-      <p>If you delete your account, payment + license data is removed within 30 days, except where law requires us to keep records longer (Paddle handles the financial record retention).</p>
-
-      <h2>11. International transfers</h2>
-      <p>Our license server (Keygen), payment processor (Paddle), and crash reporter (Sentry) operate from servers in the US and EU. By using MeerKatta you consent to data transfer to and processing in those jurisdictions, with the safeguards each vendor maintains under their own GDPR / CCPA compliance.</p>
-
-      <h2>12. Updates to this policy</h2>
-      <p>If we change anything material, we'll:</p>
-      <ol>
-        <li>Update the "Effective" date at the top of this page.</li>
-        <li>Notify you via email (the address tied to your license) and an in-app notice on next launch.</li>
-      </ol>
-      <p>You'll have the chance to read the changes before they apply to you.</p>
-
-      <h2>13. Contact</h2>
-      <p>Questions, requests, or concerns:</p>
-      <div class="legal-contact">
-        <strong>hello@meerkatta.com</strong>
-        Lugugul llc<br>
-        2108 N St Ste C<br>
-        Sacramento, CA 95816<br>
-        USA
-      </div>
+      <p class="effective"><strong>Effective:</strong> 2026-10-11</p>
+      <p>MeerKatta is operated by Lugugul llc. This policy explains what information the app and our services process, why we use it, and your choices.</p>
+      <div class="tldr"><h2>At a glance</h2><ul>
+        <li>On iOS, you can purchase, restore eligible Apple purchases, and use purchased features without registering a MeerKatta account. Signing in later is optional.</li>
+        <li>Your Library is stored on your devices and, when enabled, in your private Apple iCloud storage. We do not store Library content in a MeerKatta account database.</li>
+        <li>Cloud transcription and polishing send the required audio, text and personalization inputs to AI providers. Managed processing routes through MeerKatta's service; your own provider keys use the supported provider you select.</li>
+        <li>We keep purchase, service, security and support records. We do not sell personal information, use your captures for advertising or model training, or track you across third-party apps or websites.</li>
+      </ul></div>
+      <h2>1. Audio, writing and personalization</h2>
+      <p>MeerKatta records audio after you start a capture. Depending on your settings and availability, it transcribes with Apple Speech, a supported provider using your API key, or a managed cloud provider. Apple Speech is an optional backup; on-device recognition depends on the language and device. Speech Recognition permission is not required for cloud transcription.</p>
+      <p>Cloud transcription processes your recording. Polishing processes your transcript and may include the vocabulary, tone preferences, phrases or writing sample needed for your requested result. Managed requests pass through our Supabase service to configured AI providers. Own-provider requests use your provider credentials. Providers process this information under their applicable terms and privacy policies.</p>
+      <p>Our managed usage database records operational metadata rather than audio, transcripts, polished output, vocabulary or writing samples. We do not operate a server-side Library of your captures. This does not mean that cloud processing never passes through our servers.</p>
+      <h2>2. Device storage and Apple services</h2>
+      <p>Your Library is saved locally. Supported Library and settings sync use Apple iCloud when enabled. Provider keys are stored in Apple Keychain and may sync through iCloud Keychain when that Apple feature is enabled. These Apple storage paths are separate from MeerKatta sign-in; registering does not upload your Library to a MeerKatta account database. You control Apple storage through your device and Apple account settings.</p>
+      <h2>3. Optional accounts and guest service access</h2>
+      <p>Purchasing, restoring eligible Apple purchases and using purchased iOS features do not require a MeerKatta registration. To authenticate requests and protect purchase access, our backend uses a guest service identifier and authentication session. These do not require you to provide a name or email.</p>
+      <p>If you choose to sign in with Apple or Google, Supabase processes your account identifier, email, profile information supplied by the sign-in provider, and authentication metadata. We use these for sign-in, eligible purchase association, account activity and access recovery. An eligible guest purchase can be linked when you sign in later. Account linking is optional and does not change the quality of purchased processing.</p>
+      <h2>4. Purchases</h2>
+      <p>Apple handles App Store payments. Paddle handles eligible website and Mac purchases as Merchant of Record. We do not receive your full card number, CVV or Apple payment credentials. Older Mac releases may use Keygen license and activation records.</p>
+      <p>Our service stores purchase evidence needed to grant and restore access: billing source, product, transaction or subscription identifiers, signed purchase evidence, status, renewal and paid-through information, test or production environment, and associations with a guest service identity or optional account. Subscriptions and one-time purchases are separate records. Restoring access does not restore deleted Library content.</p>
+      <h2>5. Service activity and security</h2>
+      <p>We store operational records such as service or account identifiers, platform and app version, processing operation, provider and model, audio duration, input/output size or token estimates, processing time, status and error codes, and estimated service cost. Account features may also use capture activity counts. We use these for app functionality, service analysis, troubleshooting, capacity and cost management, purchase recovery and abuse prevention.</p>
+      <p>Security checks can use installation identifiers, device/app verification information, request proofs and network-related abuse signals. These controls work independently of whether you provide an email. We do not use advertising identifiers or combine these records with third-party advertising data.</p>
+      <h2>6. Support</h2>
+      <p>You can contact us through Get help without a paid plan or registered MeerKatta account. We store the message you choose to send, its case reference, timestamps, replies, service/account association, and app build and OS version. A reply email is optional. Recordings, transcripts, provider keys and credentials are not automatically attached; anything you type into the message is part of your request.</p>
+      <p>Replies are available in Get help. If you provide an email, it may be used for support correspondence. You can also email <a href="mailto:hello@meerkatta.com">hello@meerkatta.com</a>. Support messages are available to authorized staff. Supabase stores correspondence; our mail services, including Resend and Hostinger Mail, handle support notifications and email.</p>
+      <h2>7. Diagnostics</h2>
+      <p>Sentry provides crash and error reporting, enabled by default and controllable in Permissions settings. Reports can contain stack traces, app/OS/device details, an installation identifier and controlled technical state markers. We disable automatic UI/network breadcrumbs and performance tracing on iOS, and configure Sentry not to send default personally identifying information. We do not intentionally attach capture content, provider keys, vocabulary or writing samples. Operational processing performance and errors are recorded separately as described above.</p>
+      <h2>8. Website information and service providers</h2>
+      <p>We do not use browsing analytics or advertising pixels. If you vote for a future feature, we store the vote and a random first-party cookie so you can remember or withdraw it. The cookie lasts up to one year. The endpoint uses a short-lived keyed IP hash to limit abuse, not a stored raw IP address. Hosting access logs are managed by the hosting provider.</p>
+      <p>Apple provides distribution, purchases, sign-in, Speech, Keychain and iCloud. Supabase provides authentication, purchase/service records, managed request routing, support and operational data. Paddle provides eligible web/Mac billing; Keygen supports older Mac licensing. Sentry provides diagnostics. AI providers process requested transcription and polishing. Resend and Hostinger Mail handle support email. These services may process information in multiple countries, including the United States, under their applicable safeguards and policies.</p>
+      <h2>9. Retention and deletion</h2>
+      <p>Local and iCloud content remains until you edit or delete it using the app or Apple controls. Account and guest service data are handled through the deletion controls available in Plan &amp; Access. We retain service, purchase, support and security records as needed to provide and recover access, handle correspondence, reconcile billing, prevent duplicate claims or abuse, and meet legal obligations. Purchase evidence and privacy-minimized deletion records may be retained after account or guest-data deletion. Billing and diagnostic providers also have their own applicable retention requirements.</p>
+      <p>Deleting an account or guest service data does not cancel an Apple subscription, request an Apple refund, or delete content from your private Apple storage. Manage Apple subscriptions through Apple's subscription settings. Contact us about eligible Paddle subscriptions or other privacy requests.</p>
+      <h2>10. Your choices</h2>
+      <p>You can purchase and use iOS features without registration, link an account later, defer optional Apple Speech setup, choose supported processing providers, disable crash reporting, and edit/export/delete Library content. To request access, correction, deletion or other privacy rights available where you live, contact <a href="mailto:hello@meerkatta.com">hello@meerkatta.com</a>. We may ask for proportionate proof that the request concerns your data or purchase.</p>
+      <p>We use encrypted transport, provider-signed purchase verification, Keychain storage, server-side credentials and scoped database access. No system is perfectly secure. MeerKatta is not directed to children under 13. We update this policy's effective date when it changes and provide notice of material changes as appropriate.</p>
+      <h2>11. Contact</h2>
+      <div class="legal-contact"><a href="mailto:hello@meerkatta.com">hello@meerkatta.com</a><br>Lugugul llc<br>2108 N St Ste C<br>Sacramento, CA 95816<br>USA</div>
     </article>
   </main>
 

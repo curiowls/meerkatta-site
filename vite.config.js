@@ -24,6 +24,7 @@ export default defineConfig({
         about: resolve(__dirname, 'about/index.html'),
         pricing: resolve(__dirname, 'pricing/index.html'),
         privacy: resolve(__dirname, 'privacy/index.html'),
+        help: resolve(__dirname, 'help/index.html'),
         terms: resolve(__dirname, 'terms/index.html'),
         refund: resolve(__dirname, 'refund/index.html'),
         pay: resolve(__dirname, 'pay/index.html'),

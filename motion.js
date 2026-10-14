@@ -11,75 +11,100 @@ const motion = matchMedia('(prefers-reduced-motion: reduce)');
 const group = document.querySelector('[data-demo-sequence]');
 if (group) {
   const status = document.querySelector('[data-demo-status]');
-  const demos = [...group.querySelectorAll('[data-demo]')].map(figure => ({
-    figure, video:figure.querySelector('video'), button:figure.querySelector('button'),
-    caption:figure.querySelector('[data-demo-caption]'), progress:figure.querySelector('progress'),
-    name:figure.dataset.demo,
-  }));
-  const cues = [
-    [[0,'Touch and hold the Lock Screen.'],[1.1,'Choose Customize, then tap the widget area.'],[4.1,'Find MeerKatta in the widget list.'],[5.6,'Tap Quick Capture to add it.'],[9.1,'Close the picker and tap Done.'],[11.1,'Ready for the next thought.']],
-    [[0,'Tap MeerKatta on your Lock Screen.'],[3,'Speak while the thought is still fresh.'],[8,'Stop and let the text take shape.'],[10,'Your thought, captured and ready to use.']],
+  const setup = group.querySelector('[data-demo="setup"]');
+  const guide = setup.querySelector('[data-widget-guide]');
+  const setupButton = setup.querySelector('[data-demo-toggle]');
+  const previous = setup.querySelector('[data-widget-previous]');
+  const next = setup.querySelector('[data-widget-next]');
+  const capture = group.querySelector('[data-demo="capture"]');
+  const video = capture.querySelector('video');
+  const captureButton = capture.querySelector('[data-demo-toggle]');
+  const steps = [
+    ['Touch and hold your Lock Screen.',4000],
+    ['Tap Customize below your Lock Screen.',5000],
+    ['Tap the widget area below the time.',4000],
+    ['Choose MeerKatta from the widget list.',7000],
+    ['Close the picker and tap Done.',5000],
   ];
+  const cues = [[0,'Tap MeerKatta on your Lock Screen.'],[3,'Speak while the thought is still fresh.'],[8,'Stop and let the text take shape.'],[10,'Your thought, captured and ready to use.']];
   const cover = group.querySelector('[data-demo-cover]');
-  let captureStarted = false;
-  cover.hidden = false;
-  let active = 0;
-  let visible = false;
-  let manualPause = false;
-  let finished = false;
+  let step=0, elapsed=0, playing=false, setupComplete=false;
+  let active='setup', visible=false, manualPause=false, captureStarted=false, finished=false;
+  let lastTick=performance.now();
+  const iconButton = (button,action,label) => {
+    button.classList.add('playback-icon');
+    button.setAttribute('aria-label',label);button.title=label;
+    button.innerHTML=playbackIcon(action);
+  };
   const paint = () => {
     cover.hidden = captureStarted;
-    group.querySelector('[data-demo-complete]').hidden = !demos[0].video.ended;
-    demos.forEach((demo,index) => {
-      const v=demo.video;
-      demo.figure.classList.toggle('is-playing',!v.paused);
-      const action = !v.paused ? 'Pause' : v.ended ? 'Replay' : 'Play';
-      const label = `${action} ${demo.name}`;
-      demo.button.classList.add('playback-icon');
-      demo.button.setAttribute('aria-label',label);
-      demo.button.title=label;
-      demo.button.innerHTML=playbackIcon(action);
-      demo.progress.value=Number.isFinite(v.duration) ? v.currentTime/v.duration : 0;
-      const cue=cues[index].filter(([time])=>time<=v.currentTime).at(-1);
-      if(cue) demo.caption.textContent=cue[1];
-    });
+    guide.dataset.step=String(step);
+    guide.dataset.choice=String(step===3&&elapsed>=3000);
+    guide.dataset.done=String(step===4&&(elapsed>=2000||setupComplete));
+    guide.querySelector('[data-demo-complete]').hidden=guide.dataset.done!=='true';
+    guide.querySelectorAll('[data-widget-scene]').forEach(scene=>{scene.hidden=Number(scene.dataset.widgetScene)!==step;});
+    let caption=steps[step][0];
+    if(step===3&&elapsed>=3000)caption='Choose a Quick Capture widget size.';
+    if(step===4&&(elapsed>=2000||setupComplete))caption='Ready for the next thought. One tap away.';
+    const captionElement=setup.querySelector('[data-demo-caption]');
+    const text=`${step+1} / 5 · ${caption}`;
+    if(captionElement.textContent!==text)captionElement.textContent=text;
+    setup.querySelector('progress').value=step+1;
+    previous.disabled=step===0;next.disabled=step===4;
+    setup.classList.toggle('is-playing',playing);
+    capture.classList.toggle('is-playing',!video.paused);
+    iconButton(setupButton,playing?'Pause':setupComplete?'Replay':'Play',playing?'Pause setup':setupComplete?'Replay setup':'Play setup');
+    const action=!video.paused?'Pause':video.ended?'Replay':'Play';
+    iconButton(captureButton,action,`${action} capture`);
+    capture.querySelector('progress').value=Number.isFinite(video.duration)?video.currentTime/video.duration:0;
+    const cue=cues.filter(([time])=>time<=video.currentTime).at(-1);
+    if(cue)capture.querySelector('[data-demo-caption]').textContent=cue[1];
   };
-  const pauseAll = () => {demos.forEach(d=>d.video.pause());paint();};
+  const pauseAll = () => {playing=false;video.pause();paint();};
   const playActive = () => {
-    demos.forEach((d,index)=>{if(index!==active)d.video.pause();});
-    demos[active].video.play().catch(()=>{paint();status.textContent='Press Play to watch setup, then capture.';});
+    if(active==='setup'){video.pause();playing=true;lastTick=performance.now();status.textContent='Playing setup. Capture plays next.';paint();}
+    else {playing=false;video.play().catch(()=>{paint();status.textContent='Press Play to watch the capture.';});}
   };
   const update = () => {
     if (visible && !document.hidden && !motion.matches && !manualPause && !finished) playActive();
     else pauseAll();
   };
-  demos.forEach((demo,index) => {
-    demo.video.controls=false;
-    demo.video.defaultPlaybackRate=0.75;
-    demo.video.playbackRate=0.75;
-    demo.button.hidden=false;
-    demo.button.addEventListener('click',()=>{
-      if(!demo.video.paused){manualPause=true;pauseAll();status.textContent=`${index===0?'Setup':'Capture'} paused. Press Play to continue.`;return;}
-      pauseAll();active=index;manualPause=false;finished=false;
-      if(demo.video.ended)demo.video.currentTime=0;
-      playActive();
-    });
-    demo.video.addEventListener('play',()=>{
-      // A single active video is an invariant, including external media controls.
-      captureStarted=index===1;
-      active=index;demos.forEach((d,i)=>{if(i!==index)d.video.pause();});
-      status.textContent=index===0?'Playing setup. Capture plays next.':'Playing capture.';
-      paint();
-    });
-    demo.video.addEventListener('pause',paint);
-    demo.video.addEventListener('timeupdate',paint);
-    demo.video.addEventListener('ended',()=>{
-      if(index!==active)return;
-      if(index===0){active=1;demos[1].video.currentTime=0;if(visible&&!document.hidden&&!motion.matches&&!manualPause)playActive();}
-      else {finished=true;status.textContent='Both demos complete. Replay either one.';}
-      paint();
+  [previous,next].forEach(button=>{
+    iconButton(button,'Play',button===previous?'Previous setup step':'Next setup step');
+    button.addEventListener('click',()=>{
+      pauseAll();manualPause=true;finished=false;active='setup';setupComplete=false;
+      step=Math.max(0,Math.min(4,step+(button===previous?-1:1)));elapsed=0;
+      status.textContent='Setup paused. Explore each step at your own pace.';paint();
     });
   });
+  setupButton.addEventListener('click',()=>{
+    if(playing){manualPause=true;pauseAll();status.textContent='Setup paused.';return;}
+    pauseAll();active='setup';manualPause=false;finished=false;
+    if(setupComplete){step=0;elapsed=0;setupComplete=false;}
+    playActive();
+  });
+  video.controls=false;video.defaultPlaybackRate=0.75;video.playbackRate=0.75;captureButton.hidden=false;
+  captureButton.addEventListener('click',()=>{
+    if(!video.paused){manualPause=true;pauseAll();status.textContent='Capture paused.';return;}
+    pauseAll();active='capture';manualPause=false;finished=false;
+    if(video.ended)video.currentTime=0;
+    playActive();
+  });
+  video.addEventListener('play',()=>{playing=false;active='capture';captureStarted=true;status.textContent='Playing capture.';paint();});
+  video.addEventListener('pause',paint);video.addEventListener('timeupdate',paint);
+  video.addEventListener('ended',()=>{finished=true;status.textContent='Capture complete. Replay or revisit the setup steps.';paint();});
+  setInterval(()=>{
+    const now=performance.now();
+    if(playing&&visible&&!document.hidden){
+      elapsed+=now-lastTick;
+      if(elapsed>=steps[step][1]){
+        if(step<4){step++;elapsed=0;}
+        else {setupComplete=true;playing=false;active='capture';if(!motion.matches&&!manualPause)playActive();}
+      }
+      paint();
+    }
+    lastTick=now;
+  },100);
   paint();
   new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;update();},{threshold:0.35}).observe(group);
   document.addEventListener('visibilitychange',update);

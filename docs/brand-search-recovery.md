@@ -45,6 +45,44 @@ Lugugul's current source already contains a featured MeerKatta product entry and
 website link on `/products`. Verify https://lugugul.com/products after that site's
 own deployment; no extra backlink directory or duplicate landing page is needed.
 
+## Verified implementation and search evidence - October 16
+
+- Website changes published to GitHub main in `f77e72f`; build, typography,
+  18-page SEO checks, and 634 internal references pass. Desktop and narrow mobile
+  previews show the new introductory copy without text overflow.
+- Release-repository README published in `afbcd1c`. Its public description now
+  identifies MeerKatta as AI dictation and thought capture for Mac and iPhone;
+  its homepage is https://meerkatta.com/.
+- Search Console URL Inspection confirms the homepage is indexed, with
+  https://meerkatta.com/ as Google's selected canonical. Last recorded crawl:
+  October 7, 2026, 4:30:21 AM, Googlebot smartphone. The live URL test passed on
+  October 16. Manual Actions and Security Issues both report no issues detected.
+- Performance, Web search, September 17 through October 14, filtered to queries
+  containing `meerkatta`: zero reported clicks and impressions. Filtered query
+  reports can omit low-volume data; this is a measurement baseline, not proof
+  that nobody searched for the name.
+- The user's existing Google search for unquoted `meerkatta` explicitly displays
+  "These are results for meerkat" with "Search instead for meerkatta."
+  Following that control shows the official homepage as the first organic
+  result, followed by About, Use Cases, Thought Capture, Pricing, and Custom
+  Vocabulary. The AI Overview also describes the actual app. These results are
+  personalized; they do not prove the default search has stopped correcting
+  the spelling or establish rankings for every user/location.
+- The remaining ranking problem is therefore primarily query correction in the
+  observed search, despite recognition of the exact-spelling product. Keep
+  building consistent official product references; do not rename the product,
+  stuff keywords, buy links, or manufacture searches/clicks.
+- Direct production HTTP requests from this machine timed out after publication,
+  but Google's fresh live homepage test at 6:21 PM fetched the newly published
+  title, description, and Open Graph metadata. This independently confirms
+  deployment of the homepage changes through Google's fetched HTML. The exact
+  production deployment marker was not retrieved.
+- Live tests passed for both pending non-www articles. Search Console confirmed
+  "Indexing requested" for both articles and for the updated homepage. They were
+  added to Google's priority crawl queue; acceptance does not prove reindexing.
+- The sitemap report shows Success, last read October 15, with all 18 pages
+  discovered. A duplicate sitemap submission was unnecessary.
+
 ## Search Console actions after deployment
 
 Use the Domain property for `meerkatta.com` if available, so www and non-www

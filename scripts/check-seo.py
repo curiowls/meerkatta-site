@@ -7,27 +7,36 @@ import xml.etree.ElementTree as ET
 
 class Page(HTMLParser):
     def __init__(self, text):
-        super().__init__(); self.meta={}; self.canonical=[]; self.h1=0; self.schemas=[]; self.ld=False; self.buf=''; self.feed(text)
+        super().__init__(); self.meta={}; self.canonical=[]; self.h1=0; self.schemas=[]; self.ld=False; self.buf=''; self.in_title=False; self.title=''; self.feed(text)
     def handle_starttag(self, tag, attrs):
         a=dict(attrs)
         if tag=='meta': self.meta[a.get('name',a.get('property',''))]=a.get('content','')
         if tag=='link' and a.get('rel')=='canonical': self.canonical.append(a.get('href'))
         if tag=='h1': self.h1+=1
+        if tag=='title': self.in_title=True
         if tag=='script' and a.get('type')=='application/ld+json': self.ld=True; self.buf=''
     def handle_data(self, text):
         if self.ld:self.buf+=text
+        if self.in_title:self.title+=text
     def handle_endtag(self, tag):
         if tag=='script' and self.ld:self.schemas.append(json.loads(self.buf)); self.ld=False
+        if tag=='title': self.in_title=False
 
 root=Path('dist'); assert root.exists(), 'Run npm run build first'
 urls=[x.text for x in ET.parse(root/'sitemap.xml').iter('{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
 assert len(urls)==len(set(urls)), 'Duplicate sitemap URLs'
+titles=set()
 for url in urls:
+    assert urlparse(url).netloc=='meerkatta.com' and urlparse(url).scheme=='https', (url, 'noncanonical sitemap host')
     path=urlparse(url).path
     p=root/path.lstrip('/')/'index.html'
     page=Page(p.read_text())
     assert page.canonical==[url], (p,'canonical')
     assert page.h1==1,(p,'h1 count',page.h1)
+    title=page.title.strip()
+    assert title and 'MeerKatta' in title,(p,'missing branded title')
+    assert title not in titles,(p,'duplicate title',title)
+    titles.add(title)
     assert page.meta.get('description'),(p,'description')
     assert 'noindex' not in page.meta.get('robots',''),(p,'indexability')
     assert page.meta.get('og:url')==url,(p,'Open Graph URL')
@@ -63,6 +72,7 @@ for p in root.rglob('*.html'):
     refs=References(p.read_text())
     for ref in refs.refs:
         u=urlparse(urljoin(base,ref))
+        assert u.netloc!='www.meerkatta.com',(p,'link to alternate hostname',ref)
         if u.scheme not in ['http','https'] or u.netloc!='meerkatta.com':continue
         dest=root/unquote(u.path.lstrip('/'))
         if u.path.endswith('/') or dest.is_dir():dest=dest/'index.html'

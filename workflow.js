@@ -1,14 +1,14 @@
 export const workflows = {
   'ios-capture': {
-    label: 'iPhone · Inspiration', title: 'Keep the idea. Find its place later.',
+    label: 'iPhone or iPad · Inspiration', title: 'Keep the idea. Find its place later.',
     scene: 'After a walk, a conversation, or a sudden connection: say enough to remember why it mattered.',
     steps: ['Open MeerKatta and begin a capture.', 'Speak one unfinished thought in your own words.', 'Review the text, save it, and return to it in your Library.'],
     prompt: 'Something I noticed today was… The reason I want to keep it is…',
     habit: 'Return to one saved thought when you next sit down to work.',
   },
   'ios-focus': {
-    label: 'iPhone · Productive focus', title: 'Give that long reply a starting point.',
-    scene: 'You know what you mean, but composing on a small keyboard keeps interrupting you.',
+    label: 'iPhone or iPad · Productive focus', title: 'Give that long reply a starting point.',
+    scene: 'You know what you mean, but typing and editing keep interrupting you.',
     steps: ['Try your first capture inside MeerKatta.', 'Say the point, the context, and what you need next.', 'Review the result and copy it into your reply. Try the MeerKatta keyboard after completing its setup.'],
     prompt: 'The main thing I want to say is… Here’s the context… Could we…',
     habit: 'Use one recurring long reply as your cue to speak a first draft.',

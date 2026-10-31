@@ -1,5 +1,11 @@
 import './style.css';
 
+document.querySelectorAll('.mobile-menu').forEach(menu => {
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => { menu.open = false; });
+  });
+});
+
 document.querySelectorAll('.faq-question').forEach(question => {
   question.addEventListener('click', () => {
     const answer = question.nextElementSibling;

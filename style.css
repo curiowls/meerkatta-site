@@ -505,6 +505,43 @@ h3 {
   text-transform: uppercase;
 }
 
+.hero-download-details {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 20px;
+  margin-top: 18px;
+  color: var(--ink-dim);
+  font-family: "JetBrains Mono", monospace;
+  font-size: var(--type-caption);
+  line-height: 1.6;
+}
+
+.hero-download-details a {
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.platform-release-note {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin-top: 16px;
+  color: var(--ink-muted);
+  font-size: var(--type-body);
+  line-height: 1.5;
+}
+
+.platform-release-note strong {
+  color: var(--brand);
+  font-weight: 600;
+}
+
+#downloads {
+  scroll-margin-top: 110px;
+}
+
 .hero-artifact {
   position: relative;
   min-height: 590px;

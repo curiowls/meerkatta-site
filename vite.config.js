@@ -1,7 +1,9 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
+import { analyticsConsentPlugin } from './scripts/analytics-consent-plugin.mjs'
 
 export default defineConfig({
+  plugins: [analyticsConsentPlugin()],
   server: { proxy: { '/api/': 'http://127.0.0.1:5202' } },
   optimizeDeps: { esbuildOptions: { target: ['es2022', 'safari16', 'chrome100', 'firefox100'] } },
   build: {

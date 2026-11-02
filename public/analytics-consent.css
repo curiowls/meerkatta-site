@@ -1,0 +1,51 @@
+.analytics-choice {
+  position: fixed;
+  z-index: 1000;
+  right: 20px;
+  bottom: 20px;
+  width: min(440px, calc(100vw - 40px));
+  padding: 20px;
+  border: 1px solid #d8c8b9;
+  border-radius: 8px;
+  max-height: calc(100vh - 40px);
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;
+  overflow-wrap: anywhere;
+  background: #f8f7f4;
+  color: #1a110c;
+  box-shadow: 0 12px 40px rgba(26, 17, 12, .18);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: var(--type-body, 16px);
+  line-height: 1.5;
+}
+.analytics-choice[hidden] { display: none; }
+.analytics-choice h2 {
+  margin: 0 0 6px;
+  font-size: var(--type-title-small, 24px);
+  line-height: 1.2;
+}
+.analytics-choice p { margin: 0; }
+.analytics-choice a { color: #72462c; text-decoration: underline; }
+.analytics-choice-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+.analytics-choice button {
+  min-height: 44px;
+  padding: 9px 15px;
+  border: 1px solid #72462c;
+  border-radius: 8px;
+  background: transparent;
+  color: #72462c;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+}
+.analytics-choice button[data-choice="allow"] { background: #72462c; color: #fff; }
+.analytics-choice button:focus-visible { outline: 3px solid #b67c55; outline-offset: 2px; }
+@media (max-width: 520px) {
+  .analytics-choice { right: 12px; bottom: 12px; width: calc(100vw - 24px); max-height: calc(100dvh - 24px); padding: 16px; }
+  .analytics-choice h2 { font-size: var(--type-body-large, 18px); }
+}

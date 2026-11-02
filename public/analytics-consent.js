@@ -43,12 +43,24 @@
     return safe.href
   }
 
+  function safePageReferrer() {
+    try {
+      const referrer = new URL(document.referrer)
+      return referrer.origin + referrer.pathname
+    } catch {
+      return ''
+    }
+  }
+
   function startAnalytics() {
     if (tagStarted) return
     if (!/^(?:www\.)?meerkatta\.com$/.test(window.location.hostname)) return
     tagStarted = true
     window.gtag('consent', 'update', { ...denied, analytics_storage: 'granted' })
     window.gtag('js', new Date())
+    // Apply sanitized URLs to automatic events as well as the initial page view.
+    window.gtag('set', 'page_location', safePageLocation())
+    window.gtag('set', 'page_referrer', safePageReferrer())
     window.gtag('config', measurementId, {
       allow_google_signals: false,
       allow_ad_personalization_signals: false,

@@ -6,7 +6,11 @@
   width: min(440px, calc(100vw - 40px));
   padding: 20px;
   border: 1px solid #d8c8b9;
-  border-radius: 16px;
+  border-radius: 8px;
+  max-height: calc(100vh - 40px);
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;
+  overflow-wrap: anywhere;
   background: #f8f7f4;
   color: #1a110c;
   box-shadow: 0 12px 40px rgba(26, 17, 12, .18);
@@ -42,6 +46,6 @@
 .analytics-choice button[data-choice="allow"] { background: #72462c; color: #fff; }
 .analytics-choice button:focus-visible { outline: 3px solid #b67c55; outline-offset: 2px; }
 @media (max-width: 520px) {
-  .analytics-choice { right: 12px; bottom: 12px; width: calc(100vw - 24px); padding: 16px; }
+  .analytics-choice { right: 12px; bottom: 12px; width: calc(100vw - 24px); max-height: calc(100dvh - 24px); padding: 16px; }
   .analytics-choice h2 { font-size: var(--type-body-large, 18px); }
 }

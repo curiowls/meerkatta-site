@@ -8,7 +8,7 @@ export function analyticsConsentPlugin() {
       handler(_html, context) {
         // Checkout URLs can contain an email prefill and should never be sent
         // to analytics, even if the visitor opted into general site analytics.
-        if (/^\/(?:pay|padsandbox)\//.test(context.path)) return []
+        if (/^\/(?:pay|padsandbox)(?:\/|$)/.test(context.path)) return []
         return [
           { tag: 'link', attrs: { rel: 'stylesheet', href: '/analytics-consent.css' }, injectTo: 'head' },
           { tag: 'script', attrs: { src: '/analytics-consent.js', defer: true }, injectTo: 'head' },

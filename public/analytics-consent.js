@@ -3,6 +3,7 @@
 
   const measurementId = 'G-TL3JS3LP0W'
   const storageKey = 'meerkatta.websiteAnalytics.v1'
+  if (/^\/(?:pay|padsandbox)(?:\/|$)/.test(window.location.pathname)) return
   const denied = {
     analytics_storage: 'denied',
     ad_storage: 'denied',
@@ -12,17 +13,21 @@
   const translations = {
     en: ['Website analytics', 'May we use Google Analytics to understand page views, outbound clicks, and downloads? We do not use ad tracking. You can change this choice in our', 'privacy policy', 'Allow analytics', 'No thanks'],
     es: ['Analíticas del sitio', '¿Podemos usar Google Analytics para conocer las visitas, los clics a sitios externos y las descargas? No usamos seguimiento publicitario. Puedes cambiar tu elección en nuestra', 'política de privacidad', 'Permitir analíticas', 'No, gracias'],
-    'zh-Hans': ['网站分析', '我们可以使用 Google Analytics 了解页面浏览、外部链接点击和下载情况吗？我们不使用广告追踪。你可以在', '隐私政策', '允许分析', '暂不允许'],
-    'zh-Hant': ['網站分析', '我們可以使用 Google Analytics 了解頁面瀏覽、外部連結點擊和下載情況嗎？我們不使用廣告追蹤。你可以在', '隱私權政策', '允許分析', '暫不允許'],
-    ja: ['ウェブサイトの分析', 'ページ閲覧、外部リンクのクリック、ダウンロードを把握するために Google Analytics を使用してもよいですか？広告の追跡は行いません。選択は', 'プライバシーポリシー', '分析を許可', '許可しない'],
+    'zh-Hans': ['网站分析', '我们可以使用 Google Analytics 了解页面浏览、外部链接点击和下载情况吗？我们不使用广告追踪。你可以在', '隐私政策（英文）', '允许分析', '不允许', '中更改选择。'],
+    'zh-Hant': ['網站分析', '我們可以使用 Google Analytics 了解頁面瀏覽、外部連結點擊和下載情況嗎？我們不使用廣告追蹤。你可以在', '隱私權政策（英文）', '允許分析', '不允許', '中更改選擇。'],
+    ja: ['ウェブサイトの分析', 'ページ閲覧、外部リンクのクリック、ダウンロードを把握するために Google Analytics を使用してもよいですか？広告の追跡は行いません。選択は', 'プライバシーポリシー（英語）', '分析を許可', '許可しない', 'から変更できます。'],
     de: ['Website-Analyse', 'Dürfen wir Google Analytics nutzen, um Seitenaufrufe, Klicks auf externe Links und Downloads zu verstehen? Wir verwenden kein Werbetracking. Sie können Ihre Auswahl in unserer', 'Datenschutzerklärung', 'Analyse erlauben', 'Nein, danke'],
     fr: ['Analyse du site', 'Pouvons-nous utiliser Google Analytics pour comprendre les pages vues, les clics vers des sites externes et les téléchargements ? Nous ne faisons pas de suivi publicitaire. Vous pouvez modifier ce choix dans notre', 'politique de confidentialité', 'Autoriser l’analyse', 'Non merci'],
-    ko: ['웹사이트 분석', '페이지 조회, 외부 링크 클릭, 다운로드를 파악하기 위해 Google Analytics를 사용해도 될까요? 광고 추적은 하지 않습니다. 선택은', '개인정보 처리방침', '분석 허용', '허용 안 함'],
+    ko: ['웹사이트 분석', '페이지 조회, 외부 링크 클릭, 다운로드를 파악하기 위해 Google Analytics를 사용해도 될까요? 광고 추적은 하지 않습니다. 선택은', '개인정보 처리방침(영문)', '분석 허용', '허용 안 함', '에서 변경할 수 있습니다.'],
     'pt-BR': ['Análise do site', 'Podemos usar o Google Analytics para entender visualizações de páginas, cliques em links externos e downloads? Não usamos rastreamento de anúncios. Você pode mudar sua escolha na nossa', 'política de privacidade', 'Permitir análise', 'Agora não'],
   }
 
   let storedChoice = null
-  try { storedChoice = window.localStorage.getItem(storageKey) } catch { /* Show a choice each visit. */ }
+  try {
+    storedChoice = window.localStorage.getItem(storageKey)
+    // Do not automatically honor an old opt-in if the browser cannot save a revocation.
+    if (storedChoice === 'allow') window.localStorage.setItem(storageKey, storedChoice)
+  } catch { storedChoice = null }
 
   // Google must see the default before any measurement command. No Google script
   // or request is made while the visitor has not opted in.
@@ -34,7 +39,8 @@
   function safePageLocation() {
     // Never send arbitrary query parameters (notably checkout email prefills).
     // Keep only campaign parameters with values that cannot be email addresses.
-    const safe = new URL(window.location.pathname, window.location.origin)
+    const safe = new URL(window.location.origin)
+    safe.pathname = window.location.pathname
     const original = new URLSearchParams(window.location.search)
     for (const key of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'utm_id']) {
       const value = original.get(key)
@@ -56,6 +62,7 @@
     if (tagStarted) return
     if (!/^(?:www\.)?meerkatta\.com$/.test(window.location.hostname)) return
     tagStarted = true
+    window[`ga-disable-${measurementId}`] = false
     window.gtag('consent', 'update', { ...denied, analytics_storage: 'granted' })
     window.gtag('js', new Date())
     // Apply sanitized URLs to automatic events as well as the initial page view.
@@ -85,7 +92,7 @@
   }
 
   function renderChoice() {
-    const [title, message, policy, allow, refuse] = translations[document.documentElement.lang] || translations.en
+    const [title, message, policy, allow, refuse, ending = '.'] = translations[document.documentElement.lang] || translations.en
     const panel = document.createElement('section')
     panel.className = 'analytics-choice'
     panel.setAttribute('role', 'dialog')
@@ -97,8 +104,10 @@
     paragraph.append(document.createTextNode(message + ' '))
     const link = document.createElement('a')
     link.href = '/privacy/#website-analytics-preferences'
-    link.textContent = policy
-    paragraph.append(link, document.createTextNode('.'))
+    const englishLabel = {es:' (en inglés)', de:' (Englisch)', fr:' (en anglais)', 'pt-BR':' (em inglês)'}[document.documentElement.lang] || ''
+    link.textContent = policy + englishLabel
+    link.hreflang = 'en'
+    paragraph.append(link, document.createTextNode(ending))
     const actions = document.createElement('div')
     actions.className = 'analytics-choice-actions'
     const allowButton = document.createElement('button')
@@ -121,6 +130,7 @@
       if (choice === 'allow') {
         startAnalytics()
       } else if (tagStarted) {
+        window[`ga-disable-${measurementId}`] = true
         window.gtag('consent', 'update', denied)
         removeAnalyticsCookies()
         // The already-loaded tag is removed by reloading with denied consent.

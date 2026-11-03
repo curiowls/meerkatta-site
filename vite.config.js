@@ -1,9 +1,12 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
 import { analyticsConsentPlugin } from './scripts/analytics-consent-plugin.mjs'
+import {generateLocalizedPages, localizationPlugin} from './i18n/render.mjs'
+
+const localizedInputs = generateLocalizedPages()
 
 export default defineConfig({
-  plugins: [analyticsConsentPlugin()],
+  plugins: [localizationPlugin(), analyticsConsentPlugin()],
   server: { proxy: { '/api/': 'http://127.0.0.1:5202' } },
   optimizeDeps: { esbuildOptions: { target: ['es2022', 'safari16', 'chrome100', 'firefox100'] } },
   build: {
@@ -11,6 +14,7 @@ export default defineConfig({
     outDir: 'dist',
     rollupOptions: {
       input: {
+        ...localizedInputs,
         main: resolve(__dirname, 'index.html'),
         journal: resolve(__dirname, 'journal/index.html'),
         journalFuture: resolve(__dirname, "journal/when-thought-needs-more-than-text/index.html"),

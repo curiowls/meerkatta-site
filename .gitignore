@@ -5,3 +5,12 @@ dist
 .env.local
 .env.*.local
 public/deployment-version.txt
+# Static localized routes are generated from i18n/ at Vite startup/build.
+/es/
+/zh-Hans/
+/zh-Hant/
+/ja/
+/de/
+/fr/
+/ko/
+/pt-BR/

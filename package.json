@@ -5,7 +5,8 @@
     "dev": "vite",
     "check:typography": "node scripts/check-typography.mjs",
     "check:analytics": "node --test scripts/analytics-consent.test.mjs",
-    "build": "node scripts/write-deployment-version.mjs && npm run check:typography && npm run check:analytics && vite build",
+    "check:localization": "node --test scripts/check-localization.test.mjs",
+    "build": "node scripts/write-deployment-version.mjs && npm run check:typography && npm run check:analytics && npm run check:localization && vite build",
     "indexnow:urls": "node scripts/indexnow-changed-urls.mjs",
     "preview": "vite preview",
     "dev:api": "MEERKATTA_DEV_ORIGIN=http://127.0.0.1:5199 MEERKATTA_INTEREST_DIR=/tmp/meerkatta-interest-dev php -S 127.0.0.1:5202 -t public"

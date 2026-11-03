@@ -1,0 +1,49 @@
+{
+  "language": "Language",
+  "menu": "Open menu",
+  "nav": ["Use Cases", "About", "Pricing", "Get Started", "Help", "Get MeerKatta"],
+  "common": {
+    "tagline": "Thought capture for Mac, iPhone, and iPad.",
+    "mac": "Download for Mac", "ios": "Get for iPhone & iPad", "trial": "Mac: 7 days free. No credit card required.",
+    "watch": "Apple Watch: coming November 2026", "english": "English", "journal": "Field notes", "privacy": "Privacy", "terms": "Terms", "refund": "Refunds", "support": "Contact us",
+    "next": "Start with one thought", "getStarted": "Find your first useful moment", "imageNote": "The app preview shown here is in English."
+  },
+  "home": {
+    "title": "Turn a passing thought into something you can use.",
+    "lead": "Speak before editing breaks the flow. MeerKatta turns rough speech into clear text, ready for your work or saved for later.",
+    "rawLabel": "A thought, still forming", "raw": "Wait, it is not really about typing faster. Once I start fixing the sentence, I lose the idea. I need to get the thought out first.",
+    "resultLabel": "Captured and clarified", "resultTitle": "Keep the thought moving.", "result": "The problem is not typing speed. Editing too soon interrupts my thinking. Speak first; shape the words afterward.",
+    "captureTitle": "Keep the idea before the moment passes.", "captureText": "An idea on a walk. A reply you know how to say. An instruction for an AI tool. Capture it without having to decide what it should become yet.",
+    "features": [["Capture sparks", "Save unfinished thoughts on iPhone, iPad, or Mac. Give the idea somewhere to land before it disappears."], ["Stay in flow", "On Mac, dictate into the text field you are working in. On iPhone or iPad, start in MeerKatta and try its keyboard after setup."], ["Keep your own voice", "Teach MeerKatta your names, shorthand, and tone. Remove the filler you do not want, and keep the expressions that sound like you."]],
+    "faq": [["Is this just dictation?", "Dictation is one useful way in. MeerKatta also helps you keep an idea before you know where it belongs, then return to it when you are ready."], ["Which devices are available now?", "Mac, iPhone, and iPad are available now. The Apple Watch app is planned for November 2026."], ["Can I use it without cloud AI?", "On Mac, raw transcription can work offline. AI services add cleanup and structure; availability depends on the device, language, and provider you choose."]]
+  },
+  "about": {
+    "title": "Thoughts are perishable. Give them somewhere to land.", "lead": "We built MeerKatta for the idea that arrives before a document, an outline, or a perfect sentence.",
+    "paragraphs": ["Ideas do not always disappear because we forget to write them down. Sometimes the act of writing turns us into editors too early. We fix a sentence and lose the next thought.", "Speak first. Let the thought take shape before deciding what it should become. We want capture to become a small, dependable habit, not another system to maintain."],
+    "visionTitle": "AI has power. The product has to make it useful.", "visionLead": "The gap is not just capability. It is timing, access, and fit. A thought rarely arrives as a perfectly written prompt.",
+    "principles": [["Less starting from scratch", "You should not have to explain your vocabulary, tone, and intention every time an idea arrives."], ["A specialist, not everything", "MeerKatta focuses on the path from spoken thought to usable text. The goal is to preserve your intent, not to replace it."], ["Absorb the complexity", "The product should handle more of the work between what the system can do and what you need in the moment."], ["Let the tool fade", "Capture, return, build. As the habit becomes natural, less attention should go to operating the tool."]],
+    "founderTitle": "A belief behind the product.", "founderText": "MeerKatta is created by Lugugul Design, a product and design studio. Our practical question is simple: how much effort can the tool absorb so you can stay with the thought?", "quote": "Product is about absorbing the complexity and gap between the system and the human.", "quoteCredit": "The founder's belief behind Lugugul Design"
+  },
+  "pricing": {
+    "title": "Choose how the AI work gets done.", "lead": "Website plans are priced in US dollars and paid through Paddle. iPhone and iPad purchases are available through the App Store, where Apple shows local pricing and trial eligibility.",
+    "ownTitle": "MeerKatta Lifetime", "ownText": "Pay once for the Mac software and use your own supported API key. Provider usage charges are separate.", "launch": "Launch price; normally $49", "buy": "Buy Lifetime", "managedTitle": "MeerKatta Subscription", "managedText": "Let MeerKatta manage transcription and polish. No provider setup or API keys. Cancel anytime.", "monthly": "Monthly", "yearly": "Yearly", "month": "month", "year": "year", "annualNote": "$90 billed yearly, equivalent to $7.50 per month.", "checkoutNote": "The website checkout and payment confirmation are currently in English. The 7-day Mac trial starts in the app; no card is required to try it.",
+    "faq": [["Which setup is right for me?", "Choose Lifetime if you already have supported AI API access and prefer a one-time software purchase. Choose Subscription if you want to start without managing providers or keys."], ["Do I need to buy before trying it?", "No. Download the Mac app and begin its 7-day trial. For iPhone and iPad, check the App Store purchase sheet for available options and trial eligibility."]]
+  },
+  "welcome": {
+    "title": "Start with one thought, not a perfect setup.", "lead": "Use MeerKatta wherever you need to type. Begin with something real: a reply, an idea, or an instruction. Let the words arrive before you start editing.",
+    "first": [["On iPhone or iPad", "Open MeerKatta, allow microphone access, and speak one thought you want to keep. Stop, review the meaning, and save it. Try the MeerKatta keyboard after completing its setup."], ["On Mac", "Follow the permission prompts, then try a capture inside MeerKatta. To dictate into another app, focus its text field and use your configured shortcut."]],
+    "setupTitle": "Make capture easier to reach than the thought is to lose.",
+    "setup": [["Put quick capture within reach", "Add MeerKatta to your Lock Screen or quick access area. Complete the first-time app setup and permissions first."], ["Teach it your words and your voice", "Add names such as MeerKatta, Curiowls, and Cookids to custom vocabulary. Describe your tone. Choose which fillers to remove and which expressions to keep."], ["Choose the mode for the moment", "Use quick insertion when you already have a destination. Use capture mode when the thought arrives before you know where it belongs."]],
+    "lockTitle": "Add the iPhone Lock Screen widget", "lockSteps": ["Touch and hold your Lock Screen, then tap Customize below its preview.", "Tap the widget area below the time.", "Choose MeerKatta, then choose a Quick Capture widget size.", "Close the picker and tap Done. Next time, tap the widget to begin."],
+    "habitsTitle": "Let the habit grow from something you already do.", "habits": [["Capture sparks", "After a walk or a conversation, keep the idea and why it mattered. Return to one saved thought when you next sit down to work."], ["Start and stay in flow", "Speak the first draft of a reply or work instruction. Keep going until the point is there; refine the wording afterward."]],
+    "paymentComplete": "Payment complete", "successTitle": "Welcome to MeerKatta.", "licensePrepared": "Your MeerKatta license is being prepared.", "openApp": "Open MeerKatta", "licenseHint": "If you bought from a signed-in app, your license should appear under your account. If it does not, try Refresh license in Permissions & About. After a minute, check your email for the license key or contact hello@meerkatta.com."
+  },
+  "useCases": {
+    "title": "Begin where typing gets in the way.", "lead": "You do not need a new writing system. Find one moment in your day where speaking helps the thought keep moving.",
+    "cards": [["An idea without a destination", "You notice a connection on a walk. Capture what you noticed and why it matters. Decide where it belongs later."], ["A reply that needs a first draft", "Say the point, the context, and what you need next. Review the result before copying or sending it."], ["An instruction for an AI tool", "Explain the task in your own words, including context and constraints. Review the text before passing it to your coding or writing tool."]], "englishGuide": "Detailed guides in English"
+  },
+  "help": {
+    "title": "A little help, so you can get back to the thought.", "lead": "Start with the getting-started guide. For a question or a problem, email hello@meerkatta.com. An account or paid plan is not required to contact us.",
+    "faq": [["Do I need an account on iPhone or iPad?", "No. Eligible Apple purchases can be bought and restored without a MeerKatta account. Signing in later can associate eligible purchases with an account. Library storage and supported iCloud sync are separate."], ["How do I restore an Apple purchase?", "Use the Apple Account that bought it. In the app, open Plan & Access, then Restore Purchases under Manage access. Restoring purchases does not recover deleted Library content."], ["Where do I change the app language?", "Choose your interface language in the app's language settings. The website language is separate from the language of your recordings and saved content."], ["Where are the policies?", "Privacy, terms, refunds, and journal articles are currently available in English. The links below are labeled so you know before opening them."]]
+  }
+}

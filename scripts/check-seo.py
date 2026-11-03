@@ -7,11 +7,15 @@ import xml.etree.ElementTree as ET
 
 class Page(HTMLParser):
     def __init__(self, text):
-        super().__init__(); self.meta={}; self.canonical=[]; self.h1=0; self.schemas=[]; self.ld=False; self.buf=''; self.in_title=False; self.title=''; self.feed(text)
+        super().__init__(); self.meta={}; self.canonical=[]; self.alternates={}; self.lang=''; self.h1=0; self.schemas=[]; self.ld=False; self.buf=''; self.in_title=False; self.title=''; self.feed(text)
     def handle_starttag(self, tag, attrs):
         a=dict(attrs)
         if tag=='meta': self.meta[a.get('name',a.get('property',''))]=a.get('content','')
         if tag=='link' and a.get('rel')=='canonical': self.canonical.append(a.get('href'))
+        if tag=='link' and a.get('rel')=='alternate' and a.get('hreflang'):
+            assert a['hreflang'] not in self.alternates, ('duplicate hreflang',a['hreflang'])
+            self.alternates[a['hreflang']]=a.get('href')
+        if tag=='html':self.lang=a.get('lang','')
         if tag=='h1': self.h1+=1
         if tag=='title': self.in_title=True
         if tag=='script' and a.get('type')=='application/ld+json': self.ld=True; self.buf=''
@@ -26,11 +30,13 @@ root=Path('dist'); assert root.exists(), 'Run npm run build first'
 urls=[x.text for x in ET.parse(root/'sitemap.xml').iter('{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
 assert len(urls)==len(set(urls)), 'Duplicate sitemap URLs'
 titles=set()
+checked_pages={}
 for url in urls:
     assert urlparse(url).netloc=='meerkatta.com' and urlparse(url).scheme=='https', (url, 'noncanonical sitemap host')
     path=urlparse(url).path
     p=root/path.lstrip('/')/'index.html'
     page=Page(p.read_text())
+    checked_pages[url]=page
     assert page.canonical==[url], (p,'canonical')
     assert page.h1==1,(p,'h1 count',page.h1)
     title=page.title.strip()
@@ -41,6 +47,17 @@ for url in urls:
     assert 'noindex' not in page.meta.get('robots',''),(p,'indexability')
     assert page.meta.get('og:url')==url,(p,'Open Graph URL')
     for schema in page.schemas: assert schema.get('@context')=='https://schema.org',p
+for url,page in checked_pages.items():
+    if not page.alternates:continue
+    assert len(page.alternates)==10,(url,'incomplete language cluster')
+    assert page.alternates.get(page.lang)==url,(url,'missing self hreflang')
+    assert page.alternates.get('x-default')==page.alternates.get('en'),(url,'fallback language')
+    for language,target in page.alternates.items():
+        assert target in checked_pages,(url,'alternate missing from sitemap',target)
+        alternate=checked_pages[target]
+        assert alternate.canonical==[target],(url,'alternate canonical mismatch')
+        assert alternate.alternates==page.alternates,(url,'nonreciprocal alternates',target)
+        if language!='x-default':assert alternate.lang==language,(target,'wrong page language')
 for name in ['pay','padsandbox']:
     assert 'noindex' in Page((root/name/'index.html').read_text()).meta.get('robots',''),name
     assert f'https://meerkatta.com/{name}/' not in urls, (name, 'checkout in sitemap')

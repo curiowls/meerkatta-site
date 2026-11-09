@@ -1,12 +1,12 @@
 {
   "language":"语言","menu":"打开导航菜单","nav":["使用场景","关于我们","价格","开始使用","帮助","下载 MeerKatta"],
-  "common":{"tagline":"在 Mac、iPhone 和 iPad 上留住想法。","mac":"下载 Mac 版","ios":"获取 iPhone / iPad 版","trial":"Mac 版免费试用 7 天，无需信用卡。","watch":"Apple Watch 版预计于 2026 年 11 月推出","english":"英文","journal":"产品随笔","privacy":"隐私政策","terms":"使用条款","refund":"退款政策","support":"联系我们","next":"从一个想法开始","getStarted":"找到适合你的第一步","imageNote":"此处展示的是英文版 App 界面。"},
+  "common":{"tagline":"在 Mac、iPhone、iPad 和 Apple Watch 上留住想法。","mac":"下载 Mac 版","ios":"获取 iPhone / iPad 版","trial":"Mac 版免费试用 7 天，无需信用卡。","watch":"Apple Watch 版已在 App Store 上线","english":"英文","journal":"产品随笔","privacy":"隐私政策","terms":"使用条款","refund":"退款政策","support":"联系我们","next":"从一个想法开始","getStarted":"找到适合你的第一步","imageNote":"此处展示的是英文版 App 界面。"},
   "home":{
     "title":"一闪而过的想法，也值得留下来。","lead":"先说出来，别让修改打断思路。MeerKatta 把还没整理好的话变成清晰的文字，接着用，或留待以后。",
     "rawLabel":"想法正在成形","raw":"等等，其实不是打字快不快的问题。我一开始改句子，就忘了刚才想说什么。得先把想法说出来。","resultLabel":"留下想法，理清表达","resultTitle":"让思路继续往前走。","result":"问题不在打字速度，而是太早修改会打断思考。先说完，再整理措辞。",
     "captureTitle":"趁想法还在，先把它留下。","captureText":"散步时冒出的念头、已经想好怎么说的回复、给 AI 工具的一段指令。不必先决定它要变成什么，先记下来。",
     "features":[["留住灵感","在 iPhone、iPad 或 Mac 上留下还不完整的念头。想法消失之前，先给它一个落脚的地方。"],["顺着思路说下去","在 Mac 上，直接向正在使用的文本框听写。在 iPhone 或 iPad 上，先从 MeerKatta 开始，完成设置后再试试专用键盘。"],["文字仍然像你","让 MeerKatta 认识你的专有名词、简称和语气。去掉不想要的口头禅，也保留那些属于你的表达习惯。"]],
-    "faq":[["它只是一个听写工具吗？","听写是一个实用的入口。MeerKatta 也帮你留下尚未想好放在哪里的念头，等准备好时再回来展开。"],["现在支持哪些设备？","Mac、iPhone 和 iPad 版已上线。Apple Watch 版预计于 2026 年 11 月推出。"],["不使用云端 AI 也能用吗？","Mac 上的原始转写可以离线运行。AI 服务用于整理措辞和结构；具体可用能力取决于设备、语言及所选服务商。"]]
+    "faq":[["它只是一个听写工具吗？","听写是一个实用的入口。MeerKatta 也帮你留下尚未想好放在哪里的念头，等准备好时再回来展开。"],["现在支持哪些设备？","Mac、iPhone、iPad 和 Apple Watch 版均已上线。iPhone、iPad 和 Apple Watch 版可在 App Store 获取。"],["不使用云端 AI 也能用吗？","Mac 上的原始转写可以离线运行。AI 服务用于整理措辞和结构；具体可用能力取决于设备、语言及所选服务商。"]]
   },
   "about":{
     "title":"想法容易溜走，先给它一个落脚的地方。","lead":"我们为那个时刻设计 MeerKatta：想法已经来了，文档、提纲和完整的句子还没准备好。",
@@ -17,7 +17,7 @@
   },
   "pricing":{
     "title":"选择适合你的 AI 使用方式。","lead":"网站方案通过 Paddle 以美元结算。iPhone 和 iPad 请通过 App Store 购买，Apple 会在购买前显示当地价格及你的试用资格。",
-    "ownTitle":"MeerKatta Lifetime","ownText":"一次购买 Mac 软件，连接你自己的受支持 API 密钥。AI 服务商的用量费用另计。","launch":"首发价；原价 49 美元","buy":"购买 Lifetime","managedTitle":"MeerKatta 订阅","managedText":"由 MeerKatta 管理转写与文字润色，不用配置服务商或 API 密钥，可随时取消订阅。","monthly":"按月订阅","yearly":"按年订阅","month":"月","year":"年","annualNote":"每年收取 90 美元，折合每月 7.50 美元。","checkoutNote":"网站结账与付款确认页面目前为英文。Mac 版的 7 天试用在 App 内开始，无需信用卡。",
+    "ownTitle":"MeerKatta Lifetime","ownText":"一次购买 Mac 软件，连接你自己的受支持 API 密钥。AI 服务商的用量费用另计。","launch":"首发价；原价 49 美元","buy":"购买 Lifetime","managedTitle":"MeerKatta 订阅","managedText":"由 MeerKatta 管理转写与文字润色，不用配置服务商或 API 密钥，可随时取消订阅。","monthly":"按月订阅","yearly":"按年订阅","month":"月","year":"年","annualNote":"每年收取 99.99 美元，折合每月 8.33 美元。","checkoutNote":"网站结账与付款确认页面目前为英文。Mac 版的 7 天试用在 App 内开始，无需信用卡。",
     "faq":[["哪种方案更适合我？","如果你已有受支持的 AI API 服务，且偏好一次购买软件，选 Lifetime。如果你想直接开始，不想管理服务商和密钥，选订阅。"],["试用前需要先付款吗？","不需要。下载 Mac 版即可开始 7 天试用。iPhone 和 iPad 的购买选项及试用资格，请以 App Store 购买页面为准。"]]
   },
   "welcome":{

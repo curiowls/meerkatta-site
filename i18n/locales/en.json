@@ -3,9 +3,9 @@
   "menu": "Open menu",
   "nav": ["Use Cases", "About", "Pricing", "Get Started", "Help", "Get MeerKatta"],
   "common": {
-    "tagline": "Thought capture for Mac, iPhone, and iPad.",
+    "tagline": "Thought capture for Mac, iPhone, iPad, and Apple Watch.",
     "mac": "Download for Mac", "ios": "Get for iPhone & iPad", "trial": "Mac: 7 days free. No credit card required.",
-    "watch": "Apple Watch: coming November 2026", "english": "English", "journal": "Field notes", "privacy": "Privacy", "terms": "Terms", "refund": "Refunds", "support": "Contact us",
+    "watch": "Apple Watch: now on the App Store", "english": "English", "journal": "Field notes", "privacy": "Privacy", "terms": "Terms", "refund": "Refunds", "support": "Contact us",
     "next": "Start with one thought", "getStarted": "Find your first useful moment", "imageNote": "The app preview shown here is in English."
   },
   "home": {
@@ -15,7 +15,7 @@
     "resultLabel": "Captured and clarified", "resultTitle": "Keep the thought moving.", "result": "The problem is not typing speed. Editing too soon interrupts my thinking. Speak first; shape the words afterward.",
     "captureTitle": "Keep the idea before the moment passes.", "captureText": "An idea on a walk. A reply you know how to say. An instruction for an AI tool. Capture it without having to decide what it should become yet.",
     "features": [["Capture sparks", "Save unfinished thoughts on iPhone, iPad, or Mac. Give the idea somewhere to land before it disappears."], ["Stay in flow", "On Mac, dictate into the text field you are working in. On iPhone or iPad, start in MeerKatta and try its keyboard after setup."], ["Keep your own voice", "Teach MeerKatta your names, shorthand, and tone. Remove the filler you do not want, and keep the expressions that sound like you."]],
-    "faq": [["Is this just dictation?", "Dictation is one useful way in. MeerKatta also helps you keep an idea before you know where it belongs, then return to it when you are ready."], ["Which devices are available now?", "Mac, iPhone, and iPad are available now. The Apple Watch app is planned for November 2026."], ["Can I use it without cloud AI?", "On Mac, raw transcription can work offline. AI services add cleanup and structure; availability depends on the device, language, and provider you choose."]]
+    "faq": [["Is this just dictation?", "Dictation is one useful way in. MeerKatta also helps you keep an idea before you know where it belongs, then return to it when you are ready."], ["Which devices are available now?", "MeerKatta is available for Mac, iPhone, iPad, and Apple Watch. Get the iPhone, iPad, and Apple Watch app on the App Store."], ["Can I use it without cloud AI?", "On Mac, raw transcription can work offline. AI services add cleanup and structure; availability depends on the device, language, and provider you choose."]]
   },
   "about": {
     "title": "Thoughts are perishable. Give them somewhere to land.", "lead": "We built MeerKatta for the idea that arrives before a document, an outline, or a perfect sentence.",
@@ -26,7 +26,7 @@
   },
   "pricing": {
     "title": "Choose how the AI work gets done.", "lead": "Website plans are priced in US dollars and paid through Paddle. iPhone and iPad purchases are available through the App Store, where Apple shows local pricing and trial eligibility.",
-    "ownTitle": "MeerKatta Lifetime", "ownText": "Pay once for the Mac software and use your own supported API key. Provider usage charges are separate.", "launch": "Launch price; normally $49", "buy": "Buy Lifetime", "managedTitle": "MeerKatta Subscription", "managedText": "Let MeerKatta manage transcription and polish. No provider setup or API keys. Cancel anytime.", "monthly": "Monthly", "yearly": "Yearly", "month": "month", "year": "year", "annualNote": "$90 billed yearly, equivalent to $7.50 per month.", "checkoutNote": "The website checkout and payment confirmation are currently in English. The 7-day Mac trial starts in the app; no card is required to try it.",
+    "ownTitle": "MeerKatta Lifetime", "ownText": "Pay once for the Mac software and use your own supported API key. Provider usage charges are separate.", "launch": "Launch price; normally $49", "buy": "Buy Lifetime", "managedTitle": "MeerKatta Subscription", "managedText": "Let MeerKatta manage transcription and polish. No provider setup or API keys. Cancel anytime.", "monthly": "Monthly", "yearly": "Yearly", "month": "month", "year": "year", "annualNote": "$99.99 billed yearly, equivalent to $8.33 per month.", "checkoutNote": "The website checkout and payment confirmation are currently in English. The 7-day Mac trial starts in the app; no card is required to try it.",
     "faq": [["Which setup is right for me?", "Choose Lifetime if you already have supported AI API access and prefer a one-time software purchase. Choose Subscription if you want to start without managing providers or keys."], ["Do I need to buy before trying it?", "No. Download the Mac app and begin its 7-day trial. For iPhone and iPad, check the App Store purchase sheet for available options and trial eligibility."]]
   },
   "welcome": {

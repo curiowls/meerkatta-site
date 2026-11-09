@@ -100,13 +100,13 @@ document.querySelectorAll('[data-managed-plan]').forEach(plan => {
 
   const billing = {
     yearly: {
-      price: '$7.50 <span>/mo</span>',
-      note: 'Billed yearly at $90. No provider setup, no API keys.',
+      price: '$8.33 <span>/mo</span>',
+      note: 'Billed yearly at $99.99. No provider setup, no API keys.',
       cta: 'Subscribe yearly',
       href: checkout?.dataset.yearlyHref || '/pay/?plan=yearly',
     },
     monthly: {
-      price: '$9 <span>/mo</span>',
+      price: '$9.99 <span>/mo</span>',
       note: 'Billed monthly. No provider setup, no API keys.',
       cta: 'Subscribe monthly',
       href: checkout?.dataset.monthlyHref || '/pay/?plan=monthly',

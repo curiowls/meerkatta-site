@@ -538,6 +538,12 @@ h3 {
   font-weight: 600;
 }
 
+.platform-release-note a {
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 #downloads {
   scroll-margin-top: 110px;
 }

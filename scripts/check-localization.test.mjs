@@ -26,6 +26,25 @@ test('Every language has complete, nonempty contextual copy', () => {
   for (const {code} of languages) assert.deepEqual(shape(catalogs[code]), reference, code);
 });
 
+test('Apple Watch release is reflected in every language and English metadata', () => {
+  const appStore = 'https://apps.apple.com/app/meerkatta/id6766122029';
+  for (const {code} of languages) {
+    const c = catalogs[code];
+    assert.ok(c.common.tagline.includes('Apple Watch'), code);
+    assert.ok(c.common.watch.includes('App Store'), code);
+    assert.ok(c.home.faq[1][1].includes('Apple Watch'), code);
+    assert.ok(!`${c.common.watch} ${c.home.faq[1][1]}`.includes('2026'), `${code}: stale launch date`);
+    assert.ok(renderPage(code, '').includes(`<a href="${appStore}">${c.common.watch}</a>`), `${code}: Watch download link`);
+  }
+  const home = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+  assert.ok(home.includes('macOS, iOS, iPadOS, watchOS'));
+  assert.ok(home.includes('Now on the App Store'));
+  assert.ok(!/planned for November|Coming November/.test(home));
+  const help = readFileSync(new URL('../help/index.html', import.meta.url), 'utf8');
+  assert.ok(help.includes('How does Apple Watch capture work?'));
+  assert.ok(!help.includes('planned for November'));
+});
+
 test('Routes and reciprocal alternates preserve English URLs', () => {
   assert.equal(pagePath('en','pricing'), '/pricing/');
   for (const page of pages) {

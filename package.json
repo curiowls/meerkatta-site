@@ -7,7 +7,8 @@
     "check:analytics": "node --test scripts/analytics-consent.test.mjs",
     "check:localization": "node --test scripts/check-localization.test.mjs",
     "check:pricing": "node --test scripts/check-pricing.test.mjs",
-    "build": "node scripts/write-deployment-version.mjs && npm run check:typography && npm run check:analytics && npm run check:localization && npm run check:pricing && vite build",
+    "check:performance": "node --test scripts/check-performance.test.mjs",
+    "build": "node scripts/write-deployment-version.mjs && npm run check:typography && npm run check:analytics && npm run check:localization && npm run check:pricing && npm run check:performance && vite build",
     "indexnow:urls": "node scripts/indexnow-changed-urls.mjs",
     "preview": "vite preview",
     "dev:api": "MEERKATTA_DEV_ORIGIN=http://127.0.0.1:5199 MEERKATTA_INTEREST_DIR=/tmp/meerkatta-interest-dev php -S 127.0.0.1:5202 -t public"

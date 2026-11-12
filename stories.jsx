@@ -26,12 +26,12 @@ function ThoughtStory({kind, compact}) {
       <span>{frame < 150 ? '01 / Let it arrive' : frame < 220 ? '02 / Find the shape' : '03 / Keep moving'}</span><span>Illustrative example</span>
     </div>
     <div style={{marginTop:24,padding:26,borderRadius:18,background:'#e5ddcf',minHeight:176}}>
-      <div style={{fontSize:TYPE.caption,marginBottom:14,color:'#706352'}}>Raw thought</div>
+      <div style={{fontSize:TYPE.caption,marginBottom:14,color:'#66594b'}}>Raw thought</div>
       <p style={{fontSize:TYPE.bodyLarge,lineHeight:1.55,margin:0}}>{words.slice(0,visible).join(' ')}<span style={{opacity:frame < 150 ? 1 : 0}}> ▎</span></p>
     </div>
     <div style={{height:32,display:'flex',alignItems:'center',justifyContent:'center',opacity:interpolate(frame,[135,155],[0,1],clamp),color:'#846748'}}>↓</div>
     <div style={{padding:26,borderRadius:18,background:'#fffcf7',border:'1px solid #c9bba5',opacity:interpolate(frame,[150,180],[0,1],clamp),translate:`0 ${interpolate(frame,[150,180],[14,0],clamp)}px`}}>
-      <div style={{fontSize:TYPE.caption,color:'#706352',marginBottom:10}}>{story.end}</div>
+      <div style={{fontSize:TYPE.caption,color:'#66594b',marginBottom:10}}>{story.end}</div>
       <h3 style={{fontSize:TYPE.titleSmall,lineHeight:1.2,margin:'0 0 14px'}}>{story.title}</h3>
       <p style={{fontSize:TYPE.bodyLarge,lineHeight:1.5,margin:0}}>{story.result}</p>
     </div>

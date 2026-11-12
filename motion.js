@@ -1,10 +1,10 @@
 import {playbackIcon} from './playback-icons.js';
 const storyObserver = new IntersectionObserver(entries => {
-  for (const entry of entries) if (entry.isIntersecting) {
+  for (const entry of entries) if (entry.isIntersecting && entry.intersectionRatio >= 0.15) {
     storyObserver.unobserve(entry.target);
     import('./stories.jsx').then(({mountStory}) => mountStory(entry.target)).catch(() => {});
   }
-}, {rootMargin:'150px'});
+}, {threshold:0.15});
 document.querySelectorAll('[data-story]').forEach(element => storyObserver.observe(element));
 
 const motion = matchMedia('(prefers-reduced-motion: reduce)');

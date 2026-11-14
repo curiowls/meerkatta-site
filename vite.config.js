@@ -21,6 +21,7 @@ export default defineConfig({
         journal0: resolve(__dirname, 'journal/catch-an-unfinished-thought/index.html'),
         journal1: resolve(__dirname, 'journal/speak-a-useful-first-draft/index.html'),
         journal2: resolve(__dirname, 'journal/return-to-what-you-capture/index.html'),
+        journalMascot: resolve(__dirname, 'journal/why-a-meerkat/index.html'),
 
         useCases: resolve(__dirname, 'use-cases/index.html'),
         useCaseDictation: resolve(__dirname, 'use-cases/ai-dictation-for-mac/index.html'),

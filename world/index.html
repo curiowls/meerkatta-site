@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>MeerKatta — experience prototype</title>
+  <meta name="theme-color" content="#f4ede2">
+  <link rel="icon" href="/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./world.css">
+</head>
+<body>
+  <canvas class="scene" data-scene aria-hidden="true"></canvas>
+
+  <!-- The spark: one glass orb that travels with the reader from the dunes to the shelf -->
+  <div class="orb orb-traveller" data-orb aria-hidden="true">
+    <svg viewBox="0 0 60 24" class="orb-wave"><g><rect x="4" y="10" width="2.4" height="4" rx="1.2"/><rect x="9" y="7" width="2.4" height="10" rx="1.2"/><rect x="14" y="9" width="2.4" height="6" rx="1.2"/><rect x="19" y="4" width="2.4" height="16" rx="1.2"/><rect x="24" y="8" width="2.4" height="8" rx="1.2"/><rect x="29" y="1" width="2.4" height="22" rx="1.2"/><rect x="34" y="6" width="2.4" height="12" rx="1.2"/><rect x="39" y="9" width="2.4" height="6" rx="1.2"/><rect x="44" y="5" width="2.4" height="14" rx="1.2"/><rect x="49" y="9" width="2.4" height="6" rx="1.2"/><rect x="54" y="10.5" width="2.4" height="3" rx="1.2"/></g></svg>
+  </div>
+
+  <nav class="w-nav" aria-label="Primary navigation">
+    <a href="/" class="w-logo" aria-label="MeerKatta home">
+      <img src="/app-icon.png" alt="" width="36" height="36">
+      <img src="/assets/MeerKatta-typelogo-dark.svg" alt="MeerKatta" width="130" height="26">
+    </a>
+    <div class="w-nav-links">
+      <a href="/use-cases/">Use Cases</a>
+      <a href="/journal/">Field notes</a>
+      <a href="#pricing">Pricing</a>
+      <a class="w-btn w-btn-small" href="#downloads">Get MeerKatta</a>
+    </div>
+  </nav>
+
+  <ol class="w-rail" aria-label="Journey" data-rail>
+    <li><a href="#dunes">Dunes</a></li>
+    <li><a href="#lookout">Lookout</a></li>
+    <li><a href="#work">Catch</a></li>
+    <li><a href="#voice">Clear sight</a></li>
+    <li><a href="#home">Burrow</a></li>
+    <li><a href="#ready">Ready</a></li>
+  </ol>
+
+  <main>
+    <header class="hero" id="dunes" data-stop>
+      <p class="eyebrow">MeerKatta for Mac, iPhone, iPad, and Apple Watch</p>
+      <h1><span class="wink">Meer-ly a click.</span> Turn a spark into a clear thought.</h1>
+      <p class="lede"><strong>An AI dictation and thought-capture app.</strong> Speak into your work, or save an idea before it slips away.</p>
+      <div class="actions" id="downloads">
+        <a class="w-btn" href="https://github.com/curiowls/meerkattasparkle/releases/latest/download/MeerKatta-latest.dmg">Download for Mac</a>
+        <a class="w-btn w-btn-ghost" href="https://apps.apple.com/app/meerkatta/id6766122029">Get for iPhone &amp; iPad</a>
+      </div>
+      <p class="fine trial"><strong>7 days free.</strong> On Mac, no credit card needed. On iPhone and iPad, the trial starts when you subscribe. <a href="#pricing">See pricing →</a></p>
+      <span class="orb-spot orb-spot-hero" data-orb-spot data-ground></span>
+      <p class="scroll-cue" aria-hidden="true">Scroll to follow the spark</p>
+    </header>
+
+    <!-- Capture mode -->
+    <section class="stop" id="lookout" data-stop data-expand>
+      <div class="stop-pin">
+        <div class="stop-card">
+          <div class="stop-min">
+            <p class="eyebrow">Always on lookout <span class="device">iPhone · iPad · Mac</span></p>
+            <h2>Keep the thought before the moment passes.</h2>
+            <p>Tap once and speak. MeerKatta saves the thought wherever it arrives, before you know where it belongs.</p>
+            <p class="aside">Like a meerkat sentry, it stands ready so nothing slips past.</p>
+            <button type="button" class="more-cue" data-more-cue>How capture works</button>
+          </div>
+          <div class="stop-more"><div>
+            <h3>Capture mode <span>When the thought arrives before the destination does.</span></h3>
+            <ol class="steps">
+              <li>Start from the Lock Screen, menu bar, or app.</li>
+              <li>Speak the rough thought without organizing it first.</li>
+              <li>Save a structured note you can keep building on.</li>
+            </ol>
+            <details class="inline-more">
+              <summary>Set up the Lock Screen widget</summary>
+              <p><strong>1. Add the widget.</strong> Touch and hold your Lock Screen, then tap Customize. Tap the widget area below the time, choose MeerKatta, and tap a Quick Capture widget size. Close the picker and tap Done.</p>
+              <p><strong>2. Capture a thought.</strong> Tap the MeerKatta widget, speak, then stop. Wait for processing and review the finished text in your Library.</p>
+            </details>
+          </div></div>
+        </div>
+
+        <div class="stop-visual stop-more"><div>
+          <div class="seg" role="tablist" aria-label="Show capture on" data-seg>
+            <button type="button" role="tab" id="tab-iphone" aria-controls="cap-iphone" aria-selected="true">On iPhone</button>
+            <button type="button" role="tab" id="tab-mac" aria-controls="cap-mac" aria-selected="false">On Mac</button>
+          </div>
+          <div class="seg-panel" role="tabpanel" id="cap-iphone" aria-labelledby="tab-iphone">
+          <ul class="surfaces" aria-label="Where capture lives on iPhone">
+            <li class="surface surface-island">
+              <div class="island"><img src="/assets/meerkat-widget-light.png" alt="" width="20" height="20"><span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+              <p><strong>Dynamic Island</strong> See that you are recording at a glance.</p>
+            </li>
+            <li class="surface surface-activity">
+              <div class="activity">
+                <div class="activity-head"><img src="/assets/meerkat-widget-light.png" alt="" width="26" height="26"><div><b>MeerKatta</b><small>Keep your flow · 13:06</small></div><span class="activity-stop" aria-hidden="true"></span></div>
+                <div class="activity-actions"><span class="is-primary">↪ Continue thought</span><span>＋ New thought</span></div>
+              </div>
+              <p><strong>Live Activity</strong> Continue a thought or start a new one without opening the app.</p>
+            </li>
+            <li class="surface surface-widget">
+              <div class="lockscreen"><span class="lock-date">Friday, July 10</span><span class="lock-time">12:27</span><div class="lock-widgets"><span class="lock-wide"><img src="/assets/meerkat-widget-light.png" alt="" width="20" height="20">Quick Capture</span></div></div>
+              <p><strong>Lock Screen widget</strong> One tap to capture, before you unlock.</p>
+            </li>
+          </ul>
+          </div>
+          <div class="seg-panel" role="tabpanel" id="cap-mac" aria-labelledby="tab-mac">
+            <figure class="macpanel">
+              <div class="macpanel-win" role="img" aria-label="The MeerKatta capture panel on Mac, holding a spoken thought with Keep speaking, Save, Share, Copy and Discard controls">
+                <div class="macpanel-head"><img src="/assets/meerkat-widget.png" alt="" width="26" height="26"><strong>The first-run checklist should be…</strong></div>
+                <p class="macpanel-text">The first-run checklist should be three steps, not a modal. Connect a provider, try a capture, open settings. Make it dismissible.</p>
+                <span class="macpanel-main"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><rect x="5.5" y="1" width="5" height="8.5" rx="2.5" fill="currentColor"/><path d="M3 7.5a5 5 0 0 0 10 0M8 12.5V15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Keep speaking</span>
+                <div class="macpanel-actions"><span>Save</span><span>Share</span><span>Copy</span><em>Discard</em></div>
+              </div>
+              <figcaption><strong>Capture panel</strong> Hold your hotkey with no text field in focus, and the thought lands here to save, share, or copy. With your cursor in a text field, it goes straight in.</figcaption>
+            </figure>
+          </div>
+          <span class="orb-spot orb-spot-surfaces" data-orb-spot data-at="0.62" data-live></span>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- Quick injection -->
+    <section class="stop stop-flip" id="work" data-stop data-expand>
+      <div class="stop-pin">
+        <div class="stop-card">
+          <div class="stop-min">
+            <p class="eyebrow">Quick bursts <span class="device">Mac</span></p>
+            <h2>Speak it. Put it straight to work.</h2>
+            <p>Hold your hotkey, speak, release. Your words land as clear, structured text, right at your cursor.</p>
+            <p class="aside">Meerkats talk in quick, distinct calls. Speak the same way: in bursts, before your inner editor steps in.</p>
+            <button type="button" class="more-cue" data-more-cue>How dictation works</button>
+          </div>
+          <div class="stop-more"><div>
+            <h3>Quick injection <span>When you already know where the text belongs.</span></h3>
+            <ol class="steps">
+              <li>Focus a text field, chat box, email, note, or Codex input.</li>
+              <li>Hold the shortcut and speak the intent naturally.</li>
+              <li>MeerKatta inserts a clearer version at the cursor.</li>
+            </ol>
+          </div></div>
+        </div>
+
+        <div class="stop-visual stop-more"><div>
+          <figure class="dictation" aria-label="Illustrative dictation into a team chat">
+            <figcaption>Project team · Review update</figcaption>
+            <div class="spoken"><span class="orb-spot orb-spot-inline" data-orb-spot data-at="0.62" data-live></span><p>“Quick update, the review is Thursday—actually Friday. Design is ready, testing is still open, and I need feedback by noon.”</p></div>
+            <div class="keys" aria-hidden="true"><kbd>Hold hotkey</kbd><span>→</span><kbd>Speak</kbd><span>→</span><kbd>Release</kbd></div>
+            <div class="field">
+              <p>Quick update: the review is Friday.</p>
+              <p>• Design is ready.</p>
+              <p>• Testing is still open.</p>
+              <p>Please send feedback by noon.<i class="caret" aria-hidden="true"></i></p>
+            </div>
+          </figure>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- Personal voice -->
+    <section class="stop" id="voice" data-stop data-expand>
+      <div class="stop-pin">
+        <div class="stop-card">
+          <div class="stop-min">
+            <p class="eyebrow">Clear sight <span class="device">Every device</span></p>
+            <h2>Clearer you, not generic AI voice.</h2>
+            <p>MeerKatta removes filler and rambling, and keeps what you meant, in your own words.</p>
+            <p class="aside">A meerkat’s dark eye patches cut the desert glare the same way.</p>
+            <button type="button" class="more-cue" data-more-cue>What it keeps</button>
+          </div>
+          <div class="stop-more"><div>
+            <p class="plain">The goal is polish, not replacement. MeerKatta is built to preserve intent while removing the friction around it.</p>
+            <dl class="traits">
+              <div><dt>Vocabulary that sticks</dt><dd>Names, product terms, acronyms, and recurring phrases can become part of your capture style.</dd></div>
+              <div><dt>Context-aware tone</dt><dd>A technical instruction, a note, and a message should not sound the same. MeerKatta adapts to where you are.</dd></div>
+              <div><dt>Your AI of choice</dt><dd>Choose <a href="#pricing">Subscription</a> to start right away: MeerKatta manages the AI, with nothing to set up. Choose <a href="#pricing">Lifetime</a> if you already pay for an AI service or get API keys from work, and connect your own supported key.</dd></div>
+            </dl>
+          </div></div>
+        </div>
+
+        <div class="stop-visual stop-more"><div>
+          <div class="polish" aria-label="Example of a raw thought becoming a structured thought">
+            <article class="note note-raw"><header><span>Raw thoughts</span><span class="tag tag-live">Listening</span></header><p>Wait, the thing is not typing speed… once I start fixing the sentence, I stop thinking. Maybe I need to keep talking until the idea has a shape.</p></article>
+            <span class="orb-spot orb-spot-polish" data-orb-spot data-at="0.62"></span>
+            <article class="note note-clean"><header><span>Structured thought</span><span class="tag">Saved</span></header><h3>Give the thought room to arrive.</h3><p>The problem is not typing speed. Fixing the sentence interrupts my thinking. I want to keep speaking until the idea has a shape.</p><p class="chips"><span>Draft</span><span>Share</span><span>Build from</span></p></article>
+          </div>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- The burrow -->
+    <section class="stop stop-flip stop-under" id="home" data-stop data-expand>
+      <div class="stop-pin">
+        <div class="stop-card">
+          <div class="stop-min">
+            <p class="eyebrow">The burrow <span class="device">Every device</span></p>
+            <h2>Never lose a thought.</h2>
+            <p>Every capture is saved to your library as a structured note, ready to build on.</p>
+            <p class="aside">Meerkats dig burrows to protect what matters. This one is yours.</p>
+            <button type="button" class="more-cue" data-more-cue>What gets kept</button>
+          </div>
+          <div class="stop-more"><div>
+            <dl class="traits">
+              <div><dt>Raw capture, even offline</dt><dd>On a plane, at a campsite, or anywhere without network, MeerKatta can still capture raw transcription so the thought does not disappear.</dd></div>
+              <div><dt>A library to build from</dt><dd>Captures are saved as structured notes. Return to one, give it a next step, and keep building.</dd></div>
+            </dl>
+          </div></div>
+        </div>
+
+        <div class="stop-visual stop-more"><div>
+          <div class="vault">
+          <div class="shelf" role="img" aria-label="The Thought Shelf: an arched alcove in the burrow with two ledges of glowing glass orbs">
+            <div class="alcove">
+              <div class="ledge"><span class="orb orb-static"></span><span class="orb-spot" data-orb-spot data-at="0.66"></span><span class="orb orb-static"></span></div>
+              <div class="ledge"><span class="orb orb-static"></span><span class="orb orb-static"></span><span class="cup"></span><span class="cup"></span></div>
+            </div>
+            <p>The Thought Shelf</p>
+          </div>
+          <ul class="promises">
+            <li>Zero cloud data retention</li>
+            <li>Never trained on your data</li>
+          </ul>
+          <a class="promise-link" href="/privacy/">How MeerKatta handles your data →</a>
+          </div>
+        </div></div>
+      </div>
+    </section>
+
+    <section class="under" id="pricing">
+      <div class="panel">
+        <div class="w-head">
+          <p class="eyebrow">Mac &amp; website pricing</p>
+          <h2>Choose how MeerKatta runs its brainpower.</h2>
+          <p>Try MeerKatta free for 7 days. Both plans include the same capture workflow. The difference is whether MeerKatta manages AI for you or uses your own supported API key.</p>
+        </div>
+        <div class="plans">
+          <article>
+            <p class="eyebrow">Launch offer</p><h3>MeerKatta Lifetime</h3><p class="price">$33 <s>normally $49</s></p>
+            <p class="fit">Choose this if you already pay for an AI service, or your company gives you API keys.</p>
+            <p>Pay once. Connect your own supported API key and avoid another recurring software subscription.</p>
+            <ul><li>Mac voice capture and dictation</li><li>Context-aware polish and insertion</li><li>Vocabulary and tone preferences</li><li>Raw transcription works offline</li></ul>
+            <a href="/pricing/">Compare plans →</a>
+          </article>
+          <article>
+            <p class="eyebrow">Managed AI</p><h3>MeerKatta Subscription</h3><p class="price">$8.33<small>/mo</small></p>
+            <p class="fit">Choose this if you want MeerKatta to work right away, with no AI setup.</p>
+            <p>Billed yearly at $99.99. No provider setup, no API keys, and cancel anytime.</p>
+            <ul><li>7 days free, no credit card required</li><li>Managed transcription and polish</li><li>Same voice capture workflows</li><li>$9.99 monthly option available</li></ul>
+            <a href="/pricing/">See subscription →</a>
+          </article>
+        </div>
+        <p class="plan-ios"><strong>On iPhone or iPad?</strong> <a href="https://apps.apple.com/app/meerkatta/id6766122029">Get MeerKatta on the App Store</a>, where the 7-day trial starts when you subscribe. Apple shows local prices before you buy.</p>
+        <p class="plan-sync"><strong>Buy once, use everywhere.</strong> Sign in, and a purchase made on Mac or in the App Store unlocks MeerKatta on your other devices too.</p>
+        <p class="fine plan-note">Changed your mind after buying? See the <a href="/refund/">refund policy</a>.</p>
+      </div>
+
+      <div class="panel" id="faq">
+        <div class="w-head"><p class="eyebrow">FAQ</p><h2>Practical details.</h2></div>
+        <div class="faq">
+          <details><summary>Which devices can I use MeerKatta on?</summary><p>MeerKatta is available for Mac, iPhone, iPad, and Apple Watch. <a href="#downloads">Download the Mac app</a>, or get MeerKatta for iPhone, iPad, and Apple Watch on the <a href="https://apps.apple.com/app/meerkatta/id6766122029">App Store</a>. Record and listen back on your Watch; recordings are processed when they reach your iPhone.</p></details>
+          <details><summary>Is MeerKatta just dictation?</summary><p>MeerKatta is a voice dictation and thought-capture app for Mac, iPhone, iPad, and Apple Watch. Speak into a working text field, or save a thought before you know where it belongs. It turns rough speech into clearer, structured text while keeping your intent.</p></details>
+          <details><summary>Why not just use free dictation?</summary><p>Free dictation is useful when you already know exactly what to say. MeerKatta is for the earlier, more fragile moment when you are forming the thought and do not want editing to interrupt it.</p></details>
+          <details><summary>Does MeerKatta rewrite my voice?</summary><p>The goal is polish, not replacement. MeerKatta should make the thought clearer while keeping it recognizably yours.</p></details>
+          <details><summary>Where do audio and video fit?</summary><p>Audio and video refinement are in the making and are not available in the current release. We’re exploring how AI-guided processing could remove filler, clarify the structure, and return a cleaner recording in the same medium—audio as audio, video as video. Scope and release timing are not settled.</p></details>
+        </div>
+        <p class="slot-note">Prototype note: “In the making” and Field notes keep their current design and slot in here.</p>
+      </div>
+    </section>
+
+    <section class="ready" id="ready" data-stop>
+      <div class="stop-card ready-card">
+        <h2>Ready when the next thought arrives.</h2>
+        <p>Small, quick, and out of your way until the moment you need it.</p>
+        <div class="actions">
+          <a class="w-btn" href="https://github.com/curiowls/meerkattasparkle/releases/latest/download/MeerKatta-latest.dmg">Download for Mac</a>
+          <a class="w-btn w-btn-ghost" href="https://apps.apple.com/app/meerkatta/id6766122029">Get for iPhone &amp; iPad</a>
+        </div>
+        <p class="fine trial"><strong>7 days free.</strong> On Mac, no credit card needed. On iPhone and iPad, the trial starts when you subscribe.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="w-foot">
+    <div class="w-foot-inner">
+      <div class="w-foot-brand">
+        <a href="/" aria-label="MeerKatta home"><img src="/assets/MeerKatta-typelogo-dark.svg" alt="MeerKatta" width="140" height="28"></a>
+        <p>Thought capture for Mac, iPhone, iPad, and Apple Watch.</p>
+        <a href="mailto:hello@meerkatta.com">hello@meerkatta.com</a>
+      </div>
+      <nav aria-label="Product"><h2>Product</h2><a href="/welcome/">Getting started</a><a href="/use-cases/">Use Cases</a><a href="/pricing/">Pricing</a><a href="https://apps.apple.com/app/meerkatta/id6766122029">iPhone, iPad &amp; Apple Watch app</a></nav>
+      <nav aria-label="Learn"><h2>Learn</h2><a href="/journal/">Field notes</a><a href="/about/">About</a><a href="/help/">Help</a></nav>
+      <nav aria-label="Legal"><h2>Legal</h2><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/refund/">Refund</a></nav>
+    </div>
+  </footer>
+
+  <script type="module" src="./world.js"></script>
+</body>
+</html>

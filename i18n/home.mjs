@@ -6,6 +6,18 @@ const english = JSON.parse(read('./home/en.json'));
 const sharedKeys = ['t0','t138','t140'];
 const fieldNotes = JSON.parse(read('./home/journal.json'));
 const voiceCopy = JSON.parse(read('./home/voice.json'));
+const injectionCopy = JSON.parse(read('./home/injection.json'));
+const demoGuidance = {
+  en:['Use your configured shortcut.','Listening…','Polishing…','Inserted','Switch to MeerKatta keyboard.','Tap the microphone and speak.','Stop. The cleaned-up text appears automatically.'],
+  es:['Usa el atajo que hayas configurado.','Escuchando…','Puliendo…','Insertado','Cambia al teclado MeerKatta.','Toca el micrófono y habla.','Detén la grabación. El texto depurado aparece automáticamente.'],
+  'zh-Hans':['使用你设置的快捷键。','正在聆听…','正在整理…','已填入','切换到 MeerKatta 键盘。','点麦克风，说出想法。','停止录音，整理后的文字会自动填入。'],
+  'zh-Hant':['使用你設定的快捷鍵。','正在聆聽…','正在整理…','已填入','切換到 MeerKatta 鍵盤。','點麥克風，說出想法。','停止錄音，整理後的文字會自動填入。'],
+  ja:['設定したショートカットを使います。','聞き取り中…','文章を整理中…','入力しました','MeerKattaキーボードに切り替える。','マイクをタップして話す。','録音を止めると、整えた文章が自動で入ります。'],
+  de:['Nutze deinen eingerichteten Kurzbefehl.','Hört zu…','Wird geglättet…','Eingefügt','Zur MeerKatta-Tastatur wechseln.','Mikrofon antippen und sprechen.','Aufnahme stoppen. Der geglättete Text erscheint automatisch.'],
+  fr:['Utilisez votre raccourci configuré.','À l’écoute…','Clarification…','Texte inséré','Passez au clavier MeerKatta.','Touchez le micro et parlez.','Arrêtez l’enregistrement. Le texte clarifié apparaît automatiquement.'],
+  ko:['설정한 단축키를 사용하세요.','듣는 중…','다듬는 중…','입력 완료','MeerKatta 키보드로 전환하세요.','마이크를 누르고 말하세요.','녹음을 멈추면 다듬은 글이 자동으로 입력돼요.'],
+  'pt-BR':['Use o atalho que você configurou.','Ouvindo…','Organizando…','Inserido','Mude para o teclado MeerKatta.','Toque no microfone e fale.','Pare a gravação. O texto organizado aparece automaticamente.'],
+};
 const skipLabels = {en:'Skip to content', es:'Saltar al contenido', 'zh-Hans':'跳至主要内容', 'zh-Hant':'跳至主要內容', ja:'本文へ移動', de:'Zum Inhalt springen', fr:'Aller au contenu', ko:'본문으로 건너뛰기', 'pt-BR':'Pular para o conteúdo'};
 
 export function homepageCopy(code, c) {
@@ -21,6 +33,10 @@ export function homepageCopy(code, c) {
     t151:e(marked(c.common.privacy)), t152:e(marked(c.common.terms)), t153:e(marked(c.common.refund)),
     ...local,
     ...voiceCopy[code],
+    ...injectionCopy[code],
+    ...Object.fromEntries(['macShortcutNote','macListening','macPolishing','macDone','mobileStep1','mobileStep2','mobileStep3'].map((key,i)=>[key,demoGuidance[code][i]])),
+    keyboardMic: english.t42.slice(0, english.t42.indexOf('</svg>') + 6),
+    t30:({en:'On iPhone + Apple Watch',es:'En iPhone + Apple Watch','zh-Hans':'在 iPhone + Apple Watch 上','zh-Hant':'在 iPhone + Apple Watch 上',ja:'iPhone + Apple Watchで',de:'Auf iPhone + Apple Watch',fr:'Sur iPhone + Apple Watch',ko:'iPhone + Apple Watch에서','pt-BR':'No iPhone + Apple Watch'})[code],
   };
   Object.assign(copy, {t145:e(c.common.watch), a0:c.menu, a1:'MeerKatta', a9:'MeerKatta', a10:copy.t141, a11:copy.t146, a12:copy.t150});
   for (const key of ['t80', 't84']) copy[key] = copy[key].replace('Ohlalarm', '<a class="quiet-product-link" href="https://ohlalarm.com/?utm_source=meerkatta&amp;utm_medium=referral&amp;utm_campaign=voice_example&amp;utm_content=homepage">Ohlalarm</a>');

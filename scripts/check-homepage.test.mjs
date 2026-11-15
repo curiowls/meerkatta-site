@@ -18,6 +18,10 @@ test('All nine homepages have full copy, demos, navigation and indexable metadat
     assert.equal((html.match(/data-expand/g)||[]).length,4);
     assert.equal((html.match(/hreflang=/g)||[]).length,12);
     assert.ok(html.includes('class="panel w-journal"'));
+    assert.ok(!html.includes('class="activity-stop"'), `${code}: idle Live Activity must not show stop`);
+    assert.ok(html.includes('id="inject-ios"'));
+    assert.ok(html.includes('id="inject-mac"'));
+    assert.equal((html.match(new RegExp(copy.t62.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g')) || []).length, 2, `${code}: shared result in both tabs`);
     assert.ok(html.includes('class="language-display"'));
     assert.ok(!html.includes('Português (Brasil)'));
     assert.ok(html.includes(`rel="canonical" href="https://meerkatta.com${pagePath(code)}"`));

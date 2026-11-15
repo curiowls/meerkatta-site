@@ -70,6 +70,7 @@
             <button type="button" role="tab" id="tab-iphone" aria-controls="cap-iphone" aria-selected="true">{{t30}}</button>
             <button type="button" role="tab" id="tab-mac" aria-controls="cap-mac" aria-selected="false">{{t31}}</button>
           </div>
+          <div class="tab-stage">
           <div class="seg-panel" role="tabpanel" id="cap-iphone" aria-labelledby="tab-iphone">
           <ul class="surfaces" aria-label="{{a4}}">
             <li class="surface surface-island">
@@ -78,7 +79,7 @@
             </li>
             <li class="surface surface-activity">
               <div class="activity">
-                <div class="activity-head"><img src="/assets/meerkat-widget-light.png" alt="" width="26" height="26"><div><b>MeerKatta</b><small>{{t33}}</small></div><span class="activity-stop" aria-hidden="true"></span></div>
+                <div class="activity-head"><img src="/assets/meerkat-widget-light.png" alt="" width="26" height="26"><div><b>MeerKatta</b><small>{{t33}}</small></div></div>
                 <div class="activity-actions"><span class="is-primary">{{t34}}</span><span>{{t35}}</span></div>
               </div>
               <p>{{t36}}</p>
@@ -89,7 +90,7 @@
             </li>
           </ul>
           <figure class="watch-demo">
-            <div class="watch-case" role="img" aria-label="{{watchAlt}}"><div class="watch-screen"><div class="watch-status"><span>9:04</span><span>0:27</span></div><img src="/assets/meerkatta-curious-search.jpg" alt="" width="1200" height="1200" loading="lazy"><div class="watch-record" aria-hidden="true"><span class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="watch-stop"></span></div></div></div>
+            <div class="watch-case" role="img" aria-label="{{watchAlt}}"><div class="watch-screen"><div class="watch-status"><span>9:04</span><span>0:27</span></div><div class="watch-portrait"><img src="/world/curious.webp" alt="" width="512" height="1024" loading="lazy"></div><div class="watch-record" aria-hidden="true"><span class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="watch-stop"></span></div></div></div>
             <figcaption><strong>Apple Watch</strong><p>{{watchCaption}}</p></figcaption>
           </figure>
           </div>
@@ -103,6 +104,7 @@
               </div>
               <figcaption>{{t47}}</figcaption>
             </figure>
+          </div>
           </div>
           <span class="orb-spot orb-spot-surfaces" data-orb-spot="" data-at="0.62" data-live=""></span>
         </div></div>
@@ -131,15 +133,40 @@
         </div>
 
         <div class="stop-visual stop-more"><div>
+            <div class="seg" role="tablist" aria-label="{{injectionTabs}}" data-injection-tabs>
+              <button type="button" role="tab" id="tab-inject-mac" aria-controls="inject-mac" aria-selected="true">{{t31}}</button>
+              <button type="button" role="tab" id="tab-inject-ios" aria-controls="inject-ios" aria-selected="false">{{injectionMobile}}</button>
+            </div>
           <figure class="dictation" aria-label="{{a6}}">
             <figcaption>{{t57}}</figcaption>
             <div class="spoken"><span class="orb-spot orb-spot-inline" data-orb-spot="" data-at="0.62" data-live=""></span><p>{{t58}}</p></div>
-            <div class="keys" aria-hidden="true"><kbd>{{t59}}</kbd><span>→</span><kbd>{{t60}}</kbd><span>→</span><kbd>{{t61}}</kbd></div>
+            <div class="tab-stage">
+            <div role="tabpanel" id="inject-mac" aria-labelledby="tab-inject-mac" tabindex="0">
+            <div class="mac-injection-demo" data-mac-phase="done">
+            <div class="mac-hotkey-guide"><span class="hotkey-demo" aria-hidden="true"><kbd>{{t59}}</kbd></span><div><p>{{t59}} → {{t60}} → {{t61}}</p><small>{{macShortcutNote}}</small></div></div>
+            <div class="mac-injection-widget" aria-hidden="true"><img src="/assets/meerkat-widget.png" width="24" height="24" alt=""><span data-mac-status data-listening="{{macListening}}" data-polishing="{{macPolishing}}" data-done="{{macDone}}">{{macDone}}</span><span class="bars"><i></i><i></i><i></i><i></i><i></i></span></div>
             <div class="field">
               <p>{{t62}}</p>
               <p>{{t63}}</p>
               <p>{{t64}}</p>
               <p>{{t65}}</p>
+            </div>
+            </div>
+            </div>
+            <div role="tabpanel" id="inject-ios" aria-labelledby="tab-inject-ios" tabindex="0">
+              <div class="keyboard-layout">
+              <div class="keyboard-composer">
+                <div class="keyboard-note"><p>{{t62}}</p><p>{{t63}}</p><p>{{t64}}</p><p>{{t65}}</p></div>
+                <div class="keyboard-preview" role="img" aria-label="{{keyboardAlt}}">
+                  <span class="keyboard-mic" aria-hidden="true">{{keyboardMic}}</span>
+                  <img src="/assets/MeerKatta-typelogo-dark.svg" alt="MeerKatta" width="100" height="20">
+                  <div class="keyboard-shortcuts" aria-hidden="true"><span>@</span><span>#</span><span>:</span><span>,</span><span>!</span><span>?</span><span>⌫</span></div>
+                  <div class="keyboard-shortcuts keyboard-bottom" aria-hidden="true"><span>123</span><span>{{keyboardSpace}}</span><span>↵</span></div>
+                </div>
+              </div>
+              <div class="keyboard-guidance"><ol><li>{{mobileStep1}}</li><li>{{mobileStep2}}</li><li>{{mobileStep3}}</li></ol><a class="keyboard-setup" href="/welcome/">{{keyboardSetup}} →</a></div>
+              </div>
+            </div>
             </div>
           </figure>
         </div></div>

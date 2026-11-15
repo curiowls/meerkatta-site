@@ -133,10 +133,15 @@ function updateStops(y) {
   for (const stop of stops) {
     if (pinMq.matches) {
       const pr = (y - docTopCache.get(stop)) / Math.max(1, stop.offsetHeight - vh)
-      if (pr > 0.3) setOpen(stop, true)
-      else if (pr < 0.2 && !stop.dataset.held) setOpen(stop, false)
+      const earlyDemo = stop.id === 'work'
+      if (pr > (earlyDemo ? 0.08 : 0.3)) setOpen(stop, true)
+      else if (pr < (earlyDemo ? 0.02 : 0.2) && !stop.dataset.held) setOpen(stop, false)
+      if (earlyDemo) stop.dispatchEvent(new CustomEvent('world:progress', {detail: pr}))
       // scrolling on through the Lookout stop moves from the iPhone view to the Mac view
-      if (stop.id === 'lookout' && !segManual) showDevice(pr > 0.66 ? 'cap-mac' : 'cap-iphone')
+      if (stop.id === 'lookout' && !segManual) {
+        if (pr > 0.68) showDevice('cap-mac')
+        else if (pr < 0.58) showDevice('cap-iphone')
+      }
     } else if (!stop.dataset.manual && stop.getBoundingClientRect().top < vh * 0.45) {
       setOpen(stop, true) // on phones it opens once and stays open, so the page never jumps
     }
@@ -173,6 +178,7 @@ function showDevice(id) {
     tab.setAttribute('aria-selected', String(on))
     tab.tabIndex = on ? 0 : -1
     document.getElementById(tab.getAttribute('aria-controls')).hidden = !on
+    document.getElementById(tab.getAttribute('aria-controls')).inert = !on
   }
 }
 segTabs.forEach((tab, i) => {

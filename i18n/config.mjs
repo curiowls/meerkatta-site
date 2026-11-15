@@ -7,7 +7,7 @@ export const languages = [
   {code: 'de', name: 'Deutsch'},
   {code: 'fr', name: 'Français'},
   {code: 'ko', name: '한국어'},
-  {code: 'pt-BR', name: 'Português (Brasil)'},
+  {code: 'pt-BR', name: 'Português'},
 ];
 export const pages = ['', 'about', 'pricing', 'use-cases', 'welcome', 'help'];
 export const origin = 'https://meerkatta.com';

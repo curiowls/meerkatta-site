@@ -137,7 +137,7 @@ function updateStops(y) {
       else if (pr < 0.2 && !stop.dataset.held) setOpen(stop, false)
       // scrolling on through the Lookout stop moves from the iPhone view to the Mac view
       if (stop.id === 'lookout' && !segManual) showDevice(pr > 0.66 ? 'cap-mac' : 'cap-iphone')
-    } else if (stop.getBoundingClientRect().top < vh * 0.45) {
+    } else if (!stop.dataset.manual && stop.getBoundingClientRect().top < vh * 0.45) {
       setOpen(stop, true) // on phones it opens once and stays open, so the page never jumps
     }
   }
@@ -153,7 +153,10 @@ for (const stop of stops) {
     if (pinMq.matches) {
       const span = stop.offsetHeight - vh
       scrollTo({ top: docTop(stop) + span * (open ? 0.45 : 0.05), behavior: reduced ? 'auto' : 'smooth' })
-    } else setOpen(stop, open)
+    } else {
+      stop.dataset.manual = 'true'
+      setOpen(stop, open)
+    }
   })
 }
 

@@ -2,6 +2,7 @@ import {readFileSync, mkdirSync, writeFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {languages, pages, origin, appStore, macDownload, pagePath, languagePicker, alternates, openGraphLocales, escapeHtml as e} from './config.mjs';
+import {renderHomepage} from './home.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 export const catalogs = Object.fromEntries(languages.map(({code}) => [code, JSON.parse(readFileSync(resolve(root, `i18n/locales/${code}.json`), 'utf8'))]));
@@ -38,6 +39,7 @@ function content(code, page, c) {
 
 export function renderPage(code, page) {
   const c = catalogs[code];
+  if (page === '') return renderHomepage(code, c);
   const data = c[page === '' ? 'home' : page === 'use-cases' ? 'useCases' : page];
   const url = origin + pagePath(code, page);
   const title = `${data.title} | MeerKatta`;
@@ -70,6 +72,7 @@ export function localizationPlugin() {
         const segments = context.path.replace(/index\.html$/, '').split('/').filter(Boolean);
         const code = languages.find(language => language.code === segments[0])?.code || 'en';
         const page = segments.slice(code === 'en' ? 0 : 1).join('/');
+        if (page === '') return renderHomepage(code, catalogs[code]);
         if (!html.includes('class="nav-inner"')) return html;
         const translated = pages.includes(page);
         const c = catalogs[code];

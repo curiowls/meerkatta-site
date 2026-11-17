@@ -1,0 +1,9 @@
+.edit-example { margin:28px 0; padding:24px 0; border-block:1px solid #d7dedb; }
+    .edit-columns { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+    .edit-columns h3 { color:#365c55; margin:0 0 14px; }
+    .edit-columns p { margin:0 0 14px; font-size:1.0625rem; }
+    .edit-example figcaption { color:var(--ink-dim); font-size:.875rem; margin-top:16px; }
+    .quiet-companion { display:flex; align-items:center; gap:24px; margin:28px 0; }
+    .quiet-companion img { width:96px; height:172px; object-fit:contain; flex:none; }
+    .quiet-companion figcaption { font-size:1.125rem; line-height:1.6; }
+    @media(max-width:560px) { .edit-columns { grid-template-columns:1fr; } }

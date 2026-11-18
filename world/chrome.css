@@ -1,0 +1,103 @@
+/* Navigation and footer shared with the approved homepage. */
+.w-nav, .w-foot {
+  --cream:#f4ede2; --paper:#fbf6ee; --brand:#72462c; --brand-strong:#5d3822;
+  --ink:#1a110c; --body-ink:#51443d; --muted:#62564f; --line:rgba(114,70,44,.16);
+  --gutter:clamp(16px,5vw,72px); --display:"Hanken Grotesk",Inter,system-ui,sans-serif;
+  --text:Inter,system-ui,sans-serif;
+  --type-chrome-small:14px; --type-chrome-body:15px;
+  font-family:var(--text); line-height:1.55;
+}
+.w-nav *, .w-foot * { box-sizing:border-box; }
+.w-nav p, .w-foot p { margin:0; }
+.w-foot h2 { margin-top:0; line-height:1.25; }
+.w-nav a:focus-visible, .w-foot a:focus-visible, .w-menu-toggle:focus-visible { outline:2px solid var(--brand); outline-offset:3px; }
+
+.w-nav {
+  --nav-tint: 251, 246, 238;
+  position: fixed; inset: 0 0 auto 0; z-index: 20;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 10px var(--gutter);
+}
+.w-nav::before {
+  content: ""; position: absolute; inset: 0 0 -18px 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(rgba(var(--nav-tint), 0.6), rgba(var(--nav-tint), 0.32) 72%, rgba(var(--nav-tint), 0));
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  -webkit-mask-image: linear-gradient(#000 62%, transparent); mask-image: linear-gradient(#000 62%, transparent);
+}
+.w-logo { display: flex; align-items: center; gap: 10px; }
+.w-logo img:first-child { border-radius: 9px; }
+.w-nav-links { display: flex; align-items: center; gap: clamp(12px, 2.4vw, 28px); font: 500 15px var(--text); }
+.w-nav-links a:not(.w-btn) { color: var(--ink); text-decoration: none; }
+.w-nav-links a:not(.w-btn):hover { text-decoration: underline; }
+
+.w-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: 0 22px; border-radius: 999px;
+  background: var(--brand); color: #fff; text-decoration: none;
+  font: 600 16px var(--display);
+  box-shadow: 0 6px 18px rgba(93, 56, 34, 0.24);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.w-btn:hover { background: var(--brand-strong); transform: translateY(-1px); }
+.w-btn-ghost { background: rgba(255, 251, 245, 0.82); color: var(--ink); box-shadow: inset 0 0 0 1.5px rgba(42, 31, 24, 0.22); }
+.w-btn-ghost:hover { background: #fffaf2; }
+.w-btn-small { min-height: 38px; padding: 0 16px; font-size: var(--type-chrome-small, 14px); }
+.w-foot { position: relative; z-index: 1; background: var(--cream); border-top: 1px solid var(--line); padding: 40px var(--gutter) 44px; font-size: var(--type-chrome-body); }
+.w-foot-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: minmax(220px, 1.6fr) repeat(3, minmax(120px, 1fr)); gap: 28px 32px; }
+.w-foot-brand { display: grid; gap: 10px; justify-items: start; align-content: start; color: var(--body-ink); }
+.w-foot nav { display: grid; gap: 4px; align-content: start; justify-items: start; }
+.w-foot h2 { font: 600 12px var(--display); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.w-foot a { color: var(--ink); text-decoration: none; padding: 5px 0; }
+.w-foot a:hover { color: var(--brand); text-decoration: underline; }
+@media (max-width: 760px) {
+  .w-foot-inner { grid-template-columns: 1fr 1fr; }
+  .w-foot-brand { grid-column: 1 / -1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .w-btn { transition: none; }
+}
+
+.w-nav { gap: 16px; }
+.w-logo { flex-shrink: 0; }
+.w-nav .language-picker { margin-left: auto; position: relative; display: inline-flex; align-items: center; min-height: 40px; color: var(--body-ink); font: 500 14px var(--text); }
+.w-nav .language-display { padding-right: 18px; }
+.w-nav .language-display::after { content: ''; position: absolute; right: 2px; top: 16px; width: 6px; height: 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); }
+.w-nav .language-picker select { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.w-nav .language-picker:focus-within { outline: 2px solid var(--brand); outline-offset: 3px; border-radius: 3px; }
+.w-nav-links { gap: 16px; }
+.w-nav-links a { white-space: nowrap; }
+.w-menu-toggle { flex: none; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); color: var(--brand); cursor: pointer; }
+.w-menu-toggle span, .w-menu-toggle span::before, .w-menu-toggle span::after { display: block; width: 20px; height: 2px; background: currentColor; margin: auto; }
+.w-menu-toggle span { position: relative; }
+.w-menu-toggle span::before, .w-menu-toggle span::after { content: ''; position: absolute; left: 0; }
+.w-menu-toggle span::before { top: -6px; }
+.w-menu-toggle span::after { top: 6px; }
+.w-menu-toggle[hidden] { display: none; }
+.w-foot a { overflow-wrap: anywhere; }
+.w-btn { padding-block: 12px; text-align: center; }
+.w-btn-small { padding-block: 9px; }
+.w-nav-links, .w-nav .language-picker { flex-shrink:0; }
+.w-nav.is-compact { flex-wrap:wrap; }
+.is-compact .w-nav-links { width:100%; display:none; padding:16px; border-radius:8px; background:var(--paper); max-height:calc(100svh - 90px); overflow:auto; }
+.is-compact.menu-open .w-nav-links { display:grid; }
+.is-compact .w-nav-links a:not(.w-btn) { display:block; padding:10px; }
+.w-nav.nav-measuring .w-nav-links { position:absolute; visibility:hidden; display:flex; width:max-content; max-height:none; padding:0; overflow:visible; }
+.w-nav.nav-measuring .w-nav-links a:not(.w-btn) { display:block; padding:0; }
+html:not(.chrome-ready) .w-nav { position:relative; flex-wrap:wrap; }
+html:not(.chrome-ready) .w-nav-links { flex-wrap:wrap; max-width:100%; }
+@media (max-width: 760px) {
+  .w-nav { gap: 8px; padding-inline: 16px; }
+  .w-logo { gap: 6px; }
+  .w-logo img:first-child { width: 28px; height: 28px; }
+  .w-logo img:last-child { width: 100px; height: 20px; }
+  .w-foot-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 359px) {
+  .w-logo img:first-child { display: none; } }
+
+/* Existing inner-page styles must not impose boxed select dimensions. */
+.w-nav .language-picker { margin-right:0; }
+.w-nav .language-picker select { max-width:none; min-height:0; padding:0; border:0; }
+.site-chrome main.journal-article { padding-top:128px; }
+@media(max-width:760px) {
+  .site-chrome main.journal-article { padding-top:100px; }
+}

@@ -1,3 +1,4 @@
+import { siteChromePlugin } from './scripts/site-chrome-plugin.mjs'
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
 import { analyticsConsentPlugin } from './scripts/analytics-consent-plugin.mjs'
@@ -6,7 +7,7 @@ import {generateLocalizedPages, localizationPlugin} from './i18n/render.mjs'
 const localizedInputs = generateLocalizedPages()
 
 export default defineConfig({
-  plugins: [localizationPlugin(), analyticsConsentPlugin()],
+  plugins: [localizationPlugin(), siteChromePlugin(), analyticsConsentPlugin()],
   server: { proxy: { '/api/': 'http://127.0.0.1:5202' } },
   optimizeDeps: { esbuildOptions: { target: ['es2022', 'safari16', 'chrome100', 'firefox100'] } },
   build: {

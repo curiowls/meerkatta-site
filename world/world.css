@@ -42,38 +42,8 @@ p { margin: 0; text-wrap: pretty; }
 main { position: relative; z-index: 1; }
 
 /* Nav */
-.w-nav {
-  --nav-tint: 251, 246, 238;
-  position: fixed; inset: 0 0 auto 0; z-index: 20;
-  display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  padding: 10px var(--gutter);
-}
 /* The header's backdrop: a light veil in the sky's own colour, mostly blur rather than tint,
    that fades out at its lower edge so there is no visible bar or line against the scene. */
-.w-nav::before {
-  content: ""; position: absolute; inset: 0 0 -18px 0; z-index: -1; pointer-events: none;
-  background: linear-gradient(rgba(var(--nav-tint), 0.6), rgba(var(--nav-tint), 0.32) 72%, rgba(var(--nav-tint), 0));
-  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
-  -webkit-mask-image: linear-gradient(#000 62%, transparent); mask-image: linear-gradient(#000 62%, transparent);
-}
-.w-logo { display: flex; align-items: center; gap: 10px; }
-.w-logo img:first-child { border-radius: 9px; }
-.w-nav-links { display: flex; align-items: center; gap: clamp(12px, 2.4vw, 28px); font: 500 15px var(--text); }
-.w-nav-links a:not(.w-btn) { color: var(--ink); text-decoration: none; }
-.w-nav-links a:not(.w-btn):hover { text-decoration: underline; }
-
-.w-btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  min-height: 48px; padding: 0 22px; border-radius: 999px;
-  background: var(--brand); color: #fff; text-decoration: none;
-  font: 600 16px var(--display);
-  box-shadow: 0 6px 18px rgba(93, 56, 34, 0.24);
-  transition: transform 0.15s ease, background 0.15s ease;
-}
-.w-btn:hover { background: var(--brand-strong); transform: translateY(-1px); }
-.w-btn-ghost { background: rgba(255, 251, 245, 0.82); color: var(--ink); box-shadow: inset 0 0 0 1.5px rgba(42, 31, 24, 0.22); }
-.w-btn-ghost:hover { background: #fffaf2; }
-.w-btn-small { min-height: 38px; padding: 0 16px; font-size: 14px; }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
 /* Journey rail */
@@ -326,13 +296,6 @@ kbd { font: 600 13px var(--display); padding: 6px 10px; border-radius: 9px; back
 .ready-card > p:not(.fine) { color: var(--body-ink); font-size: 18px; }
 
 /* Footer: a solid band, so every link stays readable whatever the sky is doing */
-.w-foot { position: relative; z-index: 1; background: var(--cream); border-top: 1px solid var(--line); padding: 40px var(--gutter) 44px; font-size: 15px; }
-.w-foot-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: minmax(220px, 1.6fr) repeat(3, minmax(120px, 1fr)); gap: 28px 32px; }
-.w-foot-brand { display: grid; gap: 10px; justify-items: start; align-content: start; color: var(--body-ink); }
-.w-foot nav { display: grid; gap: 4px; align-content: start; justify-items: start; }
-.w-foot h2 { font: 600 12px var(--display); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
-.w-foot a { color: var(--ink); text-decoration: none; padding: 5px 0; }
-.w-foot a:hover { color: var(--brand); text-decoration: underline; }
 
 /* Wide screens: each stop pins while its detail unfolds */
 @media (min-width: 900px) and (min-height: 700px) {
@@ -359,7 +322,6 @@ kbd { font: 600 13px var(--display); padding: 6px 10px; border-radius: 9px; back
   .polish, .dictation, .vault { margin-inline: auto; }
 }
 @media (max-width: 760px) {
-  .w-nav-links a:not(.w-btn) { display: none; }
   .hero { padding-top: 84px; gap: 12px; }
   .hero::before { inset: 0 0 28% 0; background: linear-gradient(rgba(248, 240, 228, 0.94) 62%, rgba(248, 240, 228, 0)); }
   .hero .actions { flex-direction: column; align-self: stretch; }
@@ -371,13 +333,11 @@ kbd { font: 600 13px var(--display); padding: 6px 10px; border-radius: 9px; back
   .orb-spot-surfaces { right: 2%; top: -3%; width: 56px; height: 56px; }
   .ready { align-items: end; }
   .ready-card { justify-self: stretch; margin: 0 0 6vh; }
-  .w-foot-inner { grid-template-columns: 1fr 1fr; }
-  .w-foot-brand { grid-column: 1 / -1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .js .stop-more, .w-btn, .scene, .more-cue::before { transition: none; }
+  .js .stop-more, .scene, .more-cue::before { transition: none; }
   .js .seg-panel:not([hidden]) { animation: none; }
   .bars i, .orb.is-live .orb-wave rect, .caret, .js .is-open .field p { animation: none; }
 }

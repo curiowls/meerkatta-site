@@ -107,7 +107,7 @@ export function renderHomepage(code, c) {
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="256x256">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/world/world.css"><link rel="stylesheet" href="/world/home.css">
+  <link rel="stylesheet" href="/world/world.css"><link rel="stylesheet" href="/world/home.css"><link rel="stylesheet" href="/world/chrome.css">
   <script type="application/ld+json">${JSON.stringify(schema).replaceAll('<','\\u003c')}</script>
   </head><body>${body}</body></html>`;
 }

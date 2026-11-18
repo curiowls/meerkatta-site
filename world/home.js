@@ -1,4 +1,5 @@
 import './world.js';
+import './chrome.js';
 
 const injectionTabs = [...document.querySelectorAll('[data-injection-tabs] [role="tab"]')];
 let injectionManual = false;
@@ -65,38 +66,6 @@ document.querySelector('[data-language-switch]').addEventListener('change', even
   destination.hash = location.hash;
   location.assign(destination);
 });
-
-const nav = document.querySelector('.w-nav');
-const toggle = nav.querySelector('.w-menu-toggle');
-const links = nav.querySelector('.w-nav-links');
-const compact = matchMedia('(max-width: 1280px)');
-function closeMenu() {
-  nav.classList.remove('menu-open');
-  toggle.setAttribute('aria-expanded', 'false');
-  links.inert = compact.matches;
-}
-function resizeMenu() {
-  toggle.hidden = !compact.matches;
-  closeMenu();
-}
-toggle.addEventListener('click', () => {
-  const open = toggle.getAttribute('aria-expanded') !== 'true';
-  nav.classList.toggle('menu-open', open);
-  toggle.setAttribute('aria-expanded', String(open));
-  links.inert = !open;
-});
-links.addEventListener('click', event => { if (event.target.closest('a')) closeMenu(); });
-document.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && nav.classList.contains('menu-open')) {
-    closeMenu(); toggle.focus();
-  }
-});
-nav.addEventListener('focusout', event => {
-  if (event.relatedTarget && !nav.contains(event.relatedTarget)) closeMenu();
-});
-document.addEventListener('click', event => { if (!nav.contains(event.target)) closeMenu(); });
-compact.addEventListener('change', resizeMenu);
-resizeMenu();
 
 // Keep older homepage bookmarks useful after the new section names ship.
 const legacyAnchors = {capture:'lookout', 'personal-voice':'voice', 'get-started':'ready'};

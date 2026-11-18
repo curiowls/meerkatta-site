@@ -1,0 +1,9 @@
+.voice-example { margin:28px 0; padding:24px 0; border-block:1px solid #d7dedb; }
+    .voice-example dl { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:28px; margin:0; }
+    .voice-example dt { font-weight:650; color:#365c55; margin-bottom:12px; }
+    .voice-example dd { margin:0; line-height:1.7; }
+    .voice-example figcaption { font-size:.875rem; color:var(--ink-dim); margin-top:18px; }
+    .note-polish { margin:28px 0; padding:20px 0; border-block:1px solid #d7dedb; }
+    .note-polish h3 { margin:0 0 12px; }
+    .field-note .note-polish p { margin:0; font-size:1rem; line-height:1.7; }
+    @media(max-width:560px) { .voice-example dl { grid-template-columns:1fr; } }

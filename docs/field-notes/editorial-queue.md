@@ -68,7 +68,11 @@ Status: approved for publication November 17, 2026. Canonical page: `journal/a-c
 
 ## November 18: Clean notes that still sound like you
 
-Status: pending.
+Status: approved for publication November 18, 2026, including supplemental polish-level note. Canonical page: `journal/keep-the-words-you-would-use/index.html`. Review draft: `docs/field-notes/drafts/keep-the-words-you-would-use.html`. Title: "Keep the words you would actually use." Live verification pending.
+- Polish labels checked in macOS and iOS English UICopy.strings: Light, Balanced, Heavy. Used the app label Balanced rather than the conversational Moderate. No claim that heavier polish is more professional.
+- Review checks: desktop 1440px and mobile 390px screenshots inspected; no horizontal overflow or page errors; approved Personal Voice artwork loaded, local links/stylesheets returned HTTP 200, and `noindex, nofollow` confirmed. Download destinations and trial wording match current homepage sources. No new artwork, download, or purchase.
+- Product evidence: website `use-cases/custom-vocabulary/index.html`; product `swift-app/MeerKatta/Views/Settings/VoiceSettingsView.swift` (separate voice and vocabulary controls), `Personalization/Personalization.swift`, and `Processing/MacOSEditorialPrompt.swift:73` (voice-profile context). This checks source behavior, not a new shipped-build test or output guarantee. The example is explicitly illustrative.
+- Reference: Paul Graham, "Write Like You Talk," October 2015, https://paulgraham.com/talk.html. Original essay read November 18; short attributed quote supports a review practice, not a research or product-performance claim. Different from November 17: familiar expression and supplied preferences rather than self-correction or certainty.
 - Angle: what should survive cleanup? A characteristic phrase, a hedge that matters, a preferred product name.
 - Explain vocabulary versus tone instructions with a modest example; verify current controls.
 - Avoid implying automatic learning of personality if not shipped.
@@ -174,6 +178,8 @@ Research log, November 15: added one distinct Reddit candidate (R02). Other rece
 Research log, November 16: added zero candidates. Two search passes for recent X/Reddit discussions about dictation, voice capture, and shared-space use returned mostly older discussions, platform help pages, or second-hand product announcements. No sufficiently verified, fresh, distinct discussion warranted an addition; search visibility into X was limited. No claim that no relevant conversations exist. No platform engagement. Drafted only the next agreed topic (November 16); no publication, commit, push, or sitemap change.
 
 Research log, November 17: added zero candidates. Targeted recent X/Reddit searches for dictation, corrections, rambling speech and voice notes returned mostly off-platform articles or second-hand social mirrors rather than verifiable recent first-party discussions. No broad-demand inference or unverified social candidate added. No engagement. Drafted only the November 17 agreed topic; no publication, commit, push, or sitemap change.
+
+Research log, November 18: added zero candidates. Recent Reddit searches surfaced a November 16 dictation-process account, but the source could not be fetched. A November 1 voice-to-text result had inconsistent relative dates and its fetched page did not corroborate the French-language/translation comments shown in search snippets. X queries mostly returned third-party launch summaries rather than verified first-party discussions. No snippet-only candidate, popularity claim, or engagement. Read Paul Graham's original essay as a reference for today's agreed draft; it is not a new social-demand candidate. Drafted only November 18; no publication, commit, push, or sitemap change.
 
 ## Review and publication checklist
 

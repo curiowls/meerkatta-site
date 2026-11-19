@@ -87,6 +87,13 @@ function WorkDemo(){
 }
 export function mountStory(element) {
   const mount = element.querySelector('[data-story-player]');
-  createRoot(mount, {onUncaughtError: () => {element.classList.remove('story-ready');mount.hidden=true;}}).render(element.dataset.story==='work'?<WorkDemo/>:<StoryPlayer kind={element.dataset.story}/>);
+  const fallback = element.querySelector('.story-fallback');
+  const isWork = element.dataset.story === 'work';
+  createRoot(mount, {onUncaughtError: () => {
+    element.classList.remove('story-ready');mount.hidden=true;
+    if (isWork) fallback?.removeAttribute('aria-hidden');
+  }}).render(isWork?<WorkDemo/>:<StoryPlayer kind={element.dataset.story}/>);
   element.classList.add('story-ready');
+  // WorkDemo supplies its own current transcript; the hero relies on its fallback.
+  if (isWork) fallback?.setAttribute('aria-hidden','true');
 }

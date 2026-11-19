@@ -76,6 +76,8 @@ export function localizationPlugin() {
         if (!html.includes('class="nav-inner"')) return html;
         const translated = pages.includes(page);
         const c = catalogs[code];
+        html = html.replace(/<main(?=[\s>])/, '<main id="main-content" tabindex="-1"');
+        html = html.replace(/(<body\b[^>]*>)/, `$1<a class="skip-link" href="#main-content">${e(c.skipToContent)}</a>`);
         html = html.replace('<details class="mobile-menu">', `${languagePicker(code, translated ? page : '', c.language)}<details class="mobile-menu">`);
         const fallbackLinks = languages.map(language => link(pagePath(language.code, translated ? page : ''), language.name)).join(' · ');
         html = html.replace('</body>', `<noscript><nav class="locale-noscript" aria-label="${e(c.language)}">${fallbackLinks}</nav></noscript><script type="module" src="/i18n/client.js"></script></body>`);

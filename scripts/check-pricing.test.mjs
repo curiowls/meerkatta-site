@@ -66,7 +66,7 @@ test('Lifetime still opens its approved Paddle price with the launch discount', 
   let opened;
   const Paddle = {Initialize() {}, Checkout:{open(value) { opened = value; }}};
   runInNewContext(read('pay/pay.js').replaceAll('import.meta.env', 'env'), {
-    env:{}, URLSearchParams, console,
+    env:{}, URLSearchParams, console, setTimeout:() => 0, clearTimeout() {},
     document:{body:{dataset:{}}, querySelector: () => null},
     window:{Paddle, location:{origin:'https://meerkatta.com', search:'?plan=lifetime'}},
   });

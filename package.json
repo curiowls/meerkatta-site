@@ -8,12 +8,18 @@
     "check:localization": "node --test scripts/check-localization.test.mjs",
     "check:pricing": "node --test scripts/check-pricing.test.mjs",
     "check:performance": "node --test scripts/check-performance.test.mjs",
-    "build": "node scripts/write-deployment-version.mjs && npm run check:typography && npm run check:analytics && npm run check:localization && npm run check:pricing && npm run check:performance && vite build",
+    "check:unit": "node --test scripts/*.test.mjs",
+    "check:browser": "playwright test",
+    "check:seo": "python3 scripts/check-seo.py",
+    "check:api": "python3 tests/interest-api.py",
+    "check:production": "node scripts/smoke-production.mjs",
+    "build": "node scripts/write-deployment-version.mjs && npm run check:typography && npm run check:unit && vite build",
     "indexnow:urls": "node scripts/indexnow-changed-urls.mjs",
     "preview": "vite preview",
     "dev:api": "MEERKATTA_DEV_ORIGIN=http://127.0.0.1:5199 MEERKATTA_INTEREST_DIR=/tmp/meerkatta-interest-dev php -S 127.0.0.1:5202 -t public"
   },
   "devDependencies": {
+    "@playwright/test": "^1.65.0",
     "vite": "^6.4.6"
   },
   "overrides": {

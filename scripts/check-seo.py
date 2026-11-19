@@ -7,9 +7,11 @@ import xml.etree.ElementTree as ET
 
 class Page(HTMLParser):
     def __init__(self, text):
-        super().__init__(); self.meta={}; self.canonical=[]; self.alternates={}; self.lang=''; self.h1=0; self.schemas=[]; self.ld=False; self.buf=''; self.in_title=False; self.title=''; self.feed(text)
+        super().__init__(); self.meta={}; self.canonical=[]; self.alternates={}; self.lang=''; self.h1=0; self.schemas=[]; self.ld=False; self.buf=''; self.in_title=False; self.title=''; self.skip=[]; self.main_target=False; self.feed(text)
     def handle_starttag(self, tag, attrs):
         a=dict(attrs)
+        if tag=='a' and 'skip-link' in a.get('class','').split(): self.skip.append(a.get('href'))
+        if tag=='main' and a.get('id')=='main-content' and a.get('tabindex')=='-1': self.main_target=True
         if tag=='meta': self.meta[a.get('name',a.get('property',''))]=a.get('content','')
         if tag=='link' and a.get('rel')=='canonical': self.canonical.append(a.get('href'))
         if tag=='link' and a.get('rel')=='alternate' and a.get('hreflang'):
@@ -39,6 +41,7 @@ for url in urls:
     checked_pages[url]=page
     assert page.canonical==[url], (p,'canonical')
     assert page.h1==1,(p,'h1 count',page.h1)
+    assert page.skip==['#main-content'] and page.main_target,(p,'missing accessible skip navigation')
     title=page.title.strip()
     assert title and 'MeerKatta' in title,(p,'missing branded title')
     assert title not in titles,(p,'duplicate title',title)

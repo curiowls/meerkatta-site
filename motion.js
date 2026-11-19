@@ -115,13 +115,21 @@ if (group) {
 const headline=document.querySelector('.spark-headline');
 if(headline){
   const phrases=[...headline.querySelectorAll('.hero-outcomes > span')];
-  let index=0, visible=false, timer;
+  const toggle=document.querySelector('[data-headline-toggle]');
+  let index=0, visible=false, timer, paused=false;
   const show=()=>phrases.forEach((phrase,i)=>phrase.classList.toggle('is-current',i===index));
   const update=()=>{
     clearInterval(timer);
     if(motion.matches){index=0;show();}
-    if(visible&&!document.hidden&&!motion.matches)timer=setInterval(()=>{index=(index+1)%phrases.length;show();},3800);
+    if(toggle){
+      toggle.hidden=motion.matches;
+      const label=paused?'Resume headline animation':'Pause headline animation';
+      toggle.setAttribute('aria-label',label);toggle.title=label;
+      toggle.innerHTML=playbackIcon(paused?'Play':'Pause');
+    }
+    if(visible&&!document.hidden&&!motion.matches&&!paused)timer=setInterval(()=>{index=(index+1)%phrases.length;show();},3800);
   };
+  toggle?.addEventListener('click',()=>{paused=!paused;update();});
   new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;update();},{threshold:0.2}).observe(headline);
   document.addEventListener('visibilitychange',update);
   motion.addEventListener('change',update);

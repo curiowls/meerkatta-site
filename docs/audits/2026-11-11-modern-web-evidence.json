@@ -1,0 +1,217 @@
+{
+  "date": "2026-11-11",
+  "timeZone": "America/Los_Angeles",
+  "baseCommit": "72dcc3ba9460025462a73474213a87a6f7514434",
+  "scope": "Read-only application audit; added only report/evidence files",
+  "lighthouse": {
+    "url": "https://meerkatta.com/",
+    "fetchTime": "2026-11-12T05:12:43.810Z",
+    "version": "12.8.2",
+    "environment": {
+      "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+      "hostUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "benchmarkIndex": 4558,
+      "credits": {
+        "axe-core": "4.14.0"
+      }
+    },
+    "formFactor": "mobile",
+    "screenEmulation": {
+      "mobile": true,
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75,
+      "disabled": false
+    },
+    "throttling": {
+      "rttMs": 150,
+      "throughputKbps": 1638.4,
+      "requestLatencyMs": 562.5,
+      "downloadThroughputKbps": 1474.5600000000002,
+      "uploadThroughputKbps": 675,
+      "cpuSlowdownMultiplier": 4
+    },
+    "throttlingMethod": "simulate",
+    "warnings": [],
+    "runtimeError": null,
+    "scores": {
+      "performance": 99,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metrics": {
+      "first-contentful-paint": 1775.5659999999998,
+      "largest-contentful-paint": 1775.5659999999998,
+      "total-blocking-time": 0,
+      "cumulative-layout-shift": 0,
+      "total-byte-weight": 319643
+    },
+    "blockingResources": [
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
+        "totalBytes": 1560,
+        "wastedMs": 891
+      },
+      {
+        "url": "https://meerkatta.com/assets/client-BvhTO2PG.css",
+        "totalBytes": 12589,
+        "wastedMs": 300
+      }
+    ],
+    "demoRequests": [],
+    "rawReport": "/private/tmp/meerkatta-modern-home-mobile.json"
+  },
+  "browser": {
+    "keyboard": [
+      {
+        "href": "/",
+        "rail": false,
+        "railOpacity": null,
+        "tag": "A",
+        "text": "MeerKatta home"
+      },
+      {
+        "href": "/use-cases/",
+        "rail": false,
+        "railOpacity": null,
+        "tag": "A",
+        "text": "Use Cases"
+      },
+      {
+        "href": "/about/",
+        "rail": false,
+        "railOpacity": null,
+        "tag": "A",
+        "text": "About"
+      },
+      {
+        "href": "/journal/",
+        "rail": false,
+        "railOpacity": null,
+        "tag": "A",
+        "text": "Field notes"
+      },
+      {
+        "href": "/pricing/",
+        "rail": false,
+        "railOpacity": null,
+        "tag": "A",
+        "text": "Pricing"
+      },
+      {
+        "href": "/welcome/",
+        "rail": false,
+        "railOpacity": null,
+        "tag": "A",
+        "text": "Get Started"
+      },
+      {
+        "href": "/#downloads",
+        "rail": false,
+        "railOpacity": null,
+        "tag": "A",
+        "text": "Get MeerKatta"
+      },
+      {
+        "href": null,
+        "rail": false,
+        "railOpacity": null,
+        "tag": "SELECT",
+        "text": "Language"
+      },
+      {
+        "href": "https://github.com/curiowls/meerkattasparkle/releases/latest/download/MeerKatta-latest.dmg",
+        "rail": false,
+        "railOpacity": null,
+        "tag": "A",
+        "text": "Download for Mac"
+      },
+      {
+        "href": "https://apps.apple.com/app/meerkatta/id6766122029",
+        "rail": false,
+        "railOpacity": null,
+        "tag": "A",
+        "text": "Get for iPhone & iPad"
+      },
+      {
+        "href": "/pricing/",
+        "rail": false,
+        "railOpacity": null,
+        "tag": "A",
+        "text": "See pricing →"
+      },
+      {
+        "href": "https://apps.apple.com/app/meerkatta/id6766122029",
+        "rail": false,
+        "railOpacity": null,
+        "tag": "A",
+        "text": "Now on the App Store"
+      },
+      {
+        "href": null,
+        "rail": false,
+        "railOpacity": null,
+        "tag": "BUTTON",
+        "text": "Show result"
+      },
+      {
+        "href": null,
+        "rail": false,
+        "railOpacity": null,
+        "tag": "BUTTON",
+        "text": "Pause story"
+      },
+      {
+        "href": "#capture",
+        "rail": true,
+        "railOpacity": "0",
+        "tag": "A",
+        "text": "Capture anywhere"
+      }
+    ],
+    "consent": {
+      "focusedInsideHiddenPanel": false,
+      "panelHidden": true,
+      "tag": "BODY",
+      "text": "BODY"
+    }
+  },
+  "dependencyAudit": {
+    "tool": "npm audit --json",
+    "vulnerablePackages": 1,
+    "highestSeverity": "high",
+    "package": "vite",
+    "installedVersion": "6.4.3",
+    "advisories": [
+      "GHSA-698v-4r3x-3vcv",
+      "GHSA-r825-w8mm-5pxw",
+      "GHSA-587h-7wmj-h5pm",
+      "GHSA-9jrq-w75r-8gcw",
+      "GHSA-rq7h-c2jc-7f22"
+    ],
+    "productionOnlyVulnerabilities": 0,
+    "verifiedPatchVersions": [
+      "6.4.4",
+      "6.4.5",
+      "6.4.6"
+    ],
+    "limits": "High advisory Windows-specific; separate non-Windows issue has dev-server exposure/import preconditions. Static deployment is not a Vite development server."
+  },
+  "tests": {
+    "build": "passed",
+    "buildNodeTests": 20,
+    "indexNowNodeTests": 10,
+    "seoSitemapPages": 66,
+    "seoInternalReferences": 3770,
+    "phpIntegration": "passed",
+    "diffCheck": "passed"
+  },
+  "remainingLimits": [
+    "No physical mobile or Safari/Firefox run",
+    "No VoiceOver/NVDA session",
+    "No field CWV/INP measurement",
+    "No actual payment or fulfillment verification",
+    "No dependency update or application changes made"
+  ]
+}

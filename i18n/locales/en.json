@@ -1,6 +1,7 @@
 {
   "language": "Language",
   "menu": "Open menu",
+  "skipToContent": "Skip to content",
   "nav": ["Use Cases", "About", "Pricing", "Get Started", "Help", "Get MeerKatta"],
   "common": {
     "tagline": "Thought capture for Mac, iPhone, iPad, and Apple Watch.",

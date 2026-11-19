@@ -13,7 +13,7 @@ for (const code of locales) {
     page.on('pageerror',error=>errors.push(error.message));
     await page.goto(code==='en'?'/':`/${code}/`);
     await expect(page.locator('html')).toHaveAttribute('lang',code);
-    await expect(page.locator('html')).toHaveClass('js');
+    await expect(page.locator('html')).toHaveClass(/\bjs\b/);
     await expect(page.locator('[data-language-switch] option')).toHaveCount(9);
     await expect(page.locator('[data-expand]')).toHaveCount(4);
     await expect(page.locator('#faq details')).toHaveCount(4);

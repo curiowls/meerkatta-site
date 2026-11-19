@@ -11,6 +11,8 @@ h2 { font-size: 42px; }
 .device { display: inline-block; margin: 4px 0 0 6px; white-space: normal; }
 .activity-actions span { white-space: normal; overflow-wrap: anywhere; }
 .macpanel-actions { flex-wrap: wrap; }
+.macpanel-win, .macpanel-head { min-width: 0; }
+.macpanel-head strong { min-width: 0; }
 .macpanel-actions span { padding-inline: 10px; }
 .chips { flex-wrap: wrap; }
 .plans { grid-template-columns: repeat(2, minmax(0, 1fr)); }

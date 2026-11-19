@@ -1,6 +1,7 @@
 {
   "language":"Idioma",
   "menu":"Abrir menú",
+  "skipToContent":"Saltar al contenido",
   "nav":["Usos","Sobre MeerKatta","Precios","Primeros pasos","Ayuda","Obtener MeerKatta"],
   "common":{"tagline":"Captura tus ideas en Mac, iPhone, iPad y Apple Watch.","mac":"Descargar para Mac","ios":"Para iPhone y iPad","trial":"Mac: 7 días gratis. Sin tarjeta.","watch":"Apple Watch: ya en el App Store","english":"en inglés","journal":"Notas de campo","privacy":"Privacidad","terms":"Condiciones","refund":"Reembolsos","support":"Escríbenos","next":"Empieza por una idea","getStarted":"Encuentra tu primer uso","imageNote":"Esta vista previa de la app está en inglés."},
   "home":{

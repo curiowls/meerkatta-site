@@ -51,8 +51,11 @@ if (sectionRail && sectionAnchors.length && sectionTargets.length) {
   };
 
   const setActiveSection = (target, forcePosition = false) => {
+    // Keep the rail stable until keyboard focus leaves it.
+    if (sectionRail.contains(document.activeElement)) return;
     if (!target) {
       activeSectionId = '';
+      sectionRail.inert = true;
       sectionRail.classList.remove('is-visible');
       sectionAnchors.forEach(anchor => anchor.removeAttribute('aria-current'));
       return;
@@ -62,6 +65,7 @@ if (sectionRail && sectionAnchors.length && sectionTargets.length) {
 
     activeSectionId = target.id;
     positionRail(target);
+    sectionRail.inert = false;
     sectionRail.classList.add('is-visible');
 
     sectionAnchors.forEach(anchor => {
@@ -88,6 +92,9 @@ if (sectionRail && sectionAnchors.length && sectionTargets.length) {
   };
 
   updateSectionRail(true);
+  sectionRail.addEventListener('focusout', () => {
+    window.requestAnimationFrame(() => updateSectionRail(true));
+  });
   window.addEventListener('scroll', requestSectionRailUpdate, { passive: true });
   window.addEventListener('resize', () => updateSectionRail(true));
 }

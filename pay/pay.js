@@ -37,10 +37,22 @@ const lifetimeDiscountCode = import.meta.env.VITE_PADDLE_LIFETIME_DISCOUNT_CODE 
 const params = new URLSearchParams(window.location.search);
 const title = document.querySelector('#checkout-title');
 const message = document.querySelector('#checkout-message');
+const retry = document.querySelector('#checkout-retry');
 const hasPaddleTransaction = params.has('_ptxn');
 const checkoutDisabled = pageConfig.checkoutDisabled === 'true'
   && pageConfig.sandboxCheckout !== 'true'
   && !hasPaddleTransaction;
+let initialized = false;
+let state = 'idle';
+let loadTimer;
+
+retry?.addEventListener('click', () => {
+  if (!window.Paddle) {
+    window.location.reload();
+    return;
+  }
+  startCheckout();
+});
 
 if (checkoutDisabled) {
   setPaymentCopy(
@@ -48,28 +60,93 @@ if (checkoutDisabled) {
     'Public checkout is temporarily closed. For sandbox testing, use the sandbox checkout page.'
   );
 } else if (!window.Paddle) {
-  console.warn('Paddle.js did not load. Check the browser connection and content-security policy.');
-  setPaymentCopy('Checkout could not load', 'Refresh this page, or email hello@meerkatta.com and we will help.');
+  recoverCheckout('Checkout could not load', 'Check your connection and try again, or email hello@meerkatta.com.');
 } else if (!token || placeholderTokens.has(token)) {
   console.warn(`Missing ${environment} Paddle client-side token.`);
   setPaymentCopy('Checkout is not configured', 'Email hello@meerkatta.com and we will help you complete the purchase.');
 } else {
-  if (isSandbox) {
-    window.Paddle.Environment.set('sandbox');
+  startCheckout();
+}
+
+function startCheckout() {
+  if (state === 'opening' || state === 'complete') return;
+  if (!hasPaddleTransaction && !checkoutPriceId(checkoutPlan())) {
+    openCheckoutFromQuery();
+    return;
   }
+  state = 'opening';
+  if (retry) retry.hidden = true;
+  setPaymentCopy('Opening secure checkout...', 'Your checkout should open automatically.');
+  clearTimeout(loadTimer);
+  loadTimer = setTimeout(() => {
+    recoverCheckout('Checkout is taking longer than expected', 'Check your connection and try opening checkout again. If you already submitted a payment, check your receipt before retrying.');
+  }, 20_000);
 
-  window.Paddle.Initialize({
-    token,
-    checkout: {
-      settings: {
-        displayMode: 'overlay',
-        theme: 'light',
-        locale: 'en',
-      },
-    },
-  });
+  try {
+    if (!initialized) {
+      if (isSandbox) window.Paddle.Environment.set('sandbox');
+      window.Paddle.Initialize({
+        token,
+        eventCallback: handleCheckoutEvent,
+        checkout: {settings:{displayMode:'overlay', theme:'light', locale:'en'}},
+      });
+      initialized = true;
+      // Paddle handles the initial transaction-link launch itself.
+      if (hasPaddleTransaction || state !== 'opening') return;
+    } else if (hasPaddleTransaction) {
+      window.Paddle.Checkout.open({transactionId:params.get('_ptxn')});
+      return;
+    }
+    openCheckoutFromQuery();
+  } catch {
+    recoverCheckout();
+  }
+}
 
-  openCheckoutFromQuery();
+function handleCheckoutEvent(event) {
+  if (state === 'complete') return;
+  switch (event?.name) {
+    case 'checkout.loaded':
+      if (state !== 'opening') return;
+      clearTimeout(loadTimer);
+      state = 'ready';
+      setPaymentCopy('Secure checkout is ready', 'Complete your purchase in the secure Paddle checkout.');
+      break;
+    case 'checkout.error':
+    case 'checkout.payment.error':
+      if (state !== 'complete') recoverCheckout();
+      break;
+    case 'checkout.closed':
+      if (state !== 'opening' && state !== 'ready') return;
+      clearTimeout(loadTimer);
+      state = 'closed';
+      if (retry) retry.hidden = false;
+      setPaymentCopy('Checkout closed', 'You can reopen secure checkout when you are ready. If you already submitted a payment, check your receipt before trying again.');
+      break;
+    case 'checkout.payment.failed':
+      clearTimeout(loadTimer);
+      setPaymentCopy('Please review your payment', 'Check the message in the secure Paddle checkout and review your payment method.');
+      break;
+    case 'checkout.completed':
+      clearTimeout(loadTimer);
+      state = 'complete';
+      if (retry) retry.hidden = true;
+      setPaymentCopy('Payment complete', 'Your payment was confirmed. Follow the confirmation page to return to MeerKatta.');
+      break;
+  }
+}
+
+function recoverCheckout(nextTitle = 'Checkout could not open', nextMessage = 'Please try opening secure checkout again, or email hello@meerkatta.com. If you already submitted a payment, check your receipt before retrying.') {
+  clearTimeout(loadTimer);
+  state = 'error';
+  // Set the state first so closing a failed overlay cannot replace this message.
+  try {
+    window.Paddle?.Checkout.close();
+  } catch {
+    // Recovery still works when the provider SDK itself is unavailable.
+  }
+  if (retry) retry.hidden = false;
+  setPaymentCopy(nextTitle, nextMessage);
 }
 
 function openCheckoutFromQuery() {
@@ -135,7 +212,7 @@ function checkoutPriceId(plan) {
   if (isSandbox && directPrice?.startsWith('pri_')) return directPrice;
 
   if (plan === 'yearly' || plan === 'annual') return configuredPrices.annual;
-  return configuredPrices[plan] || null;
+  return Object.hasOwn(configuredPrices, plan) ? configuredPrices[plan] : null;
 }
 
 function checkoutDiscountCode(plan) {

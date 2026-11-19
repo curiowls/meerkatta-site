@@ -1,4 +1,5 @@
 {
+  "skipToContent":"본문으로 건너뛰기",
   "language":"언어","menu":"메뉴 열기","nav":["활용 방법","소개","요금","시작하기","도움말","MeerKatta 받기"],
   "common":{"tagline":"Mac, iPhone, iPad, Apple Watch에서 생각을 남기세요.","mac":"Mac용 다운로드","ios":"iPhone·iPad용 받기","trial":"Mac: 카드 등록 없이 7일 무료 체험.","watch":"Apple Watch 앱도 App Store에서 만나보세요","english":"영문","journal":"제품 이야기","privacy":"개인정보 처리방침","terms":"이용약관","refund":"환불 정책","support":"문의하기","next":"생각 하나부터 시작하세요","getStarted":"나에게 맞는 첫 사용 찾기","imageNote":"이 앱 미리보기는 영문 화면입니다."},
   "home":{

@@ -14,3 +14,5 @@ public/deployment-version.txt
 /fr/
 /ko/
 /pt-BR/
+playwright-report/
+test-results/

@@ -1,4 +1,5 @@
 {
+  "skipToContent":"跳到正文",
   "language":"语言","menu":"打开导航菜单","nav":["使用场景","关于我们","价格","开始使用","帮助","下载 MeerKatta"],
   "common":{"tagline":"在 Mac、iPhone、iPad 和 Apple Watch 上留住想法。","mac":"下载 Mac 版","ios":"获取 iPhone / iPad 版","trial":"Mac 版免费试用 7 天，无需信用卡。","watch":"Apple Watch 版已在 App Store 上线","english":"英文","journal":"产品随笔","privacy":"隐私政策","terms":"使用条款","refund":"退款政策","support":"联系我们","next":"从一个想法开始","getStarted":"找到适合你的第一步","imageNote":"此处展示的是英文版 App 界面。"},
   "home":{

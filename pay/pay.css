@@ -172,11 +172,15 @@ body {
 }
 
 .payment-return:focus-visible,
+.payment-retry:focus-visible,
 .payment-actions a:focus-visible,
 .payment-brand:focus-visible {
   outline: 2px solid var(--brand-primary);
   outline-offset: 3px;
 }
+
+.payment-retry { font-family:inherit; cursor:pointer; }
+.payment-retry[hidden] { display:none; }
 
 @media (max-width: 540px) {
   .payment-page {

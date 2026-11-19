@@ -14,7 +14,7 @@
     "dev:api": "MEERKATTA_DEV_ORIGIN=http://127.0.0.1:5199 MEERKATTA_INTEREST_DIR=/tmp/meerkatta-interest-dev php -S 127.0.0.1:5202 -t public"
   },
   "devDependencies": {
-    "vite": "^6.4.3"
+    "vite": "^6.4.6"
   },
   "overrides": {
     "esbuild": "0.28.1",

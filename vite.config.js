@@ -23,6 +23,7 @@ export default defineConfig({
         journal1: resolve(__dirname, 'journal/speak-a-useful-first-draft/index.html'),
         journal2: resolve(__dirname, 'journal/return-to-what-you-capture/index.html'),
         journalOwnWords: resolve(__dirname, 'journal/keep-the-words-you-would-use/index.html'),
+        journalReturnPoint: resolve(__dirname, 'journal/leave-yourself-a-question/index.html'),
         journalCorrection: resolve(__dirname, 'journal/a-correction-is-part-of-the-thought/index.html'),
         journalMascot: resolve(__dirname, 'journal/why-a-meerkat/index.html'),
 

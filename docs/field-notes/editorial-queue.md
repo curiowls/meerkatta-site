@@ -80,7 +80,10 @@ Status: approved for publication November 18, 2026, including supplemental polis
 
 ## November 19: Continue an unfinished thought
 
-Status: pending.
+Status: approved for publication November 19, 2026, including the sequential example and CaptureAtAGlance artwork. Publication path: `journal/leave-yourself-a-question/index.html`. Title: "Leave yourself a question." Integrated into journal, sitemap, and production build; deployment verification pending.
+- Product evidence: Mac `Views/LibraryView.swift:370` posts the selected capture ID; `MeerKattaApp.swift:1889` resolves that capture and calls `startAppending(to:)`. Source verification only, not a new installed-build test. No cross-platform continuation claim or automatic question generation.
+- Reference: Leroy and Glomb (2018), https://pubsonline.informs.org/doi/10.1287/orsc.2017.1184. Read the publisher abstract November 19. Findings concern attention/performance on interrupting tasks under anticipated resumption pressure, not measured voice-note retrieval. The suggested question is explicitly our adaptation.
+- Existing curious mascot reused; no new artwork. Example is labeled illustrative and not app output. Review checks: desktop 1440px and mobile 390px screenshots inspected; 320px also checked for overflow. No horizontal overflow or page errors, mascot loaded, local links/stylesheets returned HTTP 200, and `noindex, nofollow` confirmed. Opening section spacing scoped to this draft; no shared styles changed.
 - Angle: leave a useful unfinished question at the end, so tomorrow has a starting point.
 - Contrast a dead-end title with an open question and the context behind it.
 - Distinguish a manual practice from any app continuation feature; verify current behavior.
@@ -180,6 +183,8 @@ Research log, November 16: added zero candidates. Two search passes for recent X
 Research log, November 17: added zero candidates. Targeted recent X/Reddit searches for dictation, corrections, rambling speech and voice notes returned mostly off-platform articles or second-hand social mirrors rather than verifiable recent first-party discussions. No broad-demand inference or unverified social candidate added. No engagement. Drafted only the November 17 agreed topic; no publication, commit, push, or sitemap change.
 
 Research log, November 18: added zero candidates. Recent Reddit searches surfaced a November 16 dictation-process account, but the source could not be fetched. A November 1 voice-to-text result had inconsistent relative dates and its fetched page did not corroborate the French-language/translation comments shown in search snippets. X queries mostly returned third-party launch summaries rather than verified first-party discussions. No snippet-only candidate, popularity claim, or engagement. Read Paul Graham's original essay as a reference for today's agreed draft; it is not a new social-demand candidate. Drafted only November 18; no publication, commit, push, or sitemap change.
+
+Research log, November 19: added zero candidates. Two targeted search passes for recent Reddit/X dictation and voice-note discussions produced mainly secondary launch coverage and unrelated results, not a sufficiently verified, distinct first-party discussion. X visibility was limited; this is not evidence that relevant conversations do not exist. No engagement or popularity claims. Read the publisher abstract for the agreed November 19 topic; it is supporting research, not a backlog candidate. Drafted one note only; no publication, commit, push, or sitemap change.
 
 ## Review and publication checklist
 

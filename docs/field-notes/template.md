@@ -63,6 +63,10 @@ Category / review status / date
 
 ## Visual rhythm
 
+When a topic maps to a product feature, show that connection with relevant existing artwork or a product screenshot near the passage. Help readers who recognize the situation see how MeerKatta addresses it, rather than leaving the feature abstract. Check `brand/home-guidance` in the product repo first. If no existing asset fits, propose a purposeful new visual before generating it. Distinguish illustrative artwork from actual screenshots, verify depicted behavior, and keep details readable with a full-size link when needed. Avoid decorative feature images unrelated to the passage.
+
+For examples that show a sequence or progression, stack the first input above the next. Put each step's short lead and explanation in a left column, with the example text on the right. Use an ordered list and clear step numbers; on narrow screens, place each lead directly above its example while preserving the top-to-bottom sequence. Keep side-by-side layouts for genuinely parallel alternatives. Explain who supplies added context; do not imply the app invents it or label optional writing guidance as required fields.
+
 Use the existing site typography and reading column. Defaults: 300-500 words excluding references, 2-3 substantive sections, short paragraphs, selective bold leads (usually 2-5 words). These are guides, not quotas. Avoid bolding whole sentences or adding a label to every transition.
 
 The draft CSS in `field-note.css` provides a compact figure, quiet green research aside, unboxed design-principle callout, related-reading divider, and small sources. Use it with `/style.css`; no global design change. The revised `drafts/why-a-meerkat.html` is the worked example. Optional modules should be omitted when they add no meaning. Do not use every module on every note.

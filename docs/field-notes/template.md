@@ -10,6 +10,8 @@ Working editorial template, refined with the owner November 14, 2026. Use alongs
 
 Add scannability without losing the thread: a reader who reads only the title, headings, and bold lead phrases should understand the argument. A reader who reads everything should find a coherent short essay, not disconnected points.
 
+Owner priority (November 23): make field notes scannable and visually communicative before asking for sustained reading. Assume readers scan first and choose to read more only when they see value. Let headings, relevant product visuals, and concise examples communicate the central insight. Body text should add reasoning, useful context, or a practical next step, not repeat the visual or stretch a simple point. Remove passages whose reading effort exceeds their contribution; word count is a ceiling guide, not a target to fill. Preserve the coherent story rather than turning every paragraph into a list. For illustrative UI examples, the approved concise disclosure is: "Illustrative examples, not recorded app output."
+
 ## Position and voice
 
 MeerKatta lives between productivity and ordinary life. Practical enough to explain what a design choice changes; warm enough to make space for unfinished thinking. Prefer quiet curiosity over dramatic lifestyle copy, and concrete reasoning over efficiency promises. The Ohlalarm reference demonstrates useful reading variety, not a voice or layout to copy.
@@ -62,6 +64,10 @@ Category / review status / date
 - **Sources:** claim-adjacent links plus a short reference list. Two press reports about one study are one evidence base, not three confirmations. Include reading dates/context when relevant. Never pad the count.
 
 ## Visual rhythm
+
+Let clear visuals carry the explanation. Do not add captions that merely name the UI, describe its construction, or repeat what the reader can already see. Add supplemental text only when it contributes useful context or prevents a misleading claim; a single brief illustrative-example note is enough when needed.
+
+Owner principle (November 23): always look for an appropriate way to connect the article's observation to the product. Show how a concrete design choice reflects our understanding of the situation, rather than adding a generic feature mention or decorative mascot. Prefer existing homepage reconstructions or approved product visuals with the article's own example content so readers recognize both the story and the product experience. Label reconstructions and illustrative output honestly; don't force a feature connection where none fits. Keep the visual beside the relevant example and explain what the design lets the reader do.
 
 When a topic maps to a product feature, show that connection with relevant existing artwork or a product screenshot near the passage. Help readers who recognize the situation see how MeerKatta addresses it, rather than leaving the feature abstract. Check `brand/home-guidance` in the product repo first. If no existing asset fits, propose a purposeful new visual before generating it. Distinguish illustrative artwork from actual screenshots, verify depicted behavior, and keep details readable with a full-size link when needed. Avoid decorative feature images unrelated to the passage.
 

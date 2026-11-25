@@ -2,11 +2,21 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import vm from 'node:vm'
+import { createHash } from 'node:crypto'
 import { analyticsConsentPlugin } from './analytics-consent-plugin.mjs'
 
 const source = readFileSync(new URL('../public/analytics-consent.js', import.meta.url), 'utf8')
 const key = 'meerkatta.websiteAnalytics.v1'
 const id = 'G-TL3JS3LP0W'
+
+test('Consent assets are versioned by content to refresh returning visitors', () => {
+  const tags = analyticsConsentPlugin().transformIndexHtml.handler('', {path:'/'})
+  for (const [name, url] of [['analytics-consent.js', tags[1].attrs.src], ['analytics-consent.css', tags[0].attrs.href]]) {
+    const content = readFileSync(new URL(`../public/${name}`, import.meta.url))
+    const hash = createHash('sha256').update(content).digest('hex').slice(0, 12)
+    assert.equal(url, `/${name}?v=${hash}`)
+  }
+})
 
 // The Google script is recorded, never fetched. These doubles exercise consent
 // transitions and storage failures without sending test traffic to production.

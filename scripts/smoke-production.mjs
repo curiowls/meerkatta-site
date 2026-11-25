@@ -6,7 +6,7 @@ async function fetchText(path) {
   const response=await fetch(new URL(path,origin),{signal:AbortSignal.timeout(15_000),headers:{'cache-control':'no-cache'}});
   assert.equal(response.status,200,`${path}: HTTP ${response.status}`);
   if (path.startsWith('/assets/')) {
-    assert.match(response.headers.get('content-type') || '',/(?:text|application)\/(?:javascript|ecmascript)/,`${path}: expected a JavaScript asset, not an HTML fallback`);
+    assert.match(response.headers.get('content-type') || '',/^(?:text|application)\/(?:x-)?(?:javascript|ecmascript)(?:;|$)/,`${path}: expected a JavaScript asset, not an HTML fallback`);
   }
   return response.text();
 }

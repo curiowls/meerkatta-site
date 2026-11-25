@@ -81,6 +81,30 @@
 
   if (storedChoice === 'allow') startAnalytics()
 
+  // Track acquisition intent, not completed downloads or installations.
+  document.addEventListener('click', event => {
+    if (!tagStarted || window[`ga-disable-${measurementId}`]) return
+    const anchor = event.target.closest?.('a[href]')
+    if (!anchor) return
+    let destination
+    try { destination = new URL(anchor.href, window.location.origin) } catch { return }
+    if (destination.protocol !== 'https:') return
+    let eventName
+    if (destination.hostname === 'github.com' &&
+        /^\/curiowls\/meerkattasparkle\/releases\/(?:latest\/download|download\/[^/]+)\/MeerKatta[^/]*\.dmg$/.test(destination.pathname)) {
+      eventName = 'mac_download_click'
+    } else if (destination.hostname === 'apps.apple.com' &&
+        /\/id6766122029\/?$/.test(destination.pathname)) {
+      eventName = 'app_store_click'
+    }
+    if (!eventName) return
+    window.gtag('event', eventName, {
+      link_url: destination.origin + destination.pathname,
+      page_language: document.documentElement.lang || 'en',
+      transport_type: 'beacon',
+    })
+  })
+
   function removeAnalyticsCookies() {
     document.cookie.split(';').forEach(part => {
       const name = part.trim().split('=')[0]

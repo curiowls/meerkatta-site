@@ -24,8 +24,10 @@ function visit({ choice, lang = 'en', url = 'https://meerkatta.com/', referrer =
   const head = new Element('head'), body = new Element('body'), manage = new Element('a')
   const values = new Map(choice ? [[key, choice]] : [])
   const expiredCookies = []
+  const listeners = {}
   let cookies = '_ga=example; _ga_STREAM=example; feature_vote=keep'
   const document = {
+    addEventListener: (name, callback) => { listeners[name] = callback },
     documentElement: { lang }, readyState: 'complete', head, body, referrer,
     createElement: tag => new Element(tag), createTextNode: text => ({ textContent: text }),
     getElementById: name => name === 'website-analytics-preferences' ? manage : null,
@@ -40,6 +42,7 @@ function visit({ choice, lang = 'en', url = 'https://meerkatta.com/', referrer =
   vm.runInNewContext(source, { window, document, location, URL, URLSearchParams })
   const panel = () => body.children.find(child => child.className === 'analytics-choice')
   return { window, location, values, head, body, expiredCookies, panel,
+    clickLink(href) { listeners.click?.({ target: { closest: () => ({ href }) } }) },
     commands: () => (window.dataLayer || []).map(command => JSON.parse(JSON.stringify(Array.from(command)))),
     reopen() { manage.listeners.click({ preventDefault() {} }) },
     choose(value) {
@@ -129,5 +132,28 @@ test('Asian-language preference sentences are complete', () => {
     const page = visit({lang})
     assert.equal(page.panel().children[1].children.at(-1).textContent, ending)
     assert.equal(page.panel().children[1].children[1].hreflang, 'en')
+  }
+})
+
+test('Acquisition clicks are consent-gated, distinct, and omit destination queries', () => {
+  const mac = 'https://github.com/curiowls/meerkattasparkle/releases/latest/download/MeerKatta-latest.dmg'
+  const page = visit({ lang: 'zh-Hans' })
+  page.clickLink(mac)
+  assert.equal(page.commands().filter(c => c[0] === 'event').length, 0)
+  page.choose('allow')
+  page.clickLink(mac + '?email=private#secret')
+  page.clickLink('https://apps.apple.com/us/app/meerkatta/id6766122029?ct=campaign')
+  page.clickLink('https://example.com/MeerKatta.dmg')
+  page.clickLink('https://apps.apple.com/app/other/id123')
+  const events = page.commands().filter(c => c[0] === 'event')
+  assert.deepEqual(Array.from(events, c => c[1]), ['mac_download_click', 'app_store_click'])
+  assert.equal(events[0][2].link_url, mac)
+  assert.equal(events[0][2].page_language, 'zh-Hans')
+  assert.equal(events[1][2].link_url.includes('?'), false)
+  page.reopen(); page.choose('deny'); page.clickLink(mac)
+  assert.equal(page.commands().filter(c => c[0] === 'event').length, 2)
+  for (const url of ['http://127.0.0.1:5173/', 'https://meerkatta.com/pay/']) {
+    const excluded = visit({choice:'allow', url}); excluded.clickLink(mac)
+    assert.equal(excluded.commands().filter(c => c[0] === 'event').length, 0)
   }
 })

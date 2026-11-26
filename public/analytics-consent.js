@@ -90,19 +90,27 @@
     try { destination = new URL(anchor.href, window.location.origin) } catch { return }
     if (destination.protocol !== 'https:') return
     let eventName
+    let plan
     if (destination.hostname === 'github.com' &&
         /^\/curiowls\/meerkattasparkle\/releases\/(?:latest\/download|download\/[^/]+)\/MeerKatta[^/]*\.dmg$/.test(destination.pathname)) {
       eventName = 'mac_download_click'
     } else if (destination.hostname === 'apps.apple.com' &&
         /\/id6766122029\/?$/.test(destination.pathname)) {
       eventName = 'app_store_click'
+    } else if (destination.origin === window.location.origin &&
+        /^\/pay\/?$/.test(destination.pathname)) {
+      eventName = 'checkout_start'
+      const candidate = destination.searchParams.get('plan')
+      if (candidate === 'lifetime' || candidate === 'yearly' || candidate === 'monthly') plan = candidate
     }
     if (!eventName) return
-    window.gtag('event', eventName, {
+    const params = {
       link_url: destination.origin + destination.pathname,
       page_language: document.documentElement.lang || 'en',
       transport_type: 'beacon',
-    })
+    }
+    if (plan) params.plan = plan
+    window.gtag('event', eventName, params)
   })
 
   function removeAnalyticsCookies() {

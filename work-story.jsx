@@ -4,7 +4,7 @@ import {TYPE} from './typography.js';
 export const workExamples={
  team:{label:'Team message',context:'Project team · Review update',hint:'Message your team…',raw:'Quick update, the review is Thursday—actually Friday. Design is ready, testing is still open, and I need feedback by noon.',result:'Quick update: the review is Friday.\n• Design is ready.\n• Testing is still open.\nPlease send feedback by noon.'},
  prompt:{label:'AI prompt',context:'Your coding assistant · First-run experience',hint:'Describe what you want to build…',raw:'Add a first-run checklist, not a modal. Three steps: connect a provider, try a capture, open settings. Make it dismissible.',result:'Add a dismissible first-run checklist, not a modal.\nInclude three steps:\n1. Connect a provider.\n2. Try a capture.\n3. Open settings.'},
- email:{label:'Email',context:'New message · To Maya',hint:'Write your reply…',raw:'Tell Maya thanks for the proposal. I can meet Tuesday after two or Thursday morning. Ask which works.',result:'Hi Maya,\n\nThanks for the proposal. I can meet Tuesday after 2 p.m. or Thursday morning. Which works for you?'}
+ email:{label:'Email',context:'New message · To Maya',hint:'Write your reply…',raw:'Hi Maya thanks for the proposal. I can meet Tuesday after two or Thursday morning. Which better for you?',result:'Hi Maya,\n\nThanks for the proposal. I can meet Tuesday after two or Thursday morning. Which works better for you?'}
 };
 export function WorkStory({compact,example='team'}){
  const f=useCurrentFrame();const e=workExamples[example];const listening=f>=60&&f<240;const processing=f>=240&&f<300;const inserted=f>=300;

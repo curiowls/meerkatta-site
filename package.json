@@ -7,6 +7,7 @@
     "check:analytics": "node --test scripts/analytics-consent.test.mjs",
     "check:localization": "node --test scripts/check-localization.test.mjs",
     "check:pricing": "node --test scripts/check-pricing.test.mjs",
+    "check:indexnow": "node --test scripts/indexnow-changed-urls.test.mjs",
     "check:performance": "node --test scripts/check-performance.test.mjs",
     "check:unit": "node --test scripts/*.test.mjs",
     "check:browser": "playwright test",

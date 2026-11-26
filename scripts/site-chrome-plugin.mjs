@@ -24,7 +24,7 @@ export function applySiteChrome(html, path) {
     : '<body class="site-chrome"' + attrs + '>');
   // Some authored articles already have the ID inserted by the locale plugin.
   html = html.replace('id="main-content" tabindex="-1" id="main-content"', 'id="main-content" tabindex="-1"');
-  const fonts = home.match(/<link href="https:\/\/fonts.googleapis.com[^>]+>/)?.[0] || '';
+  const fonts = html.includes('fonts.googleapis.com/css2') ? '' : (home.match(/<link href="https:\/\/fonts.googleapis.com[^>]+>/)?.[0] || '');
   return html.replace('</head>', fonts + '<link rel="stylesheet" href="/world/chrome.css"></head>')
     .replace('</body>', '<script type="module" src="/world/chrome.js"></script></body>');
 }

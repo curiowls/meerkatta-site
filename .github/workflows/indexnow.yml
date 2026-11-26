@@ -27,6 +27,7 @@ jobs:
           BEFORE_SHA: ${{ github.event.before }}
           AFTER_SHA: ${{ github.sha }}
         run: |
+          node --test scripts/indexnow-changed-urls.test.mjs
           urls="$(node scripts/indexnow-changed-urls.mjs "$BEFORE_SHA" "$AFTER_SHA")"
           {
             echo 'urls<<INDEXNOW_URLS'

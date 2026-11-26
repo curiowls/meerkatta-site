@@ -167,3 +167,20 @@ test('Acquisition clicks are consent-gated, distinct, and omit destination queri
     assert.equal(excluded.commands().filter(c => c[0] === 'event').length, 0)
   }
 })
+
+test('Checkout start clicks are consent-gated and only keep allowlisted plans', () => {
+  const page = visit({ lang: 'en', url: 'https://meerkatta.com/pricing/' })
+  page.clickLink('/pay/?plan=lifetime')
+  assert.equal(page.commands().filter(c => c[0] === 'event').length, 0)
+  page.choose('allow')
+  page.clickLink('/pay/?plan=lifetime&email=private@example.test#secret')
+  page.clickLink('/pay/?plan=yearly')
+  page.clickLink('/pay/?plan=unknown')
+  page.clickLink('/padsandbox/?plan=lifetime')
+  const events = page.commands().filter(c => c[0] === 'event')
+  assert.deepEqual(Array.from(events, c => c[1]), ['checkout_start', 'checkout_start', 'checkout_start'])
+  assert.equal(events[0][2].link_url, 'https://meerkatta.com/pay/')
+  assert.equal(events[0][2].plan, 'lifetime')
+  assert.equal(events[1][2].plan, 'yearly')
+  assert.equal('plan' in events[2][2], false)
+})

@@ -68,12 +68,15 @@ export function renderHomepage(code, c) {
   const note = fieldNotes[code];
   const englishLabel = code === 'en' ? '' : ` (${c.common.english})`;
   const cards = ['catch-an-unfinished-thought', 'return-to-what-you-capture'].map((slug, i) => `<article><p class="eyebrow">${e(note.cards[i][0])}</p><h3>${e(note.cards[i][1])}</h3><p>${e(note.cards[i][2])}</p><a href="/journal/${slug}/" hreflang="en">${e(note.read + englishLabel)} <span aria-hidden="true">→</span></a></article>`).join('');
-  body = body.replace('<!-- field-notes -->', `<section class="panel w-journal" aria-labelledby="journal-title"><div class="w-head"><p class="eyebrow">${e(note.eyebrow)}</p><h2 id="journal-title">${e(note.title)}</h2><p>${e(note.lead)}</p></div><div class="w-journal-grid">${cards}</div><p class="w-journal-links"><a href="/journal/">${e(note.all + englishLabel)} →</a><a href="${path('use-cases')}">${e(note.workflows)} →</a></p></section>`);
+  const workflowLinks = code === 'en'
+    ? '<p class="w-journal-links"><a href="/use-cases/ai-dictation-for-mac/">AI dictation for Mac →</a><a href="/use-cases/thought-capture/">Thought capture &amp; voice notes →</a><a href="/use-cases/custom-vocabulary/">Custom vocabulary &amp; tone →</a><a href="/use-cases/ai-workflows/">Voice prompts for AI workflows →</a></p>'
+    : '';
+  body = body.replace('<!-- field-notes -->', `<section class="panel w-journal" aria-labelledby="journal-title"><div class="w-head"><p class="eyebrow">${e(note.eyebrow)}</p><h2 id="journal-title">${e(note.title)}</h2><p>${e(note.lead)}</p></div><div class="w-journal-grid">${cards}</div>${workflowLinks}<p class="w-journal-links"><a href="/journal/">${e(note.all + englishLabel)} →</a><a href="${path('use-cases')}">${e(note.workflows)} →</a></p></section>`);
   const languageLinks = languages.map(l => `<a lang="${l.code}" href="${pagePath(l.code)}">${e(l.name)}</a>`).join(' · ');
   body += `<noscript><nav class="w-language-fallback" aria-label="${e(c.language)}">${languageLinks}</nav></noscript><script type="module" src="/world/home.js"></script>`;
   const url = origin + path('');
-  const title = code === 'en' ? 'MeerKatta — AI Dictation & Thought Capture for Mac, iPhone, iPad, and Apple Watch' : `MeerKatta | ${c.home.title}`;
-  const description = code === 'en' ? 'MeerKatta is an AI dictation and thought-capture app for Mac, iPhone, iPad, and Apple Watch. Speak into your work, or save an idea before it slips away.' : c.home.lead;
+  const title = code === 'en' ? 'MeerKatta — AI Dictation & Voice Notes for Mac, iPhone & Watch' : `MeerKatta | ${c.home.title}`;
+  const description = code === 'en' ? 'AI dictation and voice notes for Mac, iPhone, iPad, and Apple Watch. Speak into any app or capture ideas on the go. 7-day free Mac trial; BYOK or managed AI.' : c.home.lead;
   const schema = {'@context':'https://schema.org', '@graph':[
     {'@type':'WebSite','@id':origin+'/#website',url:origin+'/',name:'MeerKatta',inLanguage:languages.map(l=>l.code),publisher:{'@id':origin+'/#organization'},about:{'@id':origin+'/#software'}},
     {'@type':'Organization','@id':origin+'/#organization',name:'MeerKatta',url:origin+'/',email:'hello@meerkatta.com',logo:origin+'/assets/meerkatta-app-icon.png',parentOrganization:{'@id':'https://lugugul.com/#organization'}},

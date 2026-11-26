@@ -49,3 +49,9 @@ test('English-only articles link language choices to localized homes, not nonexi
   assert.ok(!html.includes('value="/zh-Hans/journal/'));
   assert.ok(html.includes('rel="canonical" href="https://meerkatta.com/journal/keep-the-words-you-would-use/"'));
 });
+
+test('Inner pages that already load Google Fonts do not receive a duplicate font stylesheet', () => {
+  const path = 'pricing/index.html';
+  const html = applySiteChrome(readFileSync(new URL('../' + path, import.meta.url), 'utf8'), '/' + path);
+  assert.equal((html.match(/fonts\.googleapis\.com\/css2/g) || []).length, 1);
+});

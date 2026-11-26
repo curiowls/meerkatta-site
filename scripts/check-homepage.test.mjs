@@ -45,3 +45,10 @@ test('No English fallback for translated demo and journey copy', () => {
     for (const key of ['t12','t13','t19','t28','t29','t41','t47','t58','t62','t80','t84','t92','t99','t126','t128','t130','a5','a6','a7','a8']) assert.notEqual(c[key], en[key], `${code}.${key}`);
   }
 });
+
+test('English homepage links directly to core commercial use-case pages', () => {
+  const html = renderPage('en', '');
+  for (const slug of ['ai-dictation-for-mac', 'thought-capture', 'custom-vocabulary', 'ai-workflows']) {
+    assert.ok(html.includes(`href="/use-cases/${slug}/"`), `missing direct link to /use-cases/${slug}/`);
+  }
+});

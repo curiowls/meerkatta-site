@@ -26,6 +26,7 @@ export default defineConfig({
         journalReturnPoint: resolve(__dirname, 'journal/leave-yourself-a-question/index.html'),
         journalReplyPlace: resolve(__dirname, 'journal/the-reply-already-has-a-place/index.html'),
         journalDestinations: resolve(__dirname, 'journal/not-every-thought-belongs-in-the-reply/index.html'),
+        journalByok: resolve(__dirname, 'journal/dictation-with-your-own-api-key/index.html'),
         journalCorrection: resolve(__dirname, 'journal/a-correction-is-part-of-the-thought/index.html'),
         journalMascot: resolve(__dirname, 'journal/why-a-meerkat/index.html'),
 

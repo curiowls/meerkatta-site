@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BYOK AI Dictation: Own API Key vs. Managed Plan | MeerKatta</title>
+  <meta name="description" content="Compare BYOK AI dictation ($33 lifetime with API keys or Claude Code / Codex CLI) vs. managed AI ($9.99/mo). Includes built-in offline transcription &amp; costs.">
+  <link rel="canonical" href="https://meerkatta.com/journal/dictation-with-your-own-api-key/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="MeerKatta">
+  <meta property="og:title" content="BYOK AI Dictation: Own API Key vs. Managed Plan | MeerKatta">
+  <meta property="og:description" content="Compare BYOK AI dictation ($33 lifetime with API keys or Claude Code / Codex CLI) vs. managed AI ($9.99/mo). Includes built-in offline transcription &amp; costs.">
+  <meta property="og:url" content="https://meerkatta.com/journal/dictation-with-your-own-api-key/">
+  <meta property="og:image" content="https://meerkatta.com/social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="MeerKatta bring-your-own-API-key AI dictation guide.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@qianhuang">
+  <meta name="twitter:title" content="BYOK AI Dictation: Own API Key vs. Managed Plan | MeerKatta">
+  <meta name="twitter:description" content="Compare BYOK AI dictation ($33 lifetime with API keys or Claude Code / Codex CLI) vs. managed AI ($9.99/mo). Includes built-in offline transcription &amp; costs.">
+  <meta name="twitter:image" content="https://meerkatta.com/social-card.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="128x128">
+  <link rel="icon" type="image/png" href="/favicon-lbg.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="/favicon-dbg.png" media="(prefers-color-scheme: dark)">
+  <link rel="apple-touch-icon" sizes="256x256" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/assets/field-notes/field-note.css">
+  <link rel="stylesheet" href="/assets/field-notes/dictation-with-your-own-api-key.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://meerkatta.com/journal/dictation-with-your-own-api-key/#article",
+        "headline": "Bring Your Own API Key for AI Dictation: Is BYOK Worth It?",
+        "description": "Compare BYOK AI dictation ($33 lifetime with API keys or Claude Code / Codex CLI) vs. managed AI ($9.99/mo). Includes built-in offline transcription & costs.",
+        "datePublished": "2026-11-26",
+        "mainEntityOfPage": "https://meerkatta.com/journal/dictation-with-your-own-api-key/",
+        "url": "https://meerkatta.com/journal/dictation-with-your-own-api-key/",
+        "inLanguage": "en",
+        "image": "https://meerkatta.com/assets/field-notes/providers-and-keys.webp",
+        "publisher": {
+          "@id": "https://meerkatta.com/#organization",
+          "@type": "Organization",
+          "name": "MeerKatta",
+          "url": "https://meerkatta.com/"
+        },
+        "isPartOf": {
+          "@type": "Blog",
+          "@id": "https://meerkatta.com/journal/#blog",
+          "name": "MeerKatta field notes"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://meerkatta.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Field notes", "item": "https://meerkatta.com/journal/"},
+          {"@type": "ListItem", "position": 3, "name": "BYOK AI Dictation: Own API Key vs. Managed Plan", "item": "https://meerkatta.com/journal/dictation-with-your-own-api-key/"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does the $33 MeerKatta Lifetime license include AI API usage?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. The one-time Lifetime license ($33 launch price, normally $49) covers the MeerKatta software. When you connect your own API key, provider usage charges are billed separately by your AI provider under your account."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which AI providers work with MeerKatta BYOK?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "On Mac, Providers & Keys separates Transcribing (including built-in offline Apple Speech and On-device Whisper, plus cloud APIs such as Groq and OpenRouter) from Polishing (including Codex CLI, Claude Code CLI, OpenRouter, Groq, and Cerebras). Supported providers are always shown directly in the app; CLI cleanup requires an authenticated, eligible subscription with that provider."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is bring-your-own-key dictation completely offline?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Connecting your own API key or CLI to a cloud service still uses cloud processing under that provider's data policy. Separate from cloud AI polish, MeerKatta on Mac includes two built-in offline transcription providers—Apple Speech and On-device Whisper—so you can keep dictating without network access, such as on an airplane."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I try MeerKatta before deciding between BYOK and Subscription?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. On Mac, MeerKatta includes a 7-day free trial with no credit card required so you can test the capture and dictation workflow first, then choose Lifetime or Subscription. On iPhone and iPad, the App Store displays local pricing and trial eligibility before you buy."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does one purchase unlock MeerKatta across Mac, iPhone, iPad, and Apple Watch?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Sign in and an eligible purchase made on Mac or in the App Store unlocks MeerKatta on your other devices too. Store billing, cancellation, and refund rules follow the platform where you bought."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a href="/" class="logo-link" aria-label="MeerKatta home">
+        <img class="app-logo" src="/app-icon.png" alt="" width="44" height="44">
+        <img class="type-logo" src="/assets/MeerKatta-typelogo-dark.svg" alt="MeerKatta" width="150" height="30">
+      </a>
+      <div class="nav-links">
+        <a href="/use-cases/">Use Cases</a>
+        <a href="/about/">About</a>
+        <a href="/journal/">Field notes</a>
+        <a href="/pricing/">Pricing</a>
+        <a href="/welcome/">Get Started</a>
+        <a class="nav-cta" href="/#downloads">Get MeerKatta</a>
+      </div>
+      <details class="mobile-menu">
+        <summary aria-label="Open navigation"><span></span><span></span><span></span></summary>
+        <div class="mobile-menu-panel">
+          <a href="/use-cases/">Use Cases</a>
+          <a href="/about/">About</a>
+          <a href="/journal/">Field notes</a>
+          <a href="/pricing/">Pricing</a>
+          <a href="/welcome/">Get Started</a>
+          <a class="nav-cta" href="/#downloads">Get MeerKatta</a>
+        </div>
+      </details>
+    </div>
+  </nav>
+
+  <main class="journal-article field-note">
+    <a href="/journal/">Field notes</a>
+    <p class="note-label">Decision guide · November 26, 2026</p>
+    <p class="eyebrow">BYOK vs. Managed AI</p>
+    <h1>Bring Your Own API Key for AI Dictation: Is BYOK Worth It?</h1>
+    <p class="journal-lede">An API key gives you more choice and avoids another recurring software subscription. It also gives you one more account to set up and manage.</p>
+
+    <aside class="note-evidence" aria-labelledby="short-answer">
+      <p class="note-label">The short answer</p>
+      <h2 id="short-answer">Choose the responsibility, not just the label.</h2>
+      <p><strong>Pick BYOK (MeerKatta Lifetime, $33 launch / $49 regular)</strong> if you want a one-time license and already have a supported cloud API key—or want to <strong>use your existing Claude Code or Codex CLI subscription for the cleanup step on Mac</strong> instead of paying for another monthly dictation subscription.</p>
+      <p><strong>Pick Managed AI (MeerKatta Subscription, $9.99/mo or $99.99/yr)</strong> if you want cloud transcription and AI polish to work immediately with zero provider setup, no API keys or CLIs to maintain, and one predictable bill.</p>
+      <p><strong>Offline fallback on both plans:</strong> Mac includes two built-in on-device transcription providers—<strong>Apple Speech</strong> and <strong>On-device Whisper</strong>. Their accuracy isn't as high as a large cloud model, so cloud transcription is still stronger when you're online, but built-in offline transcription lets you keep dictating without network access (such as on an airplane).</p>
+      <p class="note-limit">Neither plan is more serious or more technical. Both include the same core capture and dictation workflows.</p>
+    </aside>
+
+    <p>Most AI dictation apps lock you into a monthly subscription whether or not you already pay for AI services elsewhere. If you already manage an API key for work or personal projects, paying a second recurring markup just to clean up spoken drafts can feel unnecessary. On the other hand, if you simply want to hold a hotkey, speak an email, and move on with your day, creating a developer account and checking token bills can feel like work before the work.</p>
+
+    <section aria-labelledby="stages">
+      <h2 id="stages">How BYOK dictation works: two separate jobs</h2>
+      <p>In MeerKatta, turning speech into clear text happens in two distinct stages: <strong>Transcribing</strong> turns your voice into raw text, and <strong>Polishing</strong> removes filler, groups self-corrections, and formats the draft while keeping your intent. On Mac, <strong>Providers &amp; Keys</strong> lets you mix and match the provider for each stage independently.</p>
+      <ol class="ai-path" aria-label="Bring-your-own-key dictation workflow">
+        <li>
+          <h3>1. Speak</h3>
+          <div class="path-detail">
+            <img src="/assets/meerkat-widget.png" width="36" height="36" alt="MeerKatta">
+            <p>MeerKatta captures and transcribes your voice.<small>Choose a cloud transcription API for higher accuracy, or switch to built-in offline <strong>Apple Speech</strong> or <strong>On-device Whisper</strong> when you have no network.</small></p>
+          </div>
+        </li>
+        <li>
+          <h3>2. Clean up</h3>
+          <p>Your chosen polishing provider cleans and structures the text.<small>Use a cloud API key (such as Groq, OpenRouter, or Cerebras) or run cleanup through your installed <strong>Codex CLI</strong> or <strong>Claude Code</strong> subscription on Mac.</small></p>
+        </li>
+        <li>
+          <h3>3. Review</h3>
+          <p>Editable text lands at your cursor or in your Library.<small>Check names, dates, numbers, and commitments before sending or saving.</small></p>
+        </li>
+      </ol>
+      <figure class="note-feature byok-screenshot">
+        <a href="/assets/field-notes/providers-and-keys.webp" aria-label="View the MeerKatta Mac Providers and Keys screen at full size">
+          <img src="/assets/field-notes/providers-and-keys.webp" width="1024" height="833" alt="MeerKatta Mac Providers and Keys settings showing Transcribing options (Apple Speech, On-device Whisper, Groq, OpenRouter) and Polishing options (Codex CLI, Claude Code, OpenRouter, Groq, Cerebras)." loading="lazy" decoding="async">
+        </a>
+        <figcaption><strong>Actual Mac Providers &amp; Keys screen:</strong> Transcribing and Polishing are configured separately—including two built-in offline transcribers and direct Codex CLI / Claude Code cleanup alongside cloud API keys.</figcaption>
+      </figure>
+      <p><strong>Two built-in offline transcribers, explained honestly.</strong> Built-in <strong>Apple Speech</strong> and <strong>On-device Whisper</strong> (Whisper Small) run locally without network access. On-device transcription is not as accurate as a large cloud transcription model, especially with unusual names or noisy rooms, so cloud transcription + AI polish remains the stronger everyday option when you are online. Having both built-in offline providers means your dictation workflow still works on an airplane or anywhere with unreliable signal.</p>
+      <p><strong>Reuse Claude Code or Codex CLI for cleanup.</strong> Most BYOK dictation tools only accept raw developer API keys. On Mac, MeerKatta Lifetime can automatically detect installed <strong>Codex CLI</strong> and <strong>Claude Code</strong> tools in the Polishing panel, letting developers who already pay for an eligible coding-tool subscription use that setup for text cleanup rather than managing a separate polishing API bill. Detection only identifies the installed CLI—you still need an authenticated, eligible subscription, and provider usage limits and terms still apply.</p>
+    </section>
+
+    <section aria-labelledby="cost-split">
+      <h2 id="cost-split">Real cost split: $33 one-time license vs. managed subscription</h2>
+      <p><strong>Keep software cost and AI usage cost separate.</strong> A one-time BYOK license buys access to the MeerKatta app; it does not include free or unlimited inference from third-party providers. Your provider bills you separately for the API calls your dictation uses (subject to that provider's current pricing and limits).</p>
+      <div class="byok-table-wrap">
+        <table class="byok-table">
+          <thead>
+            <tr>
+              <th scope="col">Comparison point</th>
+              <th scope="col">MeerKatta Lifetime (BYOK)</th>
+              <th scope="col">MeerKatta Subscription (Managed AI)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Mac &amp; web software price</th>
+              <td><strong>$33 one-time</strong> launch price (normally $49)</td>
+              <td><strong>$9.99/month</strong>, or <strong>$99.99/year</strong> ($8.33/mo equivalent, saving $19.89)</td>
+            </tr>
+            <tr>
+              <th scope="row">AI processing cost</th>
+              <td>Paid directly to your supported provider—or via your existing eligible Claude Code / Codex CLI subscription for Mac cleanup</td>
+              <td>Included for normal managed transcription and polish</td>
+            </tr>
+            <tr>
+              <th scope="row">Initial setup</th>
+              <td>Pick a transcriber and polishing provider in Mac Providers &amp; Keys (API key or auto-detected Codex / Claude Code CLI)</td>
+              <td>None — works right away with no API keys or provider accounts</td>
+            </tr>
+            <tr>
+              <th scope="row">Built-in offline transcription</th>
+              <td>Included on Mac: Apple Speech &amp; On-device Whisper (lower accuracy than large cloud models, works without network)</td>
+              <td>Included on Mac: Apple Speech &amp; On-device Whisper (lower accuracy than large cloud models, works without network)</td>
+            </tr>
+            <tr>
+              <th scope="row">Free trial</th>
+              <td>7 days free on Mac, no credit card required</td>
+              <td>7 days free on Mac, no credit card required; App Store shows local iOS/iPadOS eligibility</td>
+            </tr>
+            <tr>
+              <th scope="row">Refunds &amp; cancellation</th>
+              <td>14-day no-questions-asked refund window on eligible Mac/web purchases</td>
+              <td>Cancel anytime; 14-day pro-rated refund policy on eligible Mac/web purchases</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>When does BYOK actually save money?</strong> Compare $33 once plus your actual provider usage against $99.99 per year. Because speech-to-text and short text-polishing requests vary by provider, model, and how many minutes you dictate each week, we do not make a blanket claim that BYOK is always cheapest. In practice, people who already pay for an API provider, receive API access through work, or keep using the app across multiple years often prefer the one-time license. People who want zero billing surprises and zero configuration usually prefer managed AI.</p>
+      <p><strong>A note for developers using Codex or Claude Code:</strong> on Mac, MeerKatta Lifetime can also detect installed Codex and Claude Code CLIs for the cleanup step. Automatic detection only finds the installed tool—you still need an authenticated, eligible subscription with that provider, and provider usage limits and terms still apply.</p>
+    </section>
+
+    <section aria-labelledby="privacy">
+      <h2 id="privacy">Privacy reality: why your own API key is not offline mode</h2>
+      <p><strong>Bringing your own key is not a blanket privacy guarantee.</strong> When you connect a personal API key to a cloud AI service, your dictation request still travels over the network to that cloud provider. You are responsible for reviewing that provider's data retention terms, securing your key, and following your organization's rules for work material.</p>
+      <p>What BYOK <em>does</em> change is the path and control:</p>
+      <ul>
+        <li><strong>Direct to your chosen provider:</strong> audio and text for cloud processing go to the supported provider you configure rather than through MeerKatta's managed AI proxy.</li>
+        <li><strong>Local library by default:</strong> your saved captures live in your device library, with optional iCloud sync if you turn it on. See the <a href="/privacy/">Privacy Policy</a> for exact storage and handling details.</li>
+        <li><strong>True offline fallback is separate:</strong> when you are on a plane, away from signal, or capturing rough words without cloud polish, basic raw transcription can work without cloud AI.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="choice">
+      <h2 id="choice">Who should pick BYOK — and who should skip it</h2>
+      <div class="ai-choices">
+        <div>
+          <h3>Choose BYOK Lifetime ($33) if…</h3>
+          <ul>
+            <li>You already maintain an account with a supported AI provider or get API keys through work.</li>
+            <li>You prefer paying once for Mac software instead of stacking another $10/month subscription.</li>
+            <li>You want direct control over your provider account and usage limits.</li>
+            <li>You already run an eligible Codex or Claude Code CLI on Mac for daily work.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Choose Managed Subscription if…</h3>
+          <ul>
+            <li>You want dictation and cleanup working in two minutes without creating developer accounts.</li>
+            <li>You do not want to track separate API invoices, keys, or rate limits.</li>
+            <li>You care more about building a daily capture habit than configuring the AI stack.</li>
+            <li>You prefer a single predictable monthly ($9.99) or yearly ($99.99) plan you can cancel anytime.</li>
+          </ul>
+        </div>
+      </div>
+      <p><strong>Check supported providers inside the app first.</strong> Rather than promising every LLM on the market, MeerKatta focuses on reliable supported setups shown directly inside Mac provider settings. Start with the trial, inspect the available providers, and see <a href="/pricing/">current plan details</a> before buying.</p>
+      <p class="note-trial">Platform note: the provider-settings description above applies to Mac. On iPhone, iPad, and Apple Watch, the App Store shows local pricing, one-time MeerKatta + Your AI or subscription options, and trial eligibility before purchase.</p>
+    </section>
+
+    <section aria-labelledby="faq-title">
+      <h2 id="faq-title">Frequently asked questions</h2>
+      <div class="byok-faq">
+        <details>
+          <summary>Does the $33 MeerKatta Lifetime license include AI API usage?</summary>
+          <p>No. The one-time Lifetime license ($33 launch price, normally $49) covers the MeerKatta software. When you connect your own API key, provider usage charges are billed separately by your AI provider under your account.</p>
+        </details>
+        <details>
+          <summary>Which AI providers work with MeerKatta BYOK?</summary>
+          <p>On Mac, <strong>Providers &amp; Keys</strong> separates Transcribing (built-in offline Apple Speech and On-device Whisper, plus cloud APIs such as Groq and OpenRouter) from Polishing (Codex CLI, Claude Code, OpenRouter, Groq, and Cerebras). Supported providers can evolve over time and are always shown directly inside the app; CLI cleanup requires an authenticated, eligible subscription with that provider.</p>
+        </details>
+        <details>
+          <summary>Is bring-your-own-key dictation completely offline?</summary>
+          <p>No. Connecting your own API key or CLI to a cloud service still uses cloud processing under that provider's data policy. Separate from cloud AI polish, MeerKatta on Mac includes two built-in offline transcription providers—<strong>Apple Speech</strong> and <strong>On-device Whisper</strong>—so you can keep dictating without network access, such as on an airplane.</p>
+        </details>
+        <details>
+          <summary>Can I try MeerKatta before deciding between BYOK and Subscription?</summary>
+          <p>Yes. On Mac, MeerKatta includes a 7-day free trial with no credit card required. Try speaking a real email or rough thought first, then pick Lifetime or Subscription on the <a href="/pricing/">pricing page</a>. On iPhone and iPad, Apple displays local pricing and trial eligibility on the App Store.</p>
+        </details>
+        <details>
+          <summary>Does one purchase unlock MeerKatta across Mac, iPhone, iPad, and Apple Watch?</summary>
+          <p>Yes. Sign in and an eligible purchase made on Mac or in the App Store unlocks MeerKatta on your other devices too. Store billing, cancellation, and refund rules follow the platform where you bought (see <a href="/terms/">Terms</a> and <a href="/refund/">Refund Policy</a>).</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="note-try" aria-labelledby="try">
+      <p class="note-label">Try MeerKatta first</p>
+      <h2 id="try">Test the workflow before choosing a plan.</h2>
+      <p>Speak a message or rough note you already need to write. See whether voice dictation and capture fit your day, then choose how much of the AI setup you want to own.</p>
+      <div class="note-downloads">
+        <a class="btn-primary" href="https://github.com/curiowls/meerkattasparkle/releases/latest/download/MeerKatta-latest.dmg">Download for Mac</a>
+        <a class="btn-secondary" href="/pricing/">Compare plans &amp; pricing</a>
+        <a class="btn-secondary" href="https://apps.apple.com/app/meerkatta/id6766122029">Get for iPhone &amp; iPad</a>
+      </div>
+      <p class="note-trial">Mac: 7 days free, no credit card required. On iPhone, iPad, and Apple Watch, see App Store pricing and trial eligibility.</p>
+    </section>
+
+    <aside class="note-related" aria-labelledby="related">
+      <p class="note-label">Continue exploring</p>
+      <h2 id="related"><a href="/use-cases/ai-dictation-for-mac/">AI dictation for Mac: hotkey voice typing</a></h2>
+      <p>See how hold-to-speak cursor insertion works on Mac, or read <a href="/journal/keep-the-words-you-would-use/">how to keep your writing style in AI dictation</a>.</p>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <a href="/" class="footer-logo" aria-label="MeerKatta home">
+          <img class="footer-type-logo" src="/assets/MeerKatta-typelogo-dark.svg" alt="MeerKatta" width="140" height="28">
+        </a>
+        <p>Thought capture for Mac, iPhone, iPad, and Apple Watch.</p>
+        <a href="/welcome/" class="footer-primary-link">Getting started</a>
+        <a href="https://apps.apple.com/app/meerkatta/id6766122029" class="footer-primary-link">iPhone, iPad &amp; Apple Watch app</a>
+      </div>
+      <div class="footer-links">
+        <a href="/use-cases/">Use Cases</a>
+        <a href="/about/">About</a>
+        <a href="/journal/">Field notes</a>
+        <a href="/pricing/">Pricing</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="/refund/">Refund</a>
+        <a href="mailto:hello@meerkatta.com">hello@meerkatta.com</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

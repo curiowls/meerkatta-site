@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dictation Cleanup with Claude Code &amp; Codex CLI | MeerKatta</title>
+  <meta name="description" content="Use your installed Claude Code or Codex CLI for Mac dictation cleanup on MeerKatta Lifetime ($33). Text-only cleanup, separate transcription, 7-day Mac trial.">
+  <link rel="canonical" href="https://meerkatta.com/journal/dictation-cleanup-with-claude-code-and-codex-cli/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="MeerKatta">
+  <meta property="og:title" content="Dictation Cleanup with Claude Code &amp; Codex CLI | MeerKatta">
+  <meta property="og:description" content="Use your installed Claude Code or Codex CLI for Mac dictation cleanup on MeerKatta Lifetime ($33). Text-only cleanup, separate transcription, 7-day Mac trial.">
+  <meta property="og:url" content="https://meerkatta.com/journal/dictation-cleanup-with-claude-code-and-codex-cli/">
+  <meta property="og:image" content="https://meerkatta.com/social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="MeerKatta Mac dictation cleanup with Claude Code and Codex CLI.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@qianhuang">
+  <meta name="twitter:title" content="Dictation Cleanup with Claude Code &amp; Codex CLI | MeerKatta">
+  <meta name="twitter:description" content="Use your installed Claude Code or Codex CLI for Mac dictation cleanup on MeerKatta Lifetime ($33). Text-only cleanup, separate transcription, 7-day Mac trial.">
+  <meta name="twitter:image" content="https://meerkatta.com/social-card.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="128x128">
+  <link rel="icon" type="image/png" href="/favicon-lbg.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="/favicon-dbg.png" media="(prefers-color-scheme: dark)">
+  <link rel="apple-touch-icon" sizes="256x256" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/assets/field-notes/field-note.css">
+  <link rel="stylesheet" href="/assets/field-notes/dictation-cleanup-with-claude-code-and-codex-cli.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://meerkatta.com/journal/dictation-cleanup-with-claude-code-and-codex-cli/#article",
+        "headline": "Use Claude Code or Codex CLI for Mac Dictation Cleanup",
+        "description": "Use your installed Claude Code or Codex CLI for Mac dictation cleanup on MeerKatta Lifetime ($33). Text-only cleanup, separate transcription, 7-day Mac trial.",
+        "datePublished": "2026-11-26",
+        "mainEntityOfPage": "https://meerkatta.com/journal/dictation-cleanup-with-claude-code-and-codex-cli/",
+        "url": "https://meerkatta.com/journal/dictation-cleanup-with-claude-code-and-codex-cli/",
+        "inLanguage": "en",
+        "image": "https://meerkatta.com/assets/field-notes/providers-and-keys.webp",
+        "publisher": {
+          "@id": "https://meerkatta.com/#organization",
+          "@type": "Organization",
+          "name": "MeerKatta",
+          "url": "https://meerkatta.com/"
+        },
+        "isPartOf": {
+          "@type": "Blog",
+          "@id": "https://meerkatta.com/journal/#blog",
+          "name": "MeerKatta field notes"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://meerkatta.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Field notes", "item": "https://meerkatta.com/journal/"},
+          {"@type": "ListItem", "position": 3, "name": "Dictation Cleanup with Claude Code & Codex CLI", "item": "https://meerkatta.com/journal/dictation-cleanup-with-claude-code-and-codex-cli/"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does MeerKatta store my Claude or ChatGPT login credentials?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. CLI authentication is managed entirely by Claude Code or Codex CLI in your own environment. MeerKatta only probes auth status during setup and invokes the local CLI binary without storing or displaying your login tokens."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will Claude Code or Codex CLI run coding tasks or save dictation sessions to disk?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "MeerKatta invokes both CLIs from a temporary working directory for text cleanup, with session-file persistence turned off so dictations are not saved as sessions on disk. On Claude Code, built-in tools, MCP servers, and slash commands are explicitly disabled. On Codex CLI, MeerKatta runs non-interactive exec with read-only sandbox restrictions, no approval prompts, and user configs and rules ignored."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does CLI dictation cleanup count against my Claude or ChatGPT subscription limits?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Cleanup calls are neither free nor unlimited—they draw from your existing provider subscription's usage allowance under Anthropic's or OpenAI's current terms and limits. On Claude Code, if API-key environment variables are set, requests may incur separate API charges instead."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I still need a separate transcription provider?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes—speech recognition and text cleanup are separate steps. On Mac, you can pair Claude Code or Codex CLI cleanup with either built-in offline transcription (Apple Speech on supported macOS 26+ Macs, or On-device Whisper) or a cloud transcription API such as Groq, OpenRouter, or DeepInfra."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Claude Code or Codex CLI cleanup work on iPhone, iPad, or Apple Watch?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. CLI cleanup relies on local macOS CLI binaries, so it is available on Mac only. An eligible MeerKatta purchase unlocks the app across Mac, iPhone, iPad, and Apple Watch, where mobile devices use managed AI or supported cloud API keys."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a href="/" class="logo-link" aria-label="MeerKatta home">
+        <img class="app-logo" src="/app-icon.png" alt="" width="44" height="44">
+        <img class="type-logo" src="/assets/MeerKatta-typelogo-dark.svg" alt="MeerKatta" width="150" height="30">
+      </a>
+      <div class="nav-links">
+        <a href="/use-cases/">Use Cases</a>
+        <a href="/about/">About</a>
+        <a href="/journal/">Field notes</a>
+        <a href="/pricing/">Pricing</a>
+        <a href="/welcome/">Get Started</a>
+        <a class="nav-cta" href="/#downloads">Get MeerKatta</a>
+      </div>
+      <details class="mobile-menu">
+        <summary aria-label="Open navigation"><span></span><span></span><span></span></summary>
+        <div class="mobile-menu-panel">
+          <a href="/use-cases/">Use Cases</a>
+          <a href="/about/">About</a>
+          <a href="/journal/">Field notes</a>
+          <a href="/pricing/">Pricing</a>
+          <a href="/welcome/">Get Started</a>
+          <a class="nav-cta" href="/#downloads">Get MeerKatta</a>
+        </div>
+      </details>
+    </div>
+  </nav>
+
+  <main class="journal-article field-note">
+    <a href="/journal/">Field notes</a>
+    <p class="note-label">Developer guide · November 26, 2026</p>
+    <p class="eyebrow">Mac BYOK &amp; Coding Workflows</p>
+    <h1>Use Claude Code or Codex CLI for Mac Dictation Cleanup</h1>
+    <p class="journal-lede">If you already pay for a coding-tool subscription on your Mac, turning rough speech into clear text doesn’t have to mean adding another monthly dictation bill or managing a separate polishing API key.</p>
+
+    <aside class="note-evidence" aria-labelledby="short-answer">
+      <p class="note-label">The short answer</p>
+      <h2 id="short-answer">Reuse your installed CLI for the cleanup step—keep transcription separate.</h2>
+      <p><strong>What MeerKatta does on Mac:</strong> In <strong>Settings → Providers &amp; Keys</strong>, MeerKatta separates <strong>Transcribing</strong> (speech to raw words) from <strong>Polishing</strong> (cleaning up filler, self-corrections, and structure). On <strong>MeerKatta Lifetime ($33 launch / $49 regular)</strong>—and during the 7-day Mac trial—MeerKatta automatically detects installed <strong>Claude Code</strong> and <strong>Codex CLI</strong> binaries for the Polishing stage.</p>
+      <p><strong>Built for text cleanup, not coding tasks:</strong> MeerKatta invokes each CLI from a temporary working directory for plain-text editing—disabling built-in tools and MCP servers on Claude Code, and running Codex CLI with read-only restrictions and session-file persistence off. Dictating a prompt gives you cleaned text at your cursor to review instead of kicking off a workspace task.</p>
+      <p class="note-limit"><strong>Honest boundaries:</strong> Detecting an installed binary is not the same as having an eligible, signed-in subscription. CLI cleanup still uses your provider’s cloud servers and shared plan usage limits, and CLI polishing is <strong>Mac-only</strong>.</p>
+    </aside>
+
+    <p>Developers who dictate prompts, PR comments, Slack replies, or design notes often hit an odd friction: they already pay for Claude or ChatGPT every month for coding agents, yet most AI dictation apps ask for either a second monthly subscription or a freshly funded developer API key just to polish short bursts of speech. MeerKatta’s Mac pipeline splits transcription from polishing so you can plug the coding CLI you already use into the cleanup step.</p>
+
+    <section aria-labelledby="pipeline">
+      <h2 id="pipeline">Two separate jobs: speech recognition vs. AI cleanup</h2>
+      <p><strong>Your CLI receives text, not audio.</strong> Speech-to-text happens first using whichever Transcribing provider you select. MeerKatta then sends that transcript to Claude Code or Codex CLI together with relevant personalization and request context—such as your vocabulary, writing preferences (tone, style, or approved writing samples), the active app name, and prior text when applicable—so the cleaned draft fits where you’re working.</p>
+      <ol class="cli-pipeline" aria-label="Mac dictation pipeline with CLI cleanup">
+        <li>
+          <h3>1. Transcribe</h3>
+          <div class="step-detail">
+            <img src="/assets/meerkat-widget.png" width="36" height="36" alt="MeerKatta">
+            <p>Turn spoken audio into raw text on Mac.<small>Use a cloud transcription API (such as <strong>Groq</strong>, <strong>OpenRouter</strong>, or <strong>DeepInfra</strong>) for stronger accuracy, or pick built-in offline <strong>Apple Speech</strong> or <strong>On-device Whisper</strong> when you want zero extra API keys or have no network.</small></p>
+          </div>
+        </li>
+        <li>
+          <h3>2. Polish via CLI</h3>
+          <p>Your installed <strong>Claude Code</strong> or <strong>Codex CLI</strong> cleans the transcript.<small>Removes filler words, resolves mid-sentence restarts, and preserves constraints and custom terms—invoked from a temporary working directory for plain-text cleanup rather than an interactive coding session.</small></p>
+        </li>
+        <li>
+          <h3>3. Review &amp; insert</h3>
+          <p>Editable text lands at your cursor or in your Library.<small>Works in Claude Code, Codex, your editor, Slack, or email. Always review file paths, flags, numbers, and commitments before hitting Enter.</small></p>
+        </li>
+      </ol>
+      <figure class="note-feature cli-screenshot">
+        <a href="/assets/field-notes/providers-and-keys.webp" aria-label="View the MeerKatta Mac Providers and Keys screen at full size">
+          <img src="/assets/field-notes/providers-and-keys.webp" width="1024" height="833" alt="MeerKatta Mac Providers and Keys screen showing Transcribing providers (Apple Speech, On-device Whisper, Groq, OpenRouter) above Polishing providers (Codex CLI, Claude Code, OpenRouter, Groq, Cerebras)." loading="lazy" decoding="async">
+        </a>
+        <figcaption><strong>Actual Mac Providers &amp; Keys screen:</strong> Transcribing and Polishing are chosen independently, so you can pair either built-in offline transcription or a cloud speech API with auto-detected Codex CLI or Claude Code cleanup.</figcaption>
+      </figure>
+    </section>
+
+    <section aria-labelledby="isolation">
+      <h2 id="isolation">How MeerKatta keeps CLI cleanup focused on text</h2>
+      <p><strong>A coding agent shouldn’t act like an agent while cleaning up a sentence.</strong> If you dictate <em>“refactor the retry middleware and delete the unused helper”</em> into your terminal, you want clean prompt text to inspect—not an interactive agent editing project files or loading your coding rules. Here is how MeerKatta configures each CLI for text cleanup:</p>
+      <div class="cli-table-wrap">
+        <table class="cli-table">
+          <thead>
+            <tr>
+              <th scope="col">Detail</th>
+              <th scope="col">Claude Code (<code>claude</code>)</th>
+              <th scope="col">Codex CLI (<code>codex</code>)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Auto-detected locations</th>
+              <td><code>/usr/local/bin/claude</code>, <code>/opt/homebrew/bin/claude</code>, <code>~/.npm-global/bin/claude</code>, <code>~/.local/bin/claude</code>, <code>CLAUDE_CLI_PATH</code>, or <code>PATH</code></td>
+              <td>Bundled <code>ChatGPT.app</code> / <code>Codex.app</code> CLI paths, <code>/opt/homebrew/bin/codex</code>, <code>/usr/local/bin/codex</code>, <code>~/.npm-global/bin/codex</code>, <code>~/.local/bin/codex</code>, <code>CODEX_CLI_PATH</code>, or <code>PATH</code></td>
+            </tr>
+            <tr>
+              <th scope="row">Execution model</th>
+              <td>Persistent background <code>stream-json</code> process reused across dictations to skip repeated cold starts; session files aren’t saved to disk (the warm process stays in memory until shutdown or restart)</td>
+              <td>One-shot non-interactive <code>codex exec</code> reading the prompt from <code>stdin</code> and returning the final message via a temporary file deleted immediately after</td>
+            </tr>
+            <tr>
+              <th scope="row">Cleanup guardrails</th>
+              <td>Runs from macOS’s temporary directory with built-in tools disabled (<code>--tools ""</code>), empty strict MCP config, <code>--max-turns 1</code>, <code>--disable-slash-commands</code>, <code>--no-chrome</code>, and <code>--no-session-persistence</code></td>
+              <td>Runs from macOS’s temporary directory with <code>--sandbox read-only</code>, <code>--ask-for-approval never</code>, <code>--ephemeral</code> (no session files saved), <code>--skip-git-repo-check</code>, <code>--ignore-user-config</code>, <code>--ignore-rules</code>, and low reasoning effort</td>
+            </tr>
+            <tr>
+              <th scope="row">Auth &amp; billing check</th>
+              <td>Probes <code>claude auth status --json</code> and warns if <code>ANTHROPIC_API_KEY</code> or <code>ANTHROPIC_AUTH_TOKEN</code> is set (which may incur separate API charges)</td>
+              <td>Probes <code>codex login status</code> and requires ChatGPT account login; API-key mode is blocked on this route so you aren’t billed on an API key by mistake</td>
+            </tr>
+            <tr>
+              <th scope="row">Fallback if CLI fails</th>
+              <td>Falls back cleanly to the raw transcript if missing, signed out, timed out, or returning an error line</td>
+              <td>Falls back cleanly to the raw transcript if missing, signed out, timed out, failing validation, or returning an error</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cli-example" aria-label="Illustrative spoken coding prompt before and after cleanup">
+        <ol class="cli-example-seq">
+          <li>
+            <p class="cli-example-lead"><strong>1. Spoken into a prompt box</strong><span>Raw speech with a restart and a constraint</span></p>
+            <p class="cli-example-text is-raw">“In auth middleware, uh, don’t rewrite the token parser, actually just add a five second timeout on the refresh call and return the existing error type so the caller tests don’t break.”</p>
+          </li>
+          <li>
+            <p class="cli-example-lead"><strong>2. Cleaned text at your cursor</strong><span>Ready to review before pressing Enter</span></p>
+            <p class="cli-example-text">In the auth middleware, don’t rewrite the token parser. Just add a 5-second timeout on the refresh call and return the existing error type so the caller tests don’t break.</p>
+          </li>
+        </ol>
+        <p class="cli-example-note">Illustrative example, not recorded app output. MeerKatta cleans the spoken prompt; it does not execute code changes or verify technical accuracy.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="setup">
+      <h2 id="setup">How to set up Claude Code or Codex CLI cleanup on Mac</h2>
+      <p><strong>Credentials stay with your CLI, never inside MeerKatta.</strong> MeerKatta does not ask you to paste OAuth tokens or sign into Anthropic or OpenAI inside the app. You sign in through the CLI itself, then verify the connection in MeerKatta.</p>
+      <ol class="cli-steps">
+        <li>
+          <span class="cli-step-num" aria-hidden="true">01</span>
+          <div>
+            <h3>Install and verify sign-in in Terminal</h3>
+            <p>Make sure the CLI works on its own and check which account or billing method it reports before opening MeerKatta.</p>
+            <div class="cli-code-grid">
+              <div class="cli-code-box">
+                <p>Claude Code</p>
+                <pre><code>claude auth login
+claude auth status</code></pre>
+              </div>
+              <div class="cli-code-box">
+                <p>Codex CLI (ChatGPT account)</p>
+                <pre><code>codex login
+codex login status</code></pre>
+              </div>
+            </div>
+            <p>For Codex CLI, choose <strong>Sign in with ChatGPT</strong> rather than an OpenAI API key—MeerKatta’s Codex CLI route uses ChatGPT account access only.</p>
+          </div>
+        </li>
+        <li>
+          <span class="cli-step-num" aria-hidden="true">02</span>
+          <div>
+            <h3>Open Settings → Providers &amp; Keys in MeerKatta</h3>
+            <p>Installed <strong>Codex CLI</strong> and <strong>Claude Code</strong> binaries appear automatically under <strong>Polishing</strong>. If you just installed a CLI while MeerKatta was open, restart MeerKatta or click <strong>+ Add provider</strong> to add it.</p>
+          </div>
+        </li>
+        <li>
+          <span class="cli-step-num" aria-hidden="true">03</span>
+          <div>
+            <h3>Run Test, review the detected auth mode, then Save</h3>
+            <p>Click the <strong>Claude Code</strong> or <strong>Codex CLI</strong> tile to open its setup sheet. MeerKatta displays the authentication state it detected, then runs a real short polish test when you click <strong>Test</strong>. Once the test succeeds, click <strong>Save</strong> and hover the tile to make it your primary polishing provider.</p>
+          </div>
+        </li>
+        <li>
+          <span class="cli-step-num" aria-hidden="true">04</span>
+          <div>
+            <h3>Pick your Transcribing provider above it</h3>
+            <p>Choose built-in offline <strong>Apple Speech</strong> or <strong>On-device Whisper</strong> if you want no API keys at all, or add a cloud transcription key (such as <strong>Groq</strong>, <strong>OpenRouter</strong>, or <strong>DeepInfra</strong>) for stronger raw recognition when you’re online.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="pairings">
+      <h2 id="pairings">Three practical Mac pairings</h2>
+      <p>Because Transcribing and Polishing are independent, you can match your stack to what you already pay for—and switch transcription anytime without touching your cleanup setup.</p>
+      <div class="cli-combos">
+        <article class="cli-combo">
+          <p class="combo-tag">Zero API keys</p>
+          <h3>Local transcription + CLI cleanup</h3>
+          <p>Pair <strong>Apple Speech</strong> or <strong>On-device Whisper</strong> with Claude Code or Codex CLI. Nothing else to sign up for—just keep in mind on-device speech recognition is less accurate than large cloud models on uncommon names or noisy rooms.</p>
+        </article>
+        <article class="cli-combo">
+          <p class="combo-tag">Best online accuracy</p>
+          <h3>Cloud speech API + CLI cleanup</h3>
+          <p>Use a cloud transcription key (such as <strong>Groq</strong> or <strong>OpenRouter</strong>) for sharper raw transcripts while letting your existing Claude Code or Codex CLI handle cleanup.</p>
+        </article>
+        <article class="cli-combo">
+          <p class="combo-tag">No network</p>
+          <h3>Offline raw dictation</h3>
+          <p>On an airplane or offline Wi-Fi, CLI cleanup can’t reach Anthropic or OpenAI—so MeerKatta falls back to raw text from <strong>Apple Speech</strong> or <strong>On-device Whisper</strong>, or you can turn polishing off temporarily.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="boundaries">
+      <h2 id="boundaries">Usage limits, billing caveats, and honest boundaries</h2>
+      <ul>
+        <li><strong>Shared subscription quota, never “unlimited”:</strong> Non-interactive calls via <code>claude -p</code> or <code>codex exec</code> count toward your existing provider plan’s usage allowance (such as rolling session/weekly limits on Claude or shared token allowances on ChatGPT/Codex) under that provider’s current terms. Short dictation cleanups are small compared to multi-step coding sessions, but they are still metered by your provider.</li>
+        <li><strong>Check environment variables on Claude Code:</strong> If <code>ANTHROPIC_API_KEY</code> or <code>ANTHROPIC_AUTH_TOKEN</code> is exported in your environment, Claude Code may route through API billing instead of your Claude subscription. MeerKatta’s setup sheet checks for API credentials and flags them when detected; verify with <code>claude auth status</code>.</li>
+        <li><strong>Cloud processing still applies:</strong> Calling a locally installed CLI does not make AI cleanup offline. Your transcript and relevant cleanup context (such as active app name, vocabulary, writing preferences, or prior text when applicable) still go to Anthropic or OpenAI under your existing account terms and data policy.</li>
+        <li><strong>Mac-only for CLI polishing:</strong> Local CLI tools run on macOS, so Codex CLI and Claude Code cleanup are Mac-only features. One eligible purchase unlocks MeerKatta on iPhone, iPad, and Apple Watch too, where mobile devices use managed AI or supported cloud API keys.</li>
+        <li><strong>Not a universal guarantee for every tier:</strong> Plan eligibility, rate limits, and CLI authentication rules are controlled by Anthropic and OpenAI and can change over time. Always verify with the built-in <strong>Test</strong> button during your 7-day Mac trial before buying Lifetime.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="faq-title">
+      <h2 id="faq-title">Frequently asked questions</h2>
+      <div class="cli-faq">
+        <details>
+          <summary>Does MeerKatta store my Claude or ChatGPT login credentials?</summary>
+          <p>No. CLI authentication stays entirely inside Claude Code or Codex CLI. MeerKatta only probes auth status during setup and invokes the local CLI binary—it never stores or displays your raw credentials or OAuth tokens.</p>
+        </details>
+        <details>
+          <summary>Will Claude Code or Codex CLI run coding tasks or save dictation sessions to disk?</summary>
+          <p>MeerKatta invokes both CLIs from macOS’s temporary working directory solely for text cleanup, with session-file persistence turned off so dictations don’t pile up as saved sessions on disk. On Claude Code, built-in tools (<code>--tools ""</code>), MCP servers, and slash commands are explicitly disabled (the background process stays warm in memory across dictations until shutdown or restart). On Codex CLI, MeerKatta runs non-interactive <code>codex exec</code> with <code>--sandbox read-only</code>, <code>--ephemeral</code>, <code>--ask-for-approval never</code>, and user configs and rules ignored.</p>
+        </details>
+        <details>
+          <summary>Does CLI cleanup count against my subscription limits?</summary>
+          <p>Yes. Dictation cleanup through Claude Code or Codex CLI uses your existing provider plan’s allowance and remains subject to Anthropic’s or OpenAI’s current terms and limits. It is not separate free or unlimited inference.</p>
+        </details>
+        <details>
+          <summary>Do I still need a separate transcription provider?</summary>
+          <p>Yes. Speech-to-text and text cleanup are separate stages. On Mac, you can pair CLI cleanup with built-in offline <strong>Apple Speech</strong> or <strong>On-device Whisper</strong> (no extra API keys), or with a cloud speech API like Groq, OpenRouter, or DeepInfra for higher raw accuracy.</p>
+        </details>
+        <details>
+          <summary>Does CLI cleanup work on iPhone, iPad, or Apple Watch?</summary>
+          <p>No. CLI cleanup depends on local macOS CLI binaries, so it is available on Mac only. An eligible purchase still unlocks MeerKatta across your Apple devices, where iPhone, iPad, and Apple Watch use managed AI or supported cloud API keys.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="note-try" aria-labelledby="try">
+      <p class="note-label">Try it with your existing CLI</p>
+      <h2 id="try">Test CLI cleanup during the 7-day Mac trial first.</h2>
+      <p>Download MeerKatta on Mac, open <strong>Providers &amp; Keys</strong>, run <strong>Test</strong> on your installed Claude Code or Codex CLI, and dictate a real prompt or reply before deciding on Lifetime ($33 launch / $49 regular) or Managed Subscription.</p>
+      <div class="note-downloads">
+        <a class="btn-primary" href="https://github.com/curiowls/meerkattasparkle/releases/latest/download/MeerKatta-latest.dmg">Download for Mac</a>
+        <a class="btn-secondary" href="/pricing/">Compare plans &amp; pricing</a>
+        <a class="btn-secondary" href="https://apps.apple.com/app/meerkatta/id6766122029">Get for iPhone &amp; iPad</a>
+      </div>
+      <p class="note-trial">Mac: 7 days free, no credit card required. On iPhone, iPad, and Apple Watch, see App Store pricing and trial eligibility.</p>
+    </section>
+
+    <aside class="note-related" aria-labelledby="related">
+      <p class="note-label">Continue exploring</p>
+      <h2 id="related"><a href="/journal/dictation-with-your-own-api-key/">Bring Your Own API Key for AI Dictation: Is BYOK Worth It?</a></h2>
+      <p>Compare the full $33 BYOK Lifetime license against Managed Subscription ($9.99/mo or $99.99/yr), or see <a href="/use-cases/ai-workflows/">how developers dictate prompts for Claude Code, Codex, and AI workflows</a>.</p>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <a href="/" class="footer-logo" aria-label="MeerKatta home">
+          <img class="footer-type-logo" src="/assets/MeerKatta-typelogo-dark.svg" alt="MeerKatta" width="140" height="28">
+        </a>
+        <p>Thought capture for Mac, iPhone, iPad, and Apple Watch.</p>
+        <a href="/welcome/" class="footer-primary-link">Getting started</a>
+        <a href="https://apps.apple.com/app/meerkatta/id6766122029" class="footer-primary-link">iPhone, iPad &amp; Apple Watch app</a>
+      </div>
+      <div class="footer-links">
+        <a href="/use-cases/">Use Cases</a>
+        <a href="/about/">About</a>
+        <a href="/journal/">Field notes</a>
+        <a href="/pricing/">Pricing</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="/refund/">Refund</a>
+        <a href="mailto:hello@meerkatta.com">hello@meerkatta.com</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

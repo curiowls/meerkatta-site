@@ -5,7 +5,7 @@ Editable working queue. Read this file again before each draft; the owner's edit
 Cadence update (November 26, 2026 — owner agreed): shift from daily poetic field notes (Nov 14–26 queue now complete) to **1–2 search-led acquisition, decision, or comparison pieces per week** paired with distribution and iterative upgrades of existing pages. Keep MeerKatta's calm, honest founder voice inside every piece, while aligning URL slugs, `<title>` tags, meta descriptions, and headings with real user search intent and providing concrete proof (pricing, setup steps, real screenshots, comparison tables, or verified test outputs). Occasional founder reflections can still ship (1–2/month) for brand warmth, without carrying search acquisition.
 
 Immediate priority queue (Weeks 2–3):
-1. **Codex / Claude Code CLI cleanup guide** (BYOK Lifetime + auto-detected installed CLIs; see owner-requested topic below).
+1. **Codex / Claude Code CLI cleanup guide** (`/journal/dictation-cleanup-with-claude-code-and-codex-cli/` — approved and published November 26, 2026; verified against `TranscriptPolisher.swift`, `ClaudeCLIConfiguration.swift`, `CodexCLIRunner.swift`, `CLIAuthentication.swift`, `VoicePipelineConfig.swift`, `ProvidersView.swift`, and product-dev accuracy review on Claude/Codex guardrails, full cleanup context payload, and session-file persistence vs. warm process reuse).
 2. **BYOK AI dictation decision guide** (`/journal/dictation-with-your-own-api-key/` — approved and published November 26, 2026 from `docs/field-notes/drafts/choose-what-you-manage.html` with real Mac Providers & Keys screenshot, Claude Code / Codex CLI cleanup, built-in offline transcription options, cost comparison table, privacy boundaries, and FAQ).
 3. **Apple Watch voice notes acquisition page** (`/use-cases/voice-notes-apple-watch/` — approved and published November 26, 2026 with four real `en-US` Watch screens, Watch face complication screenshot, matching iPhone Library handoff, Voice Memos comparison, FAQ, and Watch option in `#workflow-finder`).
 4. **iPhone & iPad voice typing + Lock Screen page** (`/use-cases/voice-typing-iphone-ipad/`).
@@ -184,7 +184,7 @@ Status: drafted for review November 26, 2026. Path: `docs/field-notes/drafts/cho
 
 ## Owner-requested additional topic: CLI cleanup for coding-tool users
 
-Status: research and outline direction approved; article not yet drafted or approved for publication. Product clarification received November 25, 2026.
+Status: approved and published November 26, 2026. Canonical page: `journal/dictation-cleanup-with-claude-code-and-codex-cli/index.html`. Product clarification received November 25, 2026; product-dev technical accuracy review applied November 26, 2026.
 - Audience: developers and people working with coding agents, including the founder's own daily workflow.
 - Entry point: why add separate API costs for dictation cleanup when you already have an eligible coding-tool subscription?
 - Owner-confirmed behavior: MeerKatta + Your AI (BYOK) license enables both Codex and Claude Code CLI cleanup; MeerKatta automatically detects installed CLIs.

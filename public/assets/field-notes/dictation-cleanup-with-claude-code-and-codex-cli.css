@@ -1,0 +1,223 @@
+/* Scoped layout modules for the Claude Code & Codex CLI cleanup guide. Uses --type-* tokens only. */
+.field-note .note-evidence h2 { margin: 0 0 12px; font-size: var(--type-title-small); }
+
+.cli-pipeline { list-style: none; padding: 0; margin: 24px 0; }
+.cli-pipeline > li {
+  display: grid;
+  grid-template-columns: 168px minmax(0, 1fr);
+  gap: 24px;
+  padding: 20px 0;
+  border-top: 1px solid #d7dedb;
+}
+.cli-pipeline > li:last-child { border-bottom: 1px solid #d7dedb; }
+.cli-pipeline h3, .cli-pipeline p { margin: 0; }
+.cli-pipeline h3 { font-size: var(--type-body-large); color: var(--ink); }
+.cli-pipeline .step-detail { display: flex; align-items: flex-start; gap: 12px; }
+.cli-pipeline img { flex: none; object-fit: contain; }
+.cli-pipeline small { display: block; color: var(--ink-dim); font-size: var(--type-body); margin-top: 6px; line-height: 1.55; }
+
+.cli-screenshot img {
+  border-radius: 12px;
+  border: 1px solid #d7dedb;
+  box-shadow: 0 8px 24px rgba(38, 32, 26, 0.08);
+}
+
+.cli-table-wrap {
+  margin: 24px 0;
+  overflow-x: auto;
+  border-top: 2px solid #55786e;
+  border-bottom: 1px solid #d7dedb;
+  background: #fff;
+}
+.cli-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 540px;
+  text-align: left;
+  font-size: var(--type-body);
+}
+.cli-table th, .cli-table td {
+  padding: 14px 16px;
+  border-top: 1px solid #e3e7e5;
+  vertical-align: top;
+  line-height: 1.55;
+}
+.cli-table thead th {
+  border-top: 0;
+  background: #f4f7f5;
+  color: #254c43;
+  font-weight: 650;
+}
+.cli-table tbody th {
+  color: var(--ink);
+  font-weight: 600;
+  width: 24%;
+}
+.field-note :not(pre) > code {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: var(--type-caption);
+  background: #f4f2ee;
+  color: #3a2d24;
+  padding: 2px 6px;
+  border-radius: 5px;
+}
+.cli-table code { overflow-wrap: anywhere; }
+
+.cli-example {
+  margin: 24px 0;
+  padding: 20px 22px;
+  border-radius: 14px;
+  background: #faf7f2;
+  border: 1px solid #e3dcd1;
+}
+.cli-example-seq {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+.cli-example-seq > li {
+  display: grid;
+  grid-template-columns: 168px minmax(0, 1fr);
+  gap: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #e3dcd1;
+}
+.cli-example-seq > li:first-child { padding-top: 0; border-top: 0; }
+.cli-example-lead { margin: 0; }
+.cli-example-lead strong { display: block; color: var(--ink); font-size: var(--type-body); }
+.cli-example-lead span { display: block; color: var(--ink-dim); font-size: var(--type-caption); margin-top: 4px; line-height: 1.45; }
+.cli-example-text {
+  margin: 0;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid #e6e1d9;
+  font-size: var(--type-body);
+  line-height: 1.6;
+  color: var(--ink);
+}
+.cli-example-text.is-raw { font-style: italic; color: var(--ink-dim); }
+.cli-example-note {
+  margin: 14px 0 0;
+  font-size: var(--type-caption);
+  color: var(--ink-dim);
+}
+
+.cli-steps {
+  list-style: none;
+  margin: 24px 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+.cli-steps > li {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 14px;
+  padding: 18px 20px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #e3e7e5;
+}
+.cli-step-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: #f4f7f5;
+  color: #254c43;
+  font-weight: 700;
+  font-size: var(--type-caption);
+  display: grid;
+  place-items: center;
+  margin-top: 2px;
+}
+.cli-steps h3 { margin: 0 0 6px; font-size: var(--type-body-large); color: var(--ink); }
+.cli-steps p { margin: 0 0 10px; font-size: var(--type-body); line-height: 1.6; }
+.cli-steps p:last-child { margin-bottom: 0; }
+.cli-code-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 10px 0 6px;
+}
+.cli-code-box {
+  background: #1f1b18;
+  color: #f6f1ea;
+  border-radius: 10px;
+  padding: 12px 14px;
+  overflow-x: auto;
+}
+.cli-code-box p {
+  margin: 0 0 6px;
+  font-size: var(--type-caption);
+  color: #d6c5b2;
+  font-weight: 600;
+}
+.cli-code-box pre {
+  margin: 0;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: var(--type-caption);
+  line-height: 1.55;
+}
+.cli-code-box code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  border-radius: 0;
+}
+
+.cli-combos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+.cli-combo {
+  border-top: 2px solid #55786e;
+  padding: 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cli-combo .combo-tag {
+  margin: 0;
+  font-size: var(--type-caption);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #254c43;
+}
+.cli-combo h3 { margin: 0; font-size: var(--type-body-large); color: var(--ink); }
+.cli-combo p { margin: 0; font-size: var(--type-body); line-height: 1.55; color: var(--ink-dim); }
+
+.cli-faq { margin: 20px 0 0; display: grid; gap: 12px; }
+.cli-faq details { border-top: 1px solid #d7dedb; padding-top: 14px; }
+.cli-faq details:last-child { border-bottom: 1px solid #d7dedb; padding-bottom: 14px; }
+.cli-faq summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: var(--type-body-large);
+  line-height: 1.45;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+}
+.cli-faq summary::-webkit-details-marker { display: none; }
+.cli-faq summary::after { content: "+"; color: #365c55; font-weight: 700; flex: none; }
+.cli-faq details[open] summary::after { content: "−"; }
+.cli-faq details p { margin: 12px 0 4px; font-size: var(--type-body); line-height: 1.65; color: var(--ink); }
+
+@media (max-width: 720px) {
+  .cli-combos { grid-template-columns: 1fr; gap: 20px; }
+  .cli-code-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .cli-pipeline > li,
+  .cli-example-seq > li { grid-template-columns: 1fr; gap: 10px; }
+  .cli-steps > li { grid-template-columns: 1fr; gap: 10px; padding: 16px; }
+}

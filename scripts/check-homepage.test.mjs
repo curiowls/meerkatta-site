@@ -48,7 +48,7 @@ test('No English fallback for translated demo and journey copy', () => {
 
 test('English homepage links directly to core commercial use-case pages', () => {
   const html = renderPage('en', '');
-  for (const slug of ['ai-dictation-for-mac', 'thought-capture', 'custom-vocabulary', 'ai-workflows']) {
+  for (const slug of ['ai-dictation-for-mac', 'voice-notes-apple-watch', 'thought-capture', 'custom-vocabulary', 'ai-workflows']) {
     assert.ok(html.includes(`href="/use-cases/${slug}/"`), `missing direct link to /use-cases/${slug}/`);
   }
 });

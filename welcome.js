@@ -18,5 +18,6 @@ if (flow && target) {
   const steps = document.createElement('ol');
   flow.steps.forEach(text => {const step=document.createElement('li');step.textContent=text;steps.append(step);});
   target.append(label,title,scene,steps,prompt,habit,change);
-  document.querySelectorAll('[data-device-guide]').forEach(guide => guide.hidden=guide.dataset.deviceGuide!==device);
+  const guideDevice = device === 'watch' ? 'ios' : device;
+  document.querySelectorAll('[data-device-guide]').forEach(guide => guide.hidden=guide.dataset.deviceGuide!==guideDevice);
 }

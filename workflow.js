@@ -13,6 +13,24 @@ export const workflows = {
     prompt: 'The main thing I want to say is… Here’s the context… Could we…',
     habit: 'Use one recurring long reply as your cue to speak a first draft.',
   },
+  'watch-capture': {
+    label: 'Apple Watch · Inspiration', title: 'Keep the detail on your wrist. Return on iPhone.',
+    scene: 'On the stair stepper, on a walk, or away from your phone: save one passing thought before it disappears.',
+    steps: ['Tap the MeerKatta complication on your Watch face to open capture.', 'Tap record, speak the rough detail, and tap stop until you see Safe on your Watch.', 'When it reaches your paired iPhone, read the cleaned note in your Library.'],
+    prompt: 'One detail I want to keep for later is… It matters because…',
+    habit: 'Review one Watch capture in your iPhone Library when you next sit down.',
+    ctaHref: '/use-cases/voice-notes-apple-watch/#setup',
+    ctaLabel: 'Set up Apple Watch capture',
+  },
+  'watch-focus': {
+    label: 'Apple Watch · Productive focus', title: 'Speak the rough points now. Send the draft from iPhone.',
+    scene: 'An email reply or plan clicks while you are away from your desk. Do not compose it on a small screen—capture the backbone first.',
+    steps: ['Open MeerKatta from your Watch face complication and tap record.', 'Speak the main point, context, and next step you want to remember.', 'Wait for transfer and processing on your paired iPhone, then review and copy the cleaned draft.'],
+    prompt: 'For Maya’s reply later: the main point is… Also remember to ask…',
+    habit: 'Use your Watch to catch the outline before you sit back down at your phone or Mac.',
+    ctaHref: '/use-cases/voice-notes-apple-watch/#handoff',
+    ctaLabel: 'See Watch-to-iPhone handoff',
+  },
   'mac-capture': {
     label: 'Mac · Inspiration', title: 'Catch the side thought without changing direction.',
     scene: 'A useful idea arrives while you’re working on something else. Give it a home and return to your focus.',
@@ -57,8 +75,8 @@ if (form && result) {
     });
     add('p', `Try this now: “${flow.prompt}”`);
     add('p', `Make it a habit: ${flow.habit}`);
-    const link = add('a', 'Set up this workflow', 'btn-secondary');
-    link.href = `/welcome/?device=${device}&intent=${intent}#first-capture`;
+    const link = add('a', flow.ctaLabel || 'Set up this workflow', 'btn-secondary');
+    link.href = flow.ctaHref || `/welcome/?device=${device}&intent=${intent}#first-capture`;
     if (focus) result.focus();
   };
   const params = new URLSearchParams(location.search);

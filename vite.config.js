@@ -32,6 +32,7 @@ export default defineConfig({
 
         useCases: resolve(__dirname, 'use-cases/index.html'),
         useCaseDictation: resolve(__dirname, 'use-cases/ai-dictation-for-mac/index.html'),
+        useCaseWatch: resolve(__dirname, 'use-cases/voice-notes-apple-watch/index.html'),
         useCaseThoughtCapture: resolve(__dirname, 'use-cases/thought-capture/index.html'),
         useCaseVocabulary: resolve(__dirname, 'use-cases/custom-vocabulary/index.html'),
         useCaseWorkflows: resolve(__dirname, 'use-cases/ai-workflows/index.html'),

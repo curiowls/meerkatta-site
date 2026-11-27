@@ -7,7 +7,7 @@ Cadence update (November 26, 2026 — owner agreed): shift from daily poetic fie
 Immediate priority queue (Weeks 2–3):
 1. **Codex / Claude Code CLI cleanup guide** (BYOK Lifetime + auto-detected installed CLIs; see owner-requested topic below).
 2. **BYOK AI dictation decision guide** (`/journal/dictation-with-your-own-api-key/` — approved and published November 26, 2026 from `docs/field-notes/drafts/choose-what-you-manage.html` with real Mac Providers & Keys screenshot, Claude Code / Codex CLI cleanup, built-in offline transcription options, cost comparison table, privacy boundaries, and FAQ).
-3. **Apple Watch voice notes acquisition page** (`/use-cases/voice-notes-apple-watch/` — gated on current Watch capture screenshot).
+3. **Apple Watch voice notes acquisition page** (`/use-cases/voice-notes-apple-watch/` — approved and published November 26, 2026 with four real `en-US` Watch screens, Watch face complication screenshot, matching iPhone Library handoff, Voice Memos comparison, FAQ, and Watch option in `#workflow-finder`).
 4. **iPhone & iPad voice typing + Lock Screen page** (`/use-cases/voice-typing-iphone-ipad/`).
 5. **Apple Dictation vs. AI dictation comparison** (`/journal/built-in-dictation-or-ai-dictation/` — gated on the 3 side-by-side Mac tests in `docs/seo/apple-dictation-comparison-draft.md`).
 

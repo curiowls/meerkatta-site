@@ -71,3 +71,45 @@ test('Small muted captions meet AA contrast on site and demo surfaces', () => {
   const rawLabel = story.match(/color:'(#[a-f\d]+)'\}\}>Raw thought/)[1];
   assert.ok(contrast(rgb(rawLabel), rgb('#e5ddcf')) >= 4.5);
 });
+
+test('Homepage WebGL scene declines software renderers and falls back cleanly', () => {
+  const source = read('world/scene.js').replaceAll('export function ', 'function ');
+  const {createScene, isSoftwareRenderer} = runInNewContext(`${source}\n({createScene, isSoftwareRenderer})`, {});
+  const requested = [];
+  let lost = false;
+  const softwareCanvas = {
+    getContext(type, options) {
+      requested.push({type, options});
+      return {
+        RENDERER: 0x1f01,
+        getParameter(param) {
+          return param === 0x1f01
+            ? 'WebKit WebGL'
+            : 'ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)';
+        },
+        getExtension(name) {
+          if (name === 'WEBGL_debug_renderer_info') return {UNMASKED_RENDERER_WEBGL: 0x9246};
+          if (name === 'WEBGL_lose_context') return {loseContext() { lost = true; }};
+          return null;
+        },
+      };
+    },
+  };
+  assert.equal(createScene(softwareCanvas, []), null);
+  assert.equal(lost, true);
+  assert.equal(requested[0].type, 'webgl');
+  assert.equal(requested[0].options.failIfMajorPerformanceCaveat, true);
+
+  const hardwareGl = {
+    RENDERER: 0x1f01,
+    getParameter(param) {
+      return param === 0x1f01
+        ? 'WebKit WebGL'
+        : 'ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)';
+    },
+    getExtension(name) {
+      return name === 'WEBGL_debug_renderer_info' ? {UNMASKED_RENDERER_WEBGL: 0x9246} : null;
+    },
+  };
+  assert.equal(isSoftwareRenderer(hardwareGl), false);
+});

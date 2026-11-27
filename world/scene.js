@@ -337,9 +337,29 @@ void main(){
 }`
 
 
+const SOFTWARE_RENDERER = /swiftshader|llvmpipe|lavapipe|softpipe|microsoft basic render|software (?:rasterizer|renderer)/i
+
+export function isSoftwareRenderer(gl) {
+  const renderer = String(gl.getParameter?.(gl.RENDERER) || '')
+  if (SOFTWARE_RENDERER.test(renderer)) return true
+  const debugInfo = gl.getExtension?.('WEBGL_debug_renderer_info')
+  if (!debugInfo) return false
+  const unmasked = String(gl.getParameter?.(debugInfo.UNMASKED_RENDERER_WEBGL) || '')
+  return SOFTWARE_RENDERER.test(unmasked)
+}
+
 export function createScene(canvas, sprites) {
-  const gl = canvas.getContext('webgl', { antialias: false, alpha: false, powerPreference: 'low-power' })
+  const gl = canvas.getContext('webgl', {
+    antialias: false,
+    alpha: false,
+    powerPreference: 'low-power',
+    failIfMajorPerformanceCaveat: true,
+  })
   if (!gl) return null
+  if (isSoftwareRenderer(gl)) {
+    gl.getExtension?.('WEBGL_lose_context')?.loseContext?.()
+    return null
+  }
 
   // Compiling these shaders is the one heavy start-up cost. Where the browser supports it,
   // that work happens off the main thread and the page stays responsive; the scene simply

@@ -60,10 +60,10 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Why does the MeerKatta keyboard ask for Allow Full Access and Wake MeerKatta?",
+            "name": "Why does the MeerKatta keyboard ask for Allow Full Access?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "iOS and iPadOS do not allow third-party keyboard extensions to open the microphone directly. Turning on Allow Full Access lets the keyboard communicate with the main MeerKatta app through a local App Group bridge, and Wake MeerKatta briefly prepares that background audio bridge so you can stay in Messages, Mail, Reminders, or Notes while dictating. While idle and awake, the bridge discards audio buffers until you explicitly tap record."
+              "text": "iOS and iPadOS restrict third-party keyboards by default unless Allow Full Access is turned on. MeerKatta needs Allow Full Access so the keyboard can record voice dictation, read your voice profile and custom vocabulary settings, and send audio to your chosen transcription and polishing service. MeerKatta only records after you explicitly tap the microphone button."
             }
           },
           {
@@ -150,7 +150,7 @@
           <ul>
             <li><strong>Already have a destination?</strong> Switch to the <strong>MeerKatta Keyboard</strong> in Messages, Mail, Reminders, or Notes, speak naturally, tap stop, and insert cleaned text where you are typing.</li>
             <li><strong>Idea arrived on the move?</strong> Tap the <strong>Quick Capture widget</strong> on your Lock Screen or Home Screen—or <strong>Continue thought</strong> on a Live Activity—to save it straight to your searchable Library.</li>
-            <li><strong>Built honestly around iOS rules:</strong> clear explanation of why custom keyboards ask for <em>Allow Full Access</em> and <em>Wake MeerKatta</em>, what works offline, and where standard fields differ.</li>
+            <li><strong>Built honestly around iOS rules:</strong> clear setup steps for <em>Allow Full Access</em>, what works offline, and which text fields accept third-party keyboards.</li>
           </ul>
         </div>
       </div>
@@ -218,18 +218,18 @@
         </figure>
 
         <div class="ios-copy-stack">
-          <h3>Why iOS asks for Allow Full Access and Wake MeerKatta</h3>
+          <h3>How the MeerKatta keyboard works on iPhone and iPad</h3>
           <p>
-            Apple's iOS and iPadOS security sandbox does not let third-party keyboard extensions open the microphone directly. To let you dictate without switching apps every sentence, MeerKatta uses two explicit steps:
+            Once enabled in iOS or iPadOS Settings, the MeerKatta keyboard sits alongside your standard Apple keyboard so you can dictate directly into messages, emails, reminders, and notes.
           </p>
           <ul>
-            <li><strong>Allow Full Access:</strong> lets the keyboard extension talk to the main MeerKatta app through a local App Group bridge on your device so your voice settings, plan access, and dictation commands stay connected.</li>
-            <li><strong>Wake MeerKatta:</strong> when iOS puts the background session to sleep, tapping <em>Wake MeerKatta</em> briefly opens the main app to start the background audio bridge and Live Activity, then guides you back to the app you were typing in. While awake and idle, the bridge discards audio buffers until you explicitly tap record, and you can turn off the session anytime.</li>
+            <li><strong>Allow Full Access:</strong> iOS requires Full Access for third-party keyboards that handle voice dictation, read your voice profile and custom vocabulary settings, and send speech to your chosen processing service.</li>
+            <li><strong>Speak, stop, and insert:</strong> tap the microphone on the MeerKatta keyboard, speak your rough draft—including pauses and mid-sentence corrections—then tap stop to transcribe, polish, and insert the cleaned text at your cursor.</li>
             <li><strong>Quick controls after insertion:</strong> once MeerKatta inserts cleaned text at your cursor, quick punctuation keys (<code>@ # . , ? ! '</code>), numbers/symbols/emoji modes, and a contextual Return or Send button appear so you can finish the message without switching back right away.</li>
           </ul>
           <div class="ios-callout">
             <p>
-              <strong>Honest limits to know up front:</strong> Custom keyboards cannot appear in secure password fields or apps that disable third-party keyboards. MeerKatta transcribes and polishes after you tap Stop rather than streaming words live as you speak, and Live Activities must stay enabled for the background wake bridge to remain ready. Review names, dates, and numbers before sending.
+              <strong>Honest limits to know up front:</strong> Custom keyboards cannot appear in secure password fields or apps that disable third-party keyboards. MeerKatta transcribes and polishes after you tap Stop rather than streaming words live as you speak. Review names, dates, and numbers before sending.
             </p>
           </div>
         </div>
@@ -249,7 +249,7 @@
         <article>
           <span class="step-index">03</span>
           <h3>Switch with the Globe key &amp; dictate</h3>
-          <p>Open Messages, Mail, Reminders, or Notes, tap the Globe key to pick MeerKatta, tap <em>Wake MeerKatta</em> if prompted, then tap record, speak, and tap stop to insert.</p>
+          <p>Open Messages, Mail, Reminders, or Notes, tap the Globe key to pick MeerKatta, then tap record, speak naturally, and tap stop to insert cleaned text.</p>
         </article>
       </div>
     </section>
@@ -379,7 +379,7 @@
             <tr>
               <th scope="row">Setup &amp; permissions</th>
               <td>Works out of the box in standard iOS/iPadOS text fields</td>
-              <td>Requires enabling the MeerKatta keyboard with <strong>Allow Full Access</strong>, microphone access, and occasional <em>Wake MeerKatta</em> handoff</td>
+              <td>Requires enabling the MeerKatta keyboard with <strong>Allow Full Access</strong> and microphone permission</td>
             </tr>
             <tr>
               <th scope="row">Text cleanup &amp; voice</th>
@@ -411,8 +411,8 @@
       </div>
       <div class="ios-faq-list">
         <details>
-          <summary>Why does the MeerKatta keyboard ask for Allow Full Access and Wake MeerKatta?</summary>
-          <p>iOS and iPadOS do not allow third-party keyboard extensions to open the microphone directly. Turning on <strong>Allow Full Access</strong> lets the keyboard communicate with the main MeerKatta app through a local App Group bridge, and <strong>Wake MeerKatta</strong> briefly prepares that background audio bridge so you can stay in Messages, Mail, Reminders, or Notes while dictating. While idle and awake, the bridge discards audio buffers until you explicitly tap record.</p>
+          <summary>Why does the MeerKatta keyboard ask for Allow Full Access?</summary>
+          <p>iOS and iPadOS restrict third-party keyboards by default unless <strong>Allow Full Access</strong> is turned on. MeerKatta needs Allow Full Access so the keyboard can record voice dictation, read your voice profile and custom vocabulary settings, and send audio to your chosen transcription and polishing service. MeerKatta only records after you explicitly tap the microphone button.</p>
         </details>
         <details>
           <summary>Does the Lock Screen widget bypass Face ID or start listening on its own?</summary>

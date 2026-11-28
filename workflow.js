@@ -2,16 +2,20 @@ export const workflows = {
   'ios-capture': {
     label: 'iPhone or iPad · Inspiration', title: 'Keep the idea. Find its place later.',
     scene: 'After a walk, a conversation, or a sudden connection: say enough to remember why it mattered.',
-    steps: ['Open MeerKatta and begin a capture.', 'Speak one unfinished thought in your own words.', 'Review the text, save it, and return to it in your Library.'],
+    steps: ['Add the Quick Capture widget to your Lock Screen or open MeerKatta.', 'Speak one unfinished thought in your own words and tap stop.', 'Review the cleaned note saved in your Library and return to it later.'],
     prompt: 'Something I noticed today was… The reason I want to keep it is…',
     habit: 'Return to one saved thought when you next sit down to work.',
+    ctaHref: '/use-cases/voice-typing-iphone-ipad/#lock-screen',
+    ctaLabel: 'Set up Lock Screen capture',
   },
   'ios-focus': {
     label: 'iPhone or iPad · Productive focus', title: 'Give that long reply a starting point.',
     scene: 'You know what you mean, but typing and editing keep interrupting you.',
-    steps: ['Try your first capture inside MeerKatta.', 'Say the point, the context, and what you need next.', 'Review the result and copy it into your reply. Try the MeerKatta keyboard after completing its setup.'],
+    steps: ['Finish your first in-app capture, then enable the MeerKatta keyboard with Allow Full Access.', 'Switch to MeerKatta in Messages, Mail, or Reminders and speak your rough reply.', 'Tap stop to insert the cleaned draft, then review names and details before sending.'],
     prompt: 'The main thing I want to say is… Here’s the context… Could we…',
     habit: 'Use one recurring long reply as your cue to speak a first draft.',
+    ctaHref: '/use-cases/voice-typing-iphone-ipad/#keyboard',
+    ctaLabel: 'Set up the iPhone & iPad keyboard',
   },
   'watch-capture': {
     label: 'Apple Watch · Inspiration', title: 'Keep the detail on your wrist. Return on iPhone.',

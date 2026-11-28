@@ -3613,3 +3613,183 @@ h1,
     font-size: var(--type-title-small);
   }
 }
+
+/*
+ * Reusable floating in-page navigation pattern.
+ * Opt in on any inner page by placing:
+ *   <nav class="page-nav" data-page-nav aria-label="On this page">
+ *     <div class="page-nav-inner">
+ *       <span class="page-nav-label" aria-hidden="true">On this page</span>
+ *       <ol class="page-nav-list"><li><a href="#section">Label</a></li>...</ol>
+ *     </div>
+ *   </nav>
+ * Powered progressively by main.js (works sticky without JS too).
+ */
+html.has-page-nav {
+  scroll-padding-top: var(--page-nav-scroll-padding, 118px);
+}
+
+html.has-page-nav main > section[id] {
+  scroll-margin-top: 0;
+}
+
+main:has(.page-nav),
+html.has-page-nav main {
+  overflow: clip;
+}
+
+.page-nav-sentinel {
+  height: 1px;
+  margin-top: -1px;
+  pointer-events: none;
+}
+
+.page-nav {
+  position: sticky;
+  top: var(--page-nav-top, 64px);
+  z-index: 15;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  background: rgba(248, 247, 244, 0.72);
+  transition:
+    padding 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.page-nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  transition:
+    padding 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.page-nav-label {
+  flex: none;
+  color: var(--ink-dim);
+  font-size: var(--type-caption);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.page-nav-list {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.page-nav-list::-webkit-scrollbar {
+  display: none;
+}
+
+.page-nav-list li {
+  flex: none;
+}
+
+.page-nav-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  color: var(--ink-muted);
+  font-size: var(--type-caption);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    color 150ms ease,
+    background-color 150ms ease;
+}
+
+.page-nav-list a:hover {
+  color: var(--ink);
+  background: rgba(114, 70, 44, 0.06);
+}
+
+.page-nav-list a:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+.page-nav-list a[aria-current="location"] {
+  color: var(--brand-strong);
+  background: rgba(114, 70, 44, 0.11);
+  font-weight: 600;
+}
+
+/* Lighter floating capsule once the bar detaches on scroll */
+.page-nav.is-floating {
+  padding: 8px 0;
+  border-bottom-color: transparent;
+  background: transparent;
+  pointer-events: none;
+}
+
+.page-nav.is-floating .page-nav-inner {
+  width: fit-content;
+  max-width: calc(100% - 32px);
+  padding: 4px 6px;
+  border: 1px solid rgba(114, 70, 44, 0.13);
+  border-radius: 999px;
+  background: rgba(251, 246, 238, 0.80);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 4px 18px rgba(26, 17, 12, 0.05);
+  pointer-events: auto;
+}
+
+.page-nav.is-floating .page-nav-label {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .page-nav {
+    padding: 10px 0;
+  }
+
+  .page-nav-inner {
+    width: calc(100% - 32px);
+    gap: 10px;
+  }
+
+  .page-nav-label {
+    display: none;
+  }
+
+  .page-nav.is-floating .page-nav-inner {
+    max-width: calc(100% - 24px);
+    padding: 4px 10px;
+  }
+
+  .page-nav-list {
+    padding-inline: 2px;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8px, #000 calc(100% - 18px), transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 8px, #000 calc(100% - 18px), transparent 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-nav,
+  .page-nav-inner,
+  .page-nav-list a {
+    transition: none;
+  }
+}
